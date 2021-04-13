@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, FormArray, Validators } from "@angular/forms";
+import { environment } from 'src/environments/environment';
 import * as dbjson from '../../assets/db.json';
 
 @Component({
@@ -12,7 +13,11 @@ export class AddformgroupsComponent implements OnInit {
   values = {};
   nb = 0;
   db: { [id: number] : any; } = {}
-  vms = []
+  vms = [];
+  environment = environment;
+  isAdd = false;
+  text = "";
+  equipments = [];
   
   constructor(private fb: FormBuilder) {
     this.db = dbjson["default"];
@@ -28,7 +33,7 @@ export class AddformgroupsComponent implements OnInit {
       vms: this.fb.array(array)
     });
     this.addControl(0);
-    this.show();
+    //this.show();
   }
 
   getEntitiesByParentId(parentId: number) {
@@ -47,8 +52,10 @@ export class AddformgroupsComponent implements OnInit {
     if (entities.length == 0) {
       vm["type"] = "text";
       vm["value"] = "";
+      this.isAdd = true;
     }
     else {
+      this.isAdd = false;
       vm["type"] = "select";
       vm["options"] = [];
       entities.sort((a, b) => a.order - b.order);
@@ -101,10 +108,27 @@ export class AddformgroupsComponent implements OnInit {
         this.removeFormControl();
     }
     this.addControl(id);
-    this.show();
+    //this.show();
   }
 
   lastChange(value) {
-    this.show();
+    //this.show();
+  }
+
+  clear() {
+    let nb = this.nb;
+    for(let i = 0; i <= nb; i++) {
+      this.removeFormControl();
+    }
+    this.nb = 0;
+    this.addControl(0);
+  }
+
+  add() {
+    this.text = "Equipment added"
+    let values = this.form.getRawValue()
+    let v = values.vms[values.vms.length - 1];
+    this.text = "Equipment added: "+v.label;
+    this.equipments.push(v.label);
   }
 }

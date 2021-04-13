@@ -23,12 +23,17 @@
       </div>
     
     </ng-container>
+    <button mat-button (click)="clear()">Clear</button>
+    <button *ngIf="isAdd" mat-button (click)="add()">Add equipment</button>
+    <p>{{text}}</p>
+    <p>Equipments: {{equipments | json}}</p>
   </mat-card>
-  <mat-card>
+  <mat-card *ngIf="!environment.production" >
     <button mat-button (click)="show()">Show values</button>
+    <pre>
+      {{values | json}}
+    </pre>
   </mat-card>
   </form>
 
-  <pre>
-  {{values | json}}
-  </pre>
+
