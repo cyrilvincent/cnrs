@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, FormArray, Validators } from "@angular/forms";
+import { MockDb } from '../db'
 
 @Component({
   selector: "app-addformgroups",
@@ -8,11 +9,12 @@ import { FormBuilder, FormGroup, FormArray, Validators } from "@angular/forms";
 export class AddformgroupsComponent implements OnInit {
   public form: FormGroup;
   values = {};
-  nb = 2;
+  nb = 0;
   db = {} // db complet en json
+  db2: { [id: number] : any; } = {}
 
   vm = [
-    {
+    /*{
       value: "user 0",
       label: "label 0",
       key: 0,
@@ -33,17 +35,16 @@ export class AddformgroupsComponent implements OnInit {
         {key: 'c',  value: 'C'},
         {key: 'd', value: 'D'}
       ],
-    }
+    }*/
   ]
   
   constructor(private fb: FormBuilder) {
+    this.db2 = new MockDb().db;
     for(let key=0;key<100;key++) {
       let level = key // simplification du pb
       this.db[key]={id:key, level:level, parentId:key-1}
     }
   }
-
-
 
   ngOnInit() {
     let array = []
@@ -52,13 +53,55 @@ export class AddformgroupsComponent implements OnInit {
     )
     this.form = this.fb.group({
       date: this.fb.control(new Date()),
-      users: this.fb.array(array)
+      vms: this.fb.array(array)
     });
+    this.addControl(0);
+  }
+
+  getEntitiesByParentId(parentId: number) {
+    parent = this.db2[parentId];
+    let res = Object.values(this.db2).filter(v => v.parentId == parentId );
+    return res;
+  }
+
+  convertEntityToVM(entity, entities) {
+    let vm = {}
+    vm["value"] = entity.id;
+    vm["label"] = entity.label;
+    vm["key"] = entity.id;
+    vm["level"] = entity.level;
+    vm["parentId"] = entity.parentId;
+    vm["type"] = "select";
+    vm["options"] = [];
+    for (let e of entities) {
+      let option = {}
+      option["key"] = e.id;
+      option["value"] = e.label;
+      vm["options"].push(option);
+    }
+    return vm;
+  }
+
+  getVMById(id: number) {
+    let entity = this.db2[id];
+    let entities = this.getEntitiesByParentId(entity.id);
+    let vm = this.convertEntityToVM(entity, entities)
+    return vm;
+  }
+  
+  addControl(id) {
+    console.log("Add control");
+    let array = this.form.controls.vms as FormArray;
+    let item = this.getVMById(id);
+    this.vm.push(item)
+    let gitem: FormGroup = this.fb.group(item);
+    array.push(gitem);
+    this.nb += 1;
   }
 
   addFormControl() {
     console.log("Add level");
-    let array = this.form.controls.users as FormArray;
+    let array = this.form.controls.vms as FormArray;
     let item = {
       value: "g",
       key: this.nb,
@@ -73,35 +116,40 @@ export class AddformgroupsComponent implements OnInit {
         {key: 'h', value: 'H'}
       ],
     }
+
     this.nb += 1;
     this.vm.push(item);
     let gitem: FormGroup = this.fb.group(item);
     array.push(gitem);
+
   }
   
   removeFormControl() {
     console.log("Remove last level");
-    let array = this.form.controls.users as FormArray;
+    let array = this.form.controls.vms as FormArray;
     this.vm.pop();
-    array.removeAt(array.length - 1);
-    this.nb -= 1;
-    
+    array.removeAt(array.length - 1);   
   }
 
   show() {
     this.values = this.form.getRawValue();
+    let vms = this.getVMById(0);
+    console.log(vms);
   }
 
   change(value) {
-    console.log("Change from "+value.source.id+"=>"+value.value);
-    let key = value.source.id;
-    let level = this.db[key].level;
-    if (level < this.nb - 1) {
-      for(let i = level; i < this.nb; i++) {
+    let id = value.value;
+    let entity = this.db2[id];
+
+    console.log("Change from "+entity.parentId+"=>"+id);
+    let level = entity.level;
+    for(let i = level; i < this.nb; i++) {
         this.removeFormControl();
-      }
     }
-    this.addFormControl();
+    this.nb += level - this.nb
+    //this.addFormControl();
+    this.addControl(id);
     this.show();
+
   }
 }

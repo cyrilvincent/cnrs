@@ -2,7 +2,7 @@
   <mat-card>
   <ng-container *ngFor="let item of vm; let i = index">
     
-      <div [formGroup]="form.controls['users']['controls'][i]">
+      <div [formGroup]="form.controls['vms']['controls'][i]">
         
           <div [ngSwitch]="item.type">  
             <mat-form-field *ngSwitchCase="'text'" appearance="fill">

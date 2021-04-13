@@ -11,6 +11,6 @@ import { MaterialModule} from "./material.module";
   declarations: [AppComponent, AddformgroupsComponent],
   imports: [BrowserModule, ReactiveFormsModule, MaterialModule, BrowserAnimationsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
