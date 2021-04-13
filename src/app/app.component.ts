@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  title = 'dynamic-forms';
+  title = 'CNRS Equipments Demo';
+
+  refresh() {
+    document.location.reload();
+  }
+
+  about() {
+    window.alert(this.title);
+  }
 }
