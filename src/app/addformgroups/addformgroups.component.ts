@@ -19,14 +19,14 @@ export class AddformgroupsComponent implements OnInit {
       value: "user 0",
       label: "label 0",
       key: 'k0',
-      pos: 0,
+      level: 0,
       type: "text",
     },
     {
       value: "b",
       label: "label 1",
       key: 'k1',
-      pos: 1,
+      level: 1,
       type: "select",
       options: [
         {key: 'a',  value: 'A'},
@@ -50,19 +50,14 @@ export class AddformgroupsComponent implements OnInit {
     });
   }
 
-  removeFormControl(i) {
-    let usersArray = this.usersForm.controls.users as FormArray;
-    usersArray.removeAt(i);
-  }
-
   addFormControl() {
+    console.log("Add level");
     let usersArray = this.usersForm.controls.users as FormArray;
-    let arraylen = usersArray.length;
     let item = {
       value: "g",
       key: "k"+this.nb,
       label: "new "+this.nb,
-      pos: this.nb,
+      level: this.nb,
       type: "select",
       options: [
         {key: 'e',  value: 'E'},
@@ -74,9 +69,17 @@ export class AddformgroupsComponent implements OnInit {
     this.nb += 1;
     this.json.push(item);
     let newUsergroup: FormGroup = this.fb.group(item);
-
-    // usersArray.insert(arraylen, newUsergroup);
     usersArray.push(newUsergroup);
+  }
+  
+  removeFormControl() {
+    console.log("Remove last level");
+    let usersArray = this.usersForm.controls.users as FormArray;
+    //usersArray.removeAt(i);
+    this.json.pop();
+    usersArray.removeAt(usersArray.length - 1);
+    this.nb -= 1;
+    
   }
 
   show() {
@@ -85,6 +88,12 @@ export class AddformgroupsComponent implements OnInit {
 
   change(value) {
     console.log("Change from "+value.source.id+"=>"+value.value);
+    let level = parseInt(value.source.id.substring(1))
+    if (level < this.nb - 1) {
+      for(let i = level; i < this.nb; i++) {
+        this.removeFormControl();
+      }
+    }
     this.addFormControl();
     this.show();
   }
