@@ -1,20 +1,23 @@
 <form [formGroup]="form">
   <mat-card>
-  <ng-container *ngFor="let item of vm; let i = index">
+    <ng-container *ngFor="let item of vms; let i = index">
     
       <div [formGroup]="form.controls['vms']['controls'][i]">
         
-          <div [ngSwitch]="item.type">  
+          <div [ngSwitch]="item.type" class="form-field-group">
+            <mat-form-field *ngSwitchCase="'label'" appearance="fill">
+              <label>You choose {{item.label}}</label>
+              <input matInput [placeholder]="'Comment'" type="text" >
+            </mat-form-field> 
             <mat-form-field *ngSwitchCase="'text'" appearance="fill">
-              <mat-label>{{item.label}}</mat-label>
-              <input matInput [placeholder]="item.label"  type="text" formControlName="value" [id]="item.key" >
+              <label>You choose {{item.label}}</label>
+              <input matInput [placeholder]="'Comment'" (keyup)="lastChange($event)" type="text" formControlName="value" [id]="item.key" >
             </mat-form-field> 
             <mat-form-field *ngSwitchCase="'select'" appearance="fill">
               <mat-label>{{item.label}}</mat-label>
               <mat-select  [placeholder]="item.label"  (selectionChange)="change($event)" formControlName="value" [id]="item.key" >
                 <mat-option *ngFor="let o of item.options" [value]="o.key">{{o.value}}</mat-option>
               </mat-select>
-              
           </mat-form-field>
           </div>
       </div>
@@ -22,7 +25,6 @@
     </ng-container>
   </mat-card>
   <mat-card>
-    <button mat-button (click)="addFormControl()">Add Select</button>
     <button mat-button (click)="show()">Show values</button>
   </mat-card>
   </form>
