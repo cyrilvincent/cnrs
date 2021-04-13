@@ -18,12 +18,14 @@ export class AddformgroupsComponent implements OnInit {
       key: 0,
       level: 0,
       type: "text",
+      parentId: -1,
     },
     {
       value: "b",
       label: "label 1",
       key: 1,
       level: 1,
+      parentId: 0,
       type: "select",
       options: [
         {key: 'a',  value: 'A'},
@@ -37,7 +39,7 @@ export class AddformgroupsComponent implements OnInit {
   constructor(private fb: FormBuilder) {
     for(let key=0;key<100;key++) {
       let level = key // simplification du pb
-      this.db[key]=level;
+      this.db[key]={id:key, level:level, parentId:key-1}
     }
   }
 
@@ -62,6 +64,7 @@ export class AddformgroupsComponent implements OnInit {
       key: this.nb,
       label: "new "+this.nb,
       level: this.nb,
+      parentId: this.nb - 1,
       type: "select",
       options: [
         {key: 'e',  value: 'E'},
@@ -92,7 +95,7 @@ export class AddformgroupsComponent implements OnInit {
   change(value) {
     console.log("Change from "+value.source.id+"=>"+value.value);
     let key = value.source.id;
-    let level = this.db[key];
+    let level = this.db[key].level;
     if (level < this.nb - 1) {
       for(let i = level; i < this.nb; i++) {
         this.removeFormControl();
