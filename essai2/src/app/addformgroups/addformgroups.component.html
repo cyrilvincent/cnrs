@@ -1,22 +1,32 @@
 <form [formGroup]="usersForm">
+  <mat-card>
   <ng-container *ngFor="let item of json; let i = index">
+    
       <div [formGroup]="usersForm.controls['users']['controls'][i]">
-        <label>
-          <div [ngSwitch]="item.type">
-            {{item.label}}:
-          
-            <input *ngSwitchCase="'text'" type="text" formControlName="value" [id]="item.key" >
-            <select *ngSwitchCase="'select'" (change)="change($event)" type="text" formControlName="value" [id]="item.key" >
-              <option *ngFor="let o of item.options" [value]="o.key">{{o.value}}</option>
-            </select>
+        
+          <div [ngSwitch]="item.type">  
+            <mat-form-field *ngSwitchCase="'text'" appearance="fill">
+              <mat-label>{{item.label}}</mat-label>
+              <input matInput [placeholder]="item.label"  type="text" formControlName="value" [id]="item.key" >
+            </mat-form-field> 
+            <mat-form-field *ngSwitchCase="'select'" appearance="fill">
+              <mat-label>{{item.label}}</mat-label>
+              <mat-select  [placeholder]="item.label"  (selectionChange)="change($event)" formControlName="value" [id]="item.key" >
+                <mat-option *ngFor="let o of item.options" [value]="o.key">{{o.value}}</mat-option>
+              </mat-select>
+              
+          </mat-form-field>
           </div>
-          
-        </label>
       </div>
+    
     </ng-container>
+  </mat-card>
+  <mat-card>
+    <button mat-button (click)="addFormControl()">Add Select</button>
+    <button mat-button (click)="show()">Show values</button>
+  </mat-card>
   </form>
-  <button (click)="addFormControl()">add new user formGroup</button>
-  <button (click)="show()">Show values</button>
+
   <pre>
   {{values | json}}
   </pre>

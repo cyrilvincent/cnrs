@@ -76,7 +76,6 @@ export class AddformgroupsComponent implements OnInit {
     let newUsergroup: FormGroup = this.fb.group(item);
 
     // usersArray.insert(arraylen, newUsergroup);
-    console.log("Hello");
     usersArray.push(newUsergroup);
   }
 
@@ -85,7 +84,7 @@ export class AddformgroupsComponent implements OnInit {
   }
 
   change(value) {
-    console.log("Change from "+value.srcElement.id)
+    console.log("Change from "+value.source.id+"=>"+value.value);
     this.addFormControl();
     this.show();
   }
