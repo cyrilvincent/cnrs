@@ -1,50 +1,54 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, FormArray, Validators } from "@angular/forms";
 
-let emailRegex = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$";
-
 @Component({
   selector: "app-addformgroups",
   templateUrl: "./addformgroups.component.html"
 })
 export class AddformgroupsComponent implements OnInit {
-  public usersForm: FormGroup;
+  public form: FormGroup;
   values = {};
   nb = 2;
+  db = {} // db complet en json
 
-  constructor(private fb: FormBuilder) {}
-
-  json = [
+  vm = [
     {
       value: "user 0",
       label: "label 0",
-      key: 'k0',
+      key: 0,
       level: 0,
       type: "text",
     },
     {
       value: "b",
       label: "label 1",
-      key: 'k1',
+      key: 1,
       level: 1,
       type: "select",
       options: [
         {key: 'a',  value: 'A'},
         {key: 'b',  value: 'B'},
-        {key: 'c',   value: 'C'},
+        {key: 'c',  value: 'C'},
         {key: 'd', value: 'D'}
       ],
     }
-    // <ng-container *ngFor="let userFormGroup of usersForm.controls['users']['controls']; let i = index">
-    // <ng-container *ngFor="let item of json; let i = index">
   ]
+  
+  constructor(private fb: FormBuilder) {
+    for(let key=0;key<100;key++) {
+      let level = key // simplification du pb
+      this.db[key]=level;
+    }
+  }
+
+
 
   ngOnInit() {
     let array = []
-    this.json.forEach(
+    this.vm.forEach(
       item => array.push(this.fb.group(item))
     )
-    this.usersForm = this.fb.group({
+    this.form = this.fb.group({
       date: this.fb.control(new Date()),
       users: this.fb.array(array)
     });
@@ -52,10 +56,10 @@ export class AddformgroupsComponent implements OnInit {
 
   addFormControl() {
     console.log("Add level");
-    let usersArray = this.usersForm.controls.users as FormArray;
+    let array = this.form.controls.users as FormArray;
     let item = {
       value: "g",
-      key: "k"+this.nb,
+      key: this.nb,
       label: "new "+this.nb,
       level: this.nb,
       type: "select",
@@ -67,28 +71,28 @@ export class AddformgroupsComponent implements OnInit {
       ],
     }
     this.nb += 1;
-    this.json.push(item);
-    let newUsergroup: FormGroup = this.fb.group(item);
-    usersArray.push(newUsergroup);
+    this.vm.push(item);
+    let gitem: FormGroup = this.fb.group(item);
+    array.push(gitem);
   }
   
   removeFormControl() {
     console.log("Remove last level");
-    let usersArray = this.usersForm.controls.users as FormArray;
-    //usersArray.removeAt(i);
-    this.json.pop();
-    usersArray.removeAt(usersArray.length - 1);
+    let array = this.form.controls.users as FormArray;
+    this.vm.pop();
+    array.removeAt(array.length - 1);
     this.nb -= 1;
     
   }
 
   show() {
-    this.values = this.usersForm.getRawValue();
+    this.values = this.form.getRawValue();
   }
 
   change(value) {
     console.log("Change from "+value.source.id+"=>"+value.value);
-    let level = parseInt(value.source.id.substring(1))
+    let key = value.source.id;
+    let level = this.db[key];
     if (level < this.nb - 1) {
       for(let i = level; i < this.nb; i++) {
         this.removeFormControl();

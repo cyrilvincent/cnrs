@@ -1,8 +1,8 @@
-<form [formGroup]="usersForm">
+<form [formGroup]="form">
   <mat-card>
-  <ng-container *ngFor="let item of json; let i = index">
+  <ng-container *ngFor="let item of vm; let i = index">
     
-      <div [formGroup]="usersForm.controls['users']['controls'][i]">
+      <div [formGroup]="form.controls['users']['controls'][i]">
         
           <div [ngSwitch]="item.type">  
             <mat-form-field *ngSwitchCase="'text'" appearance="fill">
