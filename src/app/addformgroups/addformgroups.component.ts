@@ -32,7 +32,6 @@ export class AddformgroupsComponent implements OnInit {
       vms: this.fb.array(array)
     });
     this.addControl(0);
-    //this.show();
   }
 
   getEntitiesByParentId(parentId: number) {

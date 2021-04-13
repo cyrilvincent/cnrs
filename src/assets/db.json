@@ -1,14 +1,14 @@
 {
  "0": {
   "id": 0,
-  "label": "Equipement racine",
+  "label": "Equipement root",
   "level": 0,
   "parentId": -1,
   "order": 0
  },
  "1": {
   "id": 1,
-  "label": "Equipement secondaire A",
+  "label": "Equipement secondary A",
   "shortLabel": "A",
   "level": 1,
   "parentId": 0,
@@ -6256,7 +6256,7 @@
  },
  "782": {
   "id": 782,
-  "label": "Equipement secondaire B",
+  "label": "Equipement secondary B",
   "shortLabel": "B",
   "level": 1,
   "parentId": 0,
@@ -12504,7 +12504,7 @@
  },
  "1563": {
   "id": 1563,
-  "label": "Equipement secondaire C",
+  "label": "Equipement secondary C",
   "shortLabel": "C",
   "level": 1,
   "parentId": 0,
@@ -18752,7 +18752,7 @@
  },
  "2344": {
   "id": 2344,
-  "label": "Equipement secondaire D",
+  "label": "Equipement secondary D",
   "shortLabel": "D",
   "level": 1,
   "parentId": 0,
@@ -25000,7 +25000,7 @@
  },
  "3125": {
   "id": 3125,
-  "label": "Equipement secondaire E",
+  "label": "Equipement secondary E",
   "shortLabel": "E",
   "level": 1,
   "parentId": 0,
