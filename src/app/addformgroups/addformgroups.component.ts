@@ -16,7 +16,6 @@ export class AddformgroupsComponent implements OnInit {
   vms = [];
   environment = environment;
   isAdd = false;
-  text = "";
   equipments = [];
   
   constructor(private fb: FormBuilder) {
@@ -125,10 +124,8 @@ export class AddformgroupsComponent implements OnInit {
   }
 
   add() {
-    this.text = "Equipment added"
     let values = this.form.getRawValue()
     let v = values.vms[values.vms.length - 1];
-    this.text = "Equipment added: "+v.label;
     this.equipments.push(v.label);
   }
 }
