@@ -12,7 +12,7 @@ import * as dbjson from '../../assets/db.json';
 export class AddformgroupsComponent implements OnInit {
   form: FormGroup;
   values: any = {};
-  nb: number = 0;
+  level: number = 0;
   db: { [id: number] : Entity; } = {}
   vms: ViewModel[] = [];
   environment = environment;
@@ -37,8 +37,8 @@ export class AddformgroupsComponent implements OnInit {
   }
 
   getEntitiesByParentId(parentId: number):{ [id: number] : Entity; } {
-    const res = Object.values(this.db).filter(v => v.parentId == parentId );
-    return res;
+    const res = Object.values(this.db).filter(v => typeof(v.parentId) == "number" ? (v.parentId == parentId) : ((v.parentId as number[]).includes(parentId))  );
+    return [...new Set(res)];
   }
 
   convertEntityToVM(entity, entities): ViewModel {
@@ -46,7 +46,7 @@ export class AddformgroupsComponent implements OnInit {
     vm.value = entity.id;
     vm.label = entity.label;
     vm.key = entity.id;
-    vm.level = entity.level;
+    vm.level = this.level;
     vm.parentId = entity.parentId;
     if (entities.length == 0) {
       vm.type = "text";
@@ -82,7 +82,7 @@ export class AddformgroupsComponent implements OnInit {
     this.vms.push(item)
     const gitem: FormGroup = this.fb.group(item);
     array.push(gitem);
-    this.nb += 1;
+    this.level += 1;
   }
 
   removeLastControl() {
@@ -90,7 +90,7 @@ export class AddformgroupsComponent implements OnInit {
     const array = this.form.controls.vms as FormArray;
     this.vms.pop();
     array.removeAt(array.length - 1);
-    this.nb -= 1; 
+    this.level -= 1; 
   }
 
   show() {
@@ -98,11 +98,11 @@ export class AddformgroupsComponent implements OnInit {
   }
 
   change(value: any) {
-    const id: number = value.value;
-    const entity = this.db[id];
-    console.log("Change from "+entity.parentId+"=>"+id);
-    const nb = this.nb
-    for(let i = entity.level; i < nb; i++) {
+    const id: number = value.value[0];
+    const parent: ViewModel = value.value[1];
+    console.log("Change from "+parent.key+"=>"+id);
+    const nb = this.level
+    for(let i = parent.level + 1; i < nb; i++) {
         this.removeLastControl();
     }
     this.addControl(id);
@@ -113,11 +113,11 @@ export class AddformgroupsComponent implements OnInit {
   }
 
   clear() {
-    const nb = this.nb;
+    const nb = this.level;
     for(let i = 0; i <= nb; i++) {
       this.removeLastControl();
     }
-    this.nb = 0;
+    this.level = 0;
     this.addControl(this.rootId);
   }
 

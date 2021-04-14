@@ -18,7 +18,7 @@
             <mat-form-field *ngSwitchCase="'select'" appearance="fill">
               <mat-label>{{item.label}}</mat-label>
               <mat-select  [placeholder]="item.label"  (selectionChange)="change($event)" formControlName="value" [id]="item.key" >
-                <mat-option *ngFor="let o of item.options" [value]="o.key">{{o.value}}</mat-option>
+                <mat-option *ngFor="let o of item.options" [value]="[o.key, item]">{{o.value}}</mat-option>
               </mat-select>
           </mat-form-field>
           </div>

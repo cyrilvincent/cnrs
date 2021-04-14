@@ -1,8 +1,7 @@
 export interface Entity {
     id: number;
     label: string;
-    level: number;
-    parentId: number;
+    parentId: number|number[];
     order: number;
 }
 
@@ -11,7 +10,7 @@ export class ViewModel {
     label: string;
     key: number;
     level: number;
-    parentId: number;
+    parentId: number|number[];
     type: string;
     options: OptionVM[];
 }
