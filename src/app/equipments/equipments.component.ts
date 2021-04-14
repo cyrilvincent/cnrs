@@ -7,11 +7,11 @@ import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 
 @Component({
-  selector: "app-addformgroups",
-  templateUrl: "./addformgroups.component.html",
-  styleUrls: ['./addformgroups.component.scss']
+  selector: "app-equipments",
+  templateUrl: "./equipments.component.html",
+  styleUrls: ['./equipments.component.scss']
 })
-export class AddformgroupsComponent implements OnInit {
+export class EquipmentsComponent implements OnInit {
   form: FormGroup;
   values: any = {};
   level: number = 0;

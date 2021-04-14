@@ -4,11 +4,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from "./app.component";
 import { ReactiveFormsModule } from "@angular/forms";
-import { AddformgroupsComponent } from "./addformgroups/addformgroups.component";
+import { EquipmentsComponent } from "./equipments/equipments.component";
 import { MaterialModule} from "./material.module";
 
 @NgModule({
-  declarations: [AppComponent, AddformgroupsComponent],
+  declarations: [AppComponent, EquipmentsComponent],
   imports: [BrowserModule, ReactiveFormsModule, MaterialModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],

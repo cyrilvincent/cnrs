@@ -13,6 +13,6 @@ export class AppComponent {
   }
 
   about() {
-    window.alert(this.title + " by Cyil Vincent");
+    window.alert(this.title + " by Cyril Vincent");
   }
 }
