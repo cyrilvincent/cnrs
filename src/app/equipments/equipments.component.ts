@@ -173,7 +173,15 @@ export class EquipmentsComponent implements OnInit {
 
   filter(value: string | Entity): Entity[] {
     if (typeof(value) == "string") {
-      return this.leafs.filter(e => e.label.toUpperCase().includes(value.toUpperCase()));
+      let res = this.leafs.filter(e => e.label.toUpperCase().startsWith(value.toUpperCase())).slice(0,50);
+      let res2 = this.leafs.filter(e => e.label.toUpperCase().includes(value.toUpperCase())).slice(0,50);
+      res2.sort((a, b) => +(a.label > b.label) || -(a.label < b.label));
+      for (let e of res2) {
+        if (!res.includes(e)) {
+          res.push(e);
+        }
+      }
+      return res.slice(0,50);
     }
     else {
       return [];
@@ -192,11 +200,14 @@ export class EquipmentsComponent implements OnInit {
 
   searchAction(value: any) {
     console.log(value.option.value);
-    this.entitySearch = null;
     this.entitySearch = this.searchByLabel(value.option.value);
   }
 
   addSearch() {
     this.equipments.push(this.entitySearch);
+  }
+
+  save() {
+    window.alert("Not implemented yet");
   }
 }
