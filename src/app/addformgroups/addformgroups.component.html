@@ -1,7 +1,8 @@
-<h1>Choose you equipments</h1>
 <form [formGroup]="form">
+  <div style="width: 50%; height: 100%; float:left">
+    <h2>Choose you equipments</h2>
   <mat-card>
-    <ng-container *ngFor="let item of vms; let i = index">
+    <ng-container *ngFor="let item of vms; let i = index" >
     
       <div [formGroup]="form.controls['vms']['controls'][i]">
         
@@ -26,10 +27,24 @@
     </ng-container>
     <button mat-button (click)="clear()">Clear</button>
     <button *ngIf="isAdd" mat-button (click)="add()">Add equipment</button>
-    <p>Equipments: {{equipments | json}}</p>
-  </mat-card>
+    </mat-card>
+    </div>
+
+  <div style="width: 50%; height: 100%; float:right">
+    <h2>Equipment list</h2>
+    <mat-card>
+      <mat-list *ngIf="equipments.length > 0">
+        <mat-list-item *ngFor="let e of equipments">
+          {{e.label}}
+          <button mat-button (click)="delete(e.key)" ><mat-icon matListIcon>delete</mat-icon></button>
+        </mat-list-item>
+      </mat-list>
+      <div *ngIf="equipments.length == 0">Empty</div>
+    </mat-card>
+  </div>
+  
   <!--<mat-card *ngIf="!environment.production" >
-    <button mat-button (click)="show()">Show values</button>
+    
     <pre>
       {{values | json}}
     </pre>

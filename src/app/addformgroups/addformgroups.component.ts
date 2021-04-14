@@ -17,7 +17,7 @@ export class AddformgroupsComponent implements OnInit {
   vms: ViewModel[] = [];
   environment = environment;
   isAdd = false;
-  equipments: string[] = [];
+  equipments: ViewModel[] = [];
   rootId = 0;
   
   constructor(private fb: FormBuilder) {
@@ -124,6 +124,10 @@ export class AddformgroupsComponent implements OnInit {
   add() {
     const values = this.form.getRawValue()
     const v = values.vms[values.vms.length - 1];
-    this.equipments.push(v.label);
+    this.equipments.push(v);
+  }
+
+  delete(id: number) {
+    this.equipments = this.equipments.filter(vm => vm.key != id);
   }
 }
