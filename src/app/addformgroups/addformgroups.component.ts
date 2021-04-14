@@ -1,8 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, FormArray } from "@angular/forms";
+import { FormBuilder, FormGroup, FormArray, FormControl } from "@angular/forms";
 import { environment } from 'src/environments/environment';
 import { Entity, ViewModel, OptionVM} from '../models';
 import * as dbjson from '../../assets/db.json';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 
 @Component({
   selector: "app-addformgroups",
@@ -17,15 +19,26 @@ export class AddformgroupsComponent implements OnInit {
   vms: ViewModel[] = [];
   environment = environment;
   isAdd = false;
-  equipments: ViewModel[] = [];
+  equipments: Entity[] = [];
   rootId = 0;
   isLabel = -1;
+  leafs: any = [];
+  filtered: Observable<Entity[]>;
+  searchControl = new FormControl();
+  entitySearch: Entity = null;
   
   constructor(private fb: FormBuilder) {
     this.db = dbjson["default"];
   }
 
   ngOnInit() {
+    
+    this.generateLeafs();
+    this.filtered = this.searchControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this.filter(value))
+      );
     const array: FormGroup[] = []
     this.vms.forEach(
       item => array.push(this.fb.group(item))
@@ -37,17 +50,34 @@ export class AddformgroupsComponent implements OnInit {
     this.addControl(this.rootId);
   }
 
-  getEntitiesByParentId(parentId: number):{ [id: number] : Entity; } {
-    const res = Object.values(this.db).filter(v => typeof(v.parentId) == "number" ? (v.parentId == parentId) : ((v.parentId as number[]).includes(parentId))  );
-    return [...new Set(res)];
+  generateLeafs(id: number = 0) {
+    const db = {};
+    const values: Entity[] = Object.values(this.db)
+    for (let e of values) {
+      if (typeof(e.parentId) == "number") {
+        const pid = e.parentId as number;
+        db[pid]=true;
+      }
+    }
+    for (let e of values) {
+      if (!(e.id in db)) {
+        this.leafs.push(this.db[e.id]);
+      }
+    }
   }
 
-  convertEntityToVM(entity, entities): ViewModel {
+  getEntitiesByParentId(parentId: number): Entity[] {
+    const res = Object.values(this.db).filter(v => typeof(v.parentId) == "number" ? (v.parentId == parentId) : ((v.parentId as number[]).includes(parentId))  );
+    return res;
+  }
+
+  convertEntityToVM(entity: Entity, entities: Entity[]): ViewModel {
     const vm: ViewModel = new ViewModel();
     vm.value = entity.id;
     vm.label = entity.label;
     vm.key = entity.id;
     vm.level = this.level;
+    vm.entity = entity;
     this.isLabel = -1;
     if (entities.length == 0) {
       vm.type = "text";
@@ -90,9 +120,9 @@ export class AddformgroupsComponent implements OnInit {
     const gitem: FormGroup = this.fb.group(item);
     array.push(gitem);
     this.level += 1;
-    if(this.isLabel) {
+    /*if(this.isLabel) {
       this.addControl(this.isLabel);
-    }
+    }*/
   }
 
   removeLastControl() {
@@ -134,10 +164,39 @@ export class AddformgroupsComponent implements OnInit {
   add() {
     const values = this.form.getRawValue()
     const v = values.vms[values.vms.length - 1];
-    this.equipments.push(v);
+    this.equipments.push(v.entity);
   }
 
   delete(id: number) {
-    this.equipments = this.equipments.filter(vm => vm.key != id);
+    this.equipments = this.equipments.filter(e => e.id != id);
+  }
+
+  filter(value: string | Entity): Entity[] {
+    if (typeof(value) == "string") {
+      return this.leafs.filter(e => e.label.toUpperCase().includes(value.toUpperCase()));
+    }
+    else {
+      return [];
+    }
+  }
+
+  searchByLabel(s: string): Entity|null {
+    const res = this.leafs.filter(e => e.label.toUpperCase().includes(s.toUpperCase()));
+    if (res.length == 0) {
+      return null;
+    }
+    else {
+      return res[0];
+    }
+  }
+
+  searchAction(value: any) {
+    console.log(value.option.value);
+    this.entitySearch = null;
+    this.entitySearch = this.searchByLabel(value.option.value);
+  }
+
+  addSearch() {
+    this.equipments.push(this.entitySearch);
   }
 }

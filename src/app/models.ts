@@ -1,6 +1,7 @@
 export interface Entity {
     id: number;
     label: string;
+    shortLabel: string;
     parentId: number|number[];
     order: number;
 }
@@ -13,6 +14,7 @@ export class ViewModel {
     type: string;
     options: OptionVM[];
     isLeaf: boolean;
+    entity: Entity;
 }
 
 export class OptionVM {
