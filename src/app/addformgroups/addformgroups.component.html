@@ -7,13 +7,10 @@
       <div [formGroup]="form.controls['vms']['controls'][i]">
         
           <div [ngSwitch]="item.type" class="form-field-group">
-            <mat-form-field *ngSwitchCase="'label'" appearance="fill">
-              <label>You choose {{item.label}}</label>
-              <input matInput [placeholder]="'Comment'" type="text" >
-            </mat-form-field> 
+            <label *ngSwitchCase="'label'">X{{item.label}}</label>
             <mat-form-field *ngSwitchCase="'text'" appearance="fill">
               <label>You choose {{item.label}}</label>
-              <input matInput [placeholder]="'Comment'" (keyup)="lastChange($event)" type="text" formControlName="value" [id]="item.key" >
+              <input matInput [placeholder]="'Comment'" (change)="lastChange($event)" type="text" formControlName="value" [id]="item.key" >
             </mat-form-field> 
             <mat-form-field *ngSwitchCase="'select'" appearance="fill">
               <mat-label>{{item.label}}</mat-label>

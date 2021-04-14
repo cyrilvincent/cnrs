@@ -19,6 +19,7 @@ export class AddformgroupsComponent implements OnInit {
   isAdd = false;
   equipments: ViewModel[] = [];
   rootId = 0;
+  isLabel = -1;
   
   constructor(private fb: FormBuilder) {
     this.db = dbjson["default"];
@@ -47,12 +48,17 @@ export class AddformgroupsComponent implements OnInit {
     vm.label = entity.label;
     vm.key = entity.id;
     vm.level = this.level;
+    this.isLabel = -1;
     if (entities.length == 0) {
       vm.type = "text";
       vm.value = "";
       vm.isLeaf = true;
       this.isAdd = true;
     }
+    /*else if (entities.length == 1) {
+      vm.type = "label";
+      this.isLabel = entities[0].id;
+    }*/
     else {
       this.isAdd = false;
       vm.isLeaf = false;
@@ -84,6 +90,9 @@ export class AddformgroupsComponent implements OnInit {
     const gitem: FormGroup = this.fb.group(item);
     array.push(gitem);
     this.level += 1;
+    if(this.isLabel) {
+      this.addControl(this.isLabel);
+    }
   }
 
   removeLastControl() {
