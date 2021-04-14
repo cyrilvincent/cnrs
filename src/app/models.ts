@@ -10,9 +10,9 @@ export class ViewModel {
     label: string;
     key: number;
     level: number;
-    parentId: number|number[];
     type: string;
     options: OptionVM[];
+    isLeaf: boolean;
 }
 
 export class OptionVM {

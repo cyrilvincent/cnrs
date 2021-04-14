@@ -47,14 +47,15 @@ export class AddformgroupsComponent implements OnInit {
     vm.label = entity.label;
     vm.key = entity.id;
     vm.level = this.level;
-    vm.parentId = entity.parentId;
     if (entities.length == 0) {
       vm.type = "text";
       vm.value = "";
+      vm.isLeaf = true;
       this.isAdd = true;
     }
     else {
       this.isAdd = false;
+      vm.isLeaf = false;
       vm.type = "select";
       vm.options = [];
       entities.sort((a, b) => a.order - b.order);
