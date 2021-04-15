@@ -1,9 +1,38 @@
 <form [formGroup]="form">
-  <div style="width: 33%; height: 100%; float:left">
-    <h2>Search your equipment</h2>
+  
+  <div style="width: 49%; height: 100%; float:left">
+    <h2>Choose your equipment</h2>
+  <mat-card>
+    <ng-container *ngFor="let item of vms; let i = index" >
+    
+      <div [formGroup]="form.controls['vms']['controls'][i]">
+        
+          <div [ngSwitch]="item.type" class="form-field-group">
+            <label *ngSwitchCase="'label'">{{item.entity.label}}</label>
+            <mat-form-field *ngSwitchCase="'text'" appearance="fill">
+              <label>You choose {{item.entity.label}}</label>
+              <input matInput [placeholder]="'Comment'" (change)="lastChange($event)" type="text" formControlName="value" [id]="item.key" >
+            </mat-form-field> 
+            <mat-form-field *ngSwitchCase="'select'" appearance="fill">
+              <mat-label>{{item.entity.label}}</mat-label>
+              <mat-select  [placeholder]="item.entity.label"  (selectionChange)="change($event)" formControlName="value" [id]="item.key" >
+                <mat-option *ngFor="let o of item.options" [value]="[o.key, item]">{{o.value}}</mat-option>
+              </mat-select>
+          </mat-form-field>
+          </div>
+      </div>
+    
+    </ng-container>
+    <button mat-button (click)="clear()">Clear</button>
+    <button *ngIf="isAdd" mat-button (click)="add()">Add equipment</button>
+    </mat-card>
+    </div>
+
+  <div style="width: 49%; height: 100%; float:right">
+    <h2>Equipment list</h2>
     <mat-card>
     <mat-form-field class="fill">
-      <mat-label>Search</mat-label>
+      <mat-label>Search equipment to add</mat-label>
       <input #search type="text" 
             placeholder="Pick one"
             aria-label="Search"
@@ -18,38 +47,7 @@
       </mat-autocomplete>
     </mat-form-field>
     <button *ngIf="entitySearch" mat-button (click)="addSearch()">Add {{entitySearch.shortLabel}}</button>
-  </mat-card>
-  </div>
-  <div style="width: 33%; height: 100%; float:left">
-    <h2>Choose your equipment</h2>
-  <mat-card>
-    <ng-container *ngFor="let item of vms; let i = index" >
-    
-      <div [formGroup]="form.controls['vms']['controls'][i]">
-        
-          <div [ngSwitch]="item.type" class="form-field-group">
-            <label *ngSwitchCase="'label'">{{item.label}}</label>
-            <mat-form-field *ngSwitchCase="'text'" appearance="fill">
-              <label>You choose {{item.label}}</label>
-              <input matInput [placeholder]="'Comment'" (change)="lastChange($event)" type="text" formControlName="value" [id]="item.key" >
-            </mat-form-field> 
-            <mat-form-field *ngSwitchCase="'select'" appearance="fill">
-              <mat-label>{{item.label}}</mat-label>
-              <mat-select  [placeholder]="item.label"  (selectionChange)="change($event)" formControlName="value" [id]="item.key" >
-                <mat-option *ngFor="let o of item.options" [value]="[o.key, item]">{{o.value}}</mat-option>
-              </mat-select>
-          </mat-form-field>
-          </div>
-      </div>
-    
-    </ng-container>
-    <button mat-button (click)="clear()">Clear</button>
-    <button *ngIf="isAdd" mat-button (click)="add()">Add equipment</button>
-    </mat-card>
-    </div>
-
-  <div style="width: 34%; height: 100%; float:right">
-    <h2>Equipment list</h2>
+    <br/><br/>
     <mat-card>
       <mat-list *ngIf="equipments.length > 0">
         <mat-list-item *ngFor="let e of equipments">
@@ -59,6 +57,7 @@
       </mat-list>
       <div *ngIf="equipments.length == 0">Empty</div>
       <button *ngIf="equipments.length > 0" mat-button (click)="save()">Save</button>
+      </mat-card>
     </mat-card>
   </div>
   </form>

@@ -61,11 +61,9 @@ export class EquipmentsComponent implements OnInit {
   convertEntityToVM(entity: Entity, entities: Entity[]): ViewModel {
     const vm: ViewModel = new ViewModel();
     vm.value = entity.id;
-    vm.label = entity.label;
     vm.key = entity.id;
     vm.level = this.level;
     vm.entity = entity;
-    vm.isLeaf = entity.leaf;
     this.isLabel = -1;
     if (entity.leaf) {
       vm.type = "text";

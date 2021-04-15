@@ -9,12 +9,10 @@ export interface Entity {
 
 export class ViewModel {
     value: number|string;
-    label: string;
     key: number;
     level: number;
     type: string;
     options: OptionVM[];
-    isLeaf: boolean;
     entity: Entity;
 }
 
