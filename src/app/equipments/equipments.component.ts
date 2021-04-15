@@ -17,12 +17,11 @@ export class EquipmentsComponent implements OnInit {
   level: number = 0;
   db: { [id: number] : Entity; } = {}
   vms: ViewModel[] = [];
-  environment = environment;
   isAdd = false;
   equipments: Entity[] = [];
   rootId = 0;
   isLabel = -1;
-  leafs: any = [];
+  leafs: Entity[] = [];
   filtered: Observable<Entity[]>;
   searchControl = new FormControl();
   entitySearch: Entity = null;
@@ -120,10 +119,6 @@ export class EquipmentsComponent implements OnInit {
     this.level -= 1; 
   }
 
-  show() {
-    this.values = this.form.getRawValue();
-  }
-
   change(value: any) {
     const id: number = value.value[0];
     const parent: ViewModel = value.value[1];
@@ -175,19 +170,14 @@ export class EquipmentsComponent implements OnInit {
     }
   }
 
-  searchByLabel(s: string): Entity|null {
-    const res = this.leafs.filter(e => e.label.toUpperCase().includes(s.toUpperCase()));
-    if (res.length == 0) {
-      return null;
-    }
-    else {
-      return res[0];
-    }
+  getByLabel(s: string): Entity|null {
+    const res = this.leafs.filter(e => e.label.toUpperCase() == s.toUpperCase());
+    return res.length == 0 ? null : res[0];
   }
 
   searchAction(value: any) {
     console.log(value.option.value);
-    this.entitySearch = this.searchByLabel(value.option.value);
+    this.entitySearch = this.getByLabel(value.option.value);
   }
 
   addSearch() {
