@@ -1,5 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup, FormArray, FormControl } from "@angular/forms";
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { Entity, ViewModel, OptionVM} from '../models';
 import * as dbjson from '../../assets/db.json';
@@ -7,15 +7,15 @@ import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 
 @Component({
-  selector: "app-equipments",
-  templateUrl: "./equipments.component.html",
+  selector: 'app-equipments',
+  templateUrl: './equipments.component.html',
   styleUrls: ['./equipments.component.scss']
 })
 export class EquipmentsComponent implements OnInit {
   form: FormGroup;
   values: any = {};
-  level: number = 0;
-  db: { [id: number] : Entity; } = {}
+  level = 0;
+  db: { [id: number]: Entity; } = {};
   vms: ViewModel[] = [];
   isAdd = false;
   equipments: Entity[] = [];
@@ -25,23 +25,26 @@ export class EquipmentsComponent implements OnInit {
   filtered: Observable<Entity[]>;
   searchControl = new FormControl();
   entitySearch: Entity = null;
-  
+
+  @ViewChild('#myInput')
+  search: ElementRef;
+
   constructor(private fb: FormBuilder) {
-    this.db = dbjson["default"];
+    // tslint:disable-next-line: no-string-literal
+    this.db = dbjson['default'];
   }
 
   ngOnInit() {
-    
     this.generateLeafs();
     this.filtered = this.searchControl.valueChanges
       .pipe(
         startWith(''),
         map(value => this.filter(value))
       );
-    const array: FormGroup[] = []
+    const array: FormGroup[] = [];
     this.vms.forEach(
       item => array.push(this.fb.group(item))
-    )
+    );
     this.form = this.fb.group({
       date: this.fb.control(new Date()),
       vms: this.fb.array(array)
@@ -50,11 +53,13 @@ export class EquipmentsComponent implements OnInit {
   }
 
   generateLeafs() {
-    this.leafs = Object.values(this.db).filter(e => e.leaf)
+    this.leafs = Object.values(this.db).filter(e => e.leaf);
   }
 
   getEntitiesByParentId(parentId: number): Entity[] {
-    const res = Object.values(this.db).filter(v => typeof(v.parentId) == "number" ? (v.parentId == parentId) : ((v.parentId as number[]).includes(parentId))  );
+    const res = Object.values(this.db).filter(
+      v => typeof(v.parentId) === 'number' ?
+       (v.parentId === parentId) : ((v.parentId as number[]).includes(parentId))  );
     return res;
   }
 
@@ -66,8 +71,8 @@ export class EquipmentsComponent implements OnInit {
     vm.entity = entity;
     this.isLabel = -1;
     if (entity.leaf) {
-      vm.type = "text";
-      vm.value = "";
+      vm.type = 'text';
+      vm.value = '';
       this.isAdd = true;
     }
     /*else if (entities.length == 1) {
@@ -76,11 +81,11 @@ export class EquipmentsComponent implements OnInit {
     }*/
     else {
       this.isAdd = false;
-      vm.type = "select";
+      vm.type = 'select';
       vm.options = [];
       entities.sort((a, b) => a.order - b.order);
-      for (let e of entities) {
-        let option: OptionVM = new OptionVM();
+      for (const e of entities) {
+        const option: OptionVM = new OptionVM();
         option.key = e.id;
         option.value = e.shortLabel;
         vm.options.push(option);
@@ -89,18 +94,18 @@ export class EquipmentsComponent implements OnInit {
     return vm;
   }
 
-  getVMById(id: number):ViewModel {
+  getVMById(id: number): ViewModel {
     const entity = this.db[id];
     const entities = this.getEntitiesByParentId(entity.id);
-    const vm: ViewModel = this.convertEntityToVM(entity, entities)
+    const vm: ViewModel = this.convertEntityToVM(entity, entities);
     return vm;
   }
-  
+
   addControl(id: number) {
-    console.log("Add control");
+    console.log('Add control');
     const array = this.form.controls.vms as FormArray;
     const item: ViewModel = this.getVMById(id);
-    this.vms.push(item)
+    this.vms.push(item);
     const gitem: FormGroup = this.fb.group(item);
     array.push(gitem);
     this.level += 1;
@@ -110,31 +115,31 @@ export class EquipmentsComponent implements OnInit {
   }
 
   removeLastControl() {
-    console.log("Remove last control");
+    console.log('Remove last control');
     const array = this.form.controls.vms as FormArray;
     this.vms.pop();
     array.removeAt(array.length - 1);
-    this.level -= 1; 
+    this.level -= 1;
   }
 
   change(value: any) {
     const id: number = value.value[0];
     const parent: ViewModel = value.value[1];
-    console.log("Change from "+parent.key+"=>"+id);
-    const nb = this.level
-    for(let i = parent.level + 1; i < nb; i++) {
+    console.log('Change from ' + parent.key + '=>' + id);
+    const nb = this.level;
+    for (let i = parent.level + 1; i < nb; i++) {
         this.removeLastControl();
     }
     this.addControl(id);
   }
 
   lastChange(value: any) {
-    //this.show();
+    // this.show();
   }
 
   clear() {
     const nb = this.level;
-    for(let i = 0; i <= nb; i++) {
+    for (let i = 0; i <= nb; i++) {
       this.removeLastControl();
     }
     this.level = 0;
@@ -142,26 +147,26 @@ export class EquipmentsComponent implements OnInit {
   }
 
   add() {
-    const values = this.form.getRawValue()
+    const values = this.form.getRawValue();
     const v = values.vms[values.vms.length - 1];
     this.equipments.push(v.entity);
   }
 
   delete(id: number) {
-    this.equipments = this.equipments.filter(e => e.id != id);
+    this.equipments = this.equipments.filter(e => e.id !== id);
   }
 
   filter(value: string | Entity): Entity[] {
-    if (typeof(value) == "string") {
-      let res = this.leafs.filter(e => e.label.toUpperCase().startsWith(value.toUpperCase())).slice(0,50);
-      let res2 = this.leafs.filter(e => e.label.toUpperCase().includes(value.toUpperCase())).slice(0,50);
+    if (typeof(value) === 'string') {
+      const res = this.leafs.filter(e => e.label.toUpperCase().startsWith(value.toUpperCase())).slice(0, 50);
+      const res2 = this.leafs.filter(e => e.label.toUpperCase().includes(value.toUpperCase())).slice(0, 50);
       res2.sort((a, b) => +(a.label > b.label) || -(a.label < b.label));
-      for (let e of res2) {
+      for (const e of res2) {
         if (!res.includes(e)) {
           res.push(e);
         }
       }
-      return res.slice(0,50);
+      return res.slice(0, 50);
     }
     else {
       return [];
@@ -169,8 +174,8 @@ export class EquipmentsComponent implements OnInit {
   }
 
   getByLabel(s: string): Entity|null {
-    const res = this.leafs.filter(e => e.label.toUpperCase() == s.toUpperCase());
-    return res.length == 0 ? null : res[0];
+    const res = this.leafs.filter(e => e.label.toUpperCase() === s.toUpperCase());
+    return res.length === 0 ? null : res[0];
   }
 
   searchAction(value: any) {
@@ -180,9 +185,10 @@ export class EquipmentsComponent implements OnInit {
 
   addSearch() {
     this.equipments.push(this.entitySearch);
+    this.search.nativeElement.select();
   }
 
   save() {
-    window.alert("Not implemented yet");
+    window.alert('Not implemented yet');
   }
 }
