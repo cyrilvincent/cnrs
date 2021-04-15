@@ -32,15 +32,24 @@ export class EquipmentsComponent implements OnInit {
   constructor(private fb: FormBuilder) {
     // tslint:disable-next-line: no-string-literal
     this.db = dbjson['default'];
+    this.generateLeafs();
   }
 
   ngOnInit() {
-    this.generateLeafs();
+    this.initSearchFilter();
+    this.initFormBuilder();
+    this.addControl(this.rootId);
+  }
+
+  initSearchFilter() {
     this.filtered = this.searchControl.valueChanges
       .pipe(
         startWith(''),
         map(value => this.filter(value))
       );
+  }
+
+  initFormBuilder() {
     const array: FormGroup[] = [];
     this.vms.forEach(
       item => array.push(this.fb.group(item))
@@ -49,7 +58,6 @@ export class EquipmentsComponent implements OnInit {
       date: this.fb.control(new Date()),
       vms: this.fb.array(array)
     });
-    this.addControl(this.rootId);
   }
 
   generateLeafs() {
@@ -59,7 +67,8 @@ export class EquipmentsComponent implements OnInit {
   getEntitiesByParentId(parentId: number): Entity[] {
     const res = Object.values(this.db).filter(
       v => typeof(v.parentId) === 'number' ?
-       (v.parentId === parentId) : ((v.parentId as number[]).includes(parentId))  );
+       (v.parentId === parentId) :
+       ((v.parentId as number[]).includes(parentId)));
     return res;
   }
 
