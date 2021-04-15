@@ -50,20 +50,8 @@ export class EquipmentsComponent implements OnInit {
     this.addControl(this.rootId);
   }
 
-  generateLeafs(id: number = 0) {
-    const db = {};
-    const values: Entity[] = Object.values(this.db)
-    for (let e of values) {
-      if (typeof(e.parentId) == "number") {
-        const pid = e.parentId as number;
-        db[pid]=true;
-      }
-    }
-    for (let e of values) {
-      if (!(e.id in db)) {
-        this.leafs.push(this.db[e.id]);
-      }
-    }
+  generateLeafs() {
+    this.leafs = Object.values(this.db).filter(e => e.leaf)
   }
 
   getEntitiesByParentId(parentId: number): Entity[] {
@@ -78,11 +66,11 @@ export class EquipmentsComponent implements OnInit {
     vm.key = entity.id;
     vm.level = this.level;
     vm.entity = entity;
+    vm.isLeaf = entity.leaf;
     this.isLabel = -1;
-    if (entities.length == 0) {
+    if (entity.leaf) {
       vm.type = "text";
       vm.value = "";
-      vm.isLeaf = true;
       this.isAdd = true;
     }
     /*else if (entities.length == 1) {
@@ -91,7 +79,6 @@ export class EquipmentsComponent implements OnInit {
     }*/
     else {
       this.isAdd = false;
-      vm.isLeaf = false;
       vm.type = "select";
       vm.options = [];
       entities.sort((a, b) => a.order - b.order);

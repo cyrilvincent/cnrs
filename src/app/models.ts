@@ -4,6 +4,7 @@ export interface Entity {
     shortLabel: string;
     parentId: number|number[];
     order: number;
+    leaf: boolean;
 }
 
 export class ViewModel {
