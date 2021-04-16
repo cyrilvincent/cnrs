@@ -17,7 +17,7 @@
  },
  {
   "id": 2,
-  "label": "Spectrom\u00e8tre RMN Champ",
+  "label": "Spectrom\u00e8tre RMN, Champ",
   "shortLabel": "Champ",
   "parentId": 1,
   "order": 2,
@@ -25,7 +25,7 @@
  },
  {
   "id": 3,
-  "label": "Spectrom\u00e8tre RMN Champ 100 MHz",
+  "label": "Spectrom\u00e8tre RMN, Champ, 100 MHz",
   "shortLabel": "100 MHz",
   "parentId": 2,
   "order": 3,
@@ -33,7 +33,7 @@
  },
  {
   "id": 4,
-  "label": "Spectrom\u00e8tre RMN Champ 200 MHz",
+  "label": "Spectrom\u00e8tre RMN, Champ, 200 MHz",
   "shortLabel": "200 MHz",
   "parentId": 2,
   "order": 4,
@@ -41,7 +41,7 @@
  },
  {
   "id": 5,
-  "label": "Spectrom\u00e8tre RMN Champ 600 MHz",
+  "label": "Spectrom\u00e8tre RMN, Champ, 600 MHz",
   "shortLabel": "600 MHz",
   "parentId": 2,
   "order": 5,
@@ -49,7 +49,7 @@
  },
  {
   "id": 6,
-  "label": "Spectrom\u00e8tre RMN Champ 800 MHZ; 18 Tesla",
+  "label": "Spectrom\u00e8tre RMN, Champ, 800 MHZ; 18 Tesla",
   "shortLabel": "800 MHZ; 18 Tesla",
   "parentId": 2,
   "order": 6,
@@ -57,7 +57,7 @@
  },
  {
   "id": 7,
-  "label": "Spectrom\u00e8tre RMN Champ 900 MHz",
+  "label": "Spectrom\u00e8tre RMN, Champ, 900 MHz",
   "shortLabel": "900 MHz",
   "parentId": 2,
   "order": 7,
@@ -65,7 +65,7 @@
  },
  {
   "id": 8,
-  "label": "Spectrom\u00e8tre RMN Type",
+  "label": "Spectrom\u00e8tre RMN, Type",
   "shortLabel": "Type",
   "parentId": 1,
   "order": 8,
@@ -73,7 +73,7 @@
  },
  {
   "id": 9,
-  "label": "Spectrom\u00e8tre RMN Type Solide",
+  "label": "Spectrom\u00e8tre RMN, Type, Solide",
   "shortLabel": "Solide",
   "parentId": 8,
   "order": 9,
@@ -81,7 +81,7 @@
  },
  {
   "id": 10,
-  "label": "Spectrom\u00e8tre RMN Type Solide Sondes",
+  "label": "Spectrom\u00e8tre RMN, Type, Solide, Sondes",
   "shortLabel": "Sondes",
   "parentId": 9,
   "order": 10,
@@ -89,7 +89,7 @@
  },
  {
   "id": 11,
-  "label": "Spectrom\u00e8tre RMN Type Solide Sondes 3mm",
+  "label": "Spectrom\u00e8tre RMN, Type, Solide, Sondes, 3mm",
   "shortLabel": "3mm",
   "parentId": 10,
   "order": 11,
@@ -97,7 +97,7 @@
  },
  {
   "id": 12,
-  "label": "Spectrom\u00e8tre RMN Type Solide Sondes 3mm HXY",
+  "label": "Spectrom\u00e8tre RMN, Type, Solide, Sondes, 3mm, HXY",
   "shortLabel": "HXY",
   "parentId": 11,
   "order": 12,
@@ -105,7 +105,7 @@
  },
  {
   "id": 13,
-  "label": "Spectrom\u00e8tre RMN Type Solide Sondes 3mm HXY F",
+  "label": "Spectrom\u00e8tre RMN, Type, Solide, Sondes, 3mm, HXY, F",
   "shortLabel": "F",
   "parentId": 12,
   "order": 13,
@@ -113,7 +113,7 @@
  },
  {
   "id": 14,
-  "label": "Spectrom\u00e8tre RMN Type Solide Sondes 3mm HXY 13C",
+  "label": "Spectrom\u00e8tre RMN, Type, Solide, Sondes, 3mm, HXY, 13C",
   "shortLabel": "13C",
   "parentId": 12,
   "order": 14,
@@ -121,7 +121,7 @@
  },
  {
   "id": 15,
-  "label": "Spectrom\u00e8tre RMN Type Solide Sondes 3mm HXY 31P",
+  "label": "Spectrom\u00e8tre RMN, Type, Solide, Sondes, 3mm, HXY, 31P",
   "shortLabel": "31P",
   "parentId": 12,
   "order": 15,
@@ -129,7 +129,7 @@
  },
  {
   "id": 16,
-  "label": "Spectrom\u00e8tre RMN Type Solide Sondes 3mm HXY 15N",
+  "label": "Spectrom\u00e8tre RMN, Type, Solide, Sondes, 3mm, HXY, 15N",
   "shortLabel": "15N",
   "parentId": 12,
   "order": 16,
@@ -137,7 +137,7 @@
  },
  {
   "id": 17,
-  "label": "Spectrom\u00e8tre RMN Type Solide Sondes 0.7mm",
+  "label": "Spectrom\u00e8tre RMN, Type, Solide, Sondes, 0.7mm",
   "shortLabel": "0.7mm",
   "parentId": 10,
   "order": 17,
@@ -145,7 +145,7 @@
  },
  {
   "id": 18,
-  "label": "Spectrom\u00e8tre RMN Type Solide Sondes 0.7mm HXY",
+  "label": "Spectrom\u00e8tre RMN, Type, Solide, Sondes, 0.7mm, HXY",
   "shortLabel": "HXY",
   "parentId": 17,
   "order": 18,
@@ -153,7 +153,7 @@
  },
  {
   "id": 19,
-  "label": "Spectrom\u00e8tre RMN Type Solide Sondes 0.7mm HXY 1H",
+  "label": "Spectrom\u00e8tre RMN, Type, Solide, Sondes, 0.7mm, HXY, 1H",
   "shortLabel": "1H",
   "parentId": 18,
   "order": 19,
@@ -161,7 +161,7 @@
  },
  {
   "id": 20,
-  "label": "Spectrom\u00e8tre RMN Type Solide Sondes 0.7mm HXY 13C",
+  "label": "Spectrom\u00e8tre RMN, Type, Solide, Sondes, 0.7mm, HXY, 13C",
   "shortLabel": "13C",
   "parentId": 18,
   "order": 20,
@@ -169,7 +169,7 @@
  },
  {
   "id": 21,
-  "label": "Spectrom\u00e8tre RMN Type Solide Sondes 0.7mm HXY 31P",
+  "label": "Spectrom\u00e8tre RMN, Type, Solide, Sondes, 0.7mm, HXY, 31P",
   "shortLabel": "31P",
   "parentId": 18,
   "order": 21,
@@ -177,7 +177,7 @@
  },
  {
   "id": 22,
-  "label": "Spectrom\u00e8tre RMN Type Solide Sondes 0.7mm HXY 15N",
+  "label": "Spectrom\u00e8tre RMN, Type, Solide, Sondes, 0.7mm, HXY, 15N",
   "shortLabel": "15N",
   "parentId": 18,
   "order": 22,
@@ -185,7 +185,7 @@
  },
  {
   "id": 23,
-  "label": "Spectrom\u00e8tre RMN Type Solide DNP",
+  "label": "Spectrom\u00e8tre RMN, Type, Solide, DNP",
   "shortLabel": "DNP",
   "parentId": 9,
   "order": 23,
@@ -193,7 +193,7 @@
  },
  {
   "id": 24,
-  "label": "Spectrom\u00e8tre RMN Type Solide DNP Sondes",
+  "label": "Spectrom\u00e8tre RMN, Type, Solide, DNP, Sondes",
   "shortLabel": "Sondes",
   "parentId": 23,
   "order": 24,
@@ -201,7 +201,7 @@
  },
  {
   "id": 25,
-  "label": "Spectrom\u00e8tre RMN Type Solide DNP Sondes 3mm",
+  "label": "Spectrom\u00e8tre RMN, Type, Solide, DNP, Sondes, 3mm",
   "shortLabel": "3mm",
   "parentId": 24,
   "order": 25,
@@ -209,7 +209,7 @@
  },
  {
   "id": 26,
-  "label": "Spectrom\u00e8tre RMN Type Solide DNP Sondes 3mm F",
+  "label": "Spectrom\u00e8tre RMN, Type, Solide, DNP, Sondes, 3mm, F",
   "shortLabel": "F",
   "parentId": 25,
   "order": 26,
@@ -217,7 +217,7 @@
  },
  {
   "id": 27,
-  "label": "Spectrom\u00e8tre RMN Type Solide DNP Sondes 3mm 13C",
+  "label": "Spectrom\u00e8tre RMN, Type, Solide, DNP, Sondes, 3mm, 13C",
   "shortLabel": "13C",
   "parentId": 25,
   "order": 27,
@@ -225,7 +225,7 @@
  },
  {
   "id": 28,
-  "label": "Spectrom\u00e8tre RMN Type Solide DNP Sondes 3mm 31P",
+  "label": "Spectrom\u00e8tre RMN, Type, Solide, DNP, Sondes, 3mm, 31P",
   "shortLabel": "31P",
   "parentId": 25,
   "order": 28,
@@ -233,7 +233,7 @@
  },
  {
   "id": 29,
-  "label": "Spectrom\u00e8tre RMN Type Solide DNP Sondes 3mm 15N",
+  "label": "Spectrom\u00e8tre RMN, Type, Solide, DNP, Sondes, 3mm, 15N",
   "shortLabel": "15N",
   "parentId": 25,
   "order": 29,
@@ -241,7 +241,7 @@
  },
  {
   "id": 30,
-  "label": "Spectrom\u00e8tre RMN Type Solide DNP Sondes 1.3 mm",
+  "label": "Spectrom\u00e8tre RMN, Type, Solide, DNP, Sondes, 1.3 mm",
   "shortLabel": "1.3 mm",
   "parentId": 24,
   "order": 30,
@@ -249,7 +249,7 @@
  },
  {
   "id": 31,
-  "label": "Spectrom\u00e8tre RMN Type Liquide",
+  "label": "Spectrom\u00e8tre RMN, Type, Liquide",
   "shortLabel": "Liquide",
   "parentId": 8,
   "order": 31,
@@ -257,7 +257,7 @@
  },
  {
   "id": 32,
-  "label": "Spectrom\u00e8tre RMN Type Liquide Sondes",
+  "label": "Spectrom\u00e8tre RMN, Type, Liquide, Sondes",
   "shortLabel": "Sondes",
   "parentId": 31,
   "order": 32,
@@ -265,7 +265,7 @@
  },
  {
   "id": 33,
-  "label": "Spectrom\u00e8tre RMN Type Liquide Sondes HX",
+  "label": "Spectrom\u00e8tre RMN, Type, Liquide, Sondes, HX",
   "shortLabel": "HX",
   "parentId": 32,
   "order": 33,
@@ -273,7 +273,7 @@
  },
  {
   "id": 34,
-  "label": "Spectrom\u00e8tre RMN Type Liquide Sondes HX Noyaux",
+  "label": "Spectrom\u00e8tre RMN, Type, Liquide, Sondes, HX, Noyaux",
   "shortLabel": "Noyaux",
   "parentId": 33,
   "order": 34,
@@ -281,7 +281,7 @@
  },
  {
   "id": 35,
-  "label": "Spectrom\u00e8tre RMN Type Liquide Sondes HX Noyaux F",
+  "label": "Spectrom\u00e8tre RMN, Type, Liquide, Sondes, HX, Noyaux, F",
   "shortLabel": "F",
   "parentId": 34,
   "order": 35,
@@ -289,7 +289,7 @@
  },
  {
   "id": 36,
-  "label": "Spectrom\u00e8tre RMN Type Liquide Sondes HX Noyaux 13C",
+  "label": "Spectrom\u00e8tre RMN, Type, Liquide, Sondes, HX, Noyaux, 13C",
   "shortLabel": "13C",
   "parentId": 34,
   "order": 36,
@@ -297,7 +297,7 @@
  },
  {
   "id": 37,
-  "label": "Spectrom\u00e8tre RMN Type Liquide Sondes HX Noyaux 31P",
+  "label": "Spectrom\u00e8tre RMN, Type, Liquide, Sondes, HX, Noyaux, 31P",
   "shortLabel": "31P",
   "parentId": 34,
   "order": 37,
@@ -305,7 +305,7 @@
  },
  {
   "id": 38,
-  "label": "Spectrom\u00e8tre RMN Type Liquide Sondes HX Noyaux 15N",
+  "label": "Spectrom\u00e8tre RMN, Type, Liquide, Sondes, HX, Noyaux, 15N",
   "shortLabel": "15N",
   "parentId": 34,
   "order": 38,
@@ -313,7 +313,7 @@
  },
  {
   "id": 39,
-  "label": "Spectrom\u00e8tre RMN Type Liquide Sondes HX Diametre",
+  "label": "Spectrom\u00e8tre RMN, Type, Liquide, Sondes, HX, Diametre",
   "shortLabel": "Diametre",
   "parentId": 33,
   "order": 39,
@@ -321,7 +321,7 @@
  },
  {
   "id": 40,
-  "label": "Spectrom\u00e8tre RMN Type Liquide Sondes HX Diametre 10mm",
+  "label": "Spectrom\u00e8tre RMN, Type, Liquide, Sondes, HX, Diametre, 10mm",
   "shortLabel": "10mm",
   "parentId": 39,
   "order": 40,
@@ -329,7 +329,7 @@
  },
  {
   "id": 41,
-  "label": "Spectrom\u00e8tre RMN Type Liquide Sondes HX Diametre 5 mm",
+  "label": "Spectrom\u00e8tre RMN, Type, Liquide, Sondes, HX, Diametre, 5 mm",
   "shortLabel": "5 mm",
   "parentId": 39,
   "order": 41,
@@ -337,7 +337,7 @@
  },
  {
   "id": 42,
-  "label": "Spectrom\u00e8tre RMN Type Liquide Sondes HX Diametre 3mm",
+  "label": "Spectrom\u00e8tre RMN, Type, Liquide, Sondes, HX, Diametre, 3mm",
   "shortLabel": "3mm",
   "parentId": 39,
   "order": 42,
@@ -345,7 +345,7 @@
  },
  {
   "id": 43,
-  "label": "Spectrom\u00e8tre RMN Type Liquide Sondes HX Diametre 1.7mm",
+  "label": "Spectrom\u00e8tre RMN, Type, Liquide, Sondes, HX, Diametre, 1.7mm",
   "shortLabel": "1.7mm",
   "parentId": 39,
   "order": 43,
@@ -353,7 +353,7 @@
  },
  {
   "id": 44,
-  "label": "Spectrom\u00e8tre RMN Type Liquide Sondes HX Cryo sonde",
+  "label": "Spectrom\u00e8tre RMN, Type, Liquide, Sondes, HX, Cryo sonde",
   "shortLabel": "Cryo sonde",
   "parentId": 33,
   "order": 44,
@@ -361,7 +361,7 @@
  },
  {
   "id": 45,
-  "label": "Spectrom\u00e8tre RMN Type Liquide Sondes HXY",
+  "label": "Spectrom\u00e8tre RMN, Type, Liquide, Sondes, HXY",
   "shortLabel": "HXY",
   "parentId": 32,
   "order": 45,
@@ -369,7 +369,7 @@
  },
  {
   "id": 46,
-  "label": "Spectrom\u00e8tre RMN Type Liquide Sondes HXY Noyaux",
+  "label": "Spectrom\u00e8tre RMN, Type, Liquide, Sondes, HXY, Noyaux",
   "shortLabel": "Noyaux",
   "parentId": 45,
   "order": 46,
@@ -377,7 +377,7 @@
  },
  {
   "id": 47,
-  "label": "Spectrom\u00e8tre RMN Type Liquide Sondes HXY Noyaux F",
+  "label": "Spectrom\u00e8tre RMN, Type, Liquide, Sondes, HXY, Noyaux, F",
   "shortLabel": "F",
   "parentId": 46,
   "order": 47,
@@ -385,7 +385,7 @@
  },
  {
   "id": 48,
-  "label": "Spectrom\u00e8tre RMN Type Liquide Sondes HXY Noyaux 13C",
+  "label": "Spectrom\u00e8tre RMN, Type, Liquide, Sondes, HXY, Noyaux, 13C",
   "shortLabel": "13C",
   "parentId": 46,
   "order": 48,
@@ -393,7 +393,7 @@
  },
  {
   "id": 49,
-  "label": "Spectrom\u00e8tre RMN Type Liquide Sondes HXY Noyaux 31P",
+  "label": "Spectrom\u00e8tre RMN, Type, Liquide, Sondes, HXY, Noyaux, 31P",
   "shortLabel": "31P",
   "parentId": 46,
   "order": 49,
@@ -401,7 +401,7 @@
  },
  {
   "id": 50,
-  "label": "Spectrom\u00e8tre RMN Type Liquide Sondes HXY Noyaux 15N",
+  "label": "Spectrom\u00e8tre RMN, Type, Liquide, Sondes, HXY, Noyaux, 15N",
   "shortLabel": "15N",
   "parentId": 46,
   "order": 50,
@@ -409,7 +409,7 @@
  },
  {
   "id": 51,
-  "label": "Spectrom\u00e8tre RMN Type Liquide Sondes HXY Diametre",
+  "label": "Spectrom\u00e8tre RMN, Type, Liquide, Sondes, HXY, Diametre",
   "shortLabel": "Diametre",
   "parentId": 45,
   "order": 51,
@@ -417,7 +417,7 @@
  },
  {
   "id": 52,
-  "label": "Spectrom\u00e8tre RMN Type Liquide Sondes HXY Diametre 10mm",
+  "label": "Spectrom\u00e8tre RMN, Type, Liquide, Sondes, HXY, Diametre, 10mm",
   "shortLabel": "10mm",
   "parentId": 51,
   "order": 52,
@@ -425,7 +425,7 @@
  },
  {
   "id": 53,
-  "label": "Spectrom\u00e8tre RMN Type Liquide Sondes HXY Diametre 5 mm",
+  "label": "Spectrom\u00e8tre RMN, Type, Liquide, Sondes, HXY, Diametre, 5 mm",
   "shortLabel": "5 mm",
   "parentId": 51,
   "order": 53,
@@ -433,7 +433,7 @@
  },
  {
   "id": 54,
-  "label": "Spectrom\u00e8tre RMN Type Liquide Sondes HXY Diametre 3mm",
+  "label": "Spectrom\u00e8tre RMN, Type, Liquide, Sondes, HXY, Diametre, 3mm",
   "shortLabel": "3mm",
   "parentId": 51,
   "order": 54,
@@ -441,7 +441,7 @@
  },
  {
   "id": 55,
-  "label": "Spectrom\u00e8tre RMN Type Liquide Sondes HXY Diametre 1.7mm",
+  "label": "Spectrom\u00e8tre RMN, Type, Liquide, Sondes, HXY, Diametre, 1.7mm",
   "shortLabel": "1.7mm",
   "parentId": 51,
   "order": 55,
@@ -449,7 +449,7 @@
  },
  {
   "id": 56,
-  "label": "Spectrom\u00e8tre RMN Type Liquide Sondes HXY Cryo sonde",
+  "label": "Spectrom\u00e8tre RMN, Type, Liquide, Sondes, HXY, Cryo sonde",
   "shortLabel": "Cryo sonde",
   "parentId": 45,
   "order": 56,
@@ -457,7 +457,7 @@
  },
  {
   "id": 57,
-  "label": "Spectrom\u00e8tre RMN Type HR-MAS",
+  "label": "Spectrom\u00e8tre RMN, Type, HR-MAS",
   "shortLabel": "HR-MAS",
   "parentId": 8,
   "order": 57,
@@ -465,7 +465,7 @@
  },
  {
   "id": 58,
-  "label": "Spectrom\u00e8tre RMN Type HR-MAS Sondes",
+  "label": "Spectrom\u00e8tre RMN, Type, HR-MAS, Sondes",
   "shortLabel": "Sondes",
   "parentId": 57,
   "order": 58,
@@ -473,7 +473,7 @@
  },
  {
   "id": 59,
-  "label": "Spectrom\u00e8tre RMN Type HR-MAS Sondes HXY",
+  "label": "Spectrom\u00e8tre RMN, Type, HR-MAS, Sondes, HXY",
   "shortLabel": "HXY",
   "parentId": 58,
   "order": 59,
@@ -481,7 +481,7 @@
  },
  {
   "id": 60,
-  "label": "Spectrom\u00e8tre RMN Type HR-MAS Sondes HXY Noyaux",
+  "label": "Spectrom\u00e8tre RMN, Type, HR-MAS, Sondes, HXY, Noyaux",
   "shortLabel": "Noyaux",
   "parentId": 59,
   "order": 60,
@@ -489,7 +489,7 @@
  },
  {
   "id": 61,
-  "label": "Spectrom\u00e8tre RMN Type HR-MAS Sondes HXY Noyaux F",
+  "label": "Spectrom\u00e8tre RMN, Type, HR-MAS, Sondes, HXY, Noyaux, F",
   "shortLabel": "F",
   "parentId": 60,
   "order": 61,
@@ -497,7 +497,7 @@
  },
  {
   "id": 62,
-  "label": "Spectrom\u00e8tre RMN Type HR-MAS Sondes HXY Noyaux 13C",
+  "label": "Spectrom\u00e8tre RMN, Type, HR-MAS, Sondes, HXY, Noyaux, 13C",
   "shortLabel": "13C",
   "parentId": 60,
   "order": 62,
@@ -505,7 +505,7 @@
  },
  {
   "id": 63,
-  "label": "Spectrom\u00e8tre RMN Type HR-MAS Sondes HXY Noyaux 31P",
+  "label": "Spectrom\u00e8tre RMN, Type, HR-MAS, Sondes, HXY, Noyaux, 31P",
   "shortLabel": "31P",
   "parentId": 60,
   "order": 63,
@@ -513,7 +513,7 @@
  },
  {
   "id": 64,
-  "label": "Spectrom\u00e8tre RMN Type HR-MAS Sondes HXY Noyaux 15N",
+  "label": "Spectrom\u00e8tre RMN, Type, HR-MAS, Sondes, HXY, Noyaux, 15N",
   "shortLabel": "15N",
   "parentId": 60,
   "order": 64,
@@ -521,7 +521,7 @@
  },
  {
   "id": 65,
-  "label": "Spectrom\u00e8tre RMN Type HR-MAS Sondes HXY Diametre",
+  "label": "Spectrom\u00e8tre RMN, Type, HR-MAS, Sondes, HXY, Diametre",
   "shortLabel": "Diametre",
   "parentId": 59,
   "order": 65,
@@ -529,7 +529,7 @@
  },
  {
   "id": 66,
-  "label": "Spectrom\u00e8tre RMN Type HR-MAS Sondes HXY Diametre 10mm",
+  "label": "Spectrom\u00e8tre RMN, Type, HR-MAS, Sondes, HXY, Diametre, 10mm",
   "shortLabel": "10mm",
   "parentId": 65,
   "order": 66,
@@ -537,7 +537,7 @@
  },
  {
   "id": 67,
-  "label": "Spectrom\u00e8tre RMN Type HR-MAS Sondes HXY Diametre 5 mm",
+  "label": "Spectrom\u00e8tre RMN, Type, HR-MAS, Sondes, HXY, Diametre, 5 mm",
   "shortLabel": "5 mm",
   "parentId": 65,
   "order": 67,
@@ -545,7 +545,7 @@
  },
  {
   "id": 68,
-  "label": "Spectrom\u00e8tre RMN Type HR-MAS Sondes HXY Diametre 3mm",
+  "label": "Spectrom\u00e8tre RMN, Type, HR-MAS, Sondes, HXY, Diametre, 3mm",
   "shortLabel": "3mm",
   "parentId": 65,
   "order": 68,
@@ -553,7 +553,7 @@
  },
  {
   "id": 69,
-  "label": "Spectrom\u00e8tre RMN Type HR-MAS Sondes HXY Diametre 1.7mm",
+  "label": "Spectrom\u00e8tre RMN, Type, HR-MAS, Sondes, HXY, Diametre, 1.7mm",
   "shortLabel": "1.7mm",
   "parentId": 65,
   "order": 69,
@@ -561,7 +561,7 @@
  },
  {
   "id": 70,
-  "label": "Spectrom\u00e8tre RMN Type HR-MAS Sondes HXY Cryo sonde",
+  "label": "Spectrom\u00e8tre RMN, Type, HR-MAS, Sondes, HXY, Cryo sonde",
   "shortLabel": "Cryo sonde",
   "parentId": 59,
   "order": 70,
@@ -569,7 +569,7 @@
  },
  {
   "id": 71,
-  "label": "Spectrom\u00e8tre RMN Bore",
+  "label": "Spectrom\u00e8tre RMN, Bore",
   "shortLabel": "Bore",
   "parentId": 1,
   "order": 71,
@@ -577,7 +577,7 @@
  },
  {
   "id": 72,
-  "label": "Spectrom\u00e8tre RMN Bore Standard Bore",
+  "label": "Spectrom\u00e8tre RMN, Bore, Standard Bore",
   "shortLabel": "Standard Bore",
   "parentId": 71,
   "order": 72,
@@ -585,7 +585,7 @@
  },
  {
   "id": 73,
-  "label": "Spectrom\u00e8tre RMN Bore Wide Bore",
+  "label": "Spectrom\u00e8tre RMN, Bore, Wide Bore",
   "shortLabel": "Wide Bore",
   "parentId": 71,
   "order": 73,
@@ -593,7 +593,7 @@
  },
  {
   "id": 74,
-  "label": "Spectrom\u00e8tre RMN Bore Ultra wide Bore",
+  "label": "Spectrom\u00e8tre RMN, Bore, Ultra wide Bore",
   "shortLabel": "Ultra wide Bore",
   "parentId": 71,
   "order": 74,
@@ -601,7 +601,7 @@
  },
  {
   "id": 75,
-  "label": "Spectrom\u00e8tre RMN Equipements",
+  "label": "Spectrom\u00e8tre RMN, Equipements",
   "shortLabel": "Equipements",
   "parentId": 1,
   "order": 75,
@@ -609,7 +609,7 @@
  },
  {
   "id": 76,
-  "label": "Spectrom\u00e8tre RMN Equipements Imagerie",
+  "label": "Spectrom\u00e8tre RMN, Equipements, Imagerie",
   "shortLabel": "Imagerie",
   "parentId": 75,
   "order": 76,
@@ -617,7 +617,7 @@
  },
  {
   "id": 77,
-  "label": "Spectrom\u00e8tre RMN Equipements Gradients/diffusion",
+  "label": "Spectrom\u00e8tre RMN, Equipements, Gradients/diffusion",
   "shortLabel": "Gradients/diffusion",
   "parentId": 75,
   "order": 77,
@@ -625,7 +625,7 @@
  },
  {
   "id": 78,
-  "label": "Spectrom\u00e8tre RMN Equipements Passeur d'echantillon",
+  "label": "Spectrom\u00e8tre RMN, Equipements, Passeur d'echantillon",
   "shortLabel": "Passeur d'echantillon",
   "parentId": 75,
   "order": 78,
@@ -633,7 +633,7 @@
  },
  {
   "id": 79,
-  "label": "Spectrom\u00e8tre RMN Equipements Passeur d'echantillon Refrig\u00e9r\u00e9",
+  "label": "Spectrom\u00e8tre RMN, Equipements, Passeur d'echantillon, Refrig\u00e9r\u00e9",
   "shortLabel": "Refrig\u00e9r\u00e9",
   "parentId": 78,
   "order": 79,
@@ -641,7 +641,7 @@
  },
  {
   "id": 80,
-  "label": "Spectrom\u00e8tre RMN Equipements DNP par dissolution",
+  "label": "Spectrom\u00e8tre RMN, Equipements, DNP par dissolution",
   "shortLabel": "DNP par dissolution",
   "parentId": 75,
   "order": 80,
@@ -657,7 +657,7 @@
  },
  {
   "id": 82,
-  "label": "Diffractom\u00e8tre RX Type de diffractometre",
+  "label": "Diffractom\u00e8tre RX, Type de diffractometre",
   "shortLabel": "Type de diffractometre",
   "parentId": 81,
   "order": 82,
@@ -665,7 +665,7 @@
  },
  {
   "id": 83,
-  "label": "Diffractom\u00e8tre RX Type de diffractometre Diffractom\u00e8tre monocristal",
+  "label": "Diffractom\u00e8tre RX, Type de diffractometre, Diffractom\u00e8tre monocristal",
   "shortLabel": "Diffractom\u00e8tre monocristal",
   "parentId": 82,
   "order": 83,
@@ -673,7 +673,7 @@
  },
  {
   "id": 84,
-  "label": "Diffractom\u00e8tre RX Type de diffractometre Diffractom\u00e8tre pour \u00e9chantillons polycristallins",
+  "label": "Diffractom\u00e8tre RX, Type de diffractometre, Diffractom\u00e8tre pour \u00e9chantillons polycristallins",
   "shortLabel": "Diffractom\u00e8tre pour \u00e9chantillons polycristallins",
   "parentId": 82,
   "order": 84,
@@ -681,7 +681,7 @@
  },
  {
   "id": 85,
-  "label": "Diffractom\u00e8tre RX Type de diffractometre Diffractom\u00e8tre pour mesures en incidence rasante",
+  "label": "Diffractom\u00e8tre RX, Type de diffractometre, Diffractom\u00e8tre pour mesures en incidence rasante",
   "shortLabel": "Diffractom\u00e8tre pour mesures en incidence rasante",
   "parentId": 82,
   "order": 85,
@@ -689,7 +689,7 @@
  },
  {
   "id": 86,
-  "label": "Diffractom\u00e8tre RX Type de source",
+  "label": "Diffractom\u00e8tre RX, Type de source",
   "shortLabel": "Type de source",
   "parentId": 81,
   "order": 86,
@@ -697,7 +697,7 @@
  },
  {
   "id": 87,
-  "label": "Diffractom\u00e8tre RX Type de source Tube RX",
+  "label": "Diffractom\u00e8tre RX, Type de source, Tube RX",
   "shortLabel": "Tube RX",
   "parentId": 86,
   "order": 87,
@@ -705,7 +705,7 @@
  },
  {
   "id": 88,
-  "label": "Diffractom\u00e8tre RX Type de source Microsource",
+  "label": "Diffractom\u00e8tre RX, Type de source, Microsource",
   "shortLabel": "Microsource",
   "parentId": 86,
   "order": 88,
@@ -713,7 +713,7 @@
  },
  {
   "id": 89,
-  "label": "Diffractom\u00e8tre RX Type de source Anode tournante",
+  "label": "Diffractom\u00e8tre RX, Type de source, Anode tournante",
   "shortLabel": "Anode tournante",
   "parentId": 86,
   "order": 89,
@@ -721,7 +721,7 @@
  },
  {
   "id": 90,
-  "label": "Diffractom\u00e8tre RX Type de source Autre",
+  "label": "Diffractom\u00e8tre RX, Type de source, Autre",
   "shortLabel": "Autre",
   "parentId": 86,
   "order": 90,
@@ -729,7 +729,7 @@
  },
  {
   "id": 91,
-  "label": "Diffractom\u00e8tre RX Longueur d'onde de la source RX",
+  "label": "Diffractom\u00e8tre RX, Longueur d'onde de la source RX",
   "shortLabel": "Longueur d'onde de la source RX",
   "parentId": 81,
   "order": 91,
@@ -737,7 +737,7 @@
  },
  {
   "id": 92,
-  "label": "Diffractom\u00e8tre RX Longueur d'onde de la source RX Ag",
+  "label": "Diffractom\u00e8tre RX, Longueur d'onde de la source RX, Ag",
   "shortLabel": "Ag",
   "parentId": 91,
   "order": 92,
@@ -745,7 +745,7 @@
  },
  {
   "id": 93,
-  "label": "Diffractom\u00e8tre RX Longueur d'onde de la source RX Mo",
+  "label": "Diffractom\u00e8tre RX, Longueur d'onde de la source RX, Mo",
   "shortLabel": "Mo",
   "parentId": 91,
   "order": 93,
@@ -753,7 +753,7 @@
  },
  {
   "id": 94,
-  "label": "Diffractom\u00e8tre RX Longueur d'onde de la source RX Cu",
+  "label": "Diffractom\u00e8tre RX, Longueur d'onde de la source RX, Cu",
   "shortLabel": "Cu",
   "parentId": 91,
   "order": 94,
@@ -761,7 +761,7 @@
  },
  {
   "id": 95,
-  "label": "Diffractom\u00e8tre RX Longueur d'onde de la source RX Co",
+  "label": "Diffractom\u00e8tre RX, Longueur d'onde de la source RX, Co",
   "shortLabel": "Co",
   "parentId": 91,
   "order": 95,
@@ -769,7 +769,7 @@
  },
  {
   "id": 96,
-  "label": "Diffractom\u00e8tre RX Longueur d'onde de la source RX Fe",
+  "label": "Diffractom\u00e8tre RX, Longueur d'onde de la source RX, Fe",
   "shortLabel": "Fe",
   "parentId": 91,
   "order": 96,
@@ -777,7 +777,7 @@
  },
  {
   "id": 97,
-  "label": "Diffractom\u00e8tre RX Type de d\u00e9tecteur",
+  "label": "Diffractom\u00e8tre RX, Type de d\u00e9tecteur",
   "shortLabel": "Type de d\u00e9tecteur",
   "parentId": 81,
   "order": 97,
@@ -785,7 +785,7 @@
  },
  {
   "id": 98,
-  "label": "Diffractom\u00e8tre RX Type de d\u00e9tecteur CMOS",
+  "label": "Diffractom\u00e8tre RX, Type de d\u00e9tecteur, CMOS",
   "shortLabel": "CMOS",
   "parentId": 97,
   "order": 98,
@@ -793,7 +793,7 @@
  },
  {
   "id": 99,
-  "label": "Diffractom\u00e8tre RX Type de d\u00e9tecteur CCD",
+  "label": "Diffractom\u00e8tre RX, Type de d\u00e9tecteur, CCD",
   "shortLabel": "CCD",
   "parentId": 97,
   "order": 99,
@@ -801,7 +801,7 @@
  },
  {
   "id": 100,
-  "label": "Diffractom\u00e8tre RX Type de d\u00e9tecteur Pixels hybrides",
+  "label": "Diffractom\u00e8tre RX, Type de d\u00e9tecteur, Pixels hybrides",
   "shortLabel": "Pixels hybrides",
   "parentId": 97,
   "order": 100,
@@ -809,7 +809,7 @@
  },
  {
   "id": 101,
-  "label": "Diffractom\u00e8tre RX Montage en r\u00e9flexion",
+  "label": "Diffractom\u00e8tre RX, Montage en r\u00e9flexion",
   "shortLabel": "Montage en r\u00e9flexion",
   "parentId": 81,
   "order": 101,
@@ -817,7 +817,7 @@
  },
  {
   "id": 102,
-  "label": "Diffractom\u00e8tre RX Montage en r\u00e9flexion G\u00e9om\u00e9trie Bragg-Brentano",
+  "label": "Diffractom\u00e8tre RX, Montage en r\u00e9flexion, G\u00e9om\u00e9trie Bragg-Brentano",
   "shortLabel": "G\u00e9om\u00e9trie Bragg-Brentano",
   "parentId": 101,
   "order": 102,
@@ -825,7 +825,7 @@
  },
  {
   "id": 103,
-  "label": "Diffractom\u00e8tre RX Montage en r\u00e9flexion G\u00e9om\u00e9trie en faisceau parall\u00e8le",
+  "label": "Diffractom\u00e8tre RX, Montage en r\u00e9flexion, G\u00e9om\u00e9trie en faisceau parall\u00e8le",
   "shortLabel": "G\u00e9om\u00e9trie en faisceau parall\u00e8le",
   "parentId": 101,
   "order": 103,
@@ -833,7 +833,7 @@
  },
  {
   "id": 104,
-  "label": "Diffractom\u00e8tre RX Accessoires",
+  "label": "Diffractom\u00e8tre RX, Accessoires",
   "shortLabel": "Accessoires",
   "parentId": 81,
   "order": 104,
@@ -841,7 +841,7 @@
  },
  {
   "id": 105,
-  "label": "Diffractom\u00e8tre RX Accessoires Cryostat (azote) pour mesures \u00e0 basse temp\u00e9rature (77 K - 300 K)",
+  "label": "Diffractom\u00e8tre RX, Accessoires, Cryostat (azote) pour mesures \u00e0 basse temp\u00e9rature (77 K - 300 K)",
   "shortLabel": "Cryostat (azote) pour mesures \u00e0 basse temp\u00e9rature (77 K - 300 K)",
   "parentId": 104,
   "order": 105,
@@ -849,7 +849,7 @@
  },
  {
   "id": 106,
-  "label": "Diffractom\u00e8tre RX Accessoires Cryostat (h\u00e9lium) pour mesures \u00e0 tr\u00e8s basse temp\u00e9rature (5 K)",
+  "label": "Diffractom\u00e8tre RX, Accessoires, Cryostat (h\u00e9lium) pour mesures \u00e0 tr\u00e8s basse temp\u00e9rature (5 K)",
   "shortLabel": "Cryostat (h\u00e9lium) pour mesures \u00e0 tr\u00e8s basse temp\u00e9rature (5 K)",
   "parentId": 104,
   "order": 106,
@@ -857,7 +857,7 @@
  },
  {
   "id": 107,
-  "label": "Diffractom\u00e8tre RX Accessoires Soufflette pour mesures \u00e0 haute temp\u00e9rature",
+  "label": "Diffractom\u00e8tre RX, Accessoires, Soufflette pour mesures \u00e0 haute temp\u00e9rature",
   "shortLabel": "Soufflette pour mesures \u00e0 haute temp\u00e9rature",
   "parentId": 104,
   "order": 107,
@@ -865,7 +865,7 @@
  },
  {
   "id": 108,
-  "label": "Diffractom\u00e8tre RX Accessoires Dispositif pour mesures sous champ \u00e9lectrique",
+  "label": "Diffractom\u00e8tre RX, Accessoires, Dispositif pour mesures sous champ \u00e9lectrique",
   "shortLabel": "Dispositif pour mesures sous champ \u00e9lectrique",
   "parentId": 104,
   "order": 108,
@@ -873,7 +873,7 @@
  },
  {
   "id": 109,
-  "label": "Diffractom\u00e8tre RX Accessoires Dispositif pour mesures sous champ magn\u00e9tique",
+  "label": "Diffractom\u00e8tre RX, Accessoires, Dispositif pour mesures sous champ magn\u00e9tique",
   "shortLabel": "Dispositif pour mesures sous champ magn\u00e9tique",
   "parentId": 104,
   "order": 109,
@@ -881,7 +881,7 @@
  },
  {
   "id": 110,
-  "label": "Diffractom\u00e8tre RX Accessoires Cellule pour mesures sous pression",
+  "label": "Diffractom\u00e8tre RX, Accessoires, Cellule pour mesures sous pression",
   "shortLabel": "Cellule pour mesures sous pression",
   "parentId": 104,
   "order": 110,
@@ -889,7 +889,7 @@
  },
  {
   "id": 111,
-  "label": "Diffractom\u00e8tre RX Accessoires Dispositif pour mesures sous excitation lumineuse",
+  "label": "Diffractom\u00e8tre RX, Accessoires, Dispositif pour mesures sous excitation lumineuse",
   "shortLabel": "Dispositif pour mesures sous excitation lumineuse",
   "parentId": 104,
   "order": 111,
@@ -897,7 +897,7 @@
  },
  {
   "id": 112,
-  "label": "Diffractom\u00e8tre RX Accessoires Autres dispositifs sp\u00e9cifiques",
+  "label": "Diffractom\u00e8tre RX, Accessoires, Autres dispositifs sp\u00e9cifiques",
   "shortLabel": "Autres dispositifs sp\u00e9cifiques",
   "parentId": 104,
   "order": 112,
@@ -913,7 +913,7 @@
  },
  {
   "id": 114,
-  "label": "Spectrom\u00e8tre RPE Champ",
+  "label": "Spectrom\u00e8tre RPE, Champ",
   "shortLabel": "Champ",
   "parentId": 113,
   "order": 114,
@@ -921,7 +921,7 @@
  },
  {
   "id": 115,
-  "label": "Spectrom\u00e8tre RPE Equipements",
+  "label": "Spectrom\u00e8tre RPE, Equipements",
   "shortLabel": "Equipements",
   "parentId": 113,
   "order": 115,
@@ -929,7 +929,7 @@
  },
  {
   "id": 116,
-  "label": "Spectrom\u00e8tre RPE Equipements Sondes",
+  "label": "Spectrom\u00e8tre RPE, Equipements, Sondes",
   "shortLabel": "Sondes",
   "parentId": 115,
   "order": 116,
@@ -937,7 +937,7 @@
  },
  {
   "id": 117,
-  "label": "Spectrom\u00e8tre RPE Equipements Sondes HX",
+  "label": "Spectrom\u00e8tre RPE, Equipements, Sondes, HX",
   "shortLabel": "HX",
   "parentId": 116,
   "order": 117,
@@ -945,7 +945,7 @@
  },
  {
   "id": 118,
-  "label": "Spectrom\u00e8tre RPE Equipements Sondes HXY",
+  "label": "Spectrom\u00e8tre RPE, Equipements, Sondes, HXY",
   "shortLabel": "HXY",
   "parentId": 116,
   "order": 118,
@@ -953,7 +953,7 @@
  },
  {
   "id": 119,
-  "label": "Spectrom\u00e8tre RPE Solide",
+  "label": "Spectrom\u00e8tre RPE, Solide",
   "shortLabel": "Solide",
   "parentId": 113,
   "order": 119,
@@ -961,7 +961,7 @@
  },
  {
   "id": 120,
-  "label": "Spectrom\u00e8tre RPE Liquide",
+  "label": "Spectrom\u00e8tre RPE, Liquide",
   "shortLabel": "Liquide",
   "parentId": 113,
   "order": 120,
@@ -969,7 +969,7 @@
  },
  {
   "id": 121,
-  "label": "Spectrom\u00e8tre RPE Sondes",
+  "label": "Spectrom\u00e8tre RPE, Sondes",
   "shortLabel": "Sondes",
   "parentId": 113,
   "order": 121,
@@ -977,7 +977,7 @@
  },
  {
   "id": 122,
-  "label": "Spectrom\u00e8tre RPE Sondes HX",
+  "label": "Spectrom\u00e8tre RPE, Sondes, HX",
   "shortLabel": "HX",
   "parentId": 121,
   "order": 122,
@@ -985,7 +985,7 @@
  },
  {
   "id": 123,
-  "label": "Spectrom\u00e8tre RPE Sondes HXY",
+  "label": "Spectrom\u00e8tre RPE, Sondes, HXY",
   "shortLabel": "HXY",
   "parentId": 121,
   "order": 123,
@@ -993,7 +993,7 @@
  },
  {
   "id": 124,
-  "label": "Spectrom\u00e8tre RPE HX",
+  "label": "Spectrom\u00e8tre RPE, HX",
   "shortLabel": "HX",
   "parentId": 113,
   "order": 124,
@@ -1001,7 +1001,7 @@
  },
  {
   "id": 125,
-  "label": "Spectrom\u00e8tre RPE RPE",
+  "label": "Spectrom\u00e8tre RPE, RPE",
   "shortLabel": "RPE",
   "parentId": 113,
   "order": 125,
@@ -1009,7 +1009,7 @@
  },
  {
   "id": 126,
-  "label": "Spectrom\u00e8tre RPE RPE Champ",
+  "label": "Spectrom\u00e8tre RPE, RPE, Champ",
   "shortLabel": "Champ",
   "parentId": 125,
   "order": 126,
@@ -1017,7 +1017,7 @@
  },
  {
   "id": 127,
-  "label": "Spectrom\u00e8tre RPE RPE Equipements",
+  "label": "Spectrom\u00e8tre RPE, RPE, Equipements",
   "shortLabel": "Equipements",
   "parentId": 125,
   "order": 127,
@@ -1025,7 +1025,7 @@
  },
  {
   "id": 128,
-  "label": "Spectrom\u00e8tre RPE RPE Equipements Sondes",
+  "label": "Spectrom\u00e8tre RPE, RPE, Equipements, Sondes",
   "shortLabel": "Sondes",
   "parentId": 127,
   "order": 128,
@@ -1033,7 +1033,7 @@
  },
  {
   "id": 129,
-  "label": "Spectrom\u00e8tre RPE RPE Equipements Sondes HX",
+  "label": "Spectrom\u00e8tre RPE, RPE, Equipements, Sondes, HX",
   "shortLabel": "HX",
   "parentId": 128,
   "order": 129,
@@ -1041,7 +1041,7 @@
  },
  {
   "id": 130,
-  "label": "Spectrom\u00e8tre RPE RPE Equipements Sondes HXY",
+  "label": "Spectrom\u00e8tre RPE, RPE, Equipements, Sondes, HXY",
   "shortLabel": "HXY",
   "parentId": 128,
   "order": 130,
@@ -1049,7 +1049,7 @@
  },
  {
   "id": 131,
-  "label": "Spectrom\u00e8tre RPE RPE Solide",
+  "label": "Spectrom\u00e8tre RPE, RPE, Solide",
   "shortLabel": "Solide",
   "parentId": 125,
   "order": 131,
@@ -1057,7 +1057,7 @@
  },
  {
   "id": 132,
-  "label": "Spectrom\u00e8tre RPE RPE Liquide",
+  "label": "Spectrom\u00e8tre RPE, RPE, Liquide",
   "shortLabel": "Liquide",
   "parentId": 125,
   "order": 132,
@@ -1065,7 +1065,7 @@
  },
  {
   "id": 133,
-  "label": "Spectrom\u00e8tre RPE RPE Sondes",
+  "label": "Spectrom\u00e8tre RPE, RPE, Sondes",
   "shortLabel": "Sondes",
   "parentId": 125,
   "order": 133,
@@ -1073,7 +1073,7 @@
  },
  {
   "id": 134,
-  "label": "Spectrom\u00e8tre RPE RPE Sondes HX",
+  "label": "Spectrom\u00e8tre RPE, RPE, Sondes, HX",
   "shortLabel": "HX",
   "parentId": 133,
   "order": 134,
@@ -1081,7 +1081,7 @@
  },
  {
   "id": 135,
-  "label": "Spectrom\u00e8tre RPE RPE Sondes HXY",
+  "label": "Spectrom\u00e8tre RPE, RPE, Sondes, HXY",
   "shortLabel": "HXY",
   "parentId": 133,
   "order": 135,
@@ -1089,7 +1089,7 @@
  },
  {
   "id": 136,
-  "label": "Spectrom\u00e8tre RPE RPE HX",
+  "label": "Spectrom\u00e8tre RPE, RPE, HX",
   "shortLabel": "HX",
   "parentId": 125,
   "order": 136,
@@ -1105,7 +1105,7 @@
  },
  {
   "id": 138,
-  "label": "Spectrom\u00e8tre de masse Analyseur",
+  "label": "Spectrom\u00e8tre de masse, Analyseur",
   "shortLabel": "Analyseur",
   "parentId": 137,
   "order": 138,
@@ -1113,7 +1113,7 @@
  },
  {
   "id": 139,
-  "label": "Spectrom\u00e8tre de masse Analyseur Quadrup\\u244le",
+  "label": "Spectrom\u00e8tre de masse, Analyseur, Quadrup\\u244le",
   "shortLabel": "Quadrup\\u244le",
   "parentId": 138,
   "order": 139,
@@ -1121,7 +1121,7 @@
  },
  {
   "id": 140,
-  "label": "Spectrom\u00e8tre de masse Analyseur Pi\u00e8ge \u00e0 ions 3D",
+  "label": "Spectrom\u00e8tre de masse, Analyseur, Pi\u00e8ge \u00e0 ions 3D",
   "shortLabel": "Pi\u00e8ge \u00e0 ions 3D",
   "parentId": 138,
   "order": 140,
@@ -1129,7 +1129,7 @@
  },
  {
   "id": 141,
-  "label": "Spectrom\u00e8tre de masse Analyseur Pi\u00e8ge \u00e0 ions lin\u00e9aire",
+  "label": "Spectrom\u00e8tre de masse, Analyseur, Pi\u00e8ge \u00e0 ions lin\u00e9aire",
   "shortLabel": "Pi\u00e8ge \u00e0 ions lin\u00e9aire",
   "parentId": 138,
   "order": 141,
@@ -1137,7 +1137,7 @@
  },
  {
   "id": 142,
-  "label": "Spectrom\u00e8tre de masse Analyseur TOF",
+  "label": "Spectrom\u00e8tre de masse, Analyseur, TOF",
   "shortLabel": "TOF",
   "parentId": 138,
   "order": 142,
@@ -1145,7 +1145,7 @@
  },
  {
   "id": 143,
-  "label": "Spectrom\u00e8tre de masse Analyseur Orbitrap",
+  "label": "Spectrom\u00e8tre de masse, Analyseur, Orbitrap",
   "shortLabel": "Orbitrap",
   "parentId": 138,
   "order": 143,
@@ -1153,7 +1153,7 @@
  },
  {
   "id": 144,
-  "label": "Spectrom\u00e8tre de masse Analyseur FTICR",
+  "label": "Spectrom\u00e8tre de masse, Analyseur, FTICR",
   "shortLabel": "FTICR",
   "parentId": 138,
   "order": 144,
@@ -1161,7 +1161,7 @@
  },
  {
   "id": 145,
-  "label": "Spectrom\u00e8tre de masse Analyseur FTICR Champ magn\u00e9tique",
+  "label": "Spectrom\u00e8tre de masse, Analyseur, FTICR, Champ magn\u00e9tique",
   "shortLabel": "Champ magn\u00e9tique",
   "parentId": 144,
   "order": 145,
@@ -1169,7 +1169,7 @@
  },
  {
   "id": 146,
-  "label": "Spectrom\u00e8tre de masse Analyseur TOF-SIMS",
+  "label": "Spectrom\u00e8tre de masse, Analyseur, TOF-SIMS",
   "shortLabel": "TOF-SIMS",
   "parentId": 138,
   "order": 146,
@@ -1177,7 +1177,7 @@
  },
  {
   "id": 147,
-  "label": "Spectrom\u00e8tre de masse Analyseur NanoSIMS",
+  "label": "Spectrom\u00e8tre de masse, Analyseur, NanoSIMS",
   "shortLabel": "NanoSIMS",
   "parentId": 138,
   "order": 147,
@@ -1185,7 +1185,7 @@
  },
  {
   "id": 148,
-  "label": "Spectrom\u00e8tre de masse Source d'ionisation",
+  "label": "Spectrom\u00e8tre de masse, Source d'ionisation",
   "shortLabel": "Source d'ionisation",
   "parentId": 137,
   "order": 148,
@@ -1193,7 +1193,7 @@
  },
  {
   "id": 149,
-  "label": "Spectrom\u00e8tre de masse Source d'ionisation Ionisation \u00e9lectronique (EI)",
+  "label": "Spectrom\u00e8tre de masse, Source d'ionisation, Ionisation \u00e9lectronique (EI)",
   "shortLabel": "Ionisation \u00e9lectronique (EI)",
   "parentId": 148,
   "order": 149,
@@ -1201,7 +1201,7 @@
  },
  {
   "id": 150,
-  "label": "Spectrom\u00e8tre de masse Source d'ionisation Ionisation chimique (CI)",
+  "label": "Spectrom\u00e8tre de masse, Source d'ionisation, Ionisation chimique (CI)",
   "shortLabel": "Ionisation chimique (CI)",
   "parentId": 148,
   "order": 150,
@@ -1209,7 +1209,7 @@
  },
  {
   "id": 151,
-  "label": "Spectrom\u00e8tre de masse Source d'ionisation D\u00e9sorption-ionisation chimique (DCI)",
+  "label": "Spectrom\u00e8tre de masse, Source d'ionisation, D\u00e9sorption-ionisation chimique (DCI)",
   "shortLabel": "D\u00e9sorption-ionisation chimique (DCI)",
   "parentId": 148,
   "order": 151,
@@ -1217,7 +1217,7 @@
  },
  {
   "id": 152,
-  "label": "Spectrom\u00e8tre de masse Source d'ionisation Ionisation par bombardement d'atomes rapides (FAB)",
+  "label": "Spectrom\u00e8tre de masse, Source d'ionisation, Ionisation par bombardement d'atomes rapides (FAB)",
   "shortLabel": "Ionisation par bombardement d'atomes rapides (FAB)",
   "parentId": 148,
   "order": 152,
@@ -1225,7 +1225,7 @@
  },
  {
   "id": 153,
-  "label": "Spectrom\u00e8tre de masse Source d'ionisation Ionisation par \u00e9lectron\u00e9bulisation (electrospray ionisation) (ESI)",
+  "label": "Spectrom\u00e8tre de masse, Source d'ionisation, Ionisation par \u00e9lectron\u00e9bulisation (electrospray ionisation) (ESI)",
   "shortLabel": "Ionisation par \u00e9lectron\u00e9bulisation (electrospray ionisation) (ESI)",
   "parentId": 148,
   "order": 153,
@@ -1233,7 +1233,7 @@
  },
  {
   "id": 154,
-  "label": "Spectrom\u00e8tre de masse Source d'ionisation Photo-ionisation \u00e0 pression atmosph\u00e9rique (APPI)",
+  "label": "Spectrom\u00e8tre de masse, Source d'ionisation, Photo-ionisation \u00e0 pression atmosph\u00e9rique (APPI)",
   "shortLabel": "Photo-ionisation \u00e0 pression atmosph\u00e9rique (APPI)",
   "parentId": 148,
   "order": 154,
@@ -1241,7 +1241,7 @@
  },
  {
   "id": 155,
-  "label": "Spectrom\u00e8tre de masse Source d'ionisation Ionisation chimique \u00e0 pression atmosph\u00e9rique (APCI)",
+  "label": "Spectrom\u00e8tre de masse, Source d'ionisation, Ionisation chimique \u00e0 pression atmosph\u00e9rique (APCI)",
   "shortLabel": "Ionisation chimique \u00e0 pression atmosph\u00e9rique (APCI)",
   "parentId": 148,
   "order": 155,
@@ -1249,7 +1249,7 @@
  },
  {
   "id": 156,
-  "label": "Spectrom\u00e8tre de masse Source d'ionisation D\u00e9sorption-ionisation laser assist\u00e9e par matrice (MALDI)",
+  "label": "Spectrom\u00e8tre de masse, Source d'ionisation, D\u00e9sorption-ionisation laser assist\u00e9e par matrice (MALDI)",
   "shortLabel": "D\u00e9sorption-ionisation laser assist\u00e9e par matrice (MALDI)",
   "parentId": 148,
   "order": 156,
@@ -1257,7 +1257,7 @@
  },
  {
   "id": 157,
-  "label": "Spectrom\u00e8tre de masse Source d'ionisation Ionisation thermique (TIMS)",
+  "label": "Spectrom\u00e8tre de masse, Source d'ionisation, Ionisation thermique (TIMS)",
   "shortLabel": "Ionisation thermique (TIMS)",
   "parentId": 148,
   "order": 157,
@@ -1265,7 +1265,7 @@
  },
  {
   "id": 158,
-  "label": "Spectrom\u00e8tre de masse Source d'ionisation D\u00e9sorption-ionisation sur silicium (DIOS)",
+  "label": "Spectrom\u00e8tre de masse, Source d'ionisation, D\u00e9sorption-ionisation sur silicium (DIOS)",
   "shortLabel": "D\u00e9sorption-ionisation sur silicium (DIOS)",
   "parentId": 148,
   "order": 158,
@@ -1273,7 +1273,7 @@
  },
  {
   "id": 159,
-  "label": "Spectrom\u00e8tre de masse Source d'ionisation Ionisation-d\u00e9sorption par interaction avec esp\u00e8ces m\u00e9tastables (DART)",
+  "label": "Spectrom\u00e8tre de masse, Source d'ionisation, Ionisation-d\u00e9sorption par interaction avec esp\u00e8ces m\u00e9tastables (DART)",
   "shortLabel": "Ionisation-d\u00e9sorption par interaction avec esp\u00e8ces m\u00e9tastables (DART)",
   "parentId": 148,
   "order": 159,
@@ -1281,7 +1281,7 @@
  },
  {
   "id": 160,
-  "label": "Spectrom\u00e8tre de masse Source d'ionisation Couplage plasma inductif (ICP)",
+  "label": "Spectrom\u00e8tre de masse, Source d'ionisation, Couplage plasma inductif (ICP)",
   "shortLabel": "Couplage plasma inductif (ICP)",
   "parentId": 148,
   "order": 160,
@@ -1289,7 +1289,7 @@
  },
  {
   "id": 161,
-  "label": "Spectrom\u00e8tre de masse Syst\u00e8me d'introduction de l'\u00e9chantillon",
+  "label": "Spectrom\u00e8tre de masse, Syst\u00e8me d'introduction de l'\u00e9chantillon",
   "shortLabel": "Syst\u00e8me d'introduction de l'\u00e9chantillon",
   "parentId": 137,
   "order": 161,
@@ -1297,7 +1297,7 @@
  },
  {
   "id": 162,
-  "label": "Spectrom\u00e8tre de masse MS/MS",
+  "label": "Spectrom\u00e8tre de masse, MS/MS",
   "shortLabel": "MS/MS",
   "parentId": 137,
   "order": 162,
@@ -1305,7 +1305,7 @@
  },
  {
   "id": 163,
-  "label": "Spectrom\u00e8tre de masse Couplage",
+  "label": "Spectrom\u00e8tre de masse, Couplage",
   "shortLabel": "Couplage",
   "parentId": 137,
   "order": 163,
@@ -1313,7 +1313,7 @@
  },
  {
   "id": 164,
-  "label": "Spectrom\u00e8tre de masse Couplage Mobilit\u00e9 ionique",
+  "label": "Spectrom\u00e8tre de masse, Couplage, Mobilit\u00e9 ionique",
   "shortLabel": "Mobilit\u00e9 ionique",
   "parentId": 163,
   "order": 164,
@@ -1321,7 +1321,7 @@
  },
  {
   "id": 165,
-  "label": "Spectrom\u00e8tre de masse Couplage LC",
+  "label": "Spectrom\u00e8tre de masse, Couplage, LC",
   "shortLabel": "LC",
   "parentId": 163,
   "order": 165,
@@ -1329,7 +1329,7 @@
  },
  {
   "id": 166,
-  "label": "Spectrom\u00e8tre de masse Couplage GC",
+  "label": "Spectrom\u00e8tre de masse, Couplage, GC",
   "shortLabel": "GC",
   "parentId": 163,
   "order": 166,
@@ -1345,7 +1345,7 @@
  },
  {
   "id": 168,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Type de spectrom\u00e8tre M\u00f6ssbauer",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Type de spectrom\u00e8tre M\u00f6ssbauer",
   "shortLabel": "Type de spectrom\u00e8tre M\u00f6ssbauer",
   "parentId": 167,
   "order": 168,
@@ -1353,7 +1353,7 @@
  },
  {
   "id": 169,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Type de spectrom\u00e8tre M\u00f6ssbauer En transmission",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Type de spectrom\u00e8tre M\u00f6ssbauer, En transmission",
   "shortLabel": "En transmission",
   "parentId": 168,
   "order": 169,
@@ -1361,7 +1361,7 @@
  },
  {
   "id": 170,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Type de spectrom\u00e8tre M\u00f6ssbauer En r\u00e9flexion (rayons X ou rayons \u03b3)",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Type de spectrom\u00e8tre M\u00f6ssbauer, En r\u00e9flexion (rayons X ou rayons \u03b3)",
   "shortLabel": "En r\u00e9flexion (rayons X ou rayons \u03b3)",
   "parentId": 168,
   "order": 170,
@@ -1369,7 +1369,7 @@
  },
  {
   "id": 171,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Type de spectrom\u00e8tre M\u00f6ssbauer Avec source synchrotron (SMS), en transmission ou en r\u00e9flexion",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Type de spectrom\u00e8tre M\u00f6ssbauer, Avec source synchrotron (SMS), en transmission ou en r\u00e9flexion",
   "shortLabel": "Avec source synchrotron (SMS), en transmission ou en r\u00e9flexion",
   "parentId": 168,
   "order": 171,
@@ -1377,7 +1377,7 @@
  },
  {
   "id": 172,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Type de spectrom\u00e8tre M\u00f6ssbauer D'\u00e9lectrons de conversion (CEMS)",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Type de spectrom\u00e8tre M\u00f6ssbauer, D'\u00e9lectrons de conversion (CEMS)",
   "shortLabel": "D'\u00e9lectrons de conversion (CEMS)",
   "parentId": 168,
   "order": 172,
@@ -1385,7 +1385,7 @@
  },
  {
   "id": 173,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer 149Sm",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, 149Sm",
   "shortLabel": "149Sm",
   "parentId": 167,
   "order": 173,
@@ -1393,7 +1393,7 @@
  },
  {
   "id": 174,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Isotopes",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Isotopes",
   "shortLabel": "Isotopes",
   "parentId": 167,
   "order": 174,
@@ -1401,7 +1401,7 @@
  },
  {
   "id": 175,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Isotopes 57Fe",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Isotopes, 57Fe",
   "shortLabel": "57Fe",
   "parentId": 174,
   "order": 175,
@@ -1409,7 +1409,7 @@
  },
  {
   "id": 176,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Isotopes 99Ru",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Isotopes, 99Ru",
   "shortLabel": "99Ru",
   "parentId": 174,
   "order": 176,
@@ -1417,7 +1417,7 @@
  },
  {
   "id": 177,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Isotopes 119Sn",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Isotopes, 119Sn",
   "shortLabel": "119Sn",
   "parentId": 174,
   "order": 177,
@@ -1425,7 +1425,7 @@
  },
  {
   "id": 178,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Isotopes 121Sb",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Isotopes, 121Sb",
   "shortLabel": "121Sb",
   "parentId": 174,
   "order": 178,
@@ -1433,7 +1433,7 @@
  },
  {
   "id": 179,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Isotopes 125Te",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Isotopes, 125Te",
   "shortLabel": "125Te",
   "parentId": 174,
   "order": 179,
@@ -1441,7 +1441,7 @@
  },
  {
   "id": 180,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Isotopes 127/129I",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Isotopes, 127/129I",
   "shortLabel": "127/129I",
   "parentId": 174,
   "order": 180,
@@ -1449,7 +1449,7 @@
  },
  {
   "id": 181,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Isotopes 151/153Eu",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Isotopes, 151/153Eu",
   "shortLabel": "151/153Eu",
   "parentId": 174,
   "order": 181,
@@ -1457,7 +1457,7 @@
  },
  {
   "id": 182,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Isotopes 155Gd",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Isotopes, 155Gd",
   "shortLabel": "155Gd",
   "parentId": 174,
   "order": 182,
@@ -1465,7 +1465,7 @@
  },
  {
   "id": 183,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Isotopes 161Dy",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Isotopes, 161Dy",
   "shortLabel": "161Dy",
   "parentId": 174,
   "order": 183,
@@ -1473,7 +1473,7 @@
  },
  {
   "id": 184,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Isotopes 166Er",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Isotopes, 166Er",
   "shortLabel": "166Er",
   "parentId": 174,
   "order": 184,
@@ -1481,7 +1481,7 @@
  },
  {
   "id": 185,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Isotopes 182W",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Isotopes, 182W",
   "shortLabel": "182W",
   "parentId": 174,
   "order": 185,
@@ -1489,7 +1489,7 @@
  },
  {
   "id": 186,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Isotopes 193Ir",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Isotopes, 193Ir",
   "shortLabel": "193Ir",
   "parentId": 174,
   "order": 186,
@@ -1497,7 +1497,7 @@
  },
  {
   "id": 187,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Isotopes 197Au",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Isotopes, 197Au",
   "shortLabel": "197Au",
   "parentId": 174,
   "order": 187,
@@ -1505,7 +1505,7 @@
  },
  {
   "id": 188,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Isotopes 61Ni",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Isotopes, 61Ni",
   "shortLabel": "61Ni",
   "parentId": 174,
   "order": 188,
@@ -1513,7 +1513,7 @@
  },
  {
   "id": 189,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Isotopes 67Zn",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Isotopes, 67Zn",
   "shortLabel": "67Zn",
   "parentId": 174,
   "order": 189,
@@ -1521,7 +1521,7 @@
  },
  {
   "id": 190,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Isotopes 169Tm",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Isotopes, 169Tm",
   "shortLabel": "169Tm",
   "parentId": 174,
   "order": 190,
@@ -1529,7 +1529,7 @@
  },
  {
   "id": 191,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Isotopes 170/171Yb",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Isotopes, 170/171Yb",
   "shortLabel": "170/171Yb",
   "parentId": 174,
   "order": 191,
@@ -1537,7 +1537,7 @@
  },
  {
   "id": 192,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Isotopes 178Hf",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Isotopes, 178Hf",
   "shortLabel": "178Hf",
   "parentId": 174,
   "order": 192,
@@ -1545,7 +1545,7 @@
  },
  {
   "id": 193,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Isotopes 181Ta",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Isotopes, 181Ta",
   "shortLabel": "181Ta",
   "parentId": 174,
   "order": 193,
@@ -1553,7 +1553,7 @@
  },
  {
   "id": 194,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Isotopes 189Os",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Isotopes, 189Os",
   "shortLabel": "189Os",
   "parentId": 174,
   "order": 194,
@@ -1561,7 +1561,7 @@
  },
  {
   "id": 195,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Isotopes 195Pt",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Isotopes, 195Pt",
   "shortLabel": "195Pt",
   "parentId": 174,
   "order": 195,
@@ -1569,7 +1569,7 @@
  },
  {
   "id": 196,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Isotopes 237Np",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Isotopes, 237Np",
   "shortLabel": "237Np",
   "parentId": 174,
   "order": 196,
@@ -1577,7 +1577,7 @@
  },
  {
   "id": 197,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Isotopes Autres",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Isotopes, Autres",
   "shortLabel": "Autres",
   "parentId": 174,
   "order": 197,
@@ -1585,7 +1585,7 @@
  },
  {
   "id": 198,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Equipements/accessoires",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Equipements/accessoires",
   "shortLabel": "Equipements/accessoires",
   "parentId": 167,
   "order": 198,
@@ -1593,7 +1593,7 @@
  },
  {
   "id": 199,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Equipements/accessoires Cryostat \u00e0 bain d'azote liquide pour analyses \u00e0 basse temp\u00e9rature (77 K - 300 K)",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Equipements/accessoires, Cryostat \u00e0 bain d'azote liquide pour analyses \u00e0 basse temp\u00e9rature (77 K - 300 K)",
   "shortLabel": "Cryostat \u00e0 bain d'azote liquide pour analyses \u00e0 basse temp\u00e9rature (77 K - 300 K)",
   "parentId": 198,
   "order": 199,
@@ -1601,7 +1601,7 @@
  },
  {
   "id": 200,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Equipements/accessoires Cryostat \u00e0 bain d'h\u00e9lium liquide pour analyses \u00e0 basse temp\u00e9rature (4 K - 300 K)",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Equipements/accessoires, Cryostat \u00e0 bain d'h\u00e9lium liquide pour analyses \u00e0 basse temp\u00e9rature (4 K - 300 K)",
   "shortLabel": "Cryostat \u00e0 bain d'h\u00e9lium liquide pour analyses \u00e0 basse temp\u00e9rature (4 K - 300 K)",
   "parentId": 198,
   "order": 200,
@@ -1609,7 +1609,7 @@
  },
  {
   "id": 201,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Equipements/accessoires Cryofour pour analyses \u00e0 basse et haute temp\u00e9rature (10 K - 700 K, par exemple)",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Equipements/accessoires, Cryofour pour analyses \u00e0 basse et haute temp\u00e9rature (10 K - 700 K, par exemple)",
   "shortLabel": "Cryofour pour analyses \u00e0 basse et haute temp\u00e9rature (10 K - 700 K, par exemple)",
   "parentId": 198,
   "order": 201,
@@ -1617,7 +1617,7 @@
  },
  {
   "id": 202,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Equipements/accessoires Four pour analyses \u00e0 hautes temp\u00e9ratures (300 K - 1000 K, par exemple)",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Equipements/accessoires, Four pour analyses \u00e0 hautes temp\u00e9ratures (300 K - 1000 K, par exemple)",
   "shortLabel": "Four pour analyses \u00e0 hautes temp\u00e9ratures (300 K - 1000 K, par exemple)",
   "parentId": 198,
   "order": 202,
@@ -1625,7 +1625,7 @@
  },
  {
   "id": 203,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Equipements/accessoires Electro-aimant ou bobine supraconductrice pour analyses sous champ magn\u00e9tique (jusqu'\u00e0 2 ou 9 T)",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Equipements/accessoires, Electro-aimant ou bobine supraconductrice pour analyses sous champ magn\u00e9tique (jusqu'\u00e0 2 ou 9 T)",
   "shortLabel": "Electro-aimant ou bobine supraconductrice pour analyses sous champ magn\u00e9tique (jusqu'\u00e0 2 ou 9 T)",
   "parentId": 198,
   "order": 203,
@@ -1633,7 +1633,7 @@
  },
  {
   "id": 204,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Equipements/accessoires Cellule \u00e9lectrochimique et galvanostat pour analyses in situ ou in operando d'\u00e9lectrodes pour batteries Li-ion ou Na-ion, par exemple",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Equipements/accessoires, Cellule \u00e9lectrochimique et galvanostat pour analyses in situ ou in operando d'\u00e9lectrodes pour batteries Li-ion ou Na-ion, par exemple",
   "shortLabel": "Cellule \u00e9lectrochimique et galvanostat pour analyses in situ ou in operando d'\u00e9lectrodes pour batteries Li-ion ou Na-ion, par exemple",
   "parentId": 198,
   "order": 204,
@@ -1641,7 +1641,7 @@
  },
  {
   "id": 205,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Equipements/accessoires Cellule \u00e0 enclumes de diamant (DAC) pour analyses \u00e0 hautes temp\u00e9ratures et hautes pressions (< 10 GPa)",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Equipements/accessoires, Cellule \u00e0 enclumes de diamant (DAC) pour analyses \u00e0 hautes temp\u00e9ratures et hautes pressions (< 10 GPa)",
   "shortLabel": "Cellule \u00e0 enclumes de diamant (DAC) pour analyses \u00e0 hautes temp\u00e9ratures et hautes pressions (< 10 GPa)",
   "parentId": 198,
   "order": 205,
@@ -1649,7 +1649,7 @@
  },
  {
   "id": 206,
-  "label": "Spectrom\u00e8tre M\u00f6ssbauer Equipements/accessoires Autres cellules sp\u00e9cifiques",
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer, Equipements/accessoires, Autres cellules sp\u00e9cifiques",
   "shortLabel": "Autres cellules sp\u00e9cifiques",
   "parentId": 198,
   "order": 206,

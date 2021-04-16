@@ -41,7 +41,7 @@
             [formControl]="searchControl"
             [matAutocomplete]="auto">
       <mat-autocomplete #auto="matAutocomplete" (optionSelected)='searchAction($event)'>
-        <mat-option *ngFor="let entity of filtered | async" [value]="entity.label">
+        <mat-option *ngFor="let entity of filtered | async" [value]="entity.label" [matTooltip]="entity.label">
           {{entity.label}}
         </mat-option>
       </mat-autocomplete>
@@ -52,7 +52,7 @@
       <mat-list *ngIf="equipments.length > 0">
         <mat-list-item *ngFor="let e of equipments">
           {{e.label}}
-          <button mat-button (click)="delete(e.id)" ><mat-icon matListIcon>delete</mat-icon></button>
+          <button mat-button (click)="delete(e.id)" [matTooltip]="'Delete'" ><mat-icon matListIcon>delete</mat-icon></button>
         </mat-list-item>
       </mat-list>
       <div *ngIf="equipments.length == 0">Empty</div>

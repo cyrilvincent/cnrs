@@ -55,7 +55,7 @@ class MindMeisterRtfParser:
             level = item[1]
             short = item[2]
             pid = ids[level - 1] if level > 0 else -1
-            label = short if level <= 1 else f"{[e for e in self.entities if e['id'] == pid][0]['label']} {short}"
+            label = short if level <= 1 else f"{[e for e in self.entities if e['id'] == pid][0]['label']}, {short}"
             ids[level] = id
             if level <= prevlevel and prevlevel != -1:
                 self.entities[-1]["leaf"] = True
