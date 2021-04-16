@@ -1,0 +1,1658 @@
+[
+ {
+  "id": 0,
+  "label": "Spectroscopie",
+  "shortLabel": "Spectroscopie",
+  "parentId": -1,
+  "order": 0,
+  "leaf": false
+ },
+ {
+  "id": 1,
+  "label": "Spectrom\u00e8tre RMN",
+  "shortLabel": "Spectrom\u00e8tre RMN",
+  "parentId": 0,
+  "order": 1,
+  "leaf": false
+ },
+ {
+  "id": 2,
+  "label": "Champ",
+  "shortLabel": "Champ",
+  "parentId": 1,
+  "order": 2,
+  "leaf": false
+ },
+ {
+  "id": 3,
+  "label": "100 MHz",
+  "shortLabel": "100 MHz",
+  "parentId": 2,
+  "order": 3,
+  "leaf": false
+ },
+ {
+  "id": 4,
+  "label": "200 MHz",
+  "shortLabel": "200 MHz",
+  "parentId": 2,
+  "order": 4,
+  "leaf": false
+ },
+ {
+  "id": 5,
+  "label": "600 MHz",
+  "shortLabel": "600 MHz",
+  "parentId": 2,
+  "order": 5,
+  "leaf": false
+ },
+ {
+  "id": 6,
+  "label": "800 MHZ; 18 Tesla",
+  "shortLabel": "800 MHZ; 18 Tesla",
+  "parentId": 2,
+  "order": 6,
+  "leaf": false
+ },
+ {
+  "id": 7,
+  "label": "900 MHz",
+  "shortLabel": "900 MHz",
+  "parentId": 2,
+  "order": 7,
+  "leaf": false
+ },
+ {
+  "id": 8,
+  "label": "Type",
+  "shortLabel": "Type",
+  "parentId": 1,
+  "order": 8,
+  "leaf": false
+ },
+ {
+  "id": 9,
+  "label": "Solide",
+  "shortLabel": "Solide",
+  "parentId": 8,
+  "order": 9,
+  "leaf": false
+ },
+ {
+  "id": 10,
+  "label": "Sondes",
+  "shortLabel": "Sondes",
+  "parentId": 9,
+  "order": 10,
+  "leaf": false
+ },
+ {
+  "id": 11,
+  "label": "3mm",
+  "shortLabel": "3mm",
+  "parentId": 10,
+  "order": 11,
+  "leaf": false
+ },
+ {
+  "id": 12,
+  "label": "HXY",
+  "shortLabel": "HXY",
+  "parentId": 11,
+  "order": 12,
+  "leaf": false
+ },
+ {
+  "id": 13,
+  "label": "F",
+  "shortLabel": "F",
+  "parentId": 12,
+  "order": 13,
+  "leaf": false
+ },
+ {
+  "id": 14,
+  "label": "13C",
+  "shortLabel": "13C",
+  "parentId": 12,
+  "order": 14,
+  "leaf": false
+ },
+ {
+  "id": 15,
+  "label": "31P",
+  "shortLabel": "31P",
+  "parentId": 12,
+  "order": 15,
+  "leaf": false
+ },
+ {
+  "id": 16,
+  "label": "15N",
+  "shortLabel": "15N",
+  "parentId": 12,
+  "order": 16,
+  "leaf": false
+ },
+ {
+  "id": 17,
+  "label": "0.7mm",
+  "shortLabel": "0.7mm",
+  "parentId": 10,
+  "order": 17,
+  "leaf": false
+ },
+ {
+  "id": 18,
+  "label": "HXY",
+  "shortLabel": "HXY",
+  "parentId": 17,
+  "order": 18,
+  "leaf": false
+ },
+ {
+  "id": 19,
+  "label": "1H",
+  "shortLabel": "1H",
+  "parentId": 18,
+  "order": 19,
+  "leaf": false
+ },
+ {
+  "id": 20,
+  "label": "13C",
+  "shortLabel": "13C",
+  "parentId": 18,
+  "order": 20,
+  "leaf": false
+ },
+ {
+  "id": 21,
+  "label": "31P",
+  "shortLabel": "31P",
+  "parentId": 18,
+  "order": 21,
+  "leaf": false
+ },
+ {
+  "id": 22,
+  "label": "15N",
+  "shortLabel": "15N",
+  "parentId": 18,
+  "order": 22,
+  "leaf": false
+ },
+ {
+  "id": 23,
+  "label": "DNP",
+  "shortLabel": "DNP",
+  "parentId": 9,
+  "order": 23,
+  "leaf": false
+ },
+ {
+  "id": 24,
+  "label": "Sondes",
+  "shortLabel": "Sondes",
+  "parentId": 23,
+  "order": 24,
+  "leaf": false
+ },
+ {
+  "id": 25,
+  "label": "3mm",
+  "shortLabel": "3mm",
+  "parentId": 24,
+  "order": 25,
+  "leaf": false
+ },
+ {
+  "id": 26,
+  "label": "F",
+  "shortLabel": "F",
+  "parentId": 25,
+  "order": 26,
+  "leaf": false
+ },
+ {
+  "id": 27,
+  "label": "13C",
+  "shortLabel": "13C",
+  "parentId": 25,
+  "order": 27,
+  "leaf": false
+ },
+ {
+  "id": 28,
+  "label": "31P",
+  "shortLabel": "31P",
+  "parentId": 25,
+  "order": 28,
+  "leaf": false
+ },
+ {
+  "id": 29,
+  "label": "15N",
+  "shortLabel": "15N",
+  "parentId": 25,
+  "order": 29,
+  "leaf": false
+ },
+ {
+  "id": 30,
+  "label": "1.3 mm",
+  "shortLabel": "1.3 mm",
+  "parentId": 24,
+  "order": 30,
+  "leaf": false
+ },
+ {
+  "id": 31,
+  "label": "Liquide",
+  "shortLabel": "Liquide",
+  "parentId": 8,
+  "order": 31,
+  "leaf": false
+ },
+ {
+  "id": 32,
+  "label": "Sondes",
+  "shortLabel": "Sondes",
+  "parentId": 31,
+  "order": 32,
+  "leaf": false
+ },
+ {
+  "id": 33,
+  "label": "HX",
+  "shortLabel": "HX",
+  "parentId": 32,
+  "order": 33,
+  "leaf": false
+ },
+ {
+  "id": 34,
+  "label": "Noyaux",
+  "shortLabel": "Noyaux",
+  "parentId": 33,
+  "order": 34,
+  "leaf": false
+ },
+ {
+  "id": 35,
+  "label": "F",
+  "shortLabel": "F",
+  "parentId": 34,
+  "order": 35,
+  "leaf": false
+ },
+ {
+  "id": 36,
+  "label": "13C",
+  "shortLabel": "13C",
+  "parentId": 34,
+  "order": 36,
+  "leaf": false
+ },
+ {
+  "id": 37,
+  "label": "31P",
+  "shortLabel": "31P",
+  "parentId": 34,
+  "order": 37,
+  "leaf": false
+ },
+ {
+  "id": 38,
+  "label": "15N",
+  "shortLabel": "15N",
+  "parentId": 34,
+  "order": 38,
+  "leaf": false
+ },
+ {
+  "id": 39,
+  "label": "Diametre",
+  "shortLabel": "Diametre",
+  "parentId": 33,
+  "order": 39,
+  "leaf": false
+ },
+ {
+  "id": 40,
+  "label": "10mm",
+  "shortLabel": "10mm",
+  "parentId": 39,
+  "order": 40,
+  "leaf": false
+ },
+ {
+  "id": 41,
+  "label": "5 mm",
+  "shortLabel": "5 mm",
+  "parentId": 39,
+  "order": 41,
+  "leaf": false
+ },
+ {
+  "id": 42,
+  "label": "3mm",
+  "shortLabel": "3mm",
+  "parentId": 39,
+  "order": 42,
+  "leaf": false
+ },
+ {
+  "id": 43,
+  "label": "1.7mm",
+  "shortLabel": "1.7mm",
+  "parentId": 39,
+  "order": 43,
+  "leaf": false
+ },
+ {
+  "id": 44,
+  "label": "Cryo sonde",
+  "shortLabel": "Cryo sonde",
+  "parentId": 33,
+  "order": 44,
+  "leaf": false
+ },
+ {
+  "id": 45,
+  "label": "HXY",
+  "shortLabel": "HXY",
+  "parentId": 32,
+  "order": 45,
+  "leaf": false
+ },
+ {
+  "id": 46,
+  "label": "Noyaux",
+  "shortLabel": "Noyaux",
+  "parentId": 45,
+  "order": 46,
+  "leaf": false
+ },
+ {
+  "id": 47,
+  "label": "F",
+  "shortLabel": "F",
+  "parentId": 46,
+  "order": 47,
+  "leaf": false
+ },
+ {
+  "id": 48,
+  "label": "13C",
+  "shortLabel": "13C",
+  "parentId": 46,
+  "order": 48,
+  "leaf": false
+ },
+ {
+  "id": 49,
+  "label": "31P",
+  "shortLabel": "31P",
+  "parentId": 46,
+  "order": 49,
+  "leaf": false
+ },
+ {
+  "id": 50,
+  "label": "15N",
+  "shortLabel": "15N",
+  "parentId": 46,
+  "order": 50,
+  "leaf": false
+ },
+ {
+  "id": 51,
+  "label": "Diametre",
+  "shortLabel": "Diametre",
+  "parentId": 45,
+  "order": 51,
+  "leaf": false
+ },
+ {
+  "id": 52,
+  "label": "10mm",
+  "shortLabel": "10mm",
+  "parentId": 51,
+  "order": 52,
+  "leaf": false
+ },
+ {
+  "id": 53,
+  "label": "5 mm",
+  "shortLabel": "5 mm",
+  "parentId": 51,
+  "order": 53,
+  "leaf": false
+ },
+ {
+  "id": 54,
+  "label": "3mm",
+  "shortLabel": "3mm",
+  "parentId": 51,
+  "order": 54,
+  "leaf": false
+ },
+ {
+  "id": 55,
+  "label": "1.7mm",
+  "shortLabel": "1.7mm",
+  "parentId": 51,
+  "order": 55,
+  "leaf": false
+ },
+ {
+  "id": 56,
+  "label": "Cryo sonde",
+  "shortLabel": "Cryo sonde",
+  "parentId": 45,
+  "order": 56,
+  "leaf": false
+ },
+ {
+  "id": 57,
+  "label": "HR-MAS",
+  "shortLabel": "HR-MAS",
+  "parentId": 8,
+  "order": 57,
+  "leaf": false
+ },
+ {
+  "id": 58,
+  "label": "Sondes",
+  "shortLabel": "Sondes",
+  "parentId": 57,
+  "order": 58,
+  "leaf": false
+ },
+ {
+  "id": 59,
+  "label": "HXY",
+  "shortLabel": "HXY",
+  "parentId": 58,
+  "order": 59,
+  "leaf": false
+ },
+ {
+  "id": 60,
+  "label": "Noyaux",
+  "shortLabel": "Noyaux",
+  "parentId": 59,
+  "order": 60,
+  "leaf": false
+ },
+ {
+  "id": 61,
+  "label": "F",
+  "shortLabel": "F",
+  "parentId": 60,
+  "order": 61,
+  "leaf": false
+ },
+ {
+  "id": 62,
+  "label": "13C",
+  "shortLabel": "13C",
+  "parentId": 60,
+  "order": 62,
+  "leaf": false
+ },
+ {
+  "id": 63,
+  "label": "31P",
+  "shortLabel": "31P",
+  "parentId": 60,
+  "order": 63,
+  "leaf": false
+ },
+ {
+  "id": 64,
+  "label": "15N",
+  "shortLabel": "15N",
+  "parentId": 60,
+  "order": 64,
+  "leaf": false
+ },
+ {
+  "id": 65,
+  "label": "Diametre",
+  "shortLabel": "Diametre",
+  "parentId": 59,
+  "order": 65,
+  "leaf": false
+ },
+ {
+  "id": 66,
+  "label": "10mm",
+  "shortLabel": "10mm",
+  "parentId": 65,
+  "order": 66,
+  "leaf": false
+ },
+ {
+  "id": 67,
+  "label": "5 mm",
+  "shortLabel": "5 mm",
+  "parentId": 65,
+  "order": 67,
+  "leaf": false
+ },
+ {
+  "id": 68,
+  "label": "3mm",
+  "shortLabel": "3mm",
+  "parentId": 65,
+  "order": 68,
+  "leaf": false
+ },
+ {
+  "id": 69,
+  "label": "1.7mm",
+  "shortLabel": "1.7mm",
+  "parentId": 65,
+  "order": 69,
+  "leaf": false
+ },
+ {
+  "id": 70,
+  "label": "Cryo sonde",
+  "shortLabel": "Cryo sonde",
+  "parentId": 59,
+  "order": 70,
+  "leaf": false
+ },
+ {
+  "id": 71,
+  "label": "Bore",
+  "shortLabel": "Bore",
+  "parentId": 1,
+  "order": 71,
+  "leaf": false
+ },
+ {
+  "id": 72,
+  "label": "Standard Bore",
+  "shortLabel": "Standard Bore",
+  "parentId": 71,
+  "order": 72,
+  "leaf": false
+ },
+ {
+  "id": 73,
+  "label": "Wide Bore",
+  "shortLabel": "Wide Bore",
+  "parentId": 71,
+  "order": 73,
+  "leaf": false
+ },
+ {
+  "id": 74,
+  "label": "Ultra wide Bore",
+  "shortLabel": "Ultra wide Bore",
+  "parentId": 71,
+  "order": 74,
+  "leaf": false
+ },
+ {
+  "id": 75,
+  "label": "Equipements",
+  "shortLabel": "Equipements",
+  "parentId": 1,
+  "order": 75,
+  "leaf": false
+ },
+ {
+  "id": 76,
+  "label": "Imagerie",
+  "shortLabel": "Imagerie",
+  "parentId": 75,
+  "order": 76,
+  "leaf": false
+ },
+ {
+  "id": 77,
+  "label": "Gradients/diffusion",
+  "shortLabel": "Gradients/diffusion",
+  "parentId": 75,
+  "order": 77,
+  "leaf": false
+ },
+ {
+  "id": 78,
+  "label": "Passeur d'echantillon",
+  "shortLabel": "Passeur d'echantillon",
+  "parentId": 75,
+  "order": 78,
+  "leaf": false
+ },
+ {
+  "id": 79,
+  "label": "Refrig\u00e9r\u00e9",
+  "shortLabel": "Refrig\u00e9r\u00e9",
+  "parentId": 78,
+  "order": 79,
+  "leaf": false
+ },
+ {
+  "id": 80,
+  "label": "DNP par dissolution",
+  "shortLabel": "DNP par dissolution",
+  "parentId": 75,
+  "order": 80,
+  "leaf": false
+ },
+ {
+  "id": 81,
+  "label": "Diffractom\u00e8tre RX",
+  "shortLabel": "Diffractom\u00e8tre RX",
+  "parentId": 0,
+  "order": 81,
+  "leaf": false
+ },
+ {
+  "id": 82,
+  "label": "Type de diffractometre",
+  "shortLabel": "Type de diffractometre",
+  "parentId": 81,
+  "order": 82,
+  "leaf": false
+ },
+ {
+  "id": 83,
+  "label": "Diffractom\u00e8tre monocristal",
+  "shortLabel": "Diffractom\u00e8tre monocristal",
+  "parentId": 82,
+  "order": 83,
+  "leaf": false
+ },
+ {
+  "id": 84,
+  "label": "Diffractom\u00e8tre pour \u00e9chantillons polycristallins",
+  "shortLabel": "Diffractom\u00e8tre pour \u00e9chantillons polycristallins",
+  "parentId": 82,
+  "order": 84,
+  "leaf": false
+ },
+ {
+  "id": 85,
+  "label": "Diffractom\u00e8tre pour mesures en incidence rasante",
+  "shortLabel": "Diffractom\u00e8tre pour mesures en incidence rasante",
+  "parentId": 82,
+  "order": 85,
+  "leaf": false
+ },
+ {
+  "id": 86,
+  "label": "Type de source",
+  "shortLabel": "Type de source",
+  "parentId": 81,
+  "order": 86,
+  "leaf": false
+ },
+ {
+  "id": 87,
+  "label": "Tube RX",
+  "shortLabel": "Tube RX",
+  "parentId": 86,
+  "order": 87,
+  "leaf": false
+ },
+ {
+  "id": 88,
+  "label": "Microsource",
+  "shortLabel": "Microsource",
+  "parentId": 86,
+  "order": 88,
+  "leaf": false
+ },
+ {
+  "id": 89,
+  "label": "Anode tournante",
+  "shortLabel": "Anode tournante",
+  "parentId": 86,
+  "order": 89,
+  "leaf": false
+ },
+ {
+  "id": 90,
+  "label": "Autre",
+  "shortLabel": "Autre",
+  "parentId": 86,
+  "order": 90,
+  "leaf": false
+ },
+ {
+  "id": 91,
+  "label": "Longueur d'onde de la source RX",
+  "shortLabel": "Longueur d'onde de la source RX",
+  "parentId": 81,
+  "order": 91,
+  "leaf": false
+ },
+ {
+  "id": 92,
+  "label": "Ag",
+  "shortLabel": "Ag",
+  "parentId": 91,
+  "order": 92,
+  "leaf": false
+ },
+ {
+  "id": 93,
+  "label": "Mo",
+  "shortLabel": "Mo",
+  "parentId": 91,
+  "order": 93,
+  "leaf": false
+ },
+ {
+  "id": 94,
+  "label": "Cu",
+  "shortLabel": "Cu",
+  "parentId": 91,
+  "order": 94,
+  "leaf": false
+ },
+ {
+  "id": 95,
+  "label": "Co",
+  "shortLabel": "Co",
+  "parentId": 91,
+  "order": 95,
+  "leaf": false
+ },
+ {
+  "id": 96,
+  "label": "Fe",
+  "shortLabel": "Fe",
+  "parentId": 91,
+  "order": 96,
+  "leaf": false
+ },
+ {
+  "id": 97,
+  "label": "Type de d\u00e9tecteur",
+  "shortLabel": "Type de d\u00e9tecteur",
+  "parentId": 81,
+  "order": 97,
+  "leaf": false
+ },
+ {
+  "id": 98,
+  "label": "CMOS",
+  "shortLabel": "CMOS",
+  "parentId": 97,
+  "order": 98,
+  "leaf": false
+ },
+ {
+  "id": 99,
+  "label": "CCD",
+  "shortLabel": "CCD",
+  "parentId": 97,
+  "order": 99,
+  "leaf": false
+ },
+ {
+  "id": 100,
+  "label": "Pixels hybrides",
+  "shortLabel": "Pixels hybrides",
+  "parentId": 97,
+  "order": 100,
+  "leaf": false
+ },
+ {
+  "id": 101,
+  "label": "Montage en r\u00e9flexion",
+  "shortLabel": "Montage en r\u00e9flexion",
+  "parentId": 81,
+  "order": 101,
+  "leaf": false
+ },
+ {
+  "id": 102,
+  "label": "G\u00e9om\u00e9trie Bragg-Brentano",
+  "shortLabel": "G\u00e9om\u00e9trie Bragg-Brentano",
+  "parentId": 101,
+  "order": 102,
+  "leaf": false
+ },
+ {
+  "id": 103,
+  "label": "G\u00e9om\u00e9trie en faisceau parall\u00e8le",
+  "shortLabel": "G\u00e9om\u00e9trie en faisceau parall\u00e8le",
+  "parentId": 101,
+  "order": 103,
+  "leaf": false
+ },
+ {
+  "id": 104,
+  "label": "Accessoires",
+  "shortLabel": "Accessoires",
+  "parentId": 81,
+  "order": 104,
+  "leaf": false
+ },
+ {
+  "id": 105,
+  "label": "Cryostat (azote) pour mesures \u00e0 basse temp\u00e9rature (77 K - 300 K)",
+  "shortLabel": "Cryostat (azote) pour mesures \u00e0 basse temp\u00e9ratu...",
+  "parentId": 104,
+  "order": 105,
+  "leaf": false
+ },
+ {
+  "id": 106,
+  "label": "Cryostat (h\u00e9lium) pour mesures \u00e0 tr\u00e8s basse temp\u00e9rature (5 K)",
+  "shortLabel": "Cryostat (h\u00e9lium) pour mesures \u00e0 tr\u00e8s basse tem...",
+  "parentId": 104,
+  "order": 106,
+  "leaf": false
+ },
+ {
+  "id": 107,
+  "label": "Soufflette pour mesures \u00e0 haute temp\u00e9rature",
+  "shortLabel": "Soufflette pour mesures \u00e0 haute temp\u00e9rature",
+  "parentId": 104,
+  "order": 107,
+  "leaf": false
+ },
+ {
+  "id": 108,
+  "label": "Dispositif pour mesures sous champ \u00e9lectrique",
+  "shortLabel": "Dispositif pour mesures sous champ \u00e9lectrique",
+  "parentId": 104,
+  "order": 108,
+  "leaf": false
+ },
+ {
+  "id": 109,
+  "label": "Dispositif pour mesures sous champ magn\u00e9tique",
+  "shortLabel": "Dispositif pour mesures sous champ magn\u00e9tique",
+  "parentId": 104,
+  "order": 109,
+  "leaf": false
+ },
+ {
+  "id": 110,
+  "label": "Cellule pour mesures sous pression",
+  "shortLabel": "Cellule pour mesures sous pression",
+  "parentId": 104,
+  "order": 110,
+  "leaf": false
+ },
+ {
+  "id": 111,
+  "label": "Dispositif pour mesures sous excitation lumineuse",
+  "shortLabel": "Dispositif pour mesures sous excitation lumineuse",
+  "parentId": 104,
+  "order": 111,
+  "leaf": false
+ },
+ {
+  "id": 112,
+  "label": "Autres dispositifs sp\u00e9cifiques",
+  "shortLabel": "Autres dispositifs sp\u00e9cifiques",
+  "parentId": 104,
+  "order": 112,
+  "leaf": false
+ },
+ {
+  "id": 113,
+  "label": "Spectrom\u00e8tre RPE",
+  "shortLabel": "Spectrom\u00e8tre RPE",
+  "parentId": 0,
+  "order": 113,
+  "leaf": false
+ },
+ {
+  "id": 114,
+  "label": "Champ",
+  "shortLabel": "Champ",
+  "parentId": 113,
+  "order": 114,
+  "leaf": false
+ },
+ {
+  "id": 115,
+  "label": "Equipements",
+  "shortLabel": "Equipements",
+  "parentId": 113,
+  "order": 115,
+  "leaf": false
+ },
+ {
+  "id": 116,
+  "label": "Sondes",
+  "shortLabel": "Sondes",
+  "parentId": 115,
+  "order": 116,
+  "leaf": false
+ },
+ {
+  "id": 117,
+  "label": "HX",
+  "shortLabel": "HX",
+  "parentId": 116,
+  "order": 117,
+  "leaf": false
+ },
+ {
+  "id": 118,
+  "label": "HXY",
+  "shortLabel": "HXY",
+  "parentId": 116,
+  "order": 118,
+  "leaf": false
+ },
+ {
+  "id": 119,
+  "label": "Solide",
+  "shortLabel": "Solide",
+  "parentId": 113,
+  "order": 119,
+  "leaf": false
+ },
+ {
+  "id": 120,
+  "label": "Liquide",
+  "shortLabel": "Liquide",
+  "parentId": 113,
+  "order": 120,
+  "leaf": false
+ },
+ {
+  "id": 121,
+  "label": "Sondes",
+  "shortLabel": "Sondes",
+  "parentId": 113,
+  "order": 121,
+  "leaf": false
+ },
+ {
+  "id": 122,
+  "label": "HX",
+  "shortLabel": "HX",
+  "parentId": 121,
+  "order": 122,
+  "leaf": false
+ },
+ {
+  "id": 123,
+  "label": "HXY",
+  "shortLabel": "HXY",
+  "parentId": 121,
+  "order": 123,
+  "leaf": false
+ },
+ {
+  "id": 124,
+  "label": "HX",
+  "shortLabel": "HX",
+  "parentId": 113,
+  "order": 124,
+  "leaf": false
+ },
+ {
+  "id": 125,
+  "label": "RPE",
+  "shortLabel": "RPE",
+  "parentId": 113,
+  "order": 125,
+  "leaf": false
+ },
+ {
+  "id": 126,
+  "label": "Champ",
+  "shortLabel": "Champ",
+  "parentId": 125,
+  "order": 126,
+  "leaf": false
+ },
+ {
+  "id": 127,
+  "label": "Equipements",
+  "shortLabel": "Equipements",
+  "parentId": 125,
+  "order": 127,
+  "leaf": false
+ },
+ {
+  "id": 128,
+  "label": "Sondes",
+  "shortLabel": "Sondes",
+  "parentId": 127,
+  "order": 128,
+  "leaf": false
+ },
+ {
+  "id": 129,
+  "label": "HX",
+  "shortLabel": "HX",
+  "parentId": 128,
+  "order": 129,
+  "leaf": false
+ },
+ {
+  "id": 130,
+  "label": "HXY",
+  "shortLabel": "HXY",
+  "parentId": 128,
+  "order": 130,
+  "leaf": false
+ },
+ {
+  "id": 131,
+  "label": "Solide",
+  "shortLabel": "Solide",
+  "parentId": 125,
+  "order": 131,
+  "leaf": false
+ },
+ {
+  "id": 132,
+  "label": "Liquide",
+  "shortLabel": "Liquide",
+  "parentId": 125,
+  "order": 132,
+  "leaf": false
+ },
+ {
+  "id": 133,
+  "label": "Sondes",
+  "shortLabel": "Sondes",
+  "parentId": 125,
+  "order": 133,
+  "leaf": false
+ },
+ {
+  "id": 134,
+  "label": "HX",
+  "shortLabel": "HX",
+  "parentId": 133,
+  "order": 134,
+  "leaf": false
+ },
+ {
+  "id": 135,
+  "label": "HXY",
+  "shortLabel": "HXY",
+  "parentId": 133,
+  "order": 135,
+  "leaf": false
+ },
+ {
+  "id": 136,
+  "label": "HX",
+  "shortLabel": "HX",
+  "parentId": 125,
+  "order": 136,
+  "leaf": false
+ },
+ {
+  "id": 137,
+  "label": "Spectrom\u00e8tre de masse",
+  "shortLabel": "Spectrom\u00e8tre de masse",
+  "parentId": 0,
+  "order": 137,
+  "leaf": false
+ },
+ {
+  "id": 138,
+  "label": "Analyseur",
+  "shortLabel": "Analyseur",
+  "parentId": 137,
+  "order": 138,
+  "leaf": false
+ },
+ {
+  "id": 139,
+  "label": "Quadrup\\u244le",
+  "shortLabel": "Quadrup\\u244le",
+  "parentId": 138,
+  "order": 139,
+  "leaf": false
+ },
+ {
+  "id": 140,
+  "label": "Pi\u00e8ge \u00e0 ions 3D",
+  "shortLabel": "Pi\u00e8ge \u00e0 ions 3D",
+  "parentId": 138,
+  "order": 140,
+  "leaf": false
+ },
+ {
+  "id": 141,
+  "label": "Pi\u00e8ge \u00e0 ions lin\u00e9aire",
+  "shortLabel": "Pi\u00e8ge \u00e0 ions lin\u00e9aire",
+  "parentId": 138,
+  "order": 141,
+  "leaf": false
+ },
+ {
+  "id": 142,
+  "label": "TOF",
+  "shortLabel": "TOF",
+  "parentId": 138,
+  "order": 142,
+  "leaf": false
+ },
+ {
+  "id": 143,
+  "label": "Orbitrap",
+  "shortLabel": "Orbitrap",
+  "parentId": 138,
+  "order": 143,
+  "leaf": false
+ },
+ {
+  "id": 144,
+  "label": "FTICR",
+  "shortLabel": "FTICR",
+  "parentId": 138,
+  "order": 144,
+  "leaf": false
+ },
+ {
+  "id": 145,
+  "label": "Champ magn\u00e9tique",
+  "shortLabel": "Champ magn\u00e9tique",
+  "parentId": 144,
+  "order": 145,
+  "leaf": false
+ },
+ {
+  "id": 146,
+  "label": "TOF-SIMS",
+  "shortLabel": "TOF-SIMS",
+  "parentId": 138,
+  "order": 146,
+  "leaf": false
+ },
+ {
+  "id": 147,
+  "label": "NanoSIMS",
+  "shortLabel": "NanoSIMS",
+  "parentId": 138,
+  "order": 147,
+  "leaf": false
+ },
+ {
+  "id": 148,
+  "label": "Source d'ionisation",
+  "shortLabel": "Source d'ionisation",
+  "parentId": 137,
+  "order": 148,
+  "leaf": false
+ },
+ {
+  "id": 149,
+  "label": "Ionisation \u00e9lectronique (EI)",
+  "shortLabel": "Ionisation \u00e9lectronique (EI)",
+  "parentId": 148,
+  "order": 149,
+  "leaf": false
+ },
+ {
+  "id": 150,
+  "label": "Ionisation chimique (CI)",
+  "shortLabel": "Ionisation chimique (CI)",
+  "parentId": 148,
+  "order": 150,
+  "leaf": false
+ },
+ {
+  "id": 151,
+  "label": "D\u00e9sorption-ionisation chimique (DCI)",
+  "shortLabel": "D\u00e9sorption-ionisation chimique (DCI)",
+  "parentId": 148,
+  "order": 151,
+  "leaf": false
+ },
+ {
+  "id": 152,
+  "label": "Ionisation par bombardement d'atomes rapides (FAB)",
+  "shortLabel": "Ionisation par bombardement d'atomes rapides (F...",
+  "parentId": 148,
+  "order": 152,
+  "leaf": false
+ },
+ {
+  "id": 153,
+  "label": "Ionisation par \u00e9lectron\u00e9bulisation (electrospray ionisation) (ESI)",
+  "shortLabel": "Ionisation par \u00e9lectron\u00e9bulisation (electrospra...",
+  "parentId": 148,
+  "order": 153,
+  "leaf": false
+ },
+ {
+  "id": 154,
+  "label": "Photo-ionisation \u00e0 pression atmosph\u00e9rique (APPI)",
+  "shortLabel": "Photo-ionisation \u00e0 pression atmosph\u00e9rique (APPI)",
+  "parentId": 148,
+  "order": 154,
+  "leaf": false
+ },
+ {
+  "id": 155,
+  "label": "Ionisation chimique \u00e0 pression atmosph\u00e9rique (APCI)",
+  "shortLabel": "Ionisation chimique \u00e0 pression atmosph\u00e9rique (A...",
+  "parentId": 148,
+  "order": 155,
+  "leaf": false
+ },
+ {
+  "id": 156,
+  "label": "D\u00e9sorption-ionisation laser assist\u00e9e par matrice (MALDI)",
+  "shortLabel": "D\u00e9sorption-ionisation laser assist\u00e9e par matric...",
+  "parentId": 148,
+  "order": 156,
+  "leaf": false
+ },
+ {
+  "id": 157,
+  "label": "Ionisation thermique (TIMS)",
+  "shortLabel": "Ionisation thermique (TIMS)",
+  "parentId": 148,
+  "order": 157,
+  "leaf": false
+ },
+ {
+  "id": 158,
+  "label": "D\u00e9sorption-ionisation sur silicium (DIOS)",
+  "shortLabel": "D\u00e9sorption-ionisation sur silicium (DIOS)",
+  "parentId": 148,
+  "order": 158,
+  "leaf": false
+ },
+ {
+  "id": 159,
+  "label": "Ionisation-d\u00e9sorption par interaction avec esp\u00e8ces m\u00e9tastables (DART)",
+  "shortLabel": "Ionisation-d\u00e9sorption par interaction avec esp\u00e8...",
+  "parentId": 148,
+  "order": 159,
+  "leaf": false
+ },
+ {
+  "id": 160,
+  "label": "Couplage plasma inductif (ICP)",
+  "shortLabel": "Couplage plasma inductif (ICP)",
+  "parentId": 148,
+  "order": 160,
+  "leaf": false
+ },
+ {
+  "id": 161,
+  "label": "Syst\u00e8me d'introduction de l'\u00e9chantillon",
+  "shortLabel": "Syst\u00e8me d'introduction de l'\u00e9chantillon",
+  "parentId": 137,
+  "order": 161,
+  "leaf": false
+ },
+ {
+  "id": 162,
+  "label": "MS/MS",
+  "shortLabel": "MS/MS",
+  "parentId": 137,
+  "order": 162,
+  "leaf": false
+ },
+ {
+  "id": 163,
+  "label": "Couplage",
+  "shortLabel": "Couplage",
+  "parentId": 137,
+  "order": 163,
+  "leaf": false
+ },
+ {
+  "id": 164,
+  "label": "Mobilit\u00e9 ionique",
+  "shortLabel": "Mobilit\u00e9 ionique",
+  "parentId": 163,
+  "order": 164,
+  "leaf": false
+ },
+ {
+  "id": 165,
+  "label": "LC",
+  "shortLabel": "LC",
+  "parentId": 163,
+  "order": 165,
+  "leaf": false
+ },
+ {
+  "id": 166,
+  "label": "GC",
+  "shortLabel": "GC",
+  "parentId": 163,
+  "order": 166,
+  "leaf": false
+ },
+ {
+  "id": 167,
+  "label": "Spectrom\u00e8tre M\u00f6ssbauer",
+  "shortLabel": "Spectrom\u00e8tre M\u00f6ssbauer",
+  "parentId": 0,
+  "order": 167,
+  "leaf": false
+ },
+ {
+  "id": 168,
+  "label": "Type de spectrom\u00e8tre M\u00f6ssbauer",
+  "shortLabel": "Type de spectrom\u00e8tre M\u00f6ssbauer",
+  "parentId": 167,
+  "order": 168,
+  "leaf": false
+ },
+ {
+  "id": 169,
+  "label": "En transmission",
+  "shortLabel": "En transmission",
+  "parentId": 168,
+  "order": 169,
+  "leaf": false
+ },
+ {
+  "id": 170,
+  "label": "En r\u00e9flexion (rayons X ou rayons \u03b3)",
+  "shortLabel": "En r\u00e9flexion (rayons X ou rayons \u03b3)",
+  "parentId": 168,
+  "order": 170,
+  "leaf": false
+ },
+ {
+  "id": 171,
+  "label": "Avec source synchrotron (SMS), en transmission ou en r\u00e9flexion",
+  "shortLabel": "Avec source synchrotron (SMS), en transmission ...",
+  "parentId": 168,
+  "order": 171,
+  "leaf": false
+ },
+ {
+  "id": 172,
+  "label": "D'\u00e9lectrons de conversion (CEMS)",
+  "shortLabel": "D'\u00e9lectrons de conversion (CEMS)",
+  "parentId": 168,
+  "order": 172,
+  "leaf": false
+ },
+ {
+  "id": 173,
+  "label": "149Sm",
+  "shortLabel": "149Sm",
+  "parentId": 167,
+  "order": 173,
+  "leaf": false
+ },
+ {
+  "id": 174,
+  "label": "Isotopes",
+  "shortLabel": "Isotopes",
+  "parentId": 167,
+  "order": 174,
+  "leaf": false
+ },
+ {
+  "id": 175,
+  "label": "57Fe",
+  "shortLabel": "57Fe",
+  "parentId": 174,
+  "order": 175,
+  "leaf": false
+ },
+ {
+  "id": 176,
+  "label": "99Ru",
+  "shortLabel": "99Ru",
+  "parentId": 174,
+  "order": 176,
+  "leaf": false
+ },
+ {
+  "id": 177,
+  "label": "119Sn",
+  "shortLabel": "119Sn",
+  "parentId": 174,
+  "order": 177,
+  "leaf": false
+ },
+ {
+  "id": 178,
+  "label": "121Sb",
+  "shortLabel": "121Sb",
+  "parentId": 174,
+  "order": 178,
+  "leaf": false
+ },
+ {
+  "id": 179,
+  "label": "125Te",
+  "shortLabel": "125Te",
+  "parentId": 174,
+  "order": 179,
+  "leaf": false
+ },
+ {
+  "id": 180,
+  "label": "127/129I",
+  "shortLabel": "127/129I",
+  "parentId": 174,
+  "order": 180,
+  "leaf": false
+ },
+ {
+  "id": 181,
+  "label": "151/153Eu",
+  "shortLabel": "151/153Eu",
+  "parentId": 174,
+  "order": 181,
+  "leaf": false
+ },
+ {
+  "id": 182,
+  "label": "155Gd",
+  "shortLabel": "155Gd",
+  "parentId": 174,
+  "order": 182,
+  "leaf": false
+ },
+ {
+  "id": 183,
+  "label": "161Dy",
+  "shortLabel": "161Dy",
+  "parentId": 174,
+  "order": 183,
+  "leaf": false
+ },
+ {
+  "id": 184,
+  "label": "166Er",
+  "shortLabel": "166Er",
+  "parentId": 174,
+  "order": 184,
+  "leaf": false
+ },
+ {
+  "id": 185,
+  "label": "182W",
+  "shortLabel": "182W",
+  "parentId": 174,
+  "order": 185,
+  "leaf": false
+ },
+ {
+  "id": 186,
+  "label": "193Ir",
+  "shortLabel": "193Ir",
+  "parentId": 174,
+  "order": 186,
+  "leaf": false
+ },
+ {
+  "id": 187,
+  "label": "197Au",
+  "shortLabel": "197Au",
+  "parentId": 174,
+  "order": 187,
+  "leaf": false
+ },
+ {
+  "id": 188,
+  "label": "61Ni",
+  "shortLabel": "61Ni",
+  "parentId": 174,
+  "order": 188,
+  "leaf": false
+ },
+ {
+  "id": 189,
+  "label": "67Zn",
+  "shortLabel": "67Zn",
+  "parentId": 174,
+  "order": 189,
+  "leaf": false
+ },
+ {
+  "id": 190,
+  "label": "169Tm",
+  "shortLabel": "169Tm",
+  "parentId": 174,
+  "order": 190,
+  "leaf": false
+ },
+ {
+  "id": 191,
+  "label": "170/171Yb",
+  "shortLabel": "170/171Yb",
+  "parentId": 174,
+  "order": 191,
+  "leaf": false
+ },
+ {
+  "id": 192,
+  "label": "178Hf",
+  "shortLabel": "178Hf",
+  "parentId": 174,
+  "order": 192,
+  "leaf": false
+ },
+ {
+  "id": 193,
+  "label": "181Ta",
+  "shortLabel": "181Ta",
+  "parentId": 174,
+  "order": 193,
+  "leaf": false
+ },
+ {
+  "id": 194,
+  "label": "189Os",
+  "shortLabel": "189Os",
+  "parentId": 174,
+  "order": 194,
+  "leaf": false
+ },
+ {
+  "id": 195,
+  "label": "195Pt",
+  "shortLabel": "195Pt",
+  "parentId": 174,
+  "order": 195,
+  "leaf": false
+ },
+ {
+  "id": 196,
+  "label": "237Np",
+  "shortLabel": "237Np",
+  "parentId": 174,
+  "order": 196,
+  "leaf": false
+ },
+ {
+  "id": 197,
+  "label": "Autres",
+  "shortLabel": "Autres",
+  "parentId": 174,
+  "order": 197,
+  "leaf": false
+ },
+ {
+  "id": 198,
+  "label": "Equipements/accessoires",
+  "shortLabel": "Equipements/accessoires",
+  "parentId": 167,
+  "order": 198,
+  "leaf": false
+ },
+ {
+  "id": 199,
+  "label": "Cryostat \u00e0 bain d'azote liquide pour analyses \u00e0 basse temp\u00e9rature (77 K - 300 K)",
+  "shortLabel": "Cryostat \u00e0 bain d'azote liquide pour analyses \u00e0...",
+  "parentId": 198,
+  "order": 199,
+  "leaf": false
+ },
+ {
+  "id": 200,
+  "label": "Cryostat \u00e0 bain d'h\u00e9lium liquide pour analyses \u00e0 basse temp\u00e9rature (4 K - 300 K)",
+  "shortLabel": "Cryostat \u00e0 bain d'h\u00e9lium liquide pour analyses ...",
+  "parentId": 198,
+  "order": 200,
+  "leaf": false
+ },
+ {
+  "id": 201,
+  "label": "Cryofour pour analyses \u00e0 basse et haute temp\u00e9rature (10 K - 700 K, par exemple)",
+  "shortLabel": "Cryofour pour analyses \u00e0 basse et haute temp\u00e9ra...",
+  "parentId": 198,
+  "order": 201,
+  "leaf": false
+ },
+ {
+  "id": 202,
+  "label": "Four pour analyses \u00e0 hautes temp\u00e9ratures (300 K - 1000 K, par exemple)",
+  "shortLabel": "Four pour analyses \u00e0 hautes temp\u00e9ratures (300 K...",
+  "parentId": 198,
+  "order": 202,
+  "leaf": false
+ },
+ {
+  "id": 203,
+  "label": "Electro-aimant ou bobine supraconductrice pour analyses sous champ magn\u00e9tique (jusqu'\u00e0 2 ou 9 T)",
+  "shortLabel": "Electro-aimant ou bobine supraconductrice pour ...",
+  "parentId": 198,
+  "order": 203,
+  "leaf": false
+ },
+ {
+  "id": 204,
+  "label": "Cellule \u00e9lectrochimique et galvanostat pour analyses in situ ou in operando d'\u00e9lectrodes pour batteries Li-ion ou Na-ion, par exemple",
+  "shortLabel": "Cellule \u00e9lectrochimique et galvanostat pour ana...",
+  "parentId": 198,
+  "order": 204,
+  "leaf": false
+ },
+ {
+  "id": 205,
+  "label": "Cellule \u00e0 enclumes de diamant (DAC) pour analyses \u00e0 hautes temp\u00e9ratures et hautes pressions (< 10 GPa)",
+  "shortLabel": "Cellule \u00e0 enclumes de diamant (DAC) pour analys...",
+  "parentId": 198,
+  "order": 205,
+  "leaf": false
+ },
+ {
+  "id": 206,
+  "label": "Autres cellules sp\u00e9cifiques",
+  "shortLabel": "Autres cellules sp\u00e9cifiques",
+  "parentId": 198,
+  "order": 206,
+  "leaf": false
+ }
+]

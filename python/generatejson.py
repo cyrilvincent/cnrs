@@ -4,8 +4,10 @@ dict = {
     0: {
         "id": 0,
         "label": "Equipment root",
+        "shortLabel": "Equipment root",
         "parentId": -1,
         "order": 0,
+        "leaf": False,
     }
 }
 s = "ABCDE"

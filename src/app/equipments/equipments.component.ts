@@ -43,10 +43,7 @@ export class EquipmentsComponent implements OnInit {
 
   initSearchFilter() {
     this.filtered = this.searchControl.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => this.filter(value))
-      );
+      .pipe(startWith(''), map(value => this.filter(value)));
   }
 
   initFormBuilder() {
@@ -67,8 +64,8 @@ export class EquipmentsComponent implements OnInit {
   getEntitiesByParentId(parentId: number): Entity[] {
     const res = Object.values(this.db).filter(
       v => typeof(v.parentId) === 'number' ?
-       (v.parentId === parentId) :
-       ((v.parentId as number[]).includes(parentId)));
+       v.parentId === parentId :
+       (v.parentId as number[]).includes(parentId));
     return res;
   }
 
@@ -167,7 +164,7 @@ export class EquipmentsComponent implements OnInit {
 
   filter(value: string | Entity): Entity[] {
     if (typeof(value) === 'string') {
-      const res = this.leafs.filter(e => e.label.toUpperCase().startsWith(value.toUpperCase())).slice(0, 50);
+      const res = this.leafs.filter(e => e.label.toUpperCase().startsWith(value.toUpperCase())).slice(0, 25);
       const res2 = this.leafs.filter(e => e.label.toUpperCase().includes(value.toUpperCase())).slice(0, 50);
       res2.sort((a, b) => +(a.label > b.label) || -(a.label < b.label));
       for (const e of res2) {

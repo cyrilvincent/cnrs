@@ -14,7 +14,7 @@
               <input matInput [placeholder]="'Comment'" (change)="lastChange($event)" type="text" formControlName="value" [id]="item.key" >
             </mat-form-field> 
             <mat-form-field *ngSwitchCase="'select'" appearance="fill">
-              <mat-label>{{item.entity.label}}</mat-label>
+              <mat-label>{{item.entity.shortLabel}}</mat-label>
               <mat-select  [placeholder]="item.entity.label"  (selectionChange)="change($event)" formControlName="value" [id]="item.key" >
                 <mat-option *ngFor="let o of item.options" [value]="[o.key, item]">{{o.value}}</mat-option>
               </mat-select>
