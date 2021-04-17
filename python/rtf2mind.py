@@ -37,6 +37,8 @@ class MindMeisterRtfParser:
         s = s.replace(r"\u224", "à")
         s = s.replace(r"\u232", "è")
         s = s.replace(r"\u233", "é")
+        s = s.replace(r"\u234", "ê")
+        s = s.replace(r"\u244", "ô")
         s = s.replace(r"\u246", "ö")
         s = s.replace(r"\u947", "γ")
         s = s.replace(r"\u8211", "-")
@@ -49,31 +51,36 @@ class MindMeisterRtfParser:
         for i in range(nblevel):
             ids.append(-1)
         order = 0
-        prevlevel = -1
+        even = True
         for item in self.db:
             id = item[0]
             level = item[1]
             short = item[2]
             pid = ids[level - 1] if level > 0 else -1
-            label = short if level <= 1 else f"{[e for e in self.entities if e['id'] == pid][0]['label']}, {short}"
             ids[level] = id
-            if level <= prevlevel and prevlevel != -1:
-                self.entities[-1]["leaf"] = True
-            entity = self.entity(id, label, short, pid, order)
+            entity = self.entity(id, short, pid)
+            if pid == 0:
+                if even:
+                    entity["direction"] = "right"
+                else:
+                    entity["direction"] = "left"
+                even = not even
             self.entities.append(entity)
             order += 1
-            prevlevel = level
-        self.entities[-1]["leaf"] = True
 
-    def entity(self, id, label, shortlabel, parentid, order):
-        return {
-            "id": id,
-            "label": label,
-            "shortLabel": shortlabel,
-            "parentId": parentid,
-            "order": order,
-            "leaf": False,
-        }
+    def entity(self, id, topic, parentid):
+        if parentid == -1:
+            return {
+                "id": "root",
+                "isroot": True,
+                "topic": topic,
+            }
+        else:
+            return {
+                "id": "root" if id == 0 else str(id),
+                "topic": topic,
+                "parentid": "root" if parentid == 0 else str(parentid),
+            }
 
     def save(self, path):
         js = json.dumps(self.entities, indent=True)
@@ -89,5 +96,5 @@ if __name__ == '__main__':
     p = MindMeisterRtfParser()
     p.load(path)
     p.convert()
-    path = path.replace("Spectroscopie.rtf", "db.json")
+    path = path.replace("Spectroscopie.rtf", "mind.json")
     p.save(path)

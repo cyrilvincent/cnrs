@@ -37,6 +37,8 @@ class MindMeisterRtfParser:
         s = s.replace(r"\u224", "à")
         s = s.replace(r"\u232", "è")
         s = s.replace(r"\u233", "é")
+        s = s.replace(r"\u234", "ê")
+        s = s.replace(r"\u244", "ô")
         s = s.replace(r"\u246", "ö")
         s = s.replace(r"\u947", "γ")
         s = s.replace(r"\u8211", "-")

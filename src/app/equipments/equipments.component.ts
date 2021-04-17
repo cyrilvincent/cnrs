@@ -6,6 +6,7 @@ import * as dbjson from '../../assets/db.json';
 import {Observable} from 'rxjs';
 import {map, max, startWith} from 'rxjs/operators';
 import * as levenshtein from 'js-levenshtein';
+import { MindMapMain } from 'mind-map';
 import {MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions} from '@angular/material/tooltip';
 
 export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
@@ -36,6 +37,8 @@ export class EquipmentsComponent implements OnInit {
   filtered: Observable<Entity[]>;
   searchControl = new FormControl();
   entitySearch: Entity = null;
+  mindMap: any = null;
+  showQr = false;
 
   @ViewChild('#myInput')
   search: ElementRef;
@@ -267,5 +270,9 @@ export class EquipmentsComponent implements OnInit {
 
   save() {
     window.alert('Not implemented yet');
+  }
+
+  qr() {
+    this.showQr = !this.showQr;
   }
 }

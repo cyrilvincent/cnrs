@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatTabGroup} from '@angular/material/tabs';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  title = 'CNRS Equipments Demo';
+  title = 'CNRS Platform Investigation';
+  @ViewChild('matTab')
+  matTab: MatTabGroup;
 
   refresh() {
     document.location.reload();
@@ -14,5 +17,37 @@ export class AppComponent {
 
   about() {
     window.alert(this.title + ' by Cyril Vincent');
+  }
+
+  mind() {
+    this.matTab.selectedIndex = 3;
+  }
+
+  mindsimple() {
+    window.open('https://www.cyrilvincent.com/cnrs/jsmind/Spectroscopie.htm');
+  }
+
+  db() {
+    this.matTab.selectedIndex = 4;
+  }
+
+  angular() {
+    window.open('https://material.angular.io/components/categories');
+  }
+
+  material() {
+    window.open('https://material.io/design');
+  }
+
+  pg() {
+    window.open('https://www.postgresql.org/');
+  }
+
+  python() {
+    window.open('https://www.python.org');
+  }
+
+  cyril() {
+    window.open('https://www.cyrilvincent.com');
   }
 }

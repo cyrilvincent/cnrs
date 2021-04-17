@@ -1113,8 +1113,8 @@
  },
  {
   "id": 139,
-  "label": "Spectrom\u00e8tre de masse, Analyseur, Quadrup\u00f4le",
-  "shortLabel": "Quadrup\u00f4le",
+  "label": "Spectrom\u00e8tre de masse, Analyseur, Quadrup\\u244le",
+  "shortLabel": "Quadrup\\u244le",
   "parentId": 138,
   "order": 139,
   "leaf": true
