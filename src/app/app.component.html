@@ -5,7 +5,7 @@
       </button>
       <mat-menu #bMenu="matMenu">
         <button mat-menu-item (click)="refresh()"><mat-icon>home</mat-icon>Your platform</button>
-        <button mat-menu-item><mat-icon>play_circle_filled</mat-icon>Platform management</button>
+        <button mat-menu-item (click)="manage()"><mat-icon>play_circle_filled</mat-icon>Platform management</button>
         <button mat-menu-item (click)="mind()"><mat-icon>map</mat-icon>MindMap</button>
         <button mat-menu-item (click)="mindsimple()"><mat-icon>library_books</mat-icon>Index</button>
         <button mat-menu-item (click)="db()"><mat-icon>security</mat-icon>Manage database (admin)</button>
@@ -41,6 +41,7 @@
     <p>List of equipments</p>
     <p>Click => view the details</p>
     <p>Can generate a platfom report</p>
+    <img src="https://material.angular.io/assets/screenshots/table.scene.png"/>
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
@@ -70,6 +71,7 @@
     <p>See the new node or Equipment in real time on a timeline</p>
     <p>Can generate a report for all platforms or by platform, statistics, graph viz, ...</p>
     <div>
+      <img align="top" src="https://material.angular.io/assets/screenshots/tree.scene.png"/>
       <img align="right" src="https://codyhouse.co/assets/img/gems/hero/horizontal-timeline-featured.svg" width="500"/>
       <iframe width="500" height="800px" src="https://www.cyrilvincent.com/cnrs/jsmind/Spectroscopie.htm"></iframe>
     </div>

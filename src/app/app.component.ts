@@ -23,6 +23,10 @@ export class AppComponent {
     this.matTab.selectedIndex = 3;
   }
 
+  manage() {
+    this.matTab.selectedIndex = 1;
+  }
+
   mindsimple() {
     window.open('https://www.cyrilvincent.com/cnrs/jsmind/Spectroscopie.htm');
   }

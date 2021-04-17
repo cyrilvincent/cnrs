@@ -22,7 +22,7 @@
           </div>
       </div>
       <p>With dynamic cascading select box</p>
-    
+      <p>Comment textfield on the equipment (the leaf)</p>
     </ng-container>
     <button mat-button (click)="clear()">Clear</button>
     <button *ngIf="isAdd || true" mat-button (click)="add()">Add equipment</button>
@@ -33,7 +33,7 @@
     <h2>Equipment list</h2>
     <mat-card>
     <mat-form-field class="fill">
-      <mat-label>Search equipment to add (with dynamic suggestion)</mat-label>
+      <mat-label>Search equipment to add (with dynamic suggestion and the levenshtein distance)</mat-label>
       <input #search type="text" 
             placeholder="Pick one"
             aria-label="Search"
@@ -47,6 +47,8 @@
         </mat-option>-->
       </mat-autocomplete>
     </mat-form-field>
+    <img src="https://material.angular.io/assets/screenshots/autocomplete.scene.png"/>
+    <br/>
     <button *ngIf="entitySearch" mat-button (click)="addSearch()">Add {{entitySearch.label}}</button>
     <button mat-button >Add the equipment to platform</button>
     <br/>
