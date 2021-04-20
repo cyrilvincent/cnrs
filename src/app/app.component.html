@@ -1,10 +1,11 @@
+<div id="jsmind_container"></div>
 <p>
     <mat-toolbar color="primary">
       <button mat-icon-button [matMenuTriggerFor]="bMenu" class="example-icon" aria-label="Example icon-button with menu icon">
         <mat-icon>menu</mat-icon>
       </button>
       <mat-menu #bMenu="matMenu">
-        <button mat-menu-item (click)="refresh()"><mat-icon>home</mat-icon>Your platform</button>
+        <button mat-menu-item (click)="refresh()"><mat-icon>home</mat-icon>Your laboratory</button>
         <button mat-menu-item (click)="manage()"><mat-icon>play_circle_filled</mat-icon>Platform management</button>
         <button mat-menu-item (click)="mind()"><mat-icon>map</mat-icon>MindMap</button>
         <button mat-menu-item (click)="mindsimple()"><mat-icon>library_books</mat-icon>Index</button>
@@ -14,13 +15,13 @@
         <button mat-menu-item><mat-icon>logout</mat-icon>Logout</button>
         <button mat-menu-item (click)="material()"><mat-icon>developer_board</mat-icon>Material Design</button>
         <button mat-menu-item (click)="angular()"><mat-icon>developer_board</mat-icon>Angular Material</button>
-        <button mat-menu-item (click)="python()"><mat-icon>developer_board</mat-icon>Python</button>
+        <button mat-menu-item (click)="python()"><mat-icon>developer_board</mat-icon>Python (or .NET Core)</button>
         <button mat-menu-item (click)="pg()"><mat-icon>developer_board</mat-icon>PostgreSql</button>
         <button mat-menu-item (click)="cyril()"><mat-icon>account_circle</mat-icon>Cyril Vincent</button>
       </mat-menu>
     <span>{{title}}</span>
     <span class="example-spacer"></span>
-    <button mat-icon-button aria-label="Your platform" [matTooltip]="'Your platform'">
+    <button mat-icon-button aria-label="Your labortory" [matTooltip]="'Your platform'">
       <mat-icon (click)="refresh()">home</mat-icon>
     </button>
     <button mat-icon-button aria-label="Share" [matTooltip]="'Share'">
@@ -35,18 +36,20 @@
 <mat-tab-group #matTab>
   <mat-tab>
     <ng-template mat-tab-label>
-      <mat-icon>home</mat-icon> Your platform
+      <mat-icon>home</mat-icon> Your laboratory
     </ng-template>
-    <p>Your platform</p>
-    <p>List of equipments</p>
+    <p>List of platforms</p>
     <p>Click => view the details</p>
+    <p>Out platform is a special platform</p>
+    <p>Equipment list</p>
+    <p>Add equipment to a platform</p>
     <p>Can generate a platfom report</p>
     <img src="https://material.angular.io/assets/screenshots/table.scene.png"/>
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
       <mat-icon>play_circle_filled</mat-icon>
-      Platform management
+      Platorm management
     </ng-template>
     <app-equipments></app-equipments>
   </mat-tab>
@@ -68,8 +71,16 @@
     <p>Manage Database</p>
     <p>Only for admin</p>
     <p>Add, remove, update, reorder nodes and equipments</p>
+    <pre>
+      Node = Category ou Value (leaf)
+      Labo 1-* Platform *-* Equipment 1-* Node 1-* Node (branche de choix)
+                        *-* Equipment 1-* Node(leaf) (branche du panier)
+      Node(leaf=false).minvalues = 0, 1, N
+
+    </pre>
     <p>See the new node or Equipment in real time on a timeline</p>
     <p>Can generate a report for all platforms or by platform, statistics, graph viz, ...</p>
+    <p>Technical Example https://stackblitz.com/edit/dynamic-material-tree</p>
     <div>
       <img align="top" src="https://material.angular.io/assets/screenshots/tree.scene.png"/>
       <img align="right" src="https://codyhouse.co/assets/img/gems/hero/horizontal-timeline-featured.svg" width="500"/>

@@ -1,13 +1,11 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
-import { environment } from 'src/environments/environment';
-import { Entity, ViewModel, OptionVM} from '../models';
-import * as dbjson from '../../assets/db.json';
-import {Observable} from 'rxjs';
-import {map, max, startWith} from 'rxjs/operators';
+import { Entity, ViewModel, OptionVM} from '../shared/models';
+import { Observable } from 'rxjs';
+import {map, startWith, filter} from 'rxjs/operators';
 import * as levenshtein from 'js-levenshtein';
-import { MindMapMain } from 'mind-map';
 import {MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions} from '@angular/material/tooltip';
+import { EquipmentService } from '../shared/equipments.service';
 
 export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
   showDelay: 500,
@@ -27,13 +25,15 @@ export class EquipmentsComponent implements OnInit {
   form: FormGroup;
   values: any = {};
   level = 0;
-  db: { [id: number]: Entity; } = {};
+  db: { [id: number]: Entity; };
+  db$: Observable<{ [id: number]: Entity; }>;
   vms: ViewModel[] = [];
   isAdd = false;
   equipments: Entity[] = [];
   rootId = 0;
   isLabel = -1;
   leafs: Entity[] = [];
+  leafs$: Observable<Entity[]>;
   filtered: Observable<Entity[]>;
   searchControl = new FormControl();
   entitySearch: Entity = null;
@@ -43,17 +43,31 @@ export class EquipmentsComponent implements OnInit {
   @ViewChild('#myInput')
   search: ElementRef;
 
-  constructor(private fb: FormBuilder) {
-    // tslint:disable-next-line: no-string-literal
-    this.db = dbjson['default'];
-    this.generateLeafs();
+  constructor(private fb: FormBuilder, private service: EquipmentService) {
   }
 
   ngOnInit() {
+    // tslint:disable-next-line: no-string-literal
+    this.db$ = this.service.db$;
+    this.service.db$.subscribe(db => this.db = db);
+    this.generateLeafs();
     this.initSearchFilter();
     this.initFormBuilder();
     this.addControl(this.rootId);
   }
+
+  generateLeafs() {
+    this.leafs = Object.values(this.db).filter(e => e.leaf);
+    this.leafs.sort((a, b) => +(a.label > b.label) || -(a.label < b.label));
+  }
+
+  /*generateLeafs$() {
+    this.db$.pipe(
+      map(dico => Object.values(dico)),
+      map(value => value.filter(e => e.leaf)),
+      map(leafs => this.leafs.sort((a, b) => +(a.label > b.label) || -(a.label < b.label)))
+    );
+  }*/
 
   initSearchFilter() {
     this.filtered = this.searchControl.valueChanges
@@ -69,11 +83,6 @@ export class EquipmentsComponent implements OnInit {
       date: this.fb.control(new Date()),
       vms: this.fb.array(array)
     });
-  }
-
-  generateLeafs() {
-    this.leafs = Object.values(this.db).filter(e => e.leaf);
-    this.leafs.sort((a, b) => +(a.label > b.label) || -(a.label < b.label))
   }
 
   getEntitiesByParentId(parentId: number): Entity[] {

@@ -15,17 +15,15 @@
             </mat-form-field> 
             <mat-form-field *ngSwitchCase="'select'" appearance="fill">
               <mat-label>{{item.entity.shortLabel}}</mat-label>
-              <mat-select  [placeholder]="item.entity.label"  (selectionChangeComment)="change($event)" formControlName="value" [id]="item.key" >
+              <mat-select  [placeholder]="item.entity.label"  (selectionChange)="change($event)" formControlName="value" [id]="item.key" >
                 <mat-option *ngFor="let o of item.options" [value]="[o.key, item]">{{o.value}}</mat-option>
               </mat-select>
           </mat-form-field>
           </div>
       </div>
-      <p>With dynamic cascading select box</p>
-      <p>Comment textfield on the equipment (the leaf)</p>
     </ng-container>
     <button mat-button (click)="clear()">Clear</button>
-    <button *ngIf="isAdd || true" mat-button (click)="add()">Add equipment</button>
+    <button *ngIf="isAdd" mat-button (click)="add()">Add value</button>
     </mat-card>
     </div>
 
@@ -33,7 +31,7 @@
     <h2>Equipment list</h2>
     <mat-card>
     <mat-form-field class="fill">
-      <mat-label>Search equipment to add (with dynamic suggestion and the levenshtein distance)</mat-label>
+      <mat-label>Search value to add (with dynamic suggestion and the levenshtein distance)</mat-label>
       <input #search type="text" 
             placeholder="Pick one"
             aria-label="Search"
@@ -42,15 +40,13 @@
             [formControl]="searchControl"
             [matAutocomplete]="auto">
       <mat-autocomplete #auto="matAutocomplete" (optionSelected)='searchAction($event)'>
-        <!--<mat-option *ngFor="let entity of filtered | async" [value]="entity.label" [matTooltip]="entity.label">
+        <mat-option *ngFor="let entity of filtered | async" [value]="entity.label" [matTooltip]="entity.label">
           {{entity.label}}
-        </mat-option>-->
+        </mat-option>
       </mat-autocomplete>
     </mat-form-field>
-    <img src="https://material.angular.io/assets/screenshots/autocomplete.scene.png"/>
     <br/>
     <button *ngIf="entitySearch" mat-button (click)="addSearch()">Add {{entitySearch.label}}</button>
-    <button mat-button >Add the equipment to platform</button>
     <br/>
     <mat-card>
       <mat-list *ngIf="equipments.length > 0">
@@ -61,10 +57,6 @@
       </mat-list>
       <div *ngIf="equipments.length == 0">Empty</div>
       <button *ngIf="equipments.length > 0" mat-button (click)="save()">Save</button>
-      <button *ngIf="equipments.length > 0" mat-button (click)="qr()">QR Code</button>
-      <div *ngIf="showQr">
-        <img src="../../assets/Unitag_QRCode_1618647416336.png" width="200"/>
-      </div>
       </mat-card>
     </mat-card>
   </div>

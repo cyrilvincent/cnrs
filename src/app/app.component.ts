@@ -16,11 +16,11 @@ export class AppComponent {
   }
 
   about() {
-    window.alert(this.title + ' by Cyril Vincent');
+    window.alert(this.title + ' by Cyril Vincent ');
   }
 
   mind() {
-    this.matTab.selectedIndex = 3;
+    this.matTab.selectedIndex = 2;
   }
 
   manage() {
@@ -32,7 +32,7 @@ export class AppComponent {
   }
 
   db() {
-    this.matTab.selectedIndex = 4;
+    this.matTab.selectedIndex = 3;
   }
 
   angular() {

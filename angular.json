@@ -25,9 +25,13 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.css"
+              "src/styles.css",
+              "jsmind/css/jsmind.css"
             ],
-            "scripts": []
+            "scripts": [
+              "jsmind/js/jsmind.js",
+              "jsmind/js/jsmind.draggable.js"
+            ]
           },
           "configurations": {
             "production": {

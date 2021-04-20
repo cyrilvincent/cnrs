@@ -18,6 +18,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {MatTooltipModule} from '@angular/material/tooltip'
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatTreeModule} from '@angular/material/tree';
 
 @NgModule({
   imports: [
@@ -40,6 +41,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatAutocompleteModule,
     MatTooltipModule,
     MatTabsModule,
+    MatTreeModule,
   ],
   exports: [
     MatButtonModule,
@@ -61,6 +63,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatAutocompleteModule,
     MatTooltipModule,
     MatTabsModule,
+    MatTreeModule,
   ]
 })
 export class MaterialModule {}

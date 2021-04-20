@@ -83,9 +83,17 @@ class MindMeisterRtfParser:
             }
 
     def save(self, path):
-        js = json.dumps(self.entities, indent=True)
-        print(js)
+        dict = {"meta":
+            {
+                "name":"demo",
+                "author":"contact@cyrilvincent.com",
+                "version":"0",
+            },
+            "format":"node_array",
+            "data":self.entities}
+        js = json.dumps(dict, indent=True)
         with open(path, "w") as f:
+            f.write("var dbmind = ")
             f.write(js)
 
 
@@ -96,5 +104,5 @@ if __name__ == '__main__':
     p = MindMeisterRtfParser()
     p.load(path)
     p.convert()
-    path = path.replace("Spectroscopie.rtf", "mind.json")
+    path = path.replace("Spectroscopie.rtf", "mind.js")
     p.save(path)
