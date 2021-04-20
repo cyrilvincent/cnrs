@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 import { Entity, ViewModel, OptionVM} from '../shared/models';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import {map, startWith, filter} from 'rxjs/operators';
 import * as levenshtein from 'js-levenshtein';
 import {MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions} from '@angular/material/tooltip';
@@ -26,14 +26,12 @@ export class EquipmentsComponent implements OnInit {
   values: any = {};
   level = 0;
   db: { [id: number]: Entity; };
-  db$: Observable<{ [id: number]: Entity; }>;
   vms: ViewModel[] = [];
   isAdd = false;
   equipments: Entity[] = [];
   rootId = 0;
   isLabel = -1;
   leafs: Entity[] = [];
-  leafs$: Observable<Entity[]>;
   filtered: Observable<Entity[]>;
   searchControl = new FormControl();
   entitySearch: Entity = null;
@@ -47,27 +45,15 @@ export class EquipmentsComponent implements OnInit {
   }
 
   ngOnInit() {
-    // tslint:disable-next-line: no-string-literal
-    this.db$ = this.service.db$;
     this.service.db$.subscribe(db => this.db = db);
-    this.generateLeafs();
+    this.service.generateLeafs();
+    this.service.leaf$.subscribe(leafs => this.leafs = leafs);
     this.initSearchFilter();
     this.initFormBuilder();
     this.addControl(this.rootId);
   }
 
-  generateLeafs() {
-    this.leafs = Object.values(this.db).filter(e => e.leaf);
-    this.leafs.sort((a, b) => +(a.label > b.label) || -(a.label < b.label));
-  }
 
-  /*generateLeafs$() {
-    this.db$.pipe(
-      map(dico => Object.values(dico)),
-      map(value => value.filter(e => e.leaf)),
-      map(leafs => this.leafs.sort((a, b) => +(a.label > b.label) || -(a.label < b.label)))
-    );
-  }*/
 
   initSearchFilter() {
     this.filtered = this.searchControl.valueChanges
@@ -202,23 +188,11 @@ export class EquipmentsComponent implements OnInit {
     }
   }
 
-  normalize(s: string) {
-    const s1 = 'ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž-(),';
-    const s2 = 'AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZz    ';
-    const tab = s.split('');
-    const length = s.length;
-    for (let i = 0; i < length; i++) {
-      const index = s1.indexOf(tab[i]);
-      if (index !== -1) {
-        tab[i] = s2[index];
-      }
-    }
-    return tab.join('').toUpperCase().trim();
-  }
+
 
   distance(s1: string, s2: string) {
-    s1 = this.normalize(s1);
-    s2 = this.normalize(s2);
+    s1 = this.service.normalize(s1);
+    s2 = this.service.normalize(s2);
     if (s2.startsWith(s1)) {
       return 1;
     }
@@ -232,8 +206,8 @@ export class EquipmentsComponent implements OnInit {
     if (s1 === '') {
       return 0;
     }
-    s1 = this.normalize(s1);
-    s2 = this.normalize(s2);
+    s1 = this.service.normalize(s1);
+    s2 = this.service.normalize(s2);
     if (s2.startsWith(s1)) {
       return 1;
     }
@@ -242,8 +216,8 @@ export class EquipmentsComponent implements OnInit {
   }
 
   gestalts(s1: string, s2: string) {
-    s1 = this.normalize(s1).trim();
-    s2 = this.normalize(s2).trim();
+    s1 = this.service.normalize(s1).trim();
+    s2 = this.service.normalize(s2).trim();
     const tab1 = s1.split(' ');
     const tab2 = s2.split(' ');
     for (let i = 0; i < tab1.length - 1; i++) {
