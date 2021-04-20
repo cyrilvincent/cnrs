@@ -1,9 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 import { Entity, ViewModel, OptionVM} from '../shared/models';
-import { Observable, of } from 'rxjs';
-import {map, startWith, filter} from 'rxjs/operators';
-import * as levenshtein from 'js-levenshtein';
+import { Observable } from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 import {MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions} from '@angular/material/tooltip';
 import { EquipmentService } from '../shared/equipments.service';
 
@@ -27,16 +26,13 @@ export class EquipmentsComponent implements OnInit {
   level = 0;
   db: { [id: number]: Entity; };
   vms: ViewModel[] = [];
-  isAdd = false;
+  addItem = false;
   equipments: Entity[] = [];
   rootId = 0;
-  isLabel = -1;
   leafs: Entity[] = [];
   filtered: Observable<Entity[]>;
   searchControl = new FormControl();
   entitySearch: Entity = null;
-  mindMap: any = null;
-  showQr = false;
 
   @ViewChild('#myInput')
   search: ElementRef;
@@ -45,19 +41,21 @@ export class EquipmentsComponent implements OnInit {
   }
 
   ngOnInit() {
+    // tslint:disable-next-line: deprecation
     this.service.db$.subscribe(db => this.db = db);
     this.service.generateLeafs();
+    // tslint:disable-next-line: deprecation
     this.service.leaf$.subscribe(leafs => this.leafs = leafs);
+    // tslint:disable-next-line: deprecation
+    this.service.equipments$.subscribe(e => this.equipments = e);
     this.initSearchFilter();
     this.initFormBuilder();
     this.addControl(this.rootId);
   }
 
-
-
   initSearchFilter() {
     this.filtered = this.searchControl.valueChanges
-      .pipe(startWith(''), map(value => this.filter(value)));
+      .pipe(startWith(''), map(value => this.service.filter(value)));
   }
 
   initFormBuilder() {
@@ -71,63 +69,15 @@ export class EquipmentsComponent implements OnInit {
     });
   }
 
-  getEntitiesByParentId(parentId: number): Entity[] {
-    const res = Object.values(this.db).filter(
-      v => typeof(v.parentId) === 'number' ?
-       v.parentId === parentId :
-       (v.parentId as number[]).includes(parentId));
-    return res;
-  }
-
-  convertEntityToVM(entity: Entity, entities: Entity[]): ViewModel {
-    const vm: ViewModel = new ViewModel();
-    vm.value = entity.id;
-    vm.key = entity.id;
-    vm.level = this.level;
-    vm.entity = entity;
-    this.isLabel = -1;
-    if (entity.leaf) {
-      vm.type = 'text';
-      vm.value = '';
-      this.isAdd = true;
-    }
-    /*else if (entities.length == 1) {
-      vm.type = "label";
-      this.isLabel = entities[0].id;
-    }*/
-    else {
-      this.isAdd = false;
-      vm.type = 'select';
-      vm.options = [];
-      entities.sort((a, b) => a.order - b.order);
-      for (const e of entities) {
-        const option: OptionVM = new OptionVM();
-        option.key = e.id;
-        option.value = e.shortLabel;
-        vm.options.push(option);
-      }
-    }
-    return vm;
-  }
-
-  getVMById(id: number): ViewModel {
-    const entity = this.db[id];
-    const entities = this.getEntitiesByParentId(entity.id);
-    const vm: ViewModel = this.convertEntityToVM(entity, entities);
-    return vm;
-  }
-
   addControl(id: number) {
     console.log('Add control');
     const array = this.form.controls.vms as FormArray;
-    const item: ViewModel = this.getVMById(id);
+    const item: ViewModel = this.service.getVMById(id, this.level);
+    this.addItem = item.entity.leaf;
     this.vms.push(item);
     const gitem: FormGroup = this.fb.group(item);
     array.push(gitem);
     this.level += 1;
-    /*if(this.isLabel) {
-      this.addControl(this.isLabel);
-    }*/
   }
 
   removeLastControl() {
@@ -165,97 +115,23 @@ export class EquipmentsComponent implements OnInit {
   add() {
     const values = this.form.getRawValue();
     const v = values.vms[values.vms.length - 1];
-    this.equipments.push(v.entity);
+    this.equipments = this.service.addEquipment(v.entity);
   }
 
   delete(id: number) {
-    this.equipments = this.equipments.filter(e => e.id !== id);
-  }
-
-  filter(value: string | Entity): Entity[] {
-    if (typeof(value) === 'string') {
-      let res = this.leafs.map(e => [e, this.distance(value, e.label)]);
-      let res2 = res.filter(es => es[1] > 0);
-      if (res2.length === 0) {
-        res = this.leafs.map(e => [e, this.gestalts(value, e.label)]);
-      }
-      res2 = res.filter(es => es[1] > 0.3);
-      res2.sort((a, b) => (b[1] as number) - (a[1] as number));
-      return res2.slice(0, 50).map(es => es[0] as Entity);
-    }
-    else {
-      return [];
-    }
-  }
-
-
-
-  distance(s1: string, s2: string) {
-    s1 = this.service.normalize(s1);
-    s2 = this.service.normalize(s2);
-    if (s2.startsWith(s1)) {
-      return 1;
-    }
-    if (s2.includes(s1)) {
-      return 0.99;
-    }
-    return 0;
-  }
-
-  gestalt(s1: string, s2: string) {
-    if (s1 === '') {
-      return 0;
-    }
-    s1 = this.service.normalize(s1);
-    s2 = this.service.normalize(s2);
-    if (s2.startsWith(s1)) {
-      return 1;
-    }
-    const score = levenshtein(s1, s2);
-    return 1 - score / (s1.length + s2.length);
-  }
-
-  gestalts(s1: string, s2: string) {
-    s1 = this.service.normalize(s1).trim();
-    s2 = this.service.normalize(s2).trim();
-    const tab1 = s1.split(' ');
-    const tab2 = s2.split(' ');
-    for (let i = 0; i < tab1.length - 1; i++) {
-        if (!tab2.includes(tab1[i])) {
-          return 0;
-        }
-    }
-    if (tab2.includes(tab1[tab1.length - 1])) {
-      return 1;
-    }
-    const scores = tab2.map(s => this.gestalt(tab1[tab1.length - 1], s));
-    return Math.max(...scores);
-
-
-
-
-  }
-
-  getByLabel(s: string): Entity|null {
-    const res = this.leafs.filter(e => e.label.toUpperCase() === s.toUpperCase());
-    return res.length === 0 ? null : res[0];
+    this.equipments = this.service.deleteEquipment(id);
   }
 
   searchAction(value: any) {
     console.log(value.option.value);
-    this.entitySearch = this.getByLabel(value.option.value);
+    this.entitySearch = this.service.getByLabel(value.option.value);
   }
 
   addSearch() {
-    this.equipments.push(this.entitySearch);
-    this.search.nativeElement.select();
+    this.service.addEquipment(this.entitySearch);
   }
 
   save() {
     window.alert('Not implemented yet');
-  }
-
-  qr() {
-    this.showQr = !this.showQr;
   }
 }
