@@ -31,7 +31,7 @@
     <h2>Equipment list</h2>
     <mat-card>
     <mat-form-field class="fill">
-      <mat-label>Search value to add (with dynamic suggestion and the levenshtein distance)</mat-label>
+      <mat-label>Search value to add</mat-label>
       <input #search type="text" 
             placeholder="Pick one"
             aria-label="Search"
@@ -48,16 +48,7 @@
     <br/>
     <button *ngIf="entitySearch" mat-button (click)="addSearch()">Add {{entitySearch.label}}</button>
     <br/>
-    <mat-card>
-      <mat-list *ngIf="equipments.length > 0">
-        <mat-list-item *ngFor="let e of equipments">
-          {{e.label}}
-          <button mat-button (click)="delete(e.id)" [matTooltip]="'Delete'" ><mat-icon matListIcon>delete</mat-icon></button>
-        </mat-list-item>
-      </mat-list>
-      <div *ngIf="equipments.length == 0">Empty</div>
-      <button *ngIf="equipments.length > 0" mat-button (click)="save()">Save</button>
-      </mat-card>
+    <app-entity-list></app-entity-list>
     </mat-card>
   </div>
   </form>

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Entity, ViewModel, OptionVM} from './models';
 import * as dbjson from '../../assets/db.json';
-import {Observable, of, from, Subject} from 'rxjs';
 import * as levenshtein from 'js-levenshtein';
 
 @Injectable({
@@ -9,43 +8,31 @@ import * as levenshtein from 'js-levenshtein';
 })
 export class EquipmentService {
 
-  db: { [id: number]: Entity; } = {};
+  private db: { [id: number]: Entity; } = {};
   leafs: Entity[] = [];
   equipments: Entity[] = [];
+  rootId = 0;
 
   constructor() {
     // tslint:disable-next-line: no-string-literal
     this.db = dbjson['default'];
+    this.generateLeafs();
   }
 
-  get db$(): Observable<{ [id: number]: Entity; }> {
-    return of(this.db);
-  }
-
-  get leaf$(): Observable<Entity[]> {
-    return of(this.leafs);
-  }
-
-  get equipments$(): Observable<Entity[]> {
-    return of(this.equipments);
-  }
-
-  generateLeafs() {
+  private generateLeafs() {
     this.leafs = Object.values(this.db).filter(e => e.leaf);
     this.leafs.sort((a, b) => +(a.label > b.label) || -(a.label < b.label));
   }
 
   addEquipment(e: Entity) {
     this.equipments.push(e);
-    return this.equipments;
   }
 
   deleteEquipment(id: number) {
     this.equipments = this.equipments.filter(e => e.id !== id);
-    return this.equipments;
   }
 
-  getEntitiesByParentId(parentId: number): Entity[] {
+  private getEntitiesByParentId(parentId: number): Entity[] {
     const res = Object.values(this.db).filter(
       v => typeof(v.parentId) === 'number' ?
        v.parentId === parentId :
@@ -53,7 +40,7 @@ export class EquipmentService {
     return res;
   }
 
-  convertEntityToVM(entity: Entity, entities: Entity[], level: number): ViewModel {
+  private convertEntityToVM(entity: Entity, entities: Entity[], level: number): ViewModel {
     const vm: ViewModel = new ViewModel();
     vm.value = entity.id;
     vm.key = entity.id;
@@ -84,7 +71,7 @@ export class EquipmentService {
     return vm;
   }
 
-  normalize(s: string) {
+  private normalize(s: string) {
     const s1 = 'ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž-(),';
     const s2 = 'AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZz    ';
     const tab = s.split('');
@@ -98,7 +85,7 @@ export class EquipmentService {
     return tab.join('').toUpperCase().trim();
   }
 
-  gestalt(s1: string, s2: string) {
+  private gestalt(s1: string, s2: string) {
     if (s1 === '') {
       return 0;
     }
@@ -111,7 +98,7 @@ export class EquipmentService {
     return 1 - score / (s1.length + s2.length);
   }
 
-  gestalts(s1: string, s2: string) {
+  private gestalts(s1: string, s2: string) {
     s1 = this.normalize(s1).trim();
     s2 = this.normalize(s2).trim();
     const tab1 = s1.split(' ');
@@ -128,7 +115,7 @@ export class EquipmentService {
     return Math.max(...scores);
   }
 
-  distance(s1: string, s2: string) {
+  private distance(s1: string, s2: string) {
     s1 = this.normalize(s1);
     s2 = this.normalize(s2);
     if (s2.startsWith(s1)) {

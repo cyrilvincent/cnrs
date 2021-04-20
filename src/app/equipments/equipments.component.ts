@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
-import { Entity, ViewModel, OptionVM} from '../shared/models';
+import { Entity, ViewModel} from '../shared/models';
 import { Observable } from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import {MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions} from '@angular/material/tooltip';
@@ -10,7 +10,7 @@ export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
   showDelay: 500,
   hideDelay: 0,
   touchendHideDelay: 0,
-};
+}; // TODO Move on app
 
 @Component({
   selector: 'app-equipments',
@@ -24,41 +24,31 @@ export class EquipmentsComponent implements OnInit {
   form: FormGroup;
   values: any = {};
   level = 0;
-  db: { [id: number]: Entity; };
   vms: ViewModel[] = [];
   addItem = false;
-  equipments: Entity[] = [];
-  rootId = 0;
-  leafs: Entity[] = [];
   filtered: Observable<Entity[]>;
   searchControl = new FormControl();
   entitySearch: Entity = null;
 
-  @ViewChild('#myInput')
+  @ViewChild('search')
   search: ElementRef;
 
-  constructor(private fb: FormBuilder, private service: EquipmentService) {
+
+  constructor(private fb: FormBuilder, public service: EquipmentService) {
   }
 
   ngOnInit() {
-    // tslint:disable-next-line: deprecation
-    this.service.db$.subscribe(db => this.db = db);
-    this.service.generateLeafs();
-    // tslint:disable-next-line: deprecation
-    this.service.leaf$.subscribe(leafs => this.leafs = leafs);
-    // tslint:disable-next-line: deprecation
-    this.service.equipments$.subscribe(e => this.equipments = e);
     this.initSearchFilter();
     this.initFormBuilder();
-    this.addControl(this.rootId);
+    this.addControl(this.service.rootId);
   }
 
-  initSearchFilter() {
+  private initSearchFilter() {
     this.filtered = this.searchControl.valueChanges
       .pipe(startWith(''), map(value => this.service.filter(value)));
   }
 
-  initFormBuilder() {
+  private initFormBuilder() {
     const array: FormGroup[] = [];
     this.vms.forEach(
       item => array.push(this.fb.group(item))
@@ -100,7 +90,6 @@ export class EquipmentsComponent implements OnInit {
   }
 
   lastChange(value: any) {
-    // this.show();
   }
 
   clear() {
@@ -109,17 +98,13 @@ export class EquipmentsComponent implements OnInit {
       this.removeLastControl();
     }
     this.level = 0;
-    this.addControl(this.rootId);
+    this.addControl(this.service.rootId);
   }
 
   add() {
     const values = this.form.getRawValue();
     const v = values.vms[values.vms.length - 1];
-    this.equipments = this.service.addEquipment(v.entity);
-  }
-
-  delete(id: number) {
-    this.equipments = this.service.deleteEquipment(id);
+    this.service.addEquipment(v.entity);
   }
 
   searchAction(value: any) {
@@ -131,7 +116,5 @@ export class EquipmentsComponent implements OnInit {
     this.service.addEquipment(this.entitySearch);
   }
 
-  save() {
-    window.alert('Not implemented yet');
-  }
+
 }

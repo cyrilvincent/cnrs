@@ -7,9 +7,10 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { EquipmentsComponent } from "./equipments/equipments.component";
 import { MaterialModule} from "./material.module";
 import { MindmapComponent } from "./mindmap/mindmap.component";
+import { EntityListComponent } from './entity-list/entity-list.component';
 
 @NgModule({
-  declarations: [AppComponent, EquipmentsComponent, MindmapComponent],
+  declarations: [AppComponent, EquipmentsComponent, MindmapComponent, EntityListComponent],
   imports: [BrowserModule, ReactiveFormsModule, MaterialModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
