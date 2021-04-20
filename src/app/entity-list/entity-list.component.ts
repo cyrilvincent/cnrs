@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EquipmentService } from '../shared/equipments.service';
-import { Entity } from '../shared/models';
 
 @Component({
   selector: 'app-entity-list',

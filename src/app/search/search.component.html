@@ -1,0 +1,17 @@
+<mat-form-field class="fill">
+    <mat-label>Search value to add</mat-label>
+    <input #search type="text" 
+          placeholder="Pick one"
+          aria-label="Search"
+          matInput
+          class="fill"
+          [formControl]="searchControl"
+          [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)='searchAction($event)'>
+      <mat-option *ngFor="let entity of filtered | async" [value]="entity.label" [matTooltip]="entity.label">
+        {{entity.label}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <br/>
+    <button *ngIf="entitySearch" mat-button (click)="addSearch()">Add {{entitySearch.label}}</button>

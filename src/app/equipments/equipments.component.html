@@ -1,56 +1,18 @@
-<form [formGroup]="form">
+
   
   <div style="width: 49%; height: 100%; float:left">
     <h2>Choose your equipment</h2>
-  <mat-card>
-    <ng-container *ngFor="let item of vms; let i = index" >
-    
-      <div [formGroup]="form.controls['vms']['controls'][i]">
-        
-          <div [ngSwitch]="item.type" class="form-field-group">
-            <label *ngSwitchCase="'label'">{{item.entity.label}}</label>
-            <mat-form-field *ngSwitchCase="'text'" appearance="fill">
-              <label>You choose {{item.entity.label}}</label>
-              <input matInput [placeholder]="'Comment'" (change)="lastChange($event)" type="text" formControlName="value" [id]="item.key" >
-            </mat-form-field> 
-            <mat-form-field *ngSwitchCase="'select'" appearance="fill">
-              <mat-label>{{item.entity.shortLabel}}</mat-label>
-              <mat-select  [placeholder]="item.entity.label"  (selectionChange)="change($event)" formControlName="value" [id]="item.key" >
-                <mat-option *ngFor="let o of item.options" [value]="[o.key, item]">{{o.value}}</mat-option>
-              </mat-select>
-          </mat-form-field>
-          </div>
-      </div>
-    </ng-container>
-    <button mat-button (click)="clear()">Clear</button>
-    <button *ngIf="addItem" mat-button (click)="add()">Add value</button>
-    </mat-card>
+    <app-dynamic-form></app-dynamic-form>
     </div>
 
   <div style="width: 49%; height: 100%; float:right">
     <h2>Equipment list</h2>
     <mat-card>
-    <mat-form-field class="fill">
-      <mat-label>Search value to add</mat-label>
-      <input #search type="text" 
-            placeholder="Pick one"
-            aria-label="Search"
-            matInput
-            class="fill"
-            [formControl]="searchControl"
-            [matAutocomplete]="auto">
-      <mat-autocomplete #auto="matAutocomplete" (optionSelected)='searchAction($event)'>
-        <mat-option *ngFor="let entity of filtered | async" [value]="entity.label" [matTooltip]="entity.label">
-          {{entity.label}}
-        </mat-option>
-      </mat-autocomplete>
-    </mat-form-field>
-    <br/>
-    <button *ngIf="entitySearch" mat-button (click)="addSearch()">Add {{entitySearch.label}}</button>
+      <app-search></app-search>
     <br/>
     <app-entity-list></app-entity-list>
     </mat-card>
   </div>
-  </form>
+
 
 

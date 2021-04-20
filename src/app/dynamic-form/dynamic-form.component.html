@@ -1,0 +1,25 @@
+<form [formGroup]="form">
+<mat-card>
+    <ng-container *ngFor="let item of vms; let i = index" >
+    
+      <div [formGroup]="form.controls['vms']['controls'][i]">
+        
+          <div [ngSwitch]="item.type" class="form-field-group">
+            <label *ngSwitchCase="'label'">{{item.entity.label}}</label>
+            <mat-form-field *ngSwitchCase="'text'" appearance="fill">
+              <label>You choose {{item.entity.label}}</label>
+              <input matInput [placeholder]="'Comment'" (change)="lastChange($event)" type="text" formControlName="value" [id]="item.key" >
+            </mat-form-field> 
+            <mat-form-field *ngSwitchCase="'select'" appearance="fill">
+              <mat-label>{{item.entity.shortLabel}}</mat-label>
+              <mat-select  [placeholder]="item.entity.label"  (selectionChange)="change($event)" formControlName="value" [id]="item.key" >
+                <mat-option *ngFor="let o of item.options" [value]="[o.key, item]">{{o.value}}</mat-option>
+              </mat-select>
+          </mat-form-field>
+          </div>
+      </div>
+    </ng-container>
+    <button mat-button (click)="clear()">Clear</button>
+    <button *ngIf="addItem" mat-button (click)="add()">Add value</button>
+    </mat-card>
+</form>

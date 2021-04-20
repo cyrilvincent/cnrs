@@ -8,9 +8,11 @@ import { EquipmentsComponent } from "./equipments/equipments.component";
 import { MaterialModule} from "./material.module";
 import { MindmapComponent } from "./mindmap/mindmap.component";
 import { EntityListComponent } from './entity-list/entity-list.component';
+import { SearchComponent } from './search/search.component';
+import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 
 @NgModule({
-  declarations: [AppComponent, EquipmentsComponent, MindmapComponent, EntityListComponent],
+  declarations: [AppComponent, EquipmentsComponent, MindmapComponent, EntityListComponent, SearchComponent, DynamicFormComponent],
   imports: [BrowserModule, ReactiveFormsModule, MaterialModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
