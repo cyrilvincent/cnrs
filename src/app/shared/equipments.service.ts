@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Entity, ViewModel, OptionVM} from './models';
+import { EquipmentNode, ViewModel, OptionVM} from './models';
 import * as dbjson from '../../assets/db.json';
 import * as levenshtein from 'js-levenshtein';
 
@@ -8,9 +8,9 @@ import * as levenshtein from 'js-levenshtein';
 })
 export class EquipmentService {
 
-  private db: { [id: number]: Entity; } = {};
-  leafs: Entity[] = [];
-  equipments: Entity[] = [];
+  private db: { [id: number]: EquipmentNode; } = {};
+  leafs: EquipmentNode[] = [];
+  nodes: EquipmentNode[] = [];
   rootId = 0;
 
   constructor() {
@@ -24,15 +24,15 @@ export class EquipmentService {
     this.leafs.sort((a, b) => +(a.label > b.label) || -(a.label < b.label));
   }
 
-  addEquipment(e: Entity) {
-    this.equipments.push(e);
+  addEquipment(e: EquipmentNode) {
+    this.nodes.push(e);
   }
 
   deleteEquipment(id: number) {
-    this.equipments = this.equipments.filter(e => e.id !== id);
+    this.nodes = this.nodes.filter(e => e.id !== id);
   }
 
-  private getEntitiesByParentId(parentId: number): Entity[] {
+  private getNodesByParentId(parentId: number): EquipmentNode[] {
     const res = Object.values(this.db).filter(
       v => typeof(v.parentId) === 'number' ?
        v.parentId === parentId :
@@ -40,7 +40,7 @@ export class EquipmentService {
     return res;
   }
 
-  private convertEntityToVM(entity: Entity, entities: Entity[], level: number): ViewModel {
+  private convertNodeToVM(entity: EquipmentNode, entities: EquipmentNode[], level: number): ViewModel {
     const vm: ViewModel = new ViewModel();
     vm.value = entity.id;
     vm.key = entity.id;
@@ -66,8 +66,8 @@ export class EquipmentService {
 
   getVMById(id: number, level: number): ViewModel {
     const entity = this.db[id];
-    const entities = this.getEntitiesByParentId(entity.id);
-    const vm: ViewModel = this.convertEntityToVM(entity, entities, level);
+    const entities = this.getNodesByParentId(entity.id);
+    const vm: ViewModel = this.convertNodeToVM(entity, entities, level);
     return vm;
   }
 
@@ -127,7 +127,7 @@ export class EquipmentService {
     return 0;
   }
 
-  filter(value: string | Entity): Entity[] {
+  filter(value: string | EquipmentNode): EquipmentNode[] {
     if (typeof(value) === 'string') {
       let res = this.leafs.map(e => [e, this.distance(value, e.label)]);
       let res2 = res.filter(es => es[1] > 0);
@@ -136,14 +136,14 @@ export class EquipmentService {
       }
       res2 = res.filter(es => es[1] > 0.3);
       res2.sort((a, b) => (b[1] as number) - (a[1] as number));
-      return res2.slice(0, 50).map(es => es[0] as Entity);
+      return res2.slice(0, 50).map(es => es[0] as EquipmentNode);
     }
     else {
       return [];
     }
   }
 
-  getByLabel(s: string): Entity|null {
+  getNodeByLabel(s: string): EquipmentNode|null {
     const res = this.leafs.filter(e => e.label.toUpperCase() === s.toUpperCase());
     return res.length === 0 ? null : res[0];
   }

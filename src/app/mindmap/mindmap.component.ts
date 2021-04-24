@@ -11,9 +11,6 @@ import { MindMapMain } from 'mind-map';
 export class MindmapComponent implements OnInit {
   mindMap: any = null;
 
-  @ViewChild('#myInput')
-  search: ElementRef;
-
   constructor(private fb: FormBuilder) {
   }
 

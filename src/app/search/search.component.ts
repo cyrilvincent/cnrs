@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Entity} from '../shared/models';
+import { EquipmentNode} from '../shared/models';
 import { Observable } from 'rxjs';
 import { EquipmentService } from '../shared/equipments.service';
 import {map, startWith} from 'rxjs/operators';
@@ -12,9 +12,9 @@ import {map, startWith} from 'rxjs/operators';
 })
 export class SearchComponent implements OnInit {
 
-  filtered: Observable<Entity[]>;
+  filtered: Observable<EquipmentNode[]>;
   searchControl = new FormControl();
-  entitySearch: Entity = null;
+  entitySearch: EquipmentNode = null;
 
   @ViewChild('search')
   search: ElementRef;
@@ -32,7 +32,7 @@ export class SearchComponent implements OnInit {
 
   searchAction(value: any) {
     console.log(value.option.value);
-    this.entitySearch = this.service.getByLabel(value.option.value);
+    this.entitySearch = this.service.getNodeByLabel(value.option.value);
   }
 
   addSearch() {

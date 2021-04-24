@@ -5,11 +5,11 @@
         <mat-icon>menu</mat-icon>
       </button>
       <mat-menu #bMenu="matMenu">
-        <button mat-menu-item (click)="refresh()"><mat-icon>home</mat-icon>Your laboratory</button>
-        <button mat-menu-item (click)="manage()"><mat-icon>play_circle_filled</mat-icon>Platform management</button>
+        <button mat-menu-item (click)="equipments()"><mat-icon>play_circle_filled</mat-icon>Equipments</button>
+        <button mat-menu-item (click)="labo()"><mat-icon>home</mat-icon>Laboratory</button>
+        <button mat-menu-item (click)="db()"><mat-icon>security</mat-icon>Administration</button>
         <button mat-menu-item (click)="mind()"><mat-icon>map</mat-icon>MindMap</button>
-        <button mat-menu-item (click)="mindsimple()"><mat-icon>library_books</mat-icon>Index</button>
-        <button mat-menu-item (click)="db()"><mat-icon>security</mat-icon>Manage database (admin)</button>
+        <button mat-menu-item (click)="mindsimple()"><mat-icon>library_books</mat-icon>Index</button>>
         <button mat-menu-item><mat-icon>share</mat-icon>Share</button>
         <button mat-menu-item (click)="about()"><mat-icon>group_work</mat-icon>About</button>
         <button mat-menu-item><mat-icon>logout</mat-icon>Logout</button>
@@ -21,8 +21,8 @@
       </mat-menu>
     <span>{{title}}</span>
     <span class="example-spacer"></span>
-    <button mat-icon-button aria-label="Your labortory" [matTooltip]="'Your platform'">
-      <mat-icon (click)="refresh()">home</mat-icon>
+    <button mat-icon-button aria-label="Laboratory & Platforms" [matTooltip]="'Laboratory & Platforms'">
+      <mat-icon (click)="labo()">home</mat-icon>
     </button>
     <button mat-icon-button aria-label="Share" [matTooltip]="'Share'">
       <mat-icon>share</mat-icon>
@@ -36,7 +36,14 @@
 <mat-tab-group #matTab>
   <mat-tab>
     <ng-template mat-tab-label>
-      <mat-icon>home</mat-icon> Your laboratory
+      <mat-icon>play_circle_filled</mat-icon>
+      Equipments
+    </ng-template>
+    <app-equipments></app-equipments>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon>home</mat-icon>Laboratory & Platforms
     </ng-template>
     <p>List of platforms</p>
     <p>Click => view the details</p>
@@ -48,10 +55,28 @@
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
-      <mat-icon>play_circle_filled</mat-icon>
-      Platorm management
+      <mat-icon>security</mat-icon>
+      Manage Database
     </ng-template>
-    <app-equipments></app-equipments>
+    <p>Manage Database</p>
+    <p>Only for admin</p>
+    <p>Add, remove, update, reorder nodes and equipments</p>
+    <pre>
+      Labo 1-* Platform 0-* Equipment 0-* Component
+                                *           *
+                                |           |
+                                1           1
+                                EquipmentNode 1*=
+      
+    </pre>
+    <p>See the new node or Equipment in real time on a timeline</p>
+    <p>Can generate a report for all platforms or by platform, statistics, graph viz, ...</p>
+    <p>Technical Example https://stackblitz.com/edit/dynamic-material-tree</p>
+    <div>
+      <img align="top" src="https://material.angular.io/assets/screenshots/tree.scene.png"/>
+      <img align="right" src="https://codyhouse.co/assets/img/gems/hero/horizontal-timeline-featured.svg" width="500"/>
+      <iframe width="500" height="800px" src="https://www.cyrilvincent.com/cnrs/jsmind/Spectroscopie.htm"></iframe>
+    </div>
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
@@ -61,30 +86,6 @@
     Mind Map
     <div>
       <iframe width="99%" height="2000px" src="https://www.cyrilvincent.com/cnrs/jsmind/"></iframe>
-    </div>
-  </mat-tab>
-  <mat-tab>
-    <ng-template mat-tab-label>
-      <mat-icon>security</mat-icon>
-      Manage Database
-    </ng-template>
-    <p>Manage Database</p>
-    <p>Only for admin</p>
-    <p>Add, remove, update, reorder nodes and equipments</p>
-    <pre>
-      Node = Category ou Value (leaf)
-      Labo 1-* Platform *-* Equipment 1-* Node 1-* Node (branche de choix)
-                        *-* Equipment 1-* Node(leaf) (branche du panier)
-      Node(leaf=false).minvalues = 0, 1, N
-
-    </pre>
-    <p>See the new node or Equipment in real time on a timeline</p>
-    <p>Can generate a report for all platforms or by platform, statistics, graph viz, ...</p>
-    <p>Technical Example https://stackblitz.com/edit/dynamic-material-tree</p>
-    <div>
-      <img align="top" src="https://material.angular.io/assets/screenshots/tree.scene.png"/>
-      <img align="right" src="https://codyhouse.co/assets/img/gems/hero/horizontal-timeline-featured.svg" width="500"/>
-      <iframe width="500" height="800px" src="https://www.cyrilvincent.com/cnrs/jsmind/Spectroscopie.htm"></iframe>
     </div>
   </mat-tab>
 </mat-tab-group>

@@ -21,8 +21,8 @@ export class AppComponent {
   @ViewChild('matTab')
   matTab: MatTabGroup;
 
-  refresh() {
-    document.location.reload();
+  labo() {
+    this.matTab.selectedIndex = 1;
   }
 
   about() {
@@ -30,11 +30,11 @@ export class AppComponent {
   }
 
   mind() {
-    this.matTab.selectedIndex = 2;
+    this.matTab.selectedIndex = 3;
   }
 
-  manage() {
-    this.matTab.selectedIndex = 1;
+  equipments() {
+    this.matTab.selectedIndex = 0;
   }
 
   mindsimple() {
@@ -42,7 +42,7 @@ export class AppComponent {
   }
 
   db() {
-    this.matTab.selectedIndex = 3;
+    this.matTab.selectedIndex = 2;
   }
 
   angular() {
