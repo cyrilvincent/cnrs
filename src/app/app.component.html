@@ -43,6 +43,19 @@
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
+      <mat-icon>play_circle_filled</mat-icon>
+      Equipment's details
+    </ng-template>
+    <h2>Equipment and Components</h2>
+    <mat-card>
+      <app-equipment-select></app-equipment-select>
+      <br/>
+      <label>Components of {{service.selectedEquipment.label}}</label>
+      <app-entity-list></app-entity-list>
+  </mat-card>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
       <mat-icon>home</mat-icon>Laboratory & Platforms
     </ng-template>
     <p>List of platforms</p>

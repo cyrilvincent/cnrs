@@ -24,10 +24,7 @@ export class DynamicFormComponent implements OnInit {
   ngOnInit(): void {
     this.initFormBuilder();
     this.addControl(this.service.selectedEquipment.nodeId);
-    this.service.changeEquipmentEvent.subscribe(e => {
-      this.clear();
-    });
-
+    this.service.changeEquipmentEvent.subscribe(e => this.clear());
   }
 
   private initFormBuilder() {

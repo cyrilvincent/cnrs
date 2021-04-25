@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTabGroup} from '@angular/material/tabs';
 import {MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions} from '@angular/material/tooltip';
+import { EquipmentService } from './shared/equipments.service';
 
 export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
   showDelay: 500,
@@ -20,9 +21,11 @@ export class AppComponent {
   title = 'CNRS Platform Investigation';
   @ViewChild('matTab')
   matTab: MatTabGroup;
+  
+  constructor(public service: EquipmentService) {}
 
   labo() {
-    this.matTab.selectedIndex = 1;
+    this.matTab.selectedIndex = 2;
   }
 
   about() {
@@ -30,7 +33,7 @@ export class AppComponent {
   }
 
   mind() {
-    this.matTab.selectedIndex = 3;
+    this.matTab.selectedIndex = 4;
   }
 
   equipments() {
@@ -42,7 +45,7 @@ export class AppComponent {
   }
 
   db() {
-    this.matTab.selectedIndex = 2;
+    this.matTab.selectedIndex = 3;
   }
 
   angular() {
