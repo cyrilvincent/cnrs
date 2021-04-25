@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
-import { ViewModel} from '../shared/models';
+import { Equipment, ViewModel} from '../shared/models';
 import { EquipmentService } from '../shared/equipments.service';
+import { MatSelect } from '@angular/material/select';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -15,11 +16,13 @@ export class DynamicFormComponent implements OnInit {
   vms: ViewModel[] = [];
   addItem = false;
 
+  @ViewChild('equipmentSelect')
+  equipmentSelect: ElementRef<MatSelect>;
+
   constructor(private fb: FormBuilder, public service: EquipmentService) { }
 
   ngOnInit(): void {
     this.initFormBuilder();
-    this.addControl(this.service.rootId);
   }
 
   private initFormBuilder() {
@@ -34,7 +37,7 @@ export class DynamicFormComponent implements OnInit {
   }
 
   addControl(id: number) {
-    console.log('Add control');
+    console.log('Add control ' + id);
     const array = this.form.controls.vms as FormArray;
     const item: ViewModel = this.service.getVMById(id, this.level);
     this.addItem = item.entity.leaf;
@@ -50,6 +53,13 @@ export class DynamicFormComponent implements OnInit {
     this.vms.pop();
     array.removeAt(array.length - 1);
     this.level -= 1;
+  }
+
+  firstChange(value) {
+    this.clear();
+    const equipment: Equipment = value.value;
+    this.addControl(equipment.nodeId);
+    this.service.selectedEquipment = equipment;
   }
 
   change(value: any) {
@@ -72,7 +82,6 @@ export class DynamicFormComponent implements OnInit {
       this.removeLastControl();
     }
     this.level = 0;
-    this.addControl(this.service.rootId);
   }
 
   add() {

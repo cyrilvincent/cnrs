@@ -1,33 +1,31 @@
 export interface Entity {
     id: number;
     label: string;
+    comment?: string;
 }
 
 export interface EquipmentNode extends Entity {
     shortLabel: string;
-    parentId: number|number[];
+    parentId: number;
     order: number;
     leaf: boolean;
 }
 
 export interface Labo extends Entity {
-    comment: string;
     platforms: Platform[];
 }
 
 export interface Platform extends Entity {
     isNoPlatform: boolean;
-    comment: string;
     equipments: Equipment[];
 }
 
 export interface AbstractEquipment extends Entity {
-    node: EquipmentNode;
-    comment: string;
+    nodeId: number;
 }
 
 export interface Equipment extends AbstractEquipment {
-    platform: Platform;
+    platform?: Platform;
     components: Component[];
 }
 

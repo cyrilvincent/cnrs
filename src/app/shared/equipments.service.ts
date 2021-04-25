@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { EquipmentNode, ViewModel, OptionVM} from './models';
+import { EquipmentNode, ViewModel, OptionVM, Equipment} from './models';
 import * as dbjson from '../../assets/db.json';
 import * as levenshtein from 'js-levenshtein';
+import { MockDb } from './mockdb'
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +10,17 @@ import * as levenshtein from 'js-levenshtein';
 export class EquipmentService {
 
   private db: { [id: number]: EquipmentNode; } = {};
+  private mockdb = new MockDb();
+  equipments: Equipment[] = [];
   leafs: EquipmentNode[] = [];
   nodes: EquipmentNode[] = [];
   rootId = 0;
+  selectedEquipment: Equipment = null;
 
   constructor() {
     // tslint:disable-next-line: no-string-literal
     this.db = dbjson['default'];
+    this.equipments = this.mockdb.getEquipments();
     this.generateLeafs();
   }
 
@@ -33,10 +38,7 @@ export class EquipmentService {
   }
 
   private getNodesByParentId(parentId: number): EquipmentNode[] {
-    const res = Object.values(this.db).filter(
-      v => typeof(v.parentId) === 'number' ?
-       v.parentId === parentId :
-       (v.parentId as number[]).includes(parentId));
+    const res = Object.values(this.db).filter(v => v.parentId === parentId);
     return res;
   }
 
@@ -146,6 +148,14 @@ export class EquipmentService {
   getNodeByLabel(s: string): EquipmentNode|null {
     const res = this.leafs.filter(e => e.label.toUpperCase() === s.toUpperCase());
     return res.length === 0 ? null : res[0];
+  }
+
+  getLevel(id: number): number {
+    if (id === this.rootId) {
+      return 0;
+    }
+    const node = this.db[id];
+    return this.getLevel(node.parentId) + 1;
   }
 
 }
