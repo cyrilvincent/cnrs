@@ -1,13 +1,5 @@
-<form [formGroup]="form">
-<mat-card>
-  <ng-container>
-    <mat-form-field appearance="fill">
-      <mat-label>Equipments</mat-label>
-      <mat-select #equipmentSelect (selectionChange)="firstChange($event)">
-        <mat-option *ngFor="let e of service.equipments" [value]="e">{{e.label}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </ng-container>
+  <label>Navigate to choose your component to add to {{service.selectedEquipment.label}}</label>
+  <form [formGroup]="form">
   <ng-container *ngFor="let item of vms; let i = index" >
     <div [formGroup]="form.controls['vms']['controls'][i]">
         <div [ngSwitch]="item.type" class="form-field-group">
@@ -25,7 +17,7 @@
         </div>
     </div>
   </ng-container>
-    <button mat-button (click)="clear();equipmentSelect.value=undefined;">Clear</button>
+    <button mat-button (click)="clear()">Clear</button>
     <button *ngIf="addItem" mat-button (click)="add()">Add value</button>
-    </mat-card>
-</form>
+  </form>
+

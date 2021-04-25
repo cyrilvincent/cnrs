@@ -1,17 +1,24 @@
 
   
   <div style="width: 49%; height: 100%; float:left">
-    <h2>Choose your equipment and components</h2>
-    <app-dynamic-form></app-dynamic-form>
+    <h2>Equipment and Components</h2>
+    <mat-card>
+      <app-equipment-select></app-equipment-select>
+      <br/>
+      <label>Components</label>
+      <app-entity-list></app-entity-list>
+  </mat-card>
     </div>
 
   <div style="width: 49%; height: 100%; float:right">
     <div *ngIf="service.selectedEquipment">
-    <h2>{{service.selectedEquipment.label}} components</h2>
+    <h2>Add components to {{service.selectedEquipment.label}}</h2>
     <mat-card>
       <app-search *ngIf="service.selectedEquipment"></app-search>
-    <br/>
-    <app-entity-list></app-entity-list>
+    </mat-card>
+    <br>
+    <mat-card>
+      <app-dynamic-form></app-dynamic-form>
     </mat-card>
   </div>
   </div>

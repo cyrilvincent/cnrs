@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { EquipmentNode, ViewModel, OptionVM, Equipment} from './models';
+import { EventEmitter, Injectable } from '@angular/core';
+import { EquipmentNode, ViewModel, OptionVM, Equipment, Component} from './models';
 import * as dbjson from '../../assets/db.json';
 import * as levenshtein from 'js-levenshtein';
 import { MockDb } from './mockdb'
@@ -16,12 +16,21 @@ export class EquipmentService {
   nodes: EquipmentNode[] = [];
   rootId = 0;
   selectedEquipment: Equipment = null;
+  sequenceNb = 1;
+
+  changeEquipmentEvent: EventEmitter<Equipment> = new EventEmitter();
 
   constructor() {
     // tslint:disable-next-line: no-string-literal
     this.db = dbjson['default'];
     this.equipments = this.mockdb.getEquipments();
+    this.selectedEquipment = this.equipments[0];
     this.generateLeafs();
+  }
+
+  changeEquipment(e: Equipment) {
+    this.selectedEquipment = e;
+    this.changeEquipmentEvent.emit(e);
   }
 
   private generateLeafs() {
@@ -156,6 +165,21 @@ export class EquipmentService {
     }
     const node = this.db[id];
     return this.getLevel(node.parentId) + 1;
+  }
+
+  getSequence(): number {
+    return this.sequenceNb++;
+  }
+
+  componentFactory(nodeId: number, label: string, comment: string): Component {
+    const component: Component = {
+       equipment: this.selectedEquipment,
+       id: this.getSequence(),
+       label,
+       nodeId,
+       comment
+    };
+    return component;
   }
 
 }

@@ -23,6 +23,11 @@ export class DynamicFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.initFormBuilder();
+    this.addControl(this.service.selectedEquipment.nodeId);
+    this.service.changeEquipmentEvent.subscribe(e => {
+      this.clear();
+    });
+
   }
 
   private initFormBuilder() {
@@ -55,13 +60,6 @@ export class DynamicFormComponent implements OnInit {
     this.level -= 1;
   }
 
-  firstChange(value) {
-    this.clear();
-    const equipment: Equipment = value.value;
-    this.addControl(equipment.nodeId);
-    this.service.selectedEquipment = equipment;
-  }
-
   change(value: any) {
     const id: number = value.value[0];
     const parent: ViewModel = value.value[1];
@@ -82,6 +80,7 @@ export class DynamicFormComponent implements OnInit {
       this.removeLastControl();
     }
     this.level = 0;
+    this.addControl(this.service.selectedEquipment.nodeId);
   }
 
   add() {
