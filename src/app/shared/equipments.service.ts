@@ -46,6 +46,10 @@ export class EquipmentService {
     this.selectedEquipment.components = this.selectedEquipment.components.filter(c => c.id !== id);
   }
 
+  removeEquipment(id: number) {
+    this.equipments = this.equipments.filter(c => c.id !== id);
+  }
+
   private getNodesByParentId(parentId: number): EquipmentNode[] {
     const res = Object.values(this.db).filter(v => v.parentId === parentId);
     return res;

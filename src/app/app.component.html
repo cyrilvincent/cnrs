@@ -51,20 +51,14 @@
       <app-equipment-select></app-equipment-select>
       <br/>
       <label>Components of {{service.selectedEquipment.label}}</label>
-      <app-entity-list></app-entity-list>
+      <app-entity-list source="components"></app-entity-list>
   </mat-card>
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
       <mat-icon>home</mat-icon>Laboratory & Platforms
     </ng-template>
-    <p>List of platforms</p>
-    <p>Click => view the details</p>
-    <p>Out platform is a special platform</p>
-    <p>Equipment list</p>
-    <p>Add equipment to a platform</p>
-    <p>Can generate a platfom report</p>
-    <img src="https://material.angular.io/assets/screenshots/table.scene.png"/>
+    <app-platform></app-platform>
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>

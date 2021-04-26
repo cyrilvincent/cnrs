@@ -83,8 +83,7 @@ export class DynamicFormComponent implements OnInit {
   add() {
     const values = this.form.getRawValue();
     const v: ViewModel = values.vms[values.vms.length - 1];
-    //this.service.addEquipment(v.entity);
-    this.service.addComponant(v.key, v.entity.label, String(v.text));
+    this.service.addComponant(v.key, v.entity.label, v.text);
   }
 
 }

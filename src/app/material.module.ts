@@ -19,6 +19,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {MatTooltipModule} from '@angular/material/tooltip'
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatTreeModule} from '@angular/material/tree';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   imports: [
@@ -42,6 +43,7 @@ import {MatTreeModule} from '@angular/material/tree';
     MatTooltipModule,
     MatTabsModule,
     MatTreeModule,
+    MatProgressBarModule,
   ],
   exports: [
     MatButtonModule,
@@ -64,6 +66,7 @@ import {MatTreeModule} from '@angular/material/tree';
     MatTooltipModule,
     MatTabsModule,
     MatTreeModule,
+    MatProgressBarModule
   ]
 })
 export class MaterialModule {}
