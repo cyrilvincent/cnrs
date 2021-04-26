@@ -36,7 +36,8 @@ export class SearchComponent implements OnInit {
   }
 
   addSearch() {
-    this.service.addEquipment(this.entitySearch);
+    // this.service.addEquipment(this.entitySearch);
+    this.service.addComponant(this.entitySearch.id, this.entitySearch.label, '');
   }
 
 }

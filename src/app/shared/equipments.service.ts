@@ -13,7 +13,6 @@ export class EquipmentService {
   private mockdb = new MockDb();
   equipments: Equipment[] = [];
   leafs: EquipmentNode[] = [];
-  nodes: EquipmentNode[] = [];
   rootId = 0;
   selectedEquipment: Equipment = null;
   sequenceNb = 1;
@@ -38,12 +37,13 @@ export class EquipmentService {
     this.leafs.sort((a, b) => +(a.label > b.label) || -(a.label < b.label));
   }
 
-  addEquipment(e: EquipmentNode) {
-    this.nodes.push(e);
+  addComponant(nodeId: number, label: string, comment: string) {
+    const c = this.componentFactory(nodeId, label, comment);
+    this.selectedEquipment.components.push(c);
   }
 
-  deleteEquipment(id: number) {
-    this.nodes = this.nodes.filter(e => e.id !== id);
+  removeComponent(id: number) {
+    this.selectedEquipment.components = this.selectedEquipment.components.filter(c => c.id !== id);
   }
 
   private getNodesByParentId(parentId: number): EquipmentNode[] {
@@ -59,7 +59,7 @@ export class EquipmentService {
     vm.entity = entity;
     if (entity.leaf) {
       vm.type = 'text';
-      vm.value = '';
+      vm.text = '';
     }
     else {
       vm.type = 'select';

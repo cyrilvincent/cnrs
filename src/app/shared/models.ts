@@ -34,7 +34,8 @@ export interface Component extends AbstractEquipment {
 }
 
 export class ViewModel {
-    value: number|string;
+    value: number;
+    text: string;
     key: number;
     level: number;
     type: string;

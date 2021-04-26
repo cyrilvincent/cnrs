@@ -1,10 +1,10 @@
 <mat-card>
-    <mat-list *ngIf="service.nodes.length > 0">
-      <mat-list-item *ngFor="let e of service.nodes">
-        {{e.label}}
-        <button mat-button (click)="delete(e.id)" [matTooltip]="'Delete'" ><mat-icon matListIcon>delete</mat-icon></button>
+    <mat-list *ngIf="service.selectedEquipment.components.length > 0">
+      <mat-list-item *ngFor="let c of service.selectedEquipment.components">
+        {{c.label}}
+        <button mat-button (click)="delete(c.id)" [matTooltip]="'Delete'" ><mat-icon matListIcon>delete</mat-icon></button>
       </mat-list-item>
     </mat-list>
-    <div *ngIf="service.nodes.length == 0">Empty</div>
-    <button *ngIf="service.nodes.length > 0" mat-button (click)="save()">Save</button>
+    <div *ngIf="service.selectedEquipment.components.length == 0">Empty</div>
+    <button *ngIf="service.selectedEquipment.components.length > 0" mat-button (click)="save()">Save</button>
 </mat-card>

@@ -14,7 +14,8 @@ export class EntityListComponent implements OnInit {
   }
 
   delete(id: number) {
-    this.service.deleteEquipment(id);
+    //this.service.deleteEquipment(id);
+    this.service.removeComponent(id);
   }
 
   save() {
