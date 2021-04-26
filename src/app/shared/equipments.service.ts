@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { EquipmentNode, ViewModel, OptionVM, Equipment, Component} from './models';
+import { EquipmentNode, ViewModel, OptionVM, Equipment, Component, TreeNode} from './models';
 import * as dbjson from '../../assets/db.json';
 import * as levenshtein from 'js-levenshtein';
 import { MockDb } from './mockdb'
@@ -196,6 +196,21 @@ export class EquipmentService {
     }
     const node: EquipmentNode = this.db[nodeId];
     return this.hasAncestor(node.parentId, ancestorId);
+  }
+
+  getEquipmentsTree(): TreeNode[] {
+    const nodes = [];
+    for (const e of this.equipments) {
+      const node = new TreeNode();
+      node.entity = e;
+      for(const c of e.components) {
+        const cnode = new TreeNode();
+        cnode.entity = c;
+        node.children.push(cnode);
+      }
+      nodes.push(node);
+    }
+    return nodes;
   }
 
 }

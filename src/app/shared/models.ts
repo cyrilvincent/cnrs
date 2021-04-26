@@ -47,3 +47,8 @@ export class OptionVM {
     key: number;
     value: string;
 }
+
+export class TreeNode {
+    entity: Entity;
+    children: TreeNode[] = []
+}
