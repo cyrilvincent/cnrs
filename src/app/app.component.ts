@@ -21,11 +21,11 @@ export class AppComponent {
   title = 'CNRS Platform Investigation';
   @ViewChild('matTab')
   matTab: MatTabGroup;
-  
+
   constructor(public service: EquipmentService) {}
 
   labo() {
-    this.matTab.selectedIndex = 2;
+    this.matTab.selectedIndex = 0;
   }
 
   about() {
@@ -37,7 +37,11 @@ export class AppComponent {
   }
 
   equipments() {
-    this.matTab.selectedIndex = 0;
+    this.matTab.selectedIndex = 1;
+  }
+
+  details() {
+    this.matTab.selectedIndex = 2;
   }
 
   mindsimple() {

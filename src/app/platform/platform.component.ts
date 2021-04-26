@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EquipmentService } from '../shared/equipments.service';
 
 @Component({
   selector: 'app-platform',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlatformComponent implements OnInit {
 
-  constructor() { }
+  constructor(public service: EquipmentService) { }
 
   ngOnInit(): void {
+  }
+
+  add() {
+    window.alert('Not implemented yet');
+  }
+
+  get completion() {
+    return Math.round(this.service.getCompletion() * 100);
   }
 
 }

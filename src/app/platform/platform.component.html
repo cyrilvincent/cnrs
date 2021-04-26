@@ -3,10 +3,10 @@
     <mat-card>
       <p>Your laboratory: MyLab</p>
       <p>You have no platform</p>
-      <button mat-button>Add a platform</button>
+      <button (click)="add()" mat-button>Add a platform</button>
       <br/><br/>
-      <p>You have completed at 40%</p>
-      <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+      <p>You have completed at {{completion}}%</p>
+      <mat-progress-bar mode="determinate" [value]="completion"></mat-progress-bar>
 </mat-card>
 <h2>Summary</h2>
     <mat-card>

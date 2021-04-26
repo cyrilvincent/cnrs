@@ -9,7 +9,6 @@ import { EquipmentNode } from '../shared/models';
 })
 export class EquipmentAddComponent implements OnInit {
 
-  isVisible = false;
   selectedNode: EquipmentNode = null;
 
   @ViewChild('text') text: ElementRef;
@@ -20,7 +19,7 @@ export class EquipmentAddComponent implements OnInit {
   }
 
   get selectedText() {
-    return this.selectedNode.label + ' #1';
+    return this.service.proposeEquipmentName(this.selectedNode.id);
   }
 
   select(value) {
@@ -28,13 +27,13 @@ export class EquipmentAddComponent implements OnInit {
     this.selectedNode = node;
   }
 
-  visible() {
-    this.isVisible = !this.isVisible;
-  }
-
   add() {
     const label: string = this.text.nativeElement.value;
     this.service.addEquipment(this.selectedNode.id, label);
+  }
+
+  clear() {
+    this.selectedNode = null;
   }
 
 }

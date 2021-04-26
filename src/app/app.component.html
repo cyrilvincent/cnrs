@@ -5,8 +5,9 @@
         <mat-icon>menu</mat-icon>
       </button>
       <mat-menu #bMenu="matMenu">
-        <button mat-menu-item (click)="equipments()"><mat-icon>play_circle_filled</mat-icon>Equipments</button>
         <button mat-menu-item (click)="labo()"><mat-icon>home</mat-icon>Laboratory</button>
+        <button mat-menu-item (click)="equipments()"><mat-icon>play_circle_filled</mat-icon>Equipments</button>
+        <button mat-menu-item (click)="details()"><mat-icon>details</mat-icon>Equipment Details</button>
         <button mat-menu-item (click)="db()"><mat-icon>security</mat-icon>Administration</button>
         <button mat-menu-item (click)="mind()"><mat-icon>map</mat-icon>MindMap</button>
         <button mat-menu-item (click)="mindsimple()"><mat-icon>library_books</mat-icon>Index</button>>
@@ -36,14 +37,20 @@
 <mat-tab-group #matTab>
   <mat-tab>
     <ng-template mat-tab-label>
+      <mat-icon>home</mat-icon>Laboratory & Platforms
+    </ng-template>
+    <app-platform></app-platform>
+  </mat-tab>
+  <mat-tab [disabled]='!service.selectedEquipment'>
+    <ng-template mat-tab-label>
       <mat-icon>play_circle_filled</mat-icon>
       Equipments
     </ng-template>
     <app-equipments></app-equipments>
   </mat-tab>
-  <mat-tab>
+  <mat-tab [disabled]='!service.selectedEquipment'>
     <ng-template mat-tab-label>
-      <mat-icon>play_circle_filled</mat-icon>
+      <mat-icon>details</mat-icon>
       Equipment's details
     </ng-template>
     <h2>Equipment and Components</h2>
@@ -53,14 +60,10 @@
         <br/>
         <label>Components of {{service.selectedEquipment.label}}</label>
         <app-entity-list source="components"></app-entity-list>
-      </div>  
+      </div>
+      <p>Show equipment attributes form</p>
+      <p>Show components attributes forms</p>
   </mat-card>
-  </mat-tab>
-  <mat-tab>
-    <ng-template mat-tab-label>
-      <mat-icon>home</mat-icon>Laboratory & Platforms
-    </ng-template>
-    <app-platform></app-platform>
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
@@ -78,14 +81,7 @@
                                 EquipmentNode 1*=
       
     </pre>
-    <p>See the new node or Equipment in real time on a timeline</p>
     <p>Can generate a report for all platforms or by platform, statistics, graph viz, ...</p>
-    <p>Technical Example https://stackblitz.com/edit/dynamic-material-tree</p>
-    <div>
-      <img align="top" src="https://material.angular.io/assets/screenshots/tree.scene.png"/>
-      <img align="right" src="https://codyhouse.co/assets/img/gems/hero/horizontal-timeline-featured.svg" width="500"/>
-      <iframe width="500" height="800px" src="https://www.cyrilvincent.com/cnrs/jsmind/Spectroscopie.htm"></iframe>
-    </div>
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>

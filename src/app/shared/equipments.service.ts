@@ -24,7 +24,7 @@ export class EquipmentService {
   constructor() {
     // tslint:disable-next-line: no-string-literal
     this.db = dbjson['default'];
-    this.equipments = this.mockdb.getEquipments();
+    // this.equipments = this.mockdb.getEquipments();
     this.selectedEquipment = this.equipments.length === 0 ? null : this.equipments[0];
     this.generateLeafs();
     this.firstLevelNodes = this.getNodesByParentId(this.rootId);
@@ -235,6 +235,32 @@ export class EquipmentService {
     const e: Equipment = this.EquipmentFactory(nodeId, label, '');
     this.equipments.push(e);
     this.changeEquipment(e);
+    this.changeEvent.emit(e);
+  }
+
+  proposeEquipmentName(nodeId: number): string {
+    const node: EquipmentNode = this.db[nodeId];
+    let i = 1;
+    let stop = false;
+    let label = '';
+    while (!stop) {
+      label = node.label + ' #' + i;
+      if (this.equipments.filter(e => e.label === label).length === 0) {
+        stop = true;
+      }
+      i += 1;
+    }
+    return label;
+  }
+
+  getCompletion(): number {
+    let i = 0;
+    for (const e of this.equipments) {
+      for (const c of e.components) {
+        i++;
+      }
+    }
+    return Math.min(this.equipments.length === 0 ? 0 : i / (this.equipments.length * 5), 1);
   }
 
 }
