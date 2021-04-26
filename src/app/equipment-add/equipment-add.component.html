@@ -1,0 +1,18 @@
+<ng-container>
+    <button mat-button (click)="visible()">Add equipment</button>
+    <div *ngIf="isVisible">
+        <mat-form-field appearance="fill"  >
+            <mat-label>New Equipment</mat-label>
+            <mat-select (selectionChange)="select($event)">
+              <mat-option *ngFor="let n of service.firstLevelNodes" [value]="n">{{n.label}}</mat-option>
+            </mat-select>
+            <br/>
+          </mat-form-field>
+          Enter the name of your equipment :
+          <mat-form-field appearance="fill" *ngIf="selectedNode" >
+              <input #text matInput type="text" [value]="selectedText" >
+          </mat-form-field>
+          <button mat-button (click)="add()">Add equipment to the list</button>
+    </div>
+
+  </ng-container>

@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { EquipmentNode, ViewModel, OptionVM, Equipment, Component, TreeNode} from './models';
+import { EquipmentNode, ViewModel, OptionVM, Equipment, Component, TreeNode, Entity} from './models';
 import * as dbjson from '../../assets/db.json';
 import * as levenshtein from 'js-levenshtein';
 import { MockDb } from './mockdb'
@@ -15,16 +15,19 @@ export class EquipmentService {
   leafs: EquipmentNode[] = [];
   rootId = 0;
   selectedEquipment: Equipment = null;
-  sequenceNb = 1;
+  sequenceNb = 100;
+  firstLevelNodes: EquipmentNode[] = [];
 
   changeEquipmentEvent: EventEmitter<Equipment> = new EventEmitter();
+  changeEvent: EventEmitter<any> = new EventEmitter();
 
   constructor() {
     // tslint:disable-next-line: no-string-literal
     this.db = dbjson['default'];
     this.equipments = this.mockdb.getEquipments();
-    this.selectedEquipment = this.equipments[0];
+    this.selectedEquipment = this.equipments.length === 0 ? null : this.equipments[0];
     this.generateLeafs();
+    this.firstLevelNodes = this.getNodesByParentId(this.rootId);
   }
 
   changeEquipment(e: Equipment) {
@@ -40,14 +43,18 @@ export class EquipmentService {
   addComponant(nodeId: number, label: string, comment: string) {
     const c = this.componentFactory(nodeId, label, comment);
     this.selectedEquipment.components.push(c);
+    this.changeEvent.emit(c);
   }
 
   removeComponent(id: number) {
     this.selectedEquipment.components = this.selectedEquipment.components.filter(c => c.id !== id);
+    this.changeEvent.emit(id);
   }
 
   removeEquipment(id: number) {
     this.equipments = this.equipments.filter(c => c.id !== id);
+    this.selectedEquipment = this.equipments.length === 0 ? null : this.equipments[0];
+    this.changeEvent.emit(id);
   }
 
   private getNodesByParentId(parentId: number): EquipmentNode[] {
@@ -187,6 +194,17 @@ export class EquipmentService {
     return component;
   }
 
+  EquipmentFactory(nodeId: number, label: string, comment: string): Equipment {
+    const equipment: Equipment = {
+       id: this.getSequence(),
+       label,
+       nodeId,
+       comment,
+       components: []
+    };
+    return equipment;
+  }
+
   hasAncestor(nodeId: number, ancestorId: number): boolean {
     if (ancestorId === nodeId) {
       return true;
@@ -203,7 +221,7 @@ export class EquipmentService {
     for (const e of this.equipments) {
       const node = new TreeNode();
       node.entity = e;
-      for(const c of e.components) {
+      for (const c of e.components) {
         const cnode = new TreeNode();
         cnode.entity = c;
         node.children.push(cnode);
@@ -211,6 +229,12 @@ export class EquipmentService {
       nodes.push(node);
     }
     return nodes;
+  }
+
+  addEquipment(nodeId: number, label: string) {
+    const e: Equipment = this.EquipmentFactory(nodeId, label, '');
+    this.equipments.push(e);
+    this.changeEquipment(e);
   }
 
 }

@@ -28,14 +28,12 @@ export class EquipmentTreeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.initDataSource()
+    this.service.changeEvent.subscribe(x => this.initDataSource())
   }
 
   initDataSource(): void {
     this.dataSource.data = this.service.getEquipmentsTree();
-  }
-
-  view() {
-    this.initDataSource();
   }
 
   private transformer = (node: TreeNode, level: number) => {

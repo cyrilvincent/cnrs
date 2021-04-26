@@ -3,10 +3,13 @@
   <div style="width: 49%; height: 100%; float:left">
     <h2>Equipment and Components</h2>
     <mat-card>
-      <app-equipment-select></app-equipment-select>
-      <br/>
-      <label>Components of {{service.selectedEquipment.label}}</label>
-      <app-entity-list source="components"></app-entity-list>
+      <div *ngIf="service.selectedEquipment">
+        <app-equipment-select></app-equipment-select>
+        <br/>
+        <label>Components of {{service.selectedEquipment.label}}</label>
+        <app-entity-list source="components"></app-entity-list>
+      </div>
+      
   </mat-card>
     </div>
 
