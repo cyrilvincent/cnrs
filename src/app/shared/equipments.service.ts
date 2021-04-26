@@ -142,7 +142,7 @@ export class EquipmentService {
     return 0;
   }
 
-  filter(value: string | EquipmentNode): EquipmentNode[] {
+  filter(value: string | EquipmentNode, ancestorId: number): EquipmentNode[] {
     if (typeof(value) === 'string') {
       let res = this.leafs.map(e => [e, this.distance(value, e.label)]);
       let res2 = res.filter(es => es[1] > 0);
@@ -150,6 +150,7 @@ export class EquipmentService {
         res = this.leafs.map(e => [e, this.gestalts(value, e.label)]);
       }
       res2 = res.filter(es => es[1] > 0.3);
+      res2 = res2.filter(es => this.hasAncestor((es[0] as EquipmentNode).id, ancestorId));
       res2.sort((a, b) => (b[1] as number) - (a[1] as number));
       return res2.slice(0, 50).map(es => es[0] as EquipmentNode);
     }
@@ -184,6 +185,17 @@ export class EquipmentService {
        comment
     };
     return component;
+  }
+
+  hasAncestor(nodeId: number, ancestorId: number): boolean {
+    if (ancestorId === nodeId) {
+      return true;
+    }
+    if (nodeId === this.rootId) {
+      return false;
+    }
+    const node: EquipmentNode = this.db[nodeId];
+    return this.hasAncestor(node.parentId, ancestorId);
   }
 
 }

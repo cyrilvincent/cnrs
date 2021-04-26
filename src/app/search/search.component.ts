@@ -23,11 +23,12 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.initSearchFilter();
+    this.service.changeEquipmentEvent.subscribe(e => this.searchControl.setValue(''));
   }
 
   private initSearchFilter() {
     this.filtered = this.searchControl.valueChanges
-      .pipe(startWith(''), map(value => this.service.filter(value)));
+      .pipe(startWith(''), map(value => this.service.filter(value, this.service.selectedEquipment.nodeId)));
   }
 
   searchAction(value: any) {
