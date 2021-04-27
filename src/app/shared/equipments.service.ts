@@ -23,7 +23,7 @@ export class EquipmentService {
   constructor() {
     // tslint:disable-next-line: no-string-literal
     this.db = dbjson['default'];
-    // this.equipments = this.mockdb.getEquipments();
+    this.equipments = this.mockdb.getEquipments();
     this.selectedEquipment = this.equipments.length === 0 ? null : this.equipments[0];
     this.generateLeafs();
     this.firstLevelNodes = this.getNodesByParentId(this.rootId);
@@ -84,7 +84,7 @@ export class EquipmentService {
     return component;
   }
 
-  EquipmentFactory(nodeId: number, label: string, comment: string): Equipment {
+  equipmentFactory(nodeId: number, label: string, comment: string): Equipment {
     const equipment: Equipment = {
        id: this.getSequence(),
        label,
@@ -122,7 +122,7 @@ export class EquipmentService {
   }
 
   addEquipment(nodeId: number, label: string) {
-    const e: Equipment = this.EquipmentFactory(nodeId, label, '');
+    const e: Equipment = this.equipmentFactory(nodeId, label, '');
     this.equipments.push(e);
     this.changeEquipment(e);
     this.changeEvent.emit(e);
