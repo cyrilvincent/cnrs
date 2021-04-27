@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { EquipmentNode, ViewModel, OptionVM, Equipment, Component, TreeNode, Entity} from './models';
+import { EquipmentNode, Equipment, Component, TreeNode, Entity} from './models';
 import * as dbjson from '../../assets/db.json';
 import { MockDb } from './mockdb';
 
@@ -8,8 +8,8 @@ import { MockDb } from './mockdb';
 })
 export class EquipmentService {
 
-  private db: { [id: number]: EquipmentNode; } = {};
-  private mockdb = new MockDb();
+  db: { [id: number]: EquipmentNode; } = {};
+  mockdb = new MockDb();
   equipments: Equipment[] = [];
   leafs: EquipmentNode[] = [];
   rootId = 0;
@@ -56,40 +56,9 @@ export class EquipmentService {
     this.changeEvent.emit(id);
   }
 
-  private getNodesByParentId(parentId: number): EquipmentNode[] {
+  getNodesByParentId(parentId: number): EquipmentNode[] {
     const res = Object.values(this.db).filter(v => v.parentId === parentId);
     return res;
-  }
-
-  private convertNodeToVM(entity: EquipmentNode, entities: EquipmentNode[], level: number): ViewModel {
-    const vm: ViewModel = new ViewModel();
-    vm.value = entity.id;
-    vm.key = entity.id;
-    vm.level = level;
-    vm.entity = entity;
-    if (entity.leaf) {
-      vm.type = 'text';
-      vm.text = '';
-    }
-    else {
-      vm.type = 'select';
-      vm.options = [];
-      entities.sort((a, b) => a.order - b.order);
-      for (const e of entities) {
-        const option: OptionVM = new OptionVM();
-        option.key = e.id;
-        option.value = e.shortLabel;
-        vm.options.push(option);
-      }
-    }
-    return vm;
-  }
-
-  getVMById(id: number, level: number): ViewModel {
-    const entity = this.db[id];
-    const entities = this.getNodesByParentId(entity.id);
-    const vm: ViewModel = this.convertNodeToVM(entity, entities, level);
-    return vm;
   }
 
   getLevel(id: number): number {

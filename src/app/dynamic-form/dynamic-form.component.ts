@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 import { Equipment, ViewModel} from '../shared/models';
 import { EquipmentService } from '../shared/equipments.service';
 import { MatSelect } from '@angular/material/select';
+import { VMService } from '../shared/vm.service';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -19,7 +20,7 @@ export class DynamicFormComponent implements OnInit {
   @ViewChild('equipmentSelect')
   equipmentSelect: ElementRef<MatSelect>;
 
-  constructor(private fb: FormBuilder, public service: EquipmentService) { }
+  constructor(private fb: FormBuilder, public service: EquipmentService, public vmService: VMService) { }
 
   ngOnInit(): void {
     this.initFormBuilder();
@@ -41,7 +42,7 @@ export class DynamicFormComponent implements OnInit {
   addControl(id: number) {
     console.log('Add control ' + id);
     const array = this.form.controls.vms as FormArray;
-    const item: ViewModel = this.service.getVMById(id, this.level);
+    const item: ViewModel = this.vmService.getVMById(id, this.level);
     this.addItem = item.entity.leaf;
     this.vms.push(item);
     const gitem: FormGroup = this.fb.group(item);
