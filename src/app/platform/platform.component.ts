@@ -9,6 +9,8 @@ import { EquipmentService } from '../shared/equipments.service';
 })
 export class PlatformComponent implements OnInit {
 
+  panelOpenState = false;
+
   constructor(public service: EquipmentService, private snackbar: MatSnackBar) { }
 
   ngOnInit(): void {

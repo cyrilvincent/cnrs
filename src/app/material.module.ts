@@ -22,6 +22,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   imports: [
@@ -48,6 +49,7 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatProgressBarModule,
     MatSnackBarModule,
     MatBadgeModule,
+    MatExpansionModule,
   ],
   exports: [
     MatButtonModule,
@@ -72,7 +74,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatTreeModule,
     MatProgressBarModule,
     MatSnackBarModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatExpansionModule,
   ]
 })
 export class MaterialModule {}
