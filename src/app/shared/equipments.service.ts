@@ -107,7 +107,11 @@ export class EquipmentService {
   }
 
   getEquipmentsTree(): TreeNode[] {
-    const nodes = [];
+    const root = new TreeNode();
+    root.entity = {
+      id: -1,
+      label: 'Outside a platform'
+    };
     for (const e of this.equipments) {
       const node = new TreeNode();
       node.entity = e;
@@ -116,9 +120,9 @@ export class EquipmentService {
         cnode.entity = c;
         node.children.push(cnode);
       }
-      nodes.push(node);
+      root.children.push(node);
     }
-    return nodes;
+    return [root];
   }
 
   addEquipment(nodeId: number, label: string) {
@@ -150,7 +154,7 @@ export class EquipmentService {
         i++;
       }
     }
-    return Math.min(this.equipments.length === 0 ? 0 : i / (this.equipments.length * 5), 1);
+    return this.equipments.length === 0 ? 0 : Math.min(i / (this.equipments.length * 5), 1);
   }
 
 }

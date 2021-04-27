@@ -14,4 +14,5 @@
     </mat-autocomplete>
   </mat-form-field>
   <br/>
-    <button *ngIf="entitySearch" mat-button (click)="addSearch()">Add {{entitySearch.label}}</button>
+  <button *ngIf="entitySearch" mat-button (click)="addSearch()"><mat-icon>add</mat-icon>Add {{entitySearch.label}}</button>
+  <button *ngIf="entitySearch" mat-button (click)="search.value=''"><mat-icon>clear</mat-icon>Clear</button>

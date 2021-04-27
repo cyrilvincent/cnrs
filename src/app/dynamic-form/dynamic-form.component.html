@@ -17,7 +17,7 @@
         </div>
     </div>
   </ng-container>
-    <button mat-button (click)="clear()">Clear</button>
-    <button *ngIf="addItem" mat-button (click)="add()">Add value</button>
+    <button *ngIf="addItem" mat-button (click)="add()"><mat-icon>add</mat-icon>Add component</button>
+    <button mat-button (click)="clear()"><mat-icon>clear</mat-icon>Clear</button>
   </form>
 

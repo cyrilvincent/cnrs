@@ -3,8 +3,8 @@
 <h2>Laboratory and Platforms</h2>
     <mat-card>
       <p>Your laboratory: MyLab</p>
-      <p><span matBadge="0">You have no platform</span></p>
-      <button (click)="add()" mat-button>Add a platform</button>
+      <p><span matBadge="0" matBadgeOverlap="false">You have no platform</span></p>
+      <button (click)="add()" mat-button><mat-icon>add</mat-icon> Add a platform</button>
       <br/><br/>
       <p>You have completed at {{completion}}%</p>
       <mat-progress-bar mode="determinate" [value]="completion"></mat-progress-bar>

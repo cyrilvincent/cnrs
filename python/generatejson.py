@@ -61,7 +61,7 @@ for i in range(5):
                     key += 1
                     dict[key] = {
                         "id": key,
-                        "label": f"Equipment {s[i]}-{s[j]}-{s[k]}-{s[l]}-{s[m]}",
+                        "label": f"Component {s[i]}-{s[j]}-{s[k]}-{s[l]}-{s[m]}",
                         "shortLabel": f"{s[i]}-{s[j]}-{s[k]}-{s[l]}-{s[m]}",
                         "parentId": mparent,
                         "order": m,

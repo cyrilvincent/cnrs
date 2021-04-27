@@ -2,12 +2,12 @@
   
   <div style="width: 49%; height: 100%; float:left">
     <br/>
-    <h2><span [matBadge]="service.equipments.length">Equipment</span> and <span [matBadge]="service.selectedEquipment.components.length">Components</span></h2>
+    <h2>Equipment and Components</h2>
     <mat-card>
       <div *ngIf="service.selectedEquipment">
         <app-equipment-select></app-equipment-select>
         <br/>
-        <label>Components of {{service.selectedEquipment.label}}</label>
+        <label [matBadge]="service.selectedEquipment.components.length" matBadgeOverlap="false">Components of {{service.selectedEquipment.label}}</label>
         <app-entity-list source="components"></app-entity-list>
       </div>
       

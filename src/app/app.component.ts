@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.snackbar.open('Database loaded', 'OK', {duration: 1000});
+    this.matTab.selectedIndex = 0;
   }
 
   labo() {

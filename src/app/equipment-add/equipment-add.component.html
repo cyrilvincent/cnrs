@@ -12,8 +12,8 @@
           <mat-form-field appearance="fill"  >
               <input #text matInput type="text" [value]="selectedText" >
           </mat-form-field>
-          <button mat-button (click)="add()">Add equipment to the list</button>
-          <button mat-button (click)="clear();selectComponent.value=null;">Clear</button>
+          <button mat-button (click)="add()"><mat-icon>add</mat-icon>Add equipment to the list</button>
+          <button mat-button (click)="clear();selectComponent.value=null;"><mat-icon>clear</mat-icon>Clear</button>
         </div>
     </div>
 
