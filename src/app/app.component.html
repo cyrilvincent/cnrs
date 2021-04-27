@@ -10,7 +10,7 @@
         <button mat-menu-item (click)="details()"><mat-icon>details</mat-icon>Equipment Details</button>
         <button mat-menu-item (click)="db()"><mat-icon>security</mat-icon>Administration</button>
         <button mat-menu-item (click)="mind()"><mat-icon>map</mat-icon>MindMap</button>
-        <button mat-menu-item (click)="mindsimple()"><mat-icon>library_books</mat-icon>Index</button>>
+        <button mat-menu-item (click)="mindsimple()"><mat-icon>library_books</mat-icon>Index</button>
         <button mat-menu-item><mat-icon>share</mat-icon>Share</button>
         <button mat-menu-item (click)="about()"><mat-icon>group_work</mat-icon>About</button>
         <button mat-menu-item><mat-icon>logout</mat-icon>Logout</button>
@@ -37,23 +37,24 @@
 <mat-tab-group #matTab>
   <mat-tab>
     <ng-template mat-tab-label>
-      <mat-icon>home</mat-icon>Laboratory & Platforms
+      <mat-icon matBadge="0">home</mat-icon>Laboratory & Platforms
     </ng-template>
     <app-platform></app-platform>
   </mat-tab>
   <mat-tab [disabled]='!service.selectedEquipment'>
     <ng-template mat-tab-label>
-      <mat-icon>play_circle_filled</mat-icon>
+      <mat-icon [matBadge]="service.equipments.length">play_circle_filled </mat-icon>
       Equipments
     </ng-template>
     <app-equipments></app-equipments>
   </mat-tab>
   <mat-tab [disabled]='!service.selectedEquipment'>
     <ng-template mat-tab-label>
-      <mat-icon>details</mat-icon>
+      <mat-icon [matBadge]="service.selectedEquipment.components.length">details</mat-icon>
       Equipment's details
     </ng-template>
-    <h2>Equipment and Components</h2>
+    <br/>
+    <h2>Equipment and <span [matBadge]="service.selectedEquipment.components.length">Components</span></h2>
     <mat-card>
       <div *ngIf="service.selectedEquipment">
         <app-equipment-select></app-equipment-select>

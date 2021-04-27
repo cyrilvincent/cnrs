@@ -21,6 +21,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatTreeModule} from '@angular/material/tree';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   imports: [
@@ -46,6 +47,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatTreeModule,
     MatProgressBarModule,
     MatSnackBarModule,
+    MatBadgeModule,
   ],
   exports: [
     MatButtonModule,
@@ -69,7 +71,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatTabsModule,
     MatTreeModule,
     MatProgressBarModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatBadgeModule
   ]
 })
 export class MaterialModule {}

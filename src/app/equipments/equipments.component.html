@@ -1,7 +1,8 @@
 
   
   <div style="width: 49%; height: 100%; float:left">
-    <h2>Equipment and Components</h2>
+    <br/>
+    <h2><span [matBadge]="service.equipments.length">Equipment</span> and <span [matBadge]="service.selectedEquipment.components.length">Components</span></h2>
     <mat-card>
       <div *ngIf="service.selectedEquipment">
         <app-equipment-select></app-equipment-select>
@@ -14,6 +15,7 @@
     </div>
 
   <div style="width: 49%; height: 100%; float:right">
+    <br/>
     <div *ngIf="service.selectedEquipment">
     <h2>Add components to {{service.selectedEquipment.label}}</h2>
     <mat-card>

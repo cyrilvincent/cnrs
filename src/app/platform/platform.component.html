@@ -1,8 +1,9 @@
 <div style="width: 49%; height: 100%; float:left">
+  <br/>
 <h2>Laboratory and Platforms</h2>
     <mat-card>
       <p>Your laboratory: MyLab</p>
-      <p>You have no platform</p>
+      <p><span matBadge="0">You have no platform</span></p>
       <button (click)="add()" mat-button>Add a platform</button>
       <br/><br/>
       <p>You have completed at {{completion}}%</p>
@@ -16,7 +17,8 @@
 </div>
 
 <div style="width: 49%; height: 100%; float:right">
-    <h2>Equipments</h2>
+    <br/>
+    <h2><span [matBadge]="service.equipments.length">Equipments</span></h2>
     <app-equipment-add></app-equipment-add>
     <app-entity-list source="equipments"></app-entity-list>
     <br/>  
