@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { EquipmentService } from '../shared/equipments.service';
 
 @Component({
@@ -8,13 +9,13 @@ import { EquipmentService } from '../shared/equipments.service';
 })
 export class PlatformComponent implements OnInit {
 
-  constructor(public service: EquipmentService) { }
+  constructor(public service: EquipmentService, private snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
 
   add() {
-    window.alert('Not implemented yet');
+    this.snackbar.open('Not implemented yet', 'OK');
   }
 
   get completion() {

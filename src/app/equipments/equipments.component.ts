@@ -10,7 +10,7 @@ import { EquipmentService } from '../shared/equipments.service';
   styleUrls: ['./equipments.component.scss'],
 })
 export class EquipmentsComponent implements OnInit {
-  
+
 
 
   constructor(private fb: FormBuilder, public service: EquipmentService) {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { EquipmentService } from '../shared/equipments.service';
 import { Equipment } from '../shared/models';
 
@@ -9,7 +10,7 @@ import { Equipment } from '../shared/models';
 })
 export class EquipmentSelectComponent implements OnInit {
 
-  constructor(public service: EquipmentService) { }
+  constructor(public service: EquipmentService, private snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -17,8 +18,7 @@ export class EquipmentSelectComponent implements OnInit {
   firstChange(value) {
     const equipment: Equipment = value.value;
     this.service.changeEquipment(equipment);
-    //this.clear();
-    //this.addControl(equipment.nodeId);
+    this.snackbar.open('Switching to ' + equipment.label, 'OK', {duration: 1000});
   }
 
 }

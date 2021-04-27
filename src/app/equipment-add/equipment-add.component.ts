@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { EquipmentService } from '../shared/equipments.service';
 import { EquipmentNode } from '../shared/models';
 
@@ -13,7 +14,7 @@ export class EquipmentAddComponent implements OnInit {
 
   @ViewChild('text') text: ElementRef;
 
-  constructor(public service: EquipmentService) { }
+  constructor(public service: EquipmentService, private snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -30,6 +31,7 @@ export class EquipmentAddComponent implements OnInit {
   add() {
     const label: string = this.text.nativeElement.value;
     this.service.addEquipment(this.selectedNode.id, label);
+    this.snackbar.open('Equipment added', 'OK', {duration: 1000});
   }
 
   clear() {

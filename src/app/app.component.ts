@@ -1,35 +1,30 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTabGroup} from '@angular/material/tabs';
-import {MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions} from '@angular/material/tooltip';
 import { EquipmentService } from './shared/equipments.service';
-
-export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
-  showDelay: 500,
-  hideDelay: 0,
-  touchendHideDelay: 0,
-};
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less'],
-  providers: [
-    {provide: MAT_TOOLTIP_DEFAULT_OPTIONS, useValue: myCustomTooltipDefaults}
-  ],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'CNRS Platform Investigation';
   @ViewChild('matTab')
   matTab: MatTabGroup;
 
-  constructor(public service: EquipmentService) {}
+  constructor(public service: EquipmentService, private snackbar: MatSnackBar) {}
+
+  ngOnInit(): void {
+    this.snackbar.open('Database loaded', 'OK', {duration: 1000});
+  }
 
   labo() {
     this.matTab.selectedIndex = 0;
   }
 
   about() {
-    window.alert(this.title + ' by Cyril Vincent ');
+    this.snackbar.open(this.title + ' by Cyril Vincent', 'OK');
   }
 
   mind() {

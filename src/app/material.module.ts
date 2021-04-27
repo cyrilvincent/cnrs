@@ -20,6 +20,7 @@ import {MatTooltipModule} from '@angular/material/tooltip'
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatTreeModule} from '@angular/material/tree';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   imports: [
@@ -44,6 +45,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatTabsModule,
     MatTreeModule,
     MatProgressBarModule,
+    MatSnackBarModule,
   ],
   exports: [
     MatButtonModule,
@@ -66,7 +68,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatTooltipModule,
     MatTabsModule,
     MatTreeModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatSnackBarModule
   ]
 })
 export class MaterialModule {}

@@ -4,6 +4,7 @@ import { Equipment, ViewModel} from '../shared/models';
 import { EquipmentService } from '../shared/equipments.service';
 import { MatSelect } from '@angular/material/select';
 import { VMService } from '../shared/vm.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -20,7 +21,10 @@ export class DynamicFormComponent implements OnInit {
   @ViewChild('equipmentSelect')
   equipmentSelect: ElementRef<MatSelect>;
 
-  constructor(private fb: FormBuilder, public service: EquipmentService, public vmService: VMService) { }
+  constructor(private fb: FormBuilder,
+              public service: EquipmentService,
+              public vmService: VMService,
+              private snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.initFormBuilder();
@@ -85,6 +89,7 @@ export class DynamicFormComponent implements OnInit {
     const values = this.form.getRawValue();
     const v: ViewModel = values.vms[values.vms.length - 1];
     this.service.addComponant(v.key, v.entity.label, v.text);
+    this.snackbar.open('Component added', 'OK', {duration: 1000});
   }
 
 }

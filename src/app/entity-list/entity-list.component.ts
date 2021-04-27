@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { EquipmentService } from '../shared/equipments.service';
 import { Entity } from '../shared/models';
 
@@ -11,7 +12,7 @@ export class EntityListComponent implements OnInit {
 
   @Input() source: string;
 
-  constructor(public service: EquipmentService) { }
+  constructor(public service: EquipmentService, private snackbar: MatSnackBar) { }
 
   get entity(): Entity[] {
     if (this.source === 'components') {
@@ -32,10 +33,11 @@ export class EntityListComponent implements OnInit {
     if (this.source === 'equipments') {
       this.service.removeEquipment(id);
     }
+    this.snackbar.open('Deleted', 'OK', {duration: 1000});
   }
 
   save() {
-    window.alert('Not implemented yet');
+    this.snackbar.open('Not implemented yet', 'OK');
   }
 
 }

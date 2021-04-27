@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { EquipmentService } from '../shared/equipments.service';
 import {map, startWith} from 'rxjs/operators';
 import { SearchService } from '../shared/search.service';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-search',
@@ -20,7 +21,9 @@ export class SearchComponent implements OnInit {
   @ViewChild('search')
   search: ElementRef;
 
-  constructor(public service: EquipmentService, public searchService: SearchService) { }
+  constructor(public service: EquipmentService,
+              public searchService: SearchService,
+              private snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.initSearchFilter();
@@ -38,6 +41,7 @@ export class SearchComponent implements OnInit {
 
   addSearch() {
     this.service.addComponant(this.entitySearch.id, this.entitySearch.label, '');
+    this.snackbar.open('Component added', 'OK', {duration: 1000});
   }
 
 }

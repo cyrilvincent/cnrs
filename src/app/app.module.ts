@@ -14,11 +14,21 @@ import { EquipmentSelectComponent } from './equipment-select/equipment-select.co
 import { PlatformComponent } from './platform/platform.component';
 import { EquipmentTreeComponent } from './equipment-tree/equipment-tree.component';
 import { EquipmentAddComponent } from './equipment-add/equipment-add.component';
+import { MatTooltipDefaultOptions, MAT_TOOLTIP_DEFAULT_OPTIONS } from "@angular/material/tooltip";
+
+export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
+  showDelay: 500,
+  hideDelay: 0,
+  touchendHideDelay: 0,
+};
 
 @NgModule({
   declarations: [AppComponent, EquipmentsComponent, MindmapComponent, EntityListComponent, SearchComponent, DynamicFormComponent, EquipmentSelectComponent, PlatformComponent, EquipmentTreeComponent, EquipmentAddComponent],
   imports: [BrowserModule, ReactiveFormsModule, MaterialModule, BrowserAnimationsModule],
-  providers: [],
+  providers: [
+    {provide: MAT_TOOLTIP_DEFAULT_OPTIONS, useValue: myCustomTooltipDefaults}
+  ],
   bootstrap: [AppComponent],
+  
 })
 export class AppModule {}
