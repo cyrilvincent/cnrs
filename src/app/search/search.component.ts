@@ -4,6 +4,7 @@ import { EquipmentNode} from '../shared/models';
 import { Observable } from 'rxjs';
 import { EquipmentService } from '../shared/equipments.service';
 import {map, startWith} from 'rxjs/operators';
+import { SearchService } from '../shared/search.service';
 
 @Component({
   selector: 'app-search',
@@ -19,7 +20,7 @@ export class SearchComponent implements OnInit {
   @ViewChild('search')
   search: ElementRef;
 
-  constructor(public service: EquipmentService) { }
+  constructor(public service: EquipmentService, public searchService: SearchService) { }
 
   ngOnInit(): void {
     this.initSearchFilter();
@@ -28,16 +29,14 @@ export class SearchComponent implements OnInit {
 
   private initSearchFilter() {
     this.filtered = this.searchControl.valueChanges
-      .pipe(startWith(''), map(value => this.service.filter(value, this.service.selectedEquipment.nodeId)));
+      .pipe(startWith(''), map(value => this.searchService.filter(value, this.service.selectedEquipment.nodeId)));
   }
 
   searchAction(value: any) {
-    console.log(value.option.value);
-    this.entitySearch = this.service.getNodeByLabel(value.option.value);
+    this.entitySearch = this.searchService.getNodeByLabel(value.option.value);
   }
 
   addSearch() {
-    // this.service.addEquipment(this.entitySearch);
     this.service.addComponant(this.entitySearch.id, this.entitySearch.label, '');
   }
 
