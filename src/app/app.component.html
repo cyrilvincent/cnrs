@@ -5,9 +5,9 @@
         <mat-icon>menu</mat-icon>
       </button>
       <mat-menu #bMenu="matMenu">
-        <button mat-menu-item (click)="labo()"><mat-icon>home</mat-icon>Laboratory</button>
-        <button mat-menu-item (click)="equipments()"><mat-icon>play_circle_filled</mat-icon>Equipments</button>
-        <button mat-menu-item (click)="details()"><mat-icon>details</mat-icon>Equipment Details</button>
+        <button mat-menu-item (click)="labo()"><mat-icon>home</mat-icon>SOR</button>
+        <button mat-menu-item (click)="equipments()"><mat-icon>play_circle_filled</mat-icon>Equipements</button>
+        <button mat-menu-item (click)="details()"><mat-icon>details</mat-icon>Détails des équipements</button>
         <button mat-menu-item (click)="db()"><mat-icon>security</mat-icon>Administration</button>
         <button mat-menu-item (click)="mind()"><mat-icon>map</mat-icon>MindMap</button>
         <button mat-menu-item (click)="mindsimple()"><mat-icon>library_books</mat-icon>Index</button>
@@ -22,44 +22,44 @@
       </mat-menu>
     <span>{{title}}</span>
     <span class="example-spacer"></span>
-    <button mat-icon-button aria-label="Laboratory & Platforms" [matTooltip]="'Laboratory & Platforms'">
+    <button mat-icon-button aria-label="Laboratory & Platforms" matTooltip="SOR">
       <mat-icon (click)="labo()">home</mat-icon>
     </button>
-    <button mat-icon-button aria-label="Share" [matTooltip]="'Share'">
+    <button mat-icon-button aria-label="Share" matTooltip="Share">
       <mat-icon>share</mat-icon>
     </button>
     <span class="example-spacer"></span>
-    <button mat-icon-button aria-label="Logout" [matTooltip]="'Logout'">
-      Hi Cyril <mat-icon>logout</mat-icon>
+    <button mat-icon-button aria-label="Logout" matTooltip="Logout">
+      Bonjour Cyril <mat-icon>logout</mat-icon>
     </button>
   </mat-toolbar>
 </p>
 <mat-tab-group #matTab>
   <mat-tab>
     <ng-template mat-tab-label>
-      <mat-icon matBadge="0">home</mat-icon>Laboratory & Platforms
+      <span class="tab" matTooltip="Structure opérationnelle de recherche"><mat-icon matBadge="0">home</mat-icon>SOR</span>
     </ng-template>
     <app-platform></app-platform>
   </mat-tab>
   <mat-tab [disabled]='!service.selectedEquipment'>
     <ng-template mat-tab-label>
-      <mat-icon [matBadge]="service.equipments.length">play_circle_filled </mat-icon>
-      Equipments
+      <span matTooltip="Equipements de la structure opérationnelle de recherche"><mat-icon [matBadge]="service.equipments.length">play_circle_filled </mat-icon>
+      Equipements</span>
     </ng-template>
     <app-equipments></app-equipments>
   </mat-tab>
   <mat-tab [disabled]='!service.selectedEquipment'>
     <ng-template mat-tab-label>
-      <mat-icon [matBadge]="service.selectedEquipment.components.length">details</mat-icon>
-      Equipment's details
+      <span matTooltip="Détails de l'équipement sélectionné"><mat-icon [matBadge]="service.selectedEquipment.components.length">details</mat-icon>
+      Détails de l'équipement</span>
     </ng-template>
     <br/>
-    <h2>Equipment and <span [matBadge]="service.selectedEquipment.components.length">Components</span></h2>
+    <h2>Equipemement et ses <span [matBadge]="service.selectedEquipment.components.length">composants</span></h2>
     <mat-card>
       <div *ngIf="service.selectedEquipment">
         <app-equipment-select></app-equipment-select>
         <br/>
-        <label>Components of {{service.selectedEquipment.label}}</label>
+        <label>Composants de {{service.selectedEquipment.label}}</label>
         <app-entity-list source="components"></app-entity-list>
       </div>
       <p>Show equipment attributes form</p>
@@ -69,7 +69,7 @@
   <mat-tab>
     <ng-template mat-tab-label>
       <mat-icon>security</mat-icon>
-      Manage Database
+      Administration
     </ng-template>
     <p>Manage Database</p>
     <p>Only for admin</p>

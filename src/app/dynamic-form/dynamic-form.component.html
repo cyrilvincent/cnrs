@@ -1,11 +1,11 @@
-  <label>Navigate to choose your component to add to {{service.selectedEquipment.label}}</label>
+  <label>Choisir le composant à ajouter à {{service.selectedEquipment.label}}</label>
   <form [formGroup]="form">
   <ng-container *ngFor="let item of vms; let i = index" >
     <div [formGroup]="form.controls['vms']['controls'][i]">
         <div [ngSwitch]="item.type" class="form-field-group">
           <label *ngSwitchCase="'label'">{{item.entity.label}}</label>
           <mat-form-field *ngSwitchCase="'text'" appearance="fill">
-            <label>You choose {{item.entity.label}}</label>
+            <label>Vous avez choisi {{item.entity.label}}</label>
             <input matInput (change)="lastChange($event)" type="text" formControlName="text" [id]="item.key" [value]="item.entity.label" >
           </mat-form-field> 
           <mat-form-field *ngSwitchCase="'select'" appearance="fill">
@@ -17,7 +17,7 @@
         </div>
     </div>
   </ng-container>
-    <button *ngIf="addItem" mat-button (click)="add()"><mat-icon>add</mat-icon>Add component</button>
-    <button mat-button (click)="clear()"><mat-icon>clear</mat-icon>Clear</button>
+    <button *ngIf="addItem" mat-button (click)="add()"><mat-icon>add</mat-icon>Ajouter le composant</button>
+    <button mat-button (click)="clear()"><mat-icon>clear</mat-icon>Effacer</button>
   </form>
 

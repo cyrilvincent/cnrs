@@ -10,3 +10,8 @@ body {font-size: 200%}
 .fill {
     width: 100%;
   }
+
+span {
+    margin-top: 20px;
+    margin-bottom: 15px;
+}

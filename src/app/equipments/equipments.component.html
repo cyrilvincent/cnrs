@@ -2,12 +2,12 @@
   
   <div style="width: 49%; height: 100%; float:left">
     <br/>
-    <h2>Equipment and Components</h2>
+    <h2>Equipements et composants</h2>
     <mat-card>
       <div *ngIf="service.selectedEquipment">
         <app-equipment-select></app-equipment-select>
         <br/>
-        <label [matBadge]="service.selectedEquipment.components.length" matBadgeOverlap="false">Components of {{service.selectedEquipment.label}}</label>
+        <label [matBadge]="service.selectedEquipment.components.length" matBadgeOverlap="false">Composants de {{service.selectedEquipment.label}}</label>
         <app-entity-list source="components"></app-entity-list>
       </div>
       
@@ -17,7 +17,7 @@
   <div style="width: 49%; height: 100%; float:right">
     <br/>
     <div *ngIf="service.selectedEquipment">
-    <h2>Add components to {{service.selectedEquipment.label}}</h2>
+    <h2>Ajouter le composant à {{service.selectedEquipment.label}}</h2>
     <mat-card>
       <app-search *ngIf="service.selectedEquipment"></app-search>
     </mat-card>

@@ -2,21 +2,22 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTabGroup} from '@angular/material/tabs';
 import { EquipmentService } from './shared/equipments.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import SEAL from 'node-seal'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.less'],
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  title = 'CNRS Platform Investigation';
+  title = 'CNRS Enquête Plateformes';
   @ViewChild('matTab')
   matTab: MatTabGroup;
 
   constructor(public service: EquipmentService, private snackbar: MatSnackBar) {}
 
   ngOnInit(): void {
-    this.snackbar.open('Database loaded', 'OK', {duration: 1000});
+    this.snackbar.open('Base de données chargée', 'OK', {duration: 1000});
     this.matTab.selectedIndex = 0;
   }
 
@@ -25,7 +26,7 @@ export class AppComponent implements OnInit {
   }
 
   about() {
-    this.snackbar.open(this.title + ' by Cyril Vincent', 'OK');
+    this.snackbar.open(this.title + ' par Cyril Vincent', 'OK');
   }
 
   mind() {
@@ -66,5 +67,8 @@ export class AppComponent implements OnInit {
 
   cyril() {
     window.open('https://www.cyrilvincent.com');
+  }
+
+  seal() {
   }
 }

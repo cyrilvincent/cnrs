@@ -1,6 +1,6 @@
 <ng-container>
     <mat-form-field appearance="fill">
-      <mat-label>Equipments</mat-label>
+      <mat-label>Equipements</mat-label>
       <mat-select #equipmentSelect (selectionChange)="firstChange($event)" [(value)]="service.selectedEquipment">
         <mat-option *ngFor="let e of service.equipments" [value]="e">{{e.label}}</mat-option>
       </mat-select>

@@ -5,6 +5,6 @@
         <button mat-button (click)="delete(e.id)" [matTooltip]="'Delete'" ><mat-icon matListIcon>delete</mat-icon></button>
       </mat-list-item>
     </mat-list>
-    <div *ngIf="entity.length == 0">Empty</div>
-    <button *ngIf="entity.length > 0" mat-button (click)="save()"><mat-icon>save</mat-icon>Save</button>
+    <div *ngIf="entity.length == 0">Vide</div>
+    <button *ngIf="entity.length > 0" mat-button (click)="save()"><mat-icon>save</mat-icon>Sauvegarder</button>
 </mat-card>

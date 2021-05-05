@@ -85,8 +85,8 @@ class MindMeisterRtfParser:
 
 
 if __name__ == '__main__':
-    print("MindMeisterRtfParser")
-    print("====================")
+    print("RTF2JSON")
+    print("========")
     path = "../src/assets/Spectroscopie.rtf"
     p = MindMeisterRtfParser()
     p.load(path)

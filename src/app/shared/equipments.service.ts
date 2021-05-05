@@ -110,7 +110,7 @@ export class EquipmentService {
     const root = new TreeNode();
     root.entity = {
       id: -1,
-      label: 'Outside a platform'
+      label: 'Hors plateforme'
     };
     for (const e of this.equipments) {
       const node = new TreeNode();
