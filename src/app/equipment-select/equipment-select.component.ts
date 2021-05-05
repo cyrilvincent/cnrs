@@ -18,7 +18,7 @@ export class EquipmentSelectComponent implements OnInit {
   firstChange(value) {
     const equipment: Equipment = value.value;
     this.service.changeEquipment(equipment);
-    this.snackbar.open('Switching to ' + equipment.label, 'OK', {duration: 1000});
+    this.snackbar.open('Equipement sélectionné ' + equipment.label, 'OK', {duration: 1000});
   }
 
 }

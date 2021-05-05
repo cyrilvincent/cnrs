@@ -30,7 +30,7 @@ export interface Equipment extends AbstractEquipment {
 }
 
 export interface Component extends AbstractEquipment {
-    equipment: Equipment;
+    equipmentId: number;
 }
 
 export class ViewModel {

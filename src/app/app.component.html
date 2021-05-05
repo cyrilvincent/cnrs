@@ -50,11 +50,11 @@
   </mat-tab>
   <mat-tab [disabled]='!service.selectedEquipment'>
     <ng-template mat-tab-label>
-      <span matTooltip="Détails de l'équipement sélectionné"><mat-icon [matBadge]="service.selectedEquipment.components.length">details</mat-icon>
+      <span matTooltip="Détails de l'équipement sélectionné"><mat-icon [matBadge]="service.selectedEquipment === null ? 0 : service.selectedEquipment.components.length">details</mat-icon>
       Détails de l'équipement</span>
     </ng-template>
     <br/>
-    <h2>Equipemement et ses <span [matBadge]="service.selectedEquipment.components.length">composants</span></h2>
+    <h2>Equipemement et ses <span [matBadge]="service.selectedEquipment === null ? 0 : service.selectedEquipment.components.length">composants</span></h2>
     <mat-card>
       <div *ngIf="service.selectedEquipment">
         <app-equipment-select></app-equipment-select>
@@ -74,6 +74,7 @@
     <p>Manage Database</p>
     <p>Only for admin</p>
     <p>Add, remove, update, reorder nodes and equipments</p>
+    <p>Database PG Schema</p>
     <pre>
       Labo 1-* Platform 0-* Equipment 0-* Component
                                 *           *
@@ -82,7 +83,10 @@
                                 EquipmentNode 1*=
       
     </pre>
-    <p>Can generate a report for all platforms or by platform, statistics, graph viz, ...</p>
+    <p>EquipmentDTO DB</p>
+    <pre>{{this.service.equipments | json}}</pre>
+    <p>EquipmentNode DB</p>
+    <pre>{{this.service.db | json}}</pre>
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>

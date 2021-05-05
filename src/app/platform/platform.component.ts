@@ -17,7 +17,7 @@ export class PlatformComponent implements OnInit {
   }
 
   add() {
-    this.snackbar.open('Not implemented yet', 'OK');
+    this.snackbar.open('Pas encore implémenté!', 'OK');
   }
 
   get completion() {

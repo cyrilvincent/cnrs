@@ -41,7 +41,7 @@ export class SearchComponent implements OnInit {
 
   addSearch() {
     this.service.addComponant(this.entitySearch.id, this.entitySearch.label, '');
-    this.snackbar.open('Component added', 'OK', {duration: 1000});
+    this.snackbar.open('Composant ajouté', 'OK', {duration: 1000});
   }
 
 }

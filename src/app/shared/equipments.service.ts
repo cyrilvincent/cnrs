@@ -2,6 +2,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { EquipmentNode, Equipment, Component, TreeNode, Entity} from './models';
 import * as dbjson from '../../assets/db.json';
 import { MockDb } from './mockdb';
+import { environment} from '../../environments/environment'
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,8 @@ export class EquipmentService {
   constructor() {
     // tslint:disable-next-line: no-string-literal
     this.db = dbjson['default'];
-    this.equipments = this.mockdb.getEquipments();
+    // this.equipments = this.mockdb.getEquipments();
+    this.loadEquipments();
     this.selectedEquipment = this.equipments.length === 0 ? null : this.equipments[0];
     this.generateLeafs();
     this.firstLevelNodes = this.getNodesByParentId(this.rootId);
@@ -75,7 +77,7 @@ export class EquipmentService {
 
   componentFactory(nodeId: number, label: string, comment: string): Component {
     const component: Component = {
-       equipment: this.selectedEquipment,
+       equipmentId: this.selectedEquipment === null ? -1 : this.selectedEquipment.id,
        id: this.getSequence(),
        label,
        nodeId,
@@ -155,6 +157,29 @@ export class EquipmentService {
       }
     }
     return this.equipments.length === 0 ? 0 : Math.min(i / (this.equipments.length * 5), 1);
+  }
+
+  saveEquipments() {
+    localStorage.setItem('version', environment.version);
+    const json = JSON.stringify(this.equipments);
+    console.log(json);
+    localStorage.setItem('equipments', json);
+  }
+
+  loadEquipments() {
+    const v = localStorage.getItem('version');
+    if (v !== null && v === environment.version) {
+      this.equipments = JSON.parse(localStorage.getItem('equipments'));
+      this.selectedEquipment = this.equipments[0];
+    }
+    else {
+      this.equipments = [];
+      this.selectedEquipment = null;
+    }
+  }
+
+  clearStorage() {
+    localStorage.clear();
   }
 
 }

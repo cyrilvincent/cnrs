@@ -31,7 +31,7 @@ export class EquipmentAddComponent implements OnInit {
   add() {
     const label: string = this.text.nativeElement.value;
     this.service.addEquipment(this.selectedNode.id, label);
-    this.snackbar.open('Equipment added', 'OK', {duration: 1000});
+    this.snackbar.open('Equipement ajouté', 'OK', {duration: 1000});
   }
 
   clear() {

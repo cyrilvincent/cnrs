@@ -33,11 +33,12 @@ export class EntityListComponent implements OnInit {
     if (this.source === 'equipments') {
       this.service.removeEquipment(id);
     }
-    this.snackbar.open('Deleted', 'OK', {duration: 1000});
+    this.snackbar.open('Effacé', 'OK', {duration: 1000});
   }
 
   save() {
-    this.snackbar.open('Not implemented yet', 'OK');
+    this.service.saveEquipments();
+    this.snackbar.open('Sauvegardé', 'OK');
   }
 
 }
