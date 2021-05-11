@@ -10,6 +10,19 @@
             "name": "Launch Chrome against localhost",
             "url": "http://localhost:4200",
             "webRoot": "${workspaceFolder}"
-        }
+        },
+        {
+            "type": "chrome",
+            "request": "attach",
+            "name": "Unit tests",
+            "address": "localhost",
+            "port": 9333,
+            "sourceMaps": true,
+            "webRoot": "${workspaceFolder}",
+            "pathMapping": {
+              "/_karma_webpack_": "${workspaceFolder}"
+            }
+          },
+          // ng test --browsers ChromeDebug
     ]
 }
