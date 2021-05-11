@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   title = 'CNRS Enquête Plateformes';
   @ViewChild('matTab')
   matTab: MatTabGroup;
+  matTabIndex = 0;
 
   constructor(public service: EquipmentService, private snackbar: MatSnackBar) {}
 
@@ -20,32 +21,12 @@ export class AppComponent implements OnInit {
     this.snackbar.open('Base de données chargée', 'OK', {duration: 1000});
   }
 
-  labo() {
-    this.matTab.selectedIndex = 0;
-  }
-
   about() {
     this.snackbar.open(this.title + ' par Cyril Vincent', 'OK');
   }
 
-  mind() {
-    this.matTab.selectedIndex = 4;
-  }
-
-  equipments() {
-    this.matTab.selectedIndex = 1;
-  }
-
-  details() {
-    this.matTab.selectedIndex = 2;
-  }
-
   mindsimple() {
     window.open('https://www.cyrilvincent.com/cnrs/jsmind/Spectroscopie.htm');
-  }
-
-  db() {
-    this.matTab.selectedIndex = 3;
   }
 
   angular() {
@@ -69,5 +50,9 @@ export class AppComponent implements OnInit {
   }
 
   seal() {
+  }
+
+  clearLocalStorage() {
+    this.service.clearStorage();
   }
 }

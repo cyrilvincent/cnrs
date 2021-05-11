@@ -9,6 +9,9 @@ export interface EquipmentNode extends Entity {
     parentId: number;
     order: number;
     leaf: boolean;
+    unique: boolean;
+    required: boolean;
+    text: boolean;
 }
 
 export interface Labo extends Entity {

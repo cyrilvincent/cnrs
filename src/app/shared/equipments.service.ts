@@ -21,6 +21,10 @@ export class EquipmentService {
   changeEquipmentEvent: EventEmitter<Equipment> = new EventEmitter();
   changeEvent: EventEmitter<any> = new EventEmitter();
 
+  get version() {
+    return environment.version;
+  }
+
   constructor() {
     // tslint:disable-next-line: no-string-literal
     this.db = dbjson['default'];
@@ -180,6 +184,7 @@ export class EquipmentService {
 
   clearStorage() {
     localStorage.clear();
+    this.loadEquipments();
   }
 
 }

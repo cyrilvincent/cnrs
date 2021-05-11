@@ -38,7 +38,7 @@ export class EntityListComponent implements OnInit {
 
   save() {
     this.service.saveEquipments();
-    this.snackbar.open('Sauvegardé', 'OK');
+    this.snackbar.open('Sauvegardé', 'OK', {duration: 1000});
   }
 
 }

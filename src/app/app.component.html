@@ -5,25 +5,25 @@
         <mat-icon>menu</mat-icon>
       </button>
       <mat-menu #bMenu="matMenu">
-        <button mat-menu-item (click)="labo()"><mat-icon>home</mat-icon>SOR</button>
-        <button mat-menu-item (click)="equipments()"><mat-icon>play_circle_filled</mat-icon>Equipements</button>
-        <button mat-menu-item (click)="details()"><mat-icon>details</mat-icon>Détails des équipements</button>
-        <button mat-menu-item (click)="db()"><mat-icon>security</mat-icon>Administration</button>
-        <button mat-menu-item (click)="mind()"><mat-icon>map</mat-icon>MindMap</button>
+        <button mat-menu-item (click)="matTabIndex = 0"><mat-icon>home</mat-icon>SOR</button>
+        <button mat-menu-item (click)="matTabIndex = 1"><mat-icon>play_circle_filled</mat-icon>Equipements</button>
+        <button mat-menu-item (click)="matTabIndex = 2"><mat-icon>details</mat-icon>Détails des équipements</button>
+        <button mat-menu-item (click)="matTabIndex = 3"><mat-icon>security</mat-icon>Administration</button>
+        <button mat-menu-item (click)="matTabIndex = 4"><mat-icon>map</mat-icon>MindMap</button>
         <button mat-menu-item (click)="mindsimple()"><mat-icon>library_books</mat-icon>Index</button>
         <button mat-menu-item><mat-icon>share</mat-icon>Share</button>
         <button mat-menu-item (click)="about()"><mat-icon>group_work</mat-icon>About</button>
         <button mat-menu-item><mat-icon>logout</mat-icon>Logout</button>
         <button mat-menu-item (click)="material()"><mat-icon>developer_board</mat-icon>Material Design</button>
         <button mat-menu-item (click)="angular()"><mat-icon>developer_board</mat-icon>Angular Material</button>
-        <button mat-menu-item (click)="python()"><mat-icon>developer_board</mat-icon>Python (or .NET Core)</button>
+        <button mat-menu-item (click)="python()"><mat-icon>developer_board</mat-icon>Python ou .NET Core ou Symphony</button>
         <button mat-menu-item (click)="pg()"><mat-icon>developer_board</mat-icon>PostgreSql</button>
         <button mat-menu-item (click)="cyril()"><mat-icon>account_circle</mat-icon>Cyril Vincent</button>
       </mat-menu>
-    <span>{{title}}</span>
+    <span>{{title}} v{{service.version}}</span>
     <span class="example-spacer"></span>
     <button mat-icon-button aria-label="Laboratory & Platforms" matTooltip="SOR">
-      <mat-icon (click)="labo()">home</mat-icon>
+      <mat-icon (click)="matTabIndex = 0">home</mat-icon>
     </button>
     <button mat-icon-button aria-label="Share" matTooltip="Share">
       <mat-icon>share</mat-icon>
@@ -34,7 +34,7 @@
     </button>
   </mat-toolbar>
 </p>
-<mat-tab-group #matTab>
+<mat-tab-group #matTab [(selectedIndex)]="matTabIndex">
   <mat-tab>
     <ng-template mat-tab-label>
       <span class="tab" matTooltip="Structure opérationnelle de recherche"><mat-icon matBadge="0">home</mat-icon>SOR</span>
@@ -54,7 +54,7 @@
       Détails de l'équipement</span>
     </ng-template>
     <br/>
-    <h2>Equipemement et ses <span [matBadge]="service.selectedEquipment === null ? 0 : service.selectedEquipment.components.length">composants</span></h2>
+    <h2>Equipement et ses <span [matBadge]="service.selectedEquipment === null ? 0 : service.selectedEquipment.components.length">composants</span></h2>
     <mat-card>
       <div *ngIf="service.selectedEquipment">
         <app-equipment-select></app-equipment-select>
@@ -68,21 +68,17 @@
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
-      <mat-icon>security</mat-icon>
-      Administration
+      <span matTooltip="Administration"><mat-icon>security</mat-icon>
+      Administration</span>
     </ng-template>
     <p>Manage Database</p>
     <p>Only for admin</p>
     <p>Add, remove, update, reorder nodes and equipments</p>
     <p>Database PG Schema</p>
-    <pre>
-      Labo 1-* Platform 0-* Equipment 0-* Component
-                                *           *
-                                |           |
-                                1           1
-                                EquipmentNode 1*=
-      
-    </pre>
+    <p><img src="../assets/mpd.png" height="600"></p>
+    <button mat-icon-button  (click)="clearLocalStorage()">
+      Delete localStorage<mat-icon>delete</mat-icon>
+    </button>
     <p>EquipmentDTO DB</p>
     <pre>{{this.service.equipments | json}}</pre>
     <p>EquipmentNode DB</p>
@@ -90,8 +86,8 @@
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
-      <mat-icon>map</mat-icon>
-      Mind Map  
+      <span matTooltip="Mind Map"><mat-icon>map</mat-icon>
+      Mind Map</span>
     </ng-template>
     Mind Map
     <div>

@@ -75,6 +75,9 @@ class MindMeisterRtfParser:
             "parentId": parentid,
             "order": order,
             "leaf": False,
+            "unique": False,
+            "required": False,
+            "text": False,
         }
 
     def save(self, path):
