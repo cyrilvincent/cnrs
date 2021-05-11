@@ -1,12 +1,12 @@
+<label *ngIf="validatorService.validators.size > 0" [matBadge]="validatorService.validators.size" matBadgeColor="warn">Merci de corriger les points suivants :</label>
 <mat-card>
-    <mat-list *ngIf="validators.size > 0">
-      Merci de corriger les points suivants :
-      <mat-list-item *ngFor="let node of validators">
+    <mat-list *ngIf="validatorService.validators.size > 0">
+      <mat-list-item *ngFor="let node of validatorService.validators">
         Le type de composant {{node.label}} est 
         <span *ngIf="node.required">&nbsp;obligatoire<button mat-icon-button matTooltip="Ajouter un composant de type {{node.label}}"><mat-icon>help</mat-icon></button></span>
-        <span *ngIf="node.unique">&nbsp;unique<button mat-icon-button [matTooltip]="uniqueText"><mat-icon>help</mat-icon></button></span>
+        <span *ngIf="node.unique">&nbsp;unique<button mat-icon-button matTooltip="Enlever un des composants suivants: {{uniqueText}}"><mat-icon>help</mat-icon></button></span>
         &nbsp;({{node.id}})
       </mat-list-item>
     </mat-list>
-    <div *ngIf="validators.size == 0">L'équipement est OK</div>
+    <div *ngIf="validatorService.validators.size == 0">L'équipement est valide</div>
 </mat-card>

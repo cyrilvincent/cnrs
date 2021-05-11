@@ -28,7 +28,12 @@ export class EquipmentService {
   constructor() {
     // tslint:disable-next-line: no-string-literal
     this.db = dbjson['default'];
-    // this.equipments = this.mockdb.getEquipments();
+    // TODO: For test only
+    const rnode = this.db[2];
+    rnode.required = true;
+    const unode = this.db[8];
+    unode.unique = true;
+    // End for test only
     this.loadEquipments();
     this.selectedEquipment = this.equipments.length === 0 ? null : this.equipments[0];
     this.generateLeafs();

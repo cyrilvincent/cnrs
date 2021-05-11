@@ -8,9 +8,36 @@ import { EquipmentService } from './equipments.service';
 export class ValidatorService {
 
   requiredsAndUniques: Map<Equipment, Set<EquipmentNode>> = new Map();
+  validatorsMap: Map<Equipment, Set<EquipmentNode>> = new Map();
+  validators: Set<EquipmentNode> = new Set();
+  uniqueFailsMap: Map<Equipment, Component[]> = new Map();
   uniqueFails: Component[] = [];
 
   constructor(public service: EquipmentService) {
+    this.checkValidators();
+    this.service.changeEvent.subscribe(_ => this.checkValidators());
+    this.service.changeEquipmentEvent.subscribe(_ => this.changeEquipment());
+  }
+
+  checkValidators() {
+    if (this.service.selectedEquipment !== null) {
+      this.validators = this.checkRequiredAndUnique(this.service.selectedEquipment);
+      this.validatorsMap.set(this.service.selectedEquipment, this.validators);
+      this.getUniqueFails(this.service.selectedEquipment, this.validators);
+      this.uniqueFailsMap.set(this.service.selectedEquipment, this.uniqueFails);
+    }
+  }
+
+  changeEquipment() {
+    if (this.service.selectedEquipment !== null) {
+      if (this.validatorsMap.has(this.service.selectedEquipment)) {
+        this.validators = this.validatorsMap.get(this.service.selectedEquipment);
+        this.uniqueFails = this.uniqueFailsMap.get(this.service.selectedEquipment);
+      }
+      else {
+        this.checkValidators();
+      }
+    }
   }
 
   getUniqueFails(e: Equipment, validators: Set<EquipmentNode>) {
@@ -24,17 +51,6 @@ export class ValidatorService {
         }
       }
     }
-  }
-
-  checkRequiredsAndUniques(): Map<Equipment, Set<EquipmentNode>> {
-    const result: Map<Equipment, Set<EquipmentNode>> = new Map();
-    for (const e of this.service.equipments) {
-      const requiredsAndUniques = this.checkRequiredAndUnique(e);
-      if (requiredsAndUniques.size > 0) {
-        result.set(e, requiredsAndUniques);
-      }
-    }
-    return result;
   }
 
   checkRequiredAndUnique(e: Equipment): Set<EquipmentNode> {

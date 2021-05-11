@@ -16,20 +16,14 @@ export class ComponentValidatorComponent implements OnInit {
   constructor(public service: EquipmentService, public validatorService: ValidatorService) { }
 
   ngOnInit(): void {
-    this.service.changeEvent.subscribe(e => this.checkValidators());
-    const rnode = this.service.db[2];
-    rnode.required = true;
-    const unode = this.service.db[8];
-    unode.unique = true;
-    this.checkValidators();
+    this.setUniqueText();
+    this.service.changeEvent.subscribe(_ => this.setUniqueText());
+    this.service.changeEquipmentEvent.subscribe(_ => this.setUniqueText());
   }
 
-  checkValidators() {
+  setUniqueText() {
     if (this.service.selectedEquipment !== null) {
-      this.validators = this.validatorService.checkRequiredAndUnique(this.service.selectedEquipment);
-      this.validatorService.getUniqueFails(this.service.selectedEquipment, this.validators);
-      this.uniqueText = 'Enlever un des composants suivants: ';
-      this.uniqueText += this.validatorService.uniqueFails.map(c => this.service.db[c.nodeId].shortLabel).join(', ');
+      this.uniqueText = this.validatorService.uniqueFails.map(c => this.service.db[c.nodeId].shortLabel).join(', ');
     }
   }
 
