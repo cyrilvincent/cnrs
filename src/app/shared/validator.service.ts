@@ -1,15 +1,29 @@
 import { Injectable } from '@angular/core';
-import { EquipmentNode, Equipment} from './models';
+import { EquipmentNode, Equipment, Component} from './models';
 import { EquipmentService } from './equipments.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ConstraintsService {
+export class ValidatorService {
 
   requiredsAndUniques: Map<Equipment, Set<EquipmentNode>> = new Map();
+  uniqueFails: Component[] = [];
 
   constructor(public service: EquipmentService) {
+  }
+
+  getUniqueFails(e: Equipment, validators: Set<EquipmentNode>) {
+    this.uniqueFails = [];
+    for (const v of validators) {
+      if (v.unique) {
+        for (const c of e.components) {
+          if (this.service.hasAncestor(c.nodeId, v.id)) {
+            this.uniqueFails.push(c);
+          }
+        }
+      }
+    }
   }
 
   checkRequiredsAndUniques(): Map<Equipment, Set<EquipmentNode>> {

@@ -15,6 +15,7 @@ import { PlatformComponent } from './platform/platform.component';
 import { EquipmentTreeComponent } from './equipment-tree/equipment-tree.component';
 import { EquipmentAddComponent } from './equipment-add/equipment-add.component';
 import { MatTooltipDefaultOptions, MAT_TOOLTIP_DEFAULT_OPTIONS } from "@angular/material/tooltip";
+import { ComponentValidatorComponent } from './component-validator/component-validator.component';
 
 export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
   showDelay: 500,
@@ -23,7 +24,7 @@ export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
 };
 
 @NgModule({
-  declarations: [AppComponent, EquipmentsComponent, MindmapComponent, EntityListComponent, SearchComponent, DynamicFormComponent, EquipmentSelectComponent, PlatformComponent, EquipmentTreeComponent, EquipmentAddComponent],
+  declarations: [AppComponent, EquipmentsComponent, MindmapComponent, EntityListComponent, SearchComponent, DynamicFormComponent, EquipmentSelectComponent, PlatformComponent, EquipmentTreeComponent, EquipmentAddComponent, ComponentValidatorComponent],
   imports: [BrowserModule, ReactiveFormsModule, MaterialModule, BrowserAnimationsModule],
   providers: [
     {provide: MAT_TOOLTIP_DEFAULT_OPTIONS, useValue: myCustomTooltipDefaults}

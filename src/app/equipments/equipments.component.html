@@ -9,6 +9,8 @@
         <br/>
         <label [matBadge]="service.selectedEquipment.components.length" matBadgeOverlap="false">Composants de {{service.selectedEquipment.label}}</label>
         <app-entity-list source="components"></app-entity-list>
+        <br/>
+        <app-component-validator></app-component-validator>
       </div>
       
   </mat-card>

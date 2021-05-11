@@ -1,12 +1,12 @@
-import { ConstraintsService } from './constraints.service';
+import { ValidatorService } from './validator.service';
 import { TestBed } from '@angular/core/testing';
 
 describe('ConstraintsService', () => {
-    let service: ConstraintsService;
+    let service: ValidatorService;
 
     beforeEach(() => {
       TestBed.configureTestingModule({});
-      service = TestBed.inject(ConstraintsService);
+      service = TestBed.inject(ValidatorService);
     });
 
     it('should be created', () => {
