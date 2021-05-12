@@ -1,7 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { EquipmentNode, Equipment, Component, TreeNode, Entity} from './models';
 import * as dbjson from '../../assets/db.json';
-import { MockDb } from './mockdb';
 import { environment} from '../../environments/environment'
 
 @Injectable({
@@ -10,7 +9,6 @@ import { environment} from '../../environments/environment'
 export class EquipmentService {
 
   db: { [id: number]: EquipmentNode; } = {};
-  mockdb = new MockDb();
   equipments: Equipment[] = [];
   leafs: EquipmentNode[] = [];
   rootId = 0;
