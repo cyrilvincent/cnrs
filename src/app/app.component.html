@@ -7,7 +7,7 @@
       <mat-menu #bMenu="matMenu">
         <button mat-menu-item (click)="matTabIndex = 0"><mat-icon>home</mat-icon>SOR</button>
         <button mat-menu-item (click)="matTabIndex = 1"><mat-icon>play_circle_filled</mat-icon>Equipements</button>
-        <button mat-menu-item (click)="matTabIndex = 2"><mat-icon>details</mat-icon>Détails des équipements</button>
+        <button mat-menu-item (click)="matTabIndex = 2"><mat-icon>details</mat-icon>Détails</button>
         <button mat-menu-item (click)="matTabIndex = 3"><mat-icon>security</mat-icon>Administration</button>
         <button mat-menu-item (click)="matTabIndex = 4"><mat-icon>map</mat-icon>MindMap</button>
         <button mat-menu-item (click)="mindsimple()"><mat-icon>library_books</mat-icon>Index</button>
@@ -50,11 +50,14 @@
   </mat-tab>
   <mat-tab [disabled]='!service.selectedEquipment'>
     <ng-template mat-tab-label>
-      <span matTooltip="Détails de l'équipement sélectionné"><mat-icon [matBadge]="service.selectedEquipment === null ? 0 : service.selectedEquipment.components.length">details</mat-icon>
-      Détails de l'équipement</span>
+      <span matTooltip="Détails de l'équipement sélectionné"><mat-icon>details</mat-icon>
+      Détails</span>
     </ng-template>
     <br/>
-    <h2>Equipement et ses <span [matBadge]="service.selectedEquipment === null ? 0 : service.selectedEquipment.components.length">composants</span></h2>
+    <h2>Equipement et ses composants</h2>
+    <p>Formulaire des attributs de l'équipement</p>
+    <p>Formulaires des attributs des composants</p>
+    <p>Modification du texte libre des composants autorisés</p>
     <mat-card>
       <div *ngIf="service.selectedEquipment">
         <app-equipment-select></app-equipment-select>
@@ -63,8 +66,6 @@
         <app-entity-list source="components"></app-entity-list>
         <app-component-validator></app-component-validator>
       </div>
-      <p>Formulaire des attributs de l'équipement</p>
-      <p>Formulaires des attributs des composants</p>
   </mat-card>
   </mat-tab>
   <mat-tab>
