@@ -29,7 +29,7 @@ export class EquipmentTreeComponent implements OnInit {
 
   ngOnInit(): void {
     this.initDataSource()
-    this.service.changeEvent.subscribe(x => this.initDataSource())
+    this.service.changeComponentEvent.subscribe(x => this.initDataSource())
   }
 
   initDataSource(): void {

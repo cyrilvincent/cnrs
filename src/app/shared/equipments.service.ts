@@ -19,7 +19,7 @@ export class EquipmentService {
   firstLevelNodes: EquipmentNode[] = [];
 
   changeEquipmentEvent: EventEmitter<Equipment> = new EventEmitter();
-  changeEvent: EventEmitter<any> = new EventEmitter();
+  changeComponentEvent: EventEmitter<any> = new EventEmitter();
 
   get version() {
     return environment.version;
@@ -53,18 +53,18 @@ export class EquipmentService {
   addComponant(nodeId: number, label: string, comment: string) {
     const c = this.componentFactory(nodeId, label, comment);
     this.selectedEquipment.components.push(c);
-    this.changeEvent.emit(c);
+    this.changeComponentEvent.emit(c);
   }
 
   removeComponent(id: number) {
     this.selectedEquipment.components = this.selectedEquipment.components.filter(c => c.id !== id);
-    this.changeEvent.emit(id);
+    this.changeComponentEvent.emit(id);
   }
 
   removeEquipment(id: number) {
     this.equipments = this.equipments.filter(c => c.id !== id);
     this.selectedEquipment = this.equipments.length === 0 ? null : this.equipments[0];
-    this.changeEvent.emit(id);
+    this.changeComponentEvent.emit(id);
   }
 
   getNodesByParentId(parentId: number): EquipmentNode[] {
@@ -140,7 +140,7 @@ export class EquipmentService {
     const e: Equipment = this.equipmentFactory(nodeId, label, '');
     this.equipments.push(e);
     this.changeEquipment(e);
-    this.changeEvent.emit(e);
+    this.changeComponentEvent.emit(e);
   }
 
   proposeEquipmentName(nodeId: number): string {

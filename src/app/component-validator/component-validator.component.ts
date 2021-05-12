@@ -17,7 +17,7 @@ export class ComponentValidatorComponent implements OnInit {
 
   ngOnInit(): void {
     this.setUniqueText();
-    this.service.changeEvent.subscribe(_ => this.setUniqueText());
+    this.service.changeComponentEvent.subscribe(_ => this.setUniqueText());
     this.service.changeEquipmentEvent.subscribe(_ => this.setUniqueText());
   }
 

@@ -15,7 +15,7 @@ export class ValidatorService {
 
   constructor(public service: EquipmentService) {
     this.checkValidators();
-    this.service.changeEvent.subscribe(_ => this.checkValidators());
+    this.service.changeComponentEvent.subscribe(_ => this.checkValidators());
     this.service.changeEquipmentEvent.subscribe(_ => this.changeEquipment());
   }
 

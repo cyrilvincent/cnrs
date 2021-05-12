@@ -19,7 +19,7 @@ export class EquipmentsComponent implements OnInit {
 
   ngOnInit() {
     this.validator();
-    this.service.changeEvent.subscribe(_ => this.validator());
+    this.service.changeComponentEvent.subscribe(_ => this.validator());
     this.service.changeEquipmentEvent.subscribe(_ => this.validator());
   }
 
