@@ -6,7 +6,7 @@
           <label *ngSwitchCase="'label'">{{item.entity.label}}</label>
           <mat-form-field *ngSwitchCase="'text'" appearance="fill">
             <label>Vous avez choisi {{item.entity.label}}</label>
-            <input matInput (change)="lastChange($event)" type="text" formControlName="text" [id]="item.key" [value]="item.entity.label" >
+            <input matInput type="text" [readonly]="!item.entity.text && false" [placeholder]="item.entity.text || true ? 'Entrez un commentaire' : ''" formControlName="text" [id]="item.key" >
           </mat-form-field> 
           <mat-form-field *ngSwitchCase="'select'" appearance="fill">
             <mat-label>{{item.entity.shortLabel}}</mat-label>

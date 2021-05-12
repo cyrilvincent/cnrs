@@ -53,5 +53,5 @@ export class OptionVM {
 
 export class TreeNode {
     entity: Entity;
-    children: TreeNode[] = []
+    children: TreeNode[] = [];
 }

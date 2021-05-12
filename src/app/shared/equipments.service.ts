@@ -15,7 +15,7 @@ export class EquipmentService {
   leafs: EquipmentNode[] = [];
   rootId = 0;
   selectedEquipment: Equipment = null;
-  sequenceNb = 100;
+  sequenceNb = Math.floor(Math.random() * 10000) + 100;
   firstLevelNodes: EquipmentNode[] = [];
 
   changeEquipmentEvent: EventEmitter<Equipment> = new EventEmitter();

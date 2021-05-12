@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EquipmentService } from '../shared/equipments.service';
-import { Entity } from '../shared/models';
+import { Entity, Component as Comp, Equipment, AbstractEquipment } from '../shared/models';
+import { ValidatorService } from '../shared/validator.service';
 
 @Component({
   selector: 'app-entity-list',
@@ -12,7 +13,7 @@ export class EntityListComponent implements OnInit {
 
   @Input() source: string;
 
-  constructor(public service: EquipmentService, private snackbar: MatSnackBar) { }
+  constructor(public service: EquipmentService, public validatorService: ValidatorService , private snackbar: MatSnackBar) { }
 
   get entity(): Entity[] {
     if (this.source === 'components') {
@@ -20,6 +21,13 @@ export class EntityListComponent implements OnInit {
     }
     if (this.source === 'equipments') {
       return this.service.equipments;
+    }
+  }
+
+  isUnique(e: Entity): boolean {
+    if (this.source === 'components') {
+      const c = e as Comp;
+      return this.validatorService.uniqueFails.includes(c);
     }
   }
 
@@ -39,6 +47,15 @@ export class EntityListComponent implements OnInit {
   save() {
     this.service.saveEquipments();
     this.snackbar.open('Sauvegardé', 'OK', {duration: 1000});
+  }
+
+  tooltip(e: Entity): string {
+    if (this.source === 'components' && e.comment && e.comment.length > 0) {
+      return e.comment;
+    }
+    const a = e as AbstractEquipment;
+    const node = this.service.db[a.nodeId];
+    return node.label;
   }
 
 }
