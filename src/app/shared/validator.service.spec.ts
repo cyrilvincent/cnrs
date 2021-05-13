@@ -1,7 +1,7 @@
 import { ValidatorService } from './validator.service';
 import { TestBed } from '@angular/core/testing';
 
-describe('ConstraintsService', () => {
+describe('ValidatorService', () => {
     let service: ValidatorService;
 
     beforeEach(() => {

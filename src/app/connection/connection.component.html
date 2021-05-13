@@ -1,0 +1,5 @@
+<button mat-icon-button aria-label="Internet" [matTooltip]="service.error">
+    <mat-icon *ngIf="state === 0">signal_cellular_4_bar</mat-icon>
+    <mat-icon *ngIf="state === 1">signal_cellular_null</mat-icon>
+    <mat-icon *ngIf="state === 2">signal_cellular_connected_no_internet_4_bar</mat-icon>
+</button>
