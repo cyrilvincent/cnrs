@@ -50,8 +50,4 @@ export class AppComponent implements OnInit {
 
   seal() {
   }
-
-  clearLocalStorage() {
-    this.service.clearStorage();
-  }
 }

@@ -18,9 +18,11 @@ export class EquipmentService {
   selectedEquipment: Equipment = null;
   sequenceNb = Math.floor(Math.random() * 10000) + 100;
   firstLevelNodes: EquipmentNode[] = [];
+  equipmentTree: TreeNode[] = [];
 
   changeEquipmentEvent: EventEmitter<Equipment> = new EventEmitter();
   changeComponentEvent: EventEmitter<any> = new EventEmitter();
+  changeNodeEvent: EventEmitter<any> = new EventEmitter();
 
   get version() {
     return environment.version;
@@ -28,8 +30,7 @@ export class EquipmentService {
 
   constructor(private snackbar: MatSnackBar) {
     timer(100).subscribe(_ => { // Test only
-      // tslint:disable-next-line: no-string-literal
-      this.db = dbjson['default'];
+      this.loadDb();
       // TODO: For test only
       const rnode = this.db[2];
       rnode.required = true;
@@ -40,6 +41,9 @@ export class EquipmentService {
       this.selectedEquipment = this.equipments.length === 0 ? null : this.equipments[0];
       this.generateLeafs();
       this.firstLevelNodes = this.getNodesByParentId(this.rootId);
+      this.equipmentTree = this.getEquipmentsTree();
+      this.changeEquipmentEvent.emit(this.selectedEquipment);
+      this.changeNodeEvent.emit();
       this.snackbar.open('Base de données chargée', 'OK', {duration: 1000});
       this.loaded = true;
     });
@@ -47,6 +51,7 @@ export class EquipmentService {
 
   changeEquipment(e: Equipment) {
     this.selectedEquipment = e;
+    this.equipmentTree = this.getEquipmentsTree();
     this.changeEquipmentEvent.emit(e);
   }
 
@@ -58,17 +63,20 @@ export class EquipmentService {
   addComponant(nodeId: number, label: string, comment: string) {
     const c = this.componentFactory(nodeId, label, comment);
     this.selectedEquipment.components.push(c);
+    this.equipmentTree = this.getEquipmentsTree();
     this.changeComponentEvent.emit(c);
   }
 
   removeComponent(id: number) {
     this.selectedEquipment.components = this.selectedEquipment.components.filter(c => c.id !== id);
+    this.equipmentTree = this.getEquipmentsTree();
     this.changeComponentEvent.emit(id);
   }
 
   removeEquipment(id: number) {
     this.equipments = this.equipments.filter(c => c.id !== id);
     this.selectedEquipment = this.equipments.length === 0 ? null : this.equipments[0];
+    this.equipmentTree = this.getEquipmentsTree();
     this.changeComponentEvent.emit(id);
   }
 
@@ -182,7 +190,7 @@ export class EquipmentService {
 
   loadEquipments() {
     const v = localStorage.getItem('version');
-    if (v !== null && v === environment.version) {
+    if (v !== null && v === environment.version &&  localStorage.getItem('equipments') !== null) {
       this.equipments = JSON.parse(localStorage.getItem('equipments'));
       this.selectedEquipment = this.equipments[0];
     }
@@ -190,6 +198,26 @@ export class EquipmentService {
       this.equipments = [];
       this.selectedEquipment = null;
     }
+  }
+
+  loadDb() {
+    const v = localStorage.getItem('db_version');
+    if (v !== null && v === '0' && localStorage.getItem('db') !== null) {
+      console.log('Load Db from localStorage');
+      this.db = JSON.parse(localStorage.getItem('db'));
+    }
+    else {
+      console.log('Load Db from dbjson');
+      // tslint:disable-next-line: no-string-literal
+      this.db = dbjson['default'];
+      this.saveDb();
+    }
+  }
+
+  saveDb() {
+    localStorage.setItem('db_version', '0');
+    const json = JSON.stringify(this.db);
+    localStorage.setItem('db', json);
   }
 
   clearStorage() {

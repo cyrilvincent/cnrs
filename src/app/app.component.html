@@ -72,18 +72,7 @@
       <span matTooltip="Administration"><mat-icon>security</mat-icon>
       Administration</span>
     </ng-template>
-    <p>Manage Database</p>
-    <p>Only for admin</p>
-    <p>Add, remove, update, reorder nodes and equipments</p>
-    <p>Database PG Schema</p>
-    <p><img src="../assets/mpd.png" height="600"></p>
-    <button mat-icon-button  (click)="clearLocalStorage()">
-      Delete localStorage<mat-icon>delete</mat-icon>
-    </button>
-    <p>EquipmentDTO DB</p>
-    <pre>{{this.service.equipments | json}}</pre>
-    <p>EquipmentNode DB</p>
-    <pre>{{this.service.db | json}}</pre>
+    <app-admin></app-admin>
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>

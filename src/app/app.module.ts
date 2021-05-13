@@ -18,6 +18,7 @@ import { MatTooltipDefaultOptions, MAT_TOOLTIP_DEFAULT_OPTIONS } from "@angular/
 import { ComponentValidatorComponent } from './component-validator/component-validator.component';
 import { ConnectionComponent } from './connection/connection.component';
 import { HttpClientModule } from "@angular/common/http";
+import { AdminModule } from './admin/admin.module';
 
 export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
   showDelay: 500,
@@ -27,7 +28,7 @@ export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
 
 @NgModule({
   declarations: [AppComponent, EquipmentsComponent, MindmapComponent, EntityListComponent, SearchComponent, DynamicFormComponent, EquipmentSelectComponent, PlatformComponent, EquipmentTreeComponent, EquipmentAddComponent, ComponentValidatorComponent, ConnectionComponent],
-  imports: [BrowserModule, ReactiveFormsModule, MaterialModule, BrowserAnimationsModule, HttpClientModule],
+  imports: [BrowserModule, ReactiveFormsModule, MaterialModule, BrowserAnimationsModule, HttpClientModule, AdminModule],
   providers: [
     {provide: MAT_TOOLTIP_DEFAULT_OPTIONS, useValue: myCustomTooltipDefaults}
   ],

@@ -1,0 +1,11 @@
+<h2>Administration (admin uniquement)</h2> 
+<app-equipment-nodes-tree></app-equipment-nodes-tree>
+<p>Database PG Schema</p>
+<p><img src="../assets/mpd.png" height="600"></p>
+<button mat-icon-button  (click)="clearLocalStorage()">
+    Delete localStorage<mat-icon>delete</mat-icon>
+</button>
+<p>EquipmentDTO DB</p>
+<pre>{{this.service.equipments | json}}</pre>
+<p>EquipmentNode DB</p>
+<pre>{{this.service.db | json}}</pre>
