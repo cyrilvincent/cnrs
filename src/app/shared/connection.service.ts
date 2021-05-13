@@ -15,13 +15,6 @@ export class ConnectionService {
   error = '';
 
   get onLine() {
-    if (this.state && !navigator.onLine) {
-      if (this.state) {
-        this.snackbar.open('Serveur injoignable, vérifiez votre connexion Internet', 'OK');
-        this.error = 'Aucune connexion réseau';
-      }
-      this.state = false;
-    }
     return navigator.onLine;
   }
 

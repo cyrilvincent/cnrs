@@ -32,7 +32,8 @@
     <img src="../assets/logo.svg">
   </mat-toolbar>
 </p>
-<mat-tab-group #matTab [(selectedIndex)]="matTabIndex">
+<!--<p *ngIf="!service.loaded">Chargement de la base de données</p>-->
+<mat-tab-group *ngIf="service.loaded || true" #matTab [(selectedIndex)]="matTabIndex">
   <mat-tab>
     <ng-template mat-tab-label>
       <span class="tab" matTooltip="Structure opérationnelle de recherche"><mat-icon matBadge="0">home</mat-icon>SOR</span>

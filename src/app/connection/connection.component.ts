@@ -16,16 +16,13 @@ export class ConnectionComponent implements OnInit {
   }
 
   get state() {
-    if (this.service.state && this.service.onLine) {
-      return 0;
+    if (!this.service.state) {
+      return 2;
     }
     if (!this.service.onLine) {
       return 1;
     }
-    if (!this.service.state && this.service.onLine) {
-      return 2;
-    }
-    return -1;
+    return 0;
   }
 
 }

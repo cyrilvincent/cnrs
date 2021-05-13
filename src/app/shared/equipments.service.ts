@@ -2,6 +2,8 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { EquipmentNode, Equipment, Component, TreeNode, Entity} from './models';
 import * as dbjson from '../../assets/db.json';
 import { environment} from '../../environments/environment'
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { timer } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +11,7 @@ import { environment} from '../../environments/environment'
 export class EquipmentService {
 
   db: { [id: number]: EquipmentNode; } = {};
+  loaded = false;
   equipments: Equipment[] = [];
   leafs: EquipmentNode[] = [];
   rootId = 0;
@@ -23,19 +26,23 @@ export class EquipmentService {
     return environment.version;
   }
 
-  constructor() {
-    // tslint:disable-next-line: no-string-literal
-    this.db = dbjson['default'];
-    // TODO: For test only
-    const rnode = this.db[2];
-    rnode.required = true;
-    const unode = this.db[8];
-    unode.unique = true;
-    // End for test only
-    this.loadEquipments();
-    this.selectedEquipment = this.equipments.length === 0 ? null : this.equipments[0];
-    this.generateLeafs();
-    this.firstLevelNodes = this.getNodesByParentId(this.rootId);
+  constructor(private snackbar: MatSnackBar) {
+    timer(100).subscribe(_ => { // Test only
+      // tslint:disable-next-line: no-string-literal
+      this.db = dbjson['default'];
+      // TODO: For test only
+      const rnode = this.db[2];
+      rnode.required = true;
+      const unode = this.db[8];
+      unode.unique = true;
+      // End for test only
+      this.loadEquipments();
+      this.selectedEquipment = this.equipments.length === 0 ? null : this.equipments[0];
+      this.generateLeafs();
+      this.firstLevelNodes = this.getNodesByParentId(this.rootId);
+      this.snackbar.open('Base de données chargée', 'OK', {duration: 1000});
+      this.loaded = true;
+    });
   }
 
   changeEquipment(e: Equipment) {

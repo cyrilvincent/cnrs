@@ -18,7 +18,6 @@ export class AppComponent implements OnInit {
   constructor(public service: EquipmentService, private snackbar: MatSnackBar) {}
 
   ngOnInit(): void {
-    this.snackbar.open('Base de données chargée', 'OK', {duration: 1000});
   }
 
   about() {
