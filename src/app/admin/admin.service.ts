@@ -7,7 +7,11 @@ import { EquipmentNode, TreeNode } from '../shared/models';
 })
 export class AdminService {
 
-  constructor(private service: EquipmentService) { }
+  treeNode: TreeNode[] = [];
+
+  constructor(private service: EquipmentService) {
+    this.service.changeNodeEvent.subscribe(x => this.loadTreeNode());
+  }
 
   getEquipmentNodesTree(): TreeNode[] {
     const nodeMap = new Map<number, TreeNode>();
@@ -31,5 +35,20 @@ export class AdminService {
       }
     }
     return [root];
+  }
+
+  loadTreeNode() {
+    const v = localStorage.getItem('db_version');
+    if (v !== null && v === '0' && localStorage.getItem('treeNode') !== null) {
+      this.treeNode = JSON.parse(localStorage.getItem('treeNode'));
+    }
+    else {
+      this.treeNode = this.getEquipmentNodesTree();
+    }
+  }
+
+  saveTreeNode() {
+    const json = JSON.stringify(this.treeNode);
+    localStorage.setItem('treeNode', json);
   }
 }

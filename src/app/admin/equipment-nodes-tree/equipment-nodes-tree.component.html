@@ -5,6 +5,10 @@
       <!-- use a disabled button to provide padding for tree leaf -->
       <button mat-icon-button disabled></button>
       {{node.entity.label}}
+      <button mat-icon-button matTooltip="Modifier ce noeud de composant"><mat-icon>create</mat-icon></button>
+      <button mat-icon-button matTooltip="Déplacer ce noeud de composant"><mat-icon>arrow_upward</mat-icon></button>
+      <button mat-icon-button matTooltip="Ajouter un noeud de composant"><mat-icon>add</mat-icon></button>
+      <button mat-icon-button matTooltip="Effacer ce noeud de composant"><mat-icon>delete</mat-icon></button>
     </mat-tree-node>
     <!-- This is the tree node template for expandable nodes -->
     <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
@@ -16,10 +20,10 @@
       </button>
       {{node.entity.label}}
       <span *ngIf="node.entity.id !== -1">
-      <button mat-icon-button matTooltip="Ajouter un noeud de composant"><mat-icon>add</mat-icon></button>
-      <button mat-icon-button matTooltip="Créer un enfant noeud de composant"><mat-icon>create</mat-icon></button>
-      <button mat-icon-button matTooltip="Déplacer ce noeud de composant"><mat-icon>arrow_upward</mat-icon></button>
-      <button mat-icon-button matTooltip="Effacer ce noeud de composant"><mat-icon>delete</mat-icon></button>
-    </span>
+        <button mat-icon-button matTooltip="Modifier ce noeud de composant"><mat-icon>create</mat-icon></button>
+        <button mat-icon-button matTooltip="Déplacer ce noeud de composant"><mat-icon>arrow_upward</mat-icon></button>
+        <button mat-icon-button matTooltip="Ajouter un noeud de composant"><mat-icon>add</mat-icon></button>
+        <button mat-icon-button matTooltip="Effacer ce noeud de composant"><mat-icon>delete</mat-icon></button>
+      </span>
     </mat-tree-node>
 </mat-tree>

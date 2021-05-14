@@ -32,7 +32,7 @@ export class EquipmentNodesTreeComponent implements OnInit {
   }
 
   initDataSource(): void {
-    this.dataSource.data = this.adminService.getEquipmentNodesTree();
+    this.dataSource.data = this.adminService.treeNode;
     for (const n of this.treeControl.dataNodes) {
       if (n.level < 2) {
         this.treeControl.expand(n);
