@@ -1,0 +1,1 @@
+docker run --name cnrs-equipment-container -d -p 8888:80 cnrs-equipment

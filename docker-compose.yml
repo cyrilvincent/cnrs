@@ -1,0 +1,51 @@
+# Run docker-compose build
+# Run docker-compose up
+# Live long and prosper
+
+version: '2'
+
+services:
+  nginx_cnrs:
+    container_name: nginx_cnrs_container
+    restart: always
+    image: nginx
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+    volumes:
+     - ./dist/cnrs:/usr/share/nginx/html
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - flask_cnrs
+
+  flask_cnrs:
+    container_name: flask_cnrs_container
+    restart: always
+    image: flask
+    build: ./python
+    volumes:
+    - ./python:/usr/src/app/server
+    env_file:
+     - .env
+    ports:
+     - "5000:5000"
+
+  data:
+   container_name: app_data_cnrs_container
+   image: postgres
+   volumes:
+     - /var/lib/postgresql
+   command: "true"
+
+  postgres:
+   container_name: postgresql_cnrs_container
+   restart: always
+   build: ./postgresql
+   volumes_from:
+     - data
+   ports:
+     - "5432:5432"
+   env_file:
+     - .env
