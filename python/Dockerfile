@@ -16,7 +16,9 @@ COPY . /usr/src/app/
 RUN chmod 777 /usr/src/app/entrypoint.sh
 
 # Install the Python libraries
-RUN pip install --no-cache-dir -r requirements.txt
+# RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
+
 
 # COPY uswgi.ini
 COPY ./uwsgi.ini /etc/uwsgi.ini
