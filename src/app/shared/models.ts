@@ -19,7 +19,7 @@ export interface Labo extends Entity {
 }
 
 export interface Platform extends Entity {
-    isNoPlatform: boolean;
+    isOutPlatform: boolean;
     equipments: Equipment[];
 }
 
@@ -28,7 +28,7 @@ export interface AbstractEquipment extends Entity {
 }
 
 export interface Equipment extends AbstractEquipment {
-    platform?: Platform;
+    platformId?: number;
     components: Component[];
 }
 

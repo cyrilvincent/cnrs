@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { EquipmentNode, Equipment, Component, TreeNode, Entity} from './models';
+import { EquipmentNode, Equipment, Component, TreeNode, Platform} from './models';
 import * as dbjson from '../../assets/db.json';
 import { environment} from '../../environments/environment'
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -12,17 +12,29 @@ export class EquipmentService {
 
   db: { [id: number]: EquipmentNode; } = {};
   loaded = false;
-  equipments: Equipment[] = [];
+  // equipments: Equipment[] = [];
   leafs: EquipmentNode[] = [];
   rootId = 0;
   selectedEquipment: Equipment = null;
-  sequenceNb = Math.floor(Math.random() * 10000) + 100;
+  sequenceNb = Math.floor(Math.random() * 10000) + 1000;
   firstLevelNodes: EquipmentNode[] = [];
   equipmentTree: TreeNode[] = [];
+  platforms = [this.platformFactory('Hors plateforme', '', true)];
+  outPlatformId = 0;
+  selectedPlatform = this.platforms[this.outPlatformId];
+
+  get equipments(): Equipment[] {
+    return this.selectedPlatform.equipments;
+  }
+
+  set equipments(equipments: Equipment[]) {
+    this.selectedPlatform.equipments = equipments;
+  }
 
   changeEquipmentEvent: EventEmitter<Equipment> = new EventEmitter();
   changeComponentEvent: EventEmitter<any> = new EventEmitter();
   changeNodeEvent: EventEmitter<any> = new EventEmitter();
+  changePlatformEvent: EventEmitter<any> = new EventEmitter();
 
   get version() {
     return environment.version;
@@ -119,6 +131,17 @@ export class EquipmentService {
     return equipment;
   }
 
+  platformFactory(label: string, comment: string, isOutPlatform = false): Platform {
+    const platform: Platform = {
+      id: isOutPlatform ? 0 : this.getSequence(),
+      equipments: [],
+      isOutPlatform,
+      label,
+      comment
+    };
+    return platform;
+  }
+
   hasAncestor(nodeId: number, ancestorId: number): boolean {
     if (ancestorId === nodeId) {
       return true;
@@ -161,7 +184,7 @@ export class EquipmentService {
     let i = 1;
     let stop = false;
     let label = '';
-    while (!stop) {
+    while (!stop && i <= 100) {
       label = node.label + ' #' + i;
       if (this.equipments.filter(e => e.label === label).length === 0) {
         stop = true;
