@@ -1,3 +1,18 @@
-<h2>Administration</h2> 
-<app-equipment-nodes-tree></app-equipment-nodes-tree>
+<div style="width: 49%; height: 100%; float:left">
+    <h2>Administration</h2> 
+    <app-equipment-nodes-tree></app-equipment-nodes-tree>
+</div>
+<div style="width: 49%; height: 100%; float:right"> 
+    <h2>Gestion d'un noeud</h2> 
+    <mat-card>
+        <mat-form-field class="fill">
+            <input type="text" placeholder="Nom du noeud" matInput class="fill">
+        </mat-form-field>
+        <p><mat-checkbox>Obligatoire</mat-checkbox></p>
+        <p><mat-checkbox>Unique</mat-checkbox></p>
+        <p><mat-checkbox>Texte libre</mat-checkbox></p>
+        <br/>
+        <button mat-button><mat-icon>add</mat-icon>Ajouter</button>
+    </mat-card>
+</div>
 

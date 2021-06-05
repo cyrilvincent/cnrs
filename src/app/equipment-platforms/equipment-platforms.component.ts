@@ -30,9 +30,6 @@ export class EquipmentPlatformsComponent implements OnInit {
     else {
       this.service.removePlatformToEquipment(this.service.selectedEquipment, p);
     }
-    if (this.service.selectedEquipment.platformIds.length === 0) {
-      this.service.addPlatformToEquipment(this.service.selectedEquipment, this.service.outPlatform);
-    }
   }
 
   disable(p: Platform) {
