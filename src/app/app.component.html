@@ -6,17 +6,13 @@
       <mat-menu #bMenu="matMenu">
         <button mat-menu-item (click)="matTabIndex = 0"><mat-icon>home</mat-icon>SOR</button>
         <button mat-menu-item (click)="matTabIndex = 1"><mat-icon>play_circle_filled</mat-icon>Equipements</button>
-        <button mat-menu-item (click)="matTabIndex = 2"><mat-icon>details</mat-icon>Détails</button>
+        <button mat-menu-item (click)="matTabIndex = 2"><mat-icon>details</mat-icon>Composants</button>
         <button mat-menu-item (click)="matTabIndex = 3"><mat-icon>security</mat-icon>Administration</button>
-        <button mat-menu-item (click)="matTabIndex = 4"><mat-icon>map</mat-icon>MindMap</button>
-        <button mat-menu-item (click)="mindsimple()"><mat-icon>library_books</mat-icon>Index</button>
+        <button mat-menu-item (click)="matTabIndex = 4"><mat-icon>folder</mat-icon>Base de données</button>
+        <button mat-menu-item (click)="matTabIndex = 5"><mat-icon>map</mat-icon>MindMap</button>
         <button mat-menu-item (click)="about()"><mat-icon>group_work</mat-icon>About</button>
         <button mat-menu-item><mat-icon>logout</mat-icon>Logout</button>
-        <button mat-menu-item (click)="material()"><mat-icon>developer_board</mat-icon>Material Design</button>
         <button mat-menu-item (click)="angular()"><mat-icon>developer_board</mat-icon>Angular Material</button>
-        <button mat-menu-item (click)="python()"><mat-icon>developer_board</mat-icon>Python ou .NET Core ou Symphony</button>
-        <button mat-menu-item (click)="pg()"><mat-icon>developer_board</mat-icon>PostgreSql</button>
-        <button mat-menu-item (click)="cyril()"><mat-icon>account_circle</mat-icon>Cyril Vincent</button>
         <button mat-menu-item (click)="cyril()"><mat-icon>account_circle</mat-icon>Contacter l'administrateur</button>
       </mat-menu>
     <span>{{title}}</span>
@@ -32,7 +28,6 @@
     <img src="../assets/logo.svg">
   </mat-toolbar>
 </p>
-<!--<p *ngIf="!service.loaded">Chargement de la base de données</p>-->
 <mat-tab-group *ngIf="service.loaded || true" #matTab [(selectedIndex)]="matTabIndex">
   <mat-tab>
     <ng-template mat-tab-label>
@@ -42,21 +37,16 @@
   </mat-tab>
   <mat-tab [disabled]='!service.selectedEquipment'>
     <ng-template mat-tab-label>
-      <span matTooltip="Equipements de la structure opérationnelle de recherche"><mat-icon [matBadge]="service.equipments.length">play_circle_filled </mat-icon>
+      <span matTooltip="List des équipements de la SOR"><mat-icon [matBadge]="service.equipments.length">details</mat-icon>
       Equipements</span>
     </ng-template>
-    <app-equipments></app-equipments>
-  </mat-tab>
-  <mat-tab [disabled]='!service.selectedEquipment'>
-    <ng-template mat-tab-label>
-      <span matTooltip="Détails de l'équipement sélectionné"><mat-icon>details</mat-icon>
-      Détails</span>
-    </ng-template>
     <br/>
-    <h2>Equipement et ses composants</h2>
+    <h2>Equipements</h2>
+    <p>Choix de l'équipement</p>
     <p>Formulaire des attributs de l'équipement</p>
     <p>Formulaires des attributs des composants</p>
     <p>Modification du texte libre des composants autorisés</p>
+    <p>Est Hors plateforme, lié à une plateforme ou multiplateforme</p>
     <mat-card>
       <div *ngIf="service.selectedEquipment">
         <app-equipment-select></app-equipment-select>
@@ -66,12 +56,27 @@
         <app-component-validator></app-component-validator>
       </div>
   </mat-card>
+  <mat-tab [disabled]='!service.selectedEquipment'>
+    <ng-template mat-tab-label>
+      <span matTooltip="Composant de l'équipement sélectionné"><mat-icon>play_circle_filled </mat-icon>
+      Composants</span>
+    </ng-template>
+    <app-equipments></app-equipments>
+  </mat-tab>
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
       <span matTooltip="Administration"><mat-icon>security</mat-icon>
       Administration</span>
     </ng-template>
+    <app-admin></app-admin>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <span matTooltip="Base de données"><mat-icon>folder</mat-icon>
+      Base de données</span>
+    </ng-template>
+    Déplacer les schémas et json ici
     <app-admin></app-admin>
   </mat-tab>
   <mat-tab>

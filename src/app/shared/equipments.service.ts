@@ -12,7 +12,7 @@ export class EquipmentService {
 
   db: { [id: number]: EquipmentNode; } = {};
   loaded = false;
-  // equipments: Equipment[] = [];
+  // equipments: Equipment[] = []; // TODO à virer
   leafs: EquipmentNode[] = [];
   rootId = 0;
   selectedEquipment: Equipment = null;
@@ -20,15 +20,21 @@ export class EquipmentService {
   firstLevelNodes: EquipmentNode[] = [];
   equipmentTree: TreeNode[] = [];
   platforms = [this.platformFactory('Hors plateforme', '', true)];
-  outPlatformId = 0;
-  selectedPlatform = this.platforms[this.outPlatformId];
+  outPlatform = this.platforms[0];
+  selectedPlatform = this.outPlatform;
 
-  get equipments(): Equipment[] {
-    return this.selectedPlatform.equipments;
-  }
+  // TODO liste des onglets : SOR, Platformes, Equipements (attributs), Composants (association des composants actuellement equipement)
 
-  set equipments(equipments: Equipment[]) {
-    this.selectedPlatform.equipments = equipments;
+  get equipments(): Equipment[] { // TODO temporaire à remplacer dans les vues par selectedPlatform.equipments ou outPlatform.equipments
+                                  // selon le cas
+                                  // sauf dans les onglets composants et equipments
+    const equipments: Equipment[] = [];
+    for (const p of this.platforms) {
+      for (const e of p.equipments) {
+        equipments.push(e);
+      }
+    }
+    return equipments;
   }
 
   changeEquipmentEvent: EventEmitter<Equipment> = new EventEmitter();
@@ -67,6 +73,11 @@ export class EquipmentService {
     this.changeEquipmentEvent.emit(e);
   }
 
+  changePlatform(p: Platform) {
+    this.selectedPlatform = p;
+    this.changePlatformEvent.emit(p);
+  }
+
   private generateLeafs() {
     this.leafs = Object.values(this.db).filter(e => e.leaf);
     this.leafs.sort((a, b) => +(a.label > b.label) || -(a.label < b.label));
@@ -85,11 +96,44 @@ export class EquipmentService {
     this.changeComponentEvent.emit(id);
   }
 
-  removeEquipment(id: number) {
-    this.equipments = this.equipments.filter(c => c.id !== id);
+  addEquipment(nodeId: number, label: string, platform: Platform = this.outPlatform) {
+    const e: Equipment = this.equipmentFactory(nodeId, label, '');
+    platform.equipments.push(e);
+    e.platformIds.push(platform.id);
+    // this.equipments.push(e);
+    this.changeEquipment(e);
+  }
+
+  removeEquipment(id: number, platform: Platform = this.outPlatform) {
+    // this.equipments = this.equipments.filter(c => c.id !== id);
+    platform.equipments = this.equipments.filter(c => c.id !== id);
     this.selectedEquipment = this.equipments.length === 0 ? null : this.equipments[0];
     this.equipmentTree = this.getEquipmentsTree();
     this.changeComponentEvent.emit(id);
+  }
+
+  addPlatformToEquipment(e: Equipment, platformId: number) {
+    e.platformIds.push(platformId);
+    this.changeEquipmentEvent.emit(e);
+  }
+
+  removePlatformToEquipment(e: Equipment, platformId: number) {
+    e.platformIds = e.platformIds.filter(id => id !== platformId);
+    this.changeEquipmentEvent.emit(e);
+  }
+
+
+
+  addPlatform(label: string) {
+    const p: Platform = this.platformFactory(label, '');
+    this.platforms.push(p);
+    this.changePlatform(p);
+  }
+
+  removePlatform(id: number) {
+    this.platforms = this.platforms.filter(p => p.id !== id);
+    this.selectedPlatform = this.outPlatform;
+    this.changePlatformEvent.emit(id);
   }
 
   getNodesByParentId(parentId: number): EquipmentNode[] {
@@ -126,7 +170,8 @@ export class EquipmentService {
        label,
        nodeId,
        comment,
-       components: []
+       components: [],
+       platformIds: [],
     };
     return equipment;
   }
@@ -172,13 +217,6 @@ export class EquipmentService {
     return [root];
   }
 
-  addEquipment(nodeId: number, label: string) {
-    const e: Equipment = this.equipmentFactory(nodeId, label, '');
-    this.equipments.push(e);
-    this.changeEquipment(e);
-    this.changeComponentEvent.emit(e);
-  }
-
   proposeEquipmentName(nodeId: number): string {
     const node: EquipmentNode = this.db[nodeId];
     let i = 1;
@@ -206,19 +244,19 @@ export class EquipmentService {
 
   saveEquipments() {
     localStorage.setItem('version', environment.version);
-    const json = JSON.stringify(this.equipments);
+    const json = JSON.stringify(this.equipments); // TODO save {platforms: this.platforms, equipments : this.equipments}
     console.log(json);
     localStorage.setItem('equipments', json);
   }
 
   loadEquipments() {
-    const v = localStorage.getItem('version');
+    const v = localStorage.getItem('version'); // TODO cf saveEquipments
     if (v !== null && v === environment.version &&  localStorage.getItem('equipments') !== null) {
-      this.equipments = JSON.parse(localStorage.getItem('equipments'));
-      this.selectedEquipment = this.equipments[0];
+      this.outPlatform.equipments = JSON.parse(localStorage.getItem('equipments'));
+      this.selectedEquipment = this.outPlatform.equipments[0];
     }
     else {
-      this.equipments = [];
+      this.outPlatform.equipments = [];
       this.selectedEquipment = null;
     }
   }

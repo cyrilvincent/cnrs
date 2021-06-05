@@ -28,7 +28,7 @@ export interface AbstractEquipment extends Entity {
 }
 
 export interface Equipment extends AbstractEquipment {
-    platformId?: number;
+    platformIds: number[];
     components: Component[];
 }
 
