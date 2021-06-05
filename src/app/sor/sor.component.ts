@@ -5,7 +5,7 @@ import { EquipmentService } from '../shared/equipments.service';
 @Component({
   selector: 'app-sor',
   templateUrl: './sor.component.html',
-  styleUrls: ['./sor.component.css']
+  styleUrls: ['./sor.component.scss']
 })
 export class SorComponent implements OnInit {
 

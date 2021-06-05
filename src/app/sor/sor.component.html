@@ -8,13 +8,25 @@
     <br/>  
   </mat-card>
   <br/>
+  <p>Les informations demandées sont complètées à {{completion}}%</p>
+  <mat-progress-bar mode="determinate" [value]="completion"></mat-progress-bar>
+  <br/>
   <mat-card>
     <h2>Informations détaillées</h2>
-    <p>Id: 000</p>
-    <p>Type: FR</p>
+    <mat-form-field class="fill">
+      <input type="text" placeholder="Code unité" aria-label="Code unité" matInput class="fill" value="INC">
+    </mat-form-field>
+    <mat-form-field class="fill">
+      <input type="text" placeholder="Nom" aria-label="Nom" matInput class="fill" value="Institut de la chimie du CNRS">
+    </mat-form-field>
+    <mat-form-field class="fill">
+      <input type="text" placeholder="Acronyme" aria-label="Acronyme" matInput class="fill" value="INC">
+    </mat-form-field>
+    <mat-form-field class="fill">
+      <input disabled="true" type="text" placeholder="Nombre d'équipement" matInput class="fill" [value]="service.outPlatform.equipments.length">
+    </mat-form-field>
     <br/>
-    <p>Les informations demandées sont complètées à {{completion}}%</p>
-      <mat-progress-bar mode="determinate" [value]="completion"></mat-progress-bar>
+    
   </mat-card>
   <br/>
 </div>
@@ -24,7 +36,6 @@
     <h2><span [matBadge]="service.equipments.length">Equipements hors plateforme</span></h2>
     <app-equipment-add (platform)="this.service.outPlatform"></app-equipment-add>
     <app-entity-list source="equipments"></app-entity-list>
-    <br/>
     <br/>
     <mat-accordion>
       <mat-expansion-panel (opened)="panelOpenState = true"

@@ -137,7 +137,7 @@ export class EquipmentService {
 
   removePlatform(id: number) {
     this.platforms = this.platforms.filter(p => p.id !== id);
-    this.selectedPlatform = this.outPlatform;
+    this.selectedPlatform = this.platforms.length > 1 ? this.platforms[1] : this.outPlatform;
     this.changePlatformEvent.emit(id);
   }
 
@@ -201,7 +201,9 @@ export class EquipmentService {
       equipments: [],
       isOutPlatform,
       label,
-      comment
+      comment,
+      acronym: '',
+      budget: '0',
     };
     return platform;
   }

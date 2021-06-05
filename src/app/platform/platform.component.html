@@ -1,0 +1,22 @@
+<h2>Détail de la plateforme</h2>
+<mat-card>
+    <mat-form-field class="fill">
+        <input type="text" placeholder="Nom" required #label="ngModel" minlength="3" aria-label="Nom" matInput class="fill" [(ngModel)]="service.selectedPlatform.label">
+        <div *ngIf="label.invalid" class="red">Nom obligatoire avec 3 caractères minimum</div>
+    </mat-form-field>
+    <mat-form-field class="fill">
+        <input type="text" placeholder="Acronyme" minlength="3" required #acronym="ngModel" aria-label="Acronyme" matInput class="fill" [(ngModel)]="service.selectedPlatform.acronym">
+        <div *ngIf="acronym.invalid" class="red">Acronyme obligatoire avec 2 caractères minimum</div>
+    </mat-form-field>
+    <mat-form-field class="fill">
+        <input type="text" placeholder="Description" aria-label="Description" matInput class="fill" [(ngModel)]="service.selectedPlatform.comment">
+    </mat-form-field>
+    <mat-form-field class="fill">
+        <input type="text" placeholder="Budget" aria-label="Budget" matInput class="fill" [(ngModel)]="service.selectedPlatform.budget">
+    </mat-form-field>
+    <mat-form-field class="fill">
+        <input disabled="true" type="text" placeholder="Nombre d'équipement" matInput class="fill" [value]="service.selectedPlatform.equipments.length">
+    </mat-form-field>
+    <br/>
+    <button mat-button (click)="save()"><mat-icon>save</mat-icon>Sauvegarder</button>
+</mat-card>

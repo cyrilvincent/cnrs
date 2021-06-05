@@ -21,6 +21,8 @@ export interface Labo extends Entity {
 export interface Platform extends Entity {
     isOutPlatform: boolean;
     equipments: Equipment[];
+    acronym?: string;
+    budget?: string;
 }
 
 export interface Sor extends Entity {
