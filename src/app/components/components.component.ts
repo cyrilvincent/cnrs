@@ -6,11 +6,11 @@ import { ValidatorService } from '../shared/validator.service';
 
 
 @Component({
-  selector: 'app-equipments',
-  templateUrl: './equipments.component.html',
-  styleUrls: ['./equipments.component.scss'],
+  selector: 'app-components',
+  templateUrl: './components.component.html',
+  styleUrls: ['./components.component.scss'],
 })
-export class EquipmentsComponent implements OnInit {
+export class ComponentsComponent implements OnInit {
 
   nbError = 0;
 

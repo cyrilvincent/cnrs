@@ -39,7 +39,7 @@
     <ng-template mat-tab-label>
       <span class="tab" matTooltip="Plateformes"><mat-icon [matBadge]="service.platforms.length - 1">home</mat-icon>Plateformes</span>
     </ng-template>
-    Gestion des plateformes
+    <app-platforms></app-platforms>
   </mat-tab>
   <mat-tab [disabled]='!service.selectedEquipment'>
     <ng-template mat-tab-label>
@@ -67,7 +67,7 @@
       <span matTooltip="Composant de l'équipement sélectionné"><mat-icon [matBadge]="service.selectedEquipment === null ? 0 : service.selectedEquipment.components.length">play_circle_filled </mat-icon>
       Composants</span>
     </ng-template>
-    <app-equipments></app-equipments>
+    <app-components></app-components>
   </mat-tab>
   </mat-tab>
   <mat-tab>

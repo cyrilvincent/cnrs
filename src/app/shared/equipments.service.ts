@@ -61,6 +61,10 @@ export class EquipmentService {
       this.equipmentTree = this.getEquipmentsTree();
       this.changeEquipmentEvent.emit(this.selectedEquipment);
       this.changeNodeEvent.emit();
+      if (this.platforms.length > 1) {
+        this.selectedPlatform = this.platforms[1];
+        this.changePlatformEvent.emit(this.selectedPlatform);
+      }
       this.snackbar.open('Base de données chargée', 'OK', {duration: 1000});
       this.loaded = true;
     });

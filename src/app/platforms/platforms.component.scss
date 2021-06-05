@@ -1,0 +1,24 @@
+.form-field-group {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    align-items: center;
+    .form-field-label {
+      white-space: nowrap;
+    }
+    .form-field-label + mat-form-field {
+     margin-left: 10px;
+    }
+    mat-form-field {
+      width:100%;
+      input {
+        width:100%;
+      }
+    }
+  }
+.fill {
+  width: 100%;
+}
+.material-icons.color_red { color: #FF0000; }
+
+

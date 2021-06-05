@@ -1,0 +1,8 @@
+<ng-container>
+    <mat-form-field appearance="fill">
+      <mat-label>Plateformes</mat-label>
+      <mat-select #platformSelect (selectionChange)="change($event)" [value]="selected">
+        <mat-option *ngFor="let p of service.platforms.slice(1)" [value]="p">{{p.label}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </ng-container>

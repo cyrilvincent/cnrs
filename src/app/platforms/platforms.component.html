@@ -1,0 +1,31 @@
+
+  
+  <div style="width: 49%; height: 100%; float:left">
+    <br/>
+    <h2>Plateformes</h2>
+    <mat-card>
+        <app-platform-select></app-platform-select>
+        <br/>
+        <!--<label [matBadge]="service.selectedEquipment.components.length" matBadgeOverlap="false">Composants de {{service.selectedEquipment.label}}</label>
+        <app-entity-list source="components"></app-entity-list>-->
+        <br/>
+    </mat-card>
+    </div>
+
+  <div style="width: 49%; height: 100%; float:right">
+    <br/>
+    <div *ngIf="service.selectedEquipment">
+    <h2>Ajouter le composant à {{service.selectedEquipment.label}}</h2>
+    <mat-card>
+      <app-search *ngIf="service.selectedEquipment"></app-search>
+    </mat-card>
+    <br>
+    <mat-card>
+      <app-dynamic-form></app-dynamic-form>
+    </mat-card>
+    <br/>
+  </div>
+  </div>
+
+
+
