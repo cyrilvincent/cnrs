@@ -1,7 +1,7 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EquipmentService } from '../shared/equipments.service';
-import { EquipmentNode } from '../shared/models';
+import { EquipmentNode, Platform } from '../shared/models';
 
 @Component({
   selector: 'app-equipment-add',
@@ -11,6 +11,8 @@ import { EquipmentNode } from '../shared/models';
 export class EquipmentAddComponent implements OnInit {
 
   selectedNode: EquipmentNode = null;
+  label = '';
+  @Input() platform: Platform;
 
   @ViewChild('text') text: ElementRef;
 
@@ -19,18 +21,14 @@ export class EquipmentAddComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  get selectedText() {
-    return this.service.proposeEquipmentName(this.selectedNode.id);
-  }
-
   select(value) {
     const node: EquipmentNode = value.value;
     this.selectedNode = node;
+    this.label = this.service.proposeEquipmentName(this.selectedNode.id);
   }
 
   add() {
-    const label: string = this.text.nativeElement.value;
-    this.service.addEquipment(this.selectedNode.id, label);
+    this.service.addEquipment(this.selectedNode.id, this.label, this.platform);
     this.snackbar.open('Equipement ajouté', 'OK', {duration: 1000});
   }
 

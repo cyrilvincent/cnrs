@@ -3,7 +3,7 @@ import { NgModule } from "@angular/core";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from "./app.component";
-import { ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { EquipmentsComponent } from "./equipments/equipments.component";
 import { MaterialModule} from "./material.module";
 import { MindmapComponent } from "./mindmap/mindmap.component";
@@ -19,6 +19,7 @@ import { ComponentValidatorComponent } from './component-validator/component-val
 import { ConnectionComponent } from './connection/connection.component';
 import { HttpClientModule } from "@angular/common/http";
 import { AdminModule } from './admin/admin.module';
+import { PlatformAddComponent } from './platform-add/platform-add.component';
 
 export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
   showDelay: 500,
@@ -27,8 +28,8 @@ export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
 };
 
 @NgModule({
-  declarations: [AppComponent, EquipmentsComponent, MindmapComponent, EntityListComponent, SearchComponent, DynamicFormComponent, EquipmentSelectComponent, SorComponent, EquipmentTreeComponent, EquipmentAddComponent, ComponentValidatorComponent, ConnectionComponent],
-  imports: [BrowserModule, ReactiveFormsModule, MaterialModule, BrowserAnimationsModule, HttpClientModule, AdminModule],
+  declarations: [AppComponent, EquipmentsComponent, MindmapComponent, EntityListComponent, SearchComponent, DynamicFormComponent, EquipmentSelectComponent, SorComponent, EquipmentTreeComponent, EquipmentAddComponent, ComponentValidatorComponent, ConnectionComponent, PlatformAddComponent],
+  imports: [BrowserModule, ReactiveFormsModule, FormsModule, MaterialModule, BrowserAnimationsModule, HttpClientModule, AdminModule],
   providers: [
     {provide: MAT_TOOLTIP_DEFAULT_OPTIONS, useValue: myCustomTooltipDefaults}
   ],

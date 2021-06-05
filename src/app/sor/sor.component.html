@@ -1,34 +1,42 @@
 <div style="width: 49%; height: 100%; float:left">
   <br/>
 <h2>Institut de la chimie du CNRS</h2>
-    <mat-card>
-      <p>Id: 000</p>
-      <p>Type: FR?</p>
-      <p><span matBadge="0" matBadgeOverlap="false">Aucune plateforme</span></p>
-      <button (click)="add()" mat-button><mat-icon>add</mat-icon> Ajouter une plateforme</button>
-      <br/><br/>
-      <p>Les informations demandées sont complètées à {{completion}}%</p>
+  <mat-card>
+    <h2><span [matBadge]="service.platforms.length - 1">Plateformes</span></h2>
+    <app-platform-add></app-platform-add>
+    <app-entity-list source="platforms"></app-entity-list>
+    <br/>  
+  </mat-card>
+  <br/>
+  <mat-card>
+    <h2>Informations détaillées</h2>
+    <p>Id: 000</p>
+    <p>Type: FR</p>
+    <br/>
+    <p>Les informations demandées sont complètées à {{completion}}%</p>
       <mat-progress-bar mode="determinate" [value]="completion"></mat-progress-bar>
-</mat-card>
-<mat-accordion>
-<mat-expansion-panel (opened)="panelOpenState = true"
-                       (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        <h2>Résumé des équipements</h2>
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <mat-card>
-      <app-equipment-tree></app-equipment-tree>
-</mat-card>
-  </mat-expansion-panel>
-</mat-accordion>
+  </mat-card>
+  <br/>
 </div>
 
 <div style="width: 49%; height: 100%; float:right">
     <br/>
-    <h2><span [matBadge]="service.equipments.length">Equipements</span></h2>
-    <app-equipment-add></app-equipment-add>
+    <h2><span [matBadge]="service.equipments.length">Equipements hors plateforme</span></h2>
+    <app-equipment-add (platform)="this.service.outPlatform"></app-equipment-add>
     <app-entity-list source="equipments"></app-entity-list>
-    <br/>  
+    <br/>
+    <br/>
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                            (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h2>Résumé des équipements</h2>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-card>
+            <app-equipment-tree></app-equipment-tree>
+      </mat-card>
+        </mat-expansion-panel>
+    </mat-accordion>  
 </div>

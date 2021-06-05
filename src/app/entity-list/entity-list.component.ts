@@ -20,7 +20,13 @@ export class EntityListComponent implements OnInit {
       return this.service.selectedEquipment.components;
     }
     if (this.source === 'equipments') {
-      return this.service.equipments;
+      return this.service.outPlatform.equipments;
+    }
+    if (this.source === 'platforms') {
+      return this.service.platforms.slice(1);
+    }
+    if (this.source === 'platform-equipments') {
+      return this.service.selectedPlatform.equipments;
     }
   }
 
@@ -29,6 +35,7 @@ export class EntityListComponent implements OnInit {
       const c = e as Comp;
       return this.validatorService.uniqueFails.includes(c);
     }
+    return false;
   }
 
   ngOnInit(): void {
@@ -38,8 +45,11 @@ export class EntityListComponent implements OnInit {
     if (this.source === 'components') {
       this.service.removeComponent(id);
     }
-    if (this.source === 'equipments') {
+    else if (this.source.includes('equipments')) {
       this.service.removeEquipment(id);
+    }
+    else if (this.source === 'platforms') {
+      this.service.removePlatform(id);
     }
     this.snackbar.open('Effacé', 'OK', {duration: 1000});
   }
@@ -50,12 +60,27 @@ export class EntityListComponent implements OnInit {
   }
 
   tooltip(e: Entity): string {
-    if (this.source === 'components' && e.comment && e.comment.length > 0) {
+    if ((this.source === 'components' || this.source === 'platforms') && e.comment && e.comment.length > 0) {
       return e.comment;
     }
-    const a = e as AbstractEquipment;
-    const node = this.service.db[a.nodeId];
-    return node.label;
+    if (this.source.includes('equipments')) {
+      const a = e as AbstractEquipment;
+      const node = this.service.db[a.nodeId];
+      return node.label;
+    }
+    return e.label;
+  }
+
+  get empty(): string {
+    if (this.source === 'components') {
+      return 'Aucun composant';
+    }
+    if (this.source.includes('equipments')) {
+      return 'Aucun composant';
+    }
+    if (this.source === 'platforms') {
+      return 'Aucune plateforme';
+    }
   }
 
 }

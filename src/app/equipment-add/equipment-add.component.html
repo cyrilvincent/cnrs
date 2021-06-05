@@ -10,7 +10,7 @@
           <div *ngIf="selectedNode">
           Entrer le nom du nouvel équipement :
           <mat-form-field appearance="fill"  >
-              <input #text matInput type="text" [value]="selectedText" >
+              <input #text matInput type="text" [(ngModel)]="label" >
           </mat-form-field>
           <button mat-button (click)="add()"><mat-icon>add</mat-icon>Ajouter l'équipement à la liste</button>
           <button mat-button (click)="clear();selectComponent.value=null;"><mat-icon>clear</mat-icon>Effacer</button>

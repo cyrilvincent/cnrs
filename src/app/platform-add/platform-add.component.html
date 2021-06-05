@@ -1,0 +1,11 @@
+<ng-container>
+    <div>
+          Entrer le nom de la nouvelle plateforme :
+          <mat-form-field appearance="fill"  >
+              <input placeholder="Nom de la plateforme" #text matInput type="text" [(ngModel)]="label">
+          </mat-form-field>
+          <button *ngIf="label.length > 0" mat-button (click)="add()"><mat-icon>add</mat-icon>Ajouter la plateforme à la liste</button>
+          <button *ngIf="label.length > 0" mat-button (click)="label=''"><mat-icon>clear</mat-icon>Effacer</button>
+    </div>
+
+  </ng-container>

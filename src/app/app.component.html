@@ -31,7 +31,7 @@
 <mat-tab-group *ngIf="service.loaded || true" #matTab [(selectedIndex)]="matTabIndex">
   <mat-tab>
     <ng-template mat-tab-label>
-      <span class="tab" matTooltip="Structure opérationnelle de recherche"><mat-icon matBadge="0">home</mat-icon>SOR</span>
+      <span class="tab" matTooltip="Structure opérationnelle de recherche"><mat-icon>home</mat-icon>SOR</span>
     </ng-template>
     <app-sor></app-sor>
   </mat-tab>
@@ -64,7 +64,7 @@
   </mat-card>
   <mat-tab [disabled]='!service.selectedEquipment'>
     <ng-template mat-tab-label>
-      <span matTooltip="Composant de l'équipement sélectionné"><mat-icon>play_circle_filled </mat-icon>
+      <span matTooltip="Composant de l'équipement sélectionné"><mat-icon [matBadge]="service.selectedEquipment === null ? 0 : service.selectedEquipment.components.length">play_circle_filled </mat-icon>
       Composants</span>
     </ng-template>
     <app-equipments></app-equipments>
@@ -82,8 +82,15 @@
       <span matTooltip="Base de données"><mat-icon>folder</mat-icon>
       Base de données</span>
     </ng-template>
-    Déplacer les schémas et json ici
-    <app-admin></app-admin>
+    <h2>Postgres Schema</h2>
+    <p><img src="../assets/mpd.png" height="600"></p>
+    <button mat-icon-button  (click)="this.service.clearStorage();">
+        Delete localStorage<mat-icon>delete</mat-icon>
+    </button>
+    <p>DTO</p>
+    <pre>{{this.service.platforms | json}}</pre>
+    <p>EquipmentNode DB</p>
+    <pre>{{this.service.db | json}}</pre>
   </mat-tab>
   <mat-tab>
     <ng-template mat-tab-label>
