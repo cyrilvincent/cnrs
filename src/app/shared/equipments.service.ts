@@ -12,7 +12,6 @@ export class EquipmentService {
 
   db: { [id: number]: EquipmentNode; } = {};
   loaded = false;
-  // equipments: Equipment[] = []; // TODO à virer
   leafs: EquipmentNode[] = [];
   rootId = 0;
   selectedEquipment: Equipment = null;
@@ -20,14 +19,10 @@ export class EquipmentService {
   firstLevelNodes: EquipmentNode[] = [];
   equipmentTree: TreeNode[] = [];
   platforms = [this.platformFactory('Hors plateforme', '', true)];
-  outPlatform = this.platforms[0];
-  selectedPlatform = this.outPlatform;
+  selectedPlatform = this.platforms[0];
 
-  // TODO liste des onglets : SOR, Platformes, Equipements (attributs), Composants (association des composants actuellement equipement)
-
-  get equipments(): Equipment[] { // TODO temporaire à remplacer dans les vues par selectedPlatform.equipments ou outPlatform.equipments
-                                  // selon le cas
-                                  // sauf dans les onglets composants et equipments
+  get equipments(): Equipment[] { // TODO A remplacer dans les onglets SOR et Platform par selectedPlatform.equipments 
+                                  // ou outPlatform.equipments selon le cas
     const equipments: Equipment[] = [];
     for (const p of this.platforms) {
       for (const e of p.equipments) {
@@ -37,7 +32,11 @@ export class EquipmentService {
     return equipments;
   }
 
-  changeEquipmentEvent: EventEmitter<Equipment> = new EventEmitter();
+  get outPlatform() {
+    return this.platforms[0];
+  }
+
+  changeEquipmentEvent: EventEmitter<any> = new EventEmitter();
   changeComponentEvent: EventEmitter<any> = new EventEmitter();
   changeNodeEvent: EventEmitter<any> = new EventEmitter();
   changePlatformEvent: EventEmitter<any> = new EventEmitter();
@@ -100,16 +99,26 @@ export class EquipmentService {
     const e: Equipment = this.equipmentFactory(nodeId, label, '');
     platform.equipments.push(e);
     e.platformIds.push(platform.id);
-    // this.equipments.push(e);
     this.changeEquipment(e);
   }
 
   removeEquipment(id: number, platform: Platform = this.outPlatform) {
-    // this.equipments = this.equipments.filter(c => c.id !== id);
     platform.equipments = this.equipments.filter(c => c.id !== id);
     this.selectedEquipment = this.equipments.length === 0 ? null : this.equipments[0];
     this.equipmentTree = this.getEquipmentsTree();
-    this.changeComponentEvent.emit(id);
+    this.changeEquipmentEvent.emit(id);
+  }
+
+  addPlatform(label: string) {
+    const p: Platform = this.platformFactory(label, '');
+    this.platforms.push(p);
+    this.changePlatform(p);
+  }
+
+  removePlatform(id: number) {
+    this.platforms = this.platforms.filter(p => p.id !== id);
+    this.selectedPlatform = this.outPlatform;
+    this.changePlatformEvent.emit(id);
   }
 
   addPlatformToEquipment(e: Equipment, platformId: number) {
@@ -122,18 +131,8 @@ export class EquipmentService {
     this.changeEquipmentEvent.emit(e);
   }
 
-
-
-  addPlatform(label: string) {
-    const p: Platform = this.platformFactory(label, '');
-    this.platforms.push(p);
-    this.changePlatform(p);
-  }
-
-  removePlatform(id: number) {
-    this.platforms = this.platforms.filter(p => p.id !== id);
-    this.selectedPlatform = this.outPlatform;
-    this.changePlatformEvent.emit(id);
+  getPlatformById(id: number) {
+    return this.platforms.filter(p => p.id === id)[0];
   }
 
   getNodesByParentId(parentId: number): EquipmentNode[] {
@@ -244,19 +243,18 @@ export class EquipmentService {
 
   saveEquipments() {
     localStorage.setItem('version', environment.version);
-    const json = JSON.stringify(this.equipments); // TODO save {platforms: this.platforms, equipments : this.equipments}
+    const json = JSON.stringify(this.platforms);
     console.log(json);
-    localStorage.setItem('equipments', json);
+    localStorage.setItem('platforms', json);
   }
 
   loadEquipments() {
-    const v = localStorage.getItem('version'); // TODO cf saveEquipments
-    if (v !== null && v === environment.version &&  localStorage.getItem('equipments') !== null) {
-      this.outPlatform.equipments = JSON.parse(localStorage.getItem('equipments'));
+    const v = localStorage.getItem('version');
+    if (v !== null && v === environment.version &&  localStorage.getItem('platforms') !== null) {
+      this.platforms = JSON.parse(localStorage.getItem('platforms'));
       this.selectedEquipment = this.outPlatform.equipments[0];
     }
     else {
-      this.outPlatform.equipments = [];
       this.selectedEquipment = null;
     }
   }

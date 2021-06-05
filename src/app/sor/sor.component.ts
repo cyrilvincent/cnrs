@@ -3,11 +3,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { EquipmentService } from '../shared/equipments.service';
 
 @Component({
-  selector: 'app-platform',
-  templateUrl: './platform.component.html',
-  styleUrls: ['./platform.component.css']
+  selector: 'app-sor',
+  templateUrl: './sor.component.html',
+  styleUrls: ['./sor.component.css']
 })
-export class PlatformComponent implements OnInit {
+export class SorComponent implements OnInit {
 
   panelOpenState = false;
 

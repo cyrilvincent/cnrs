@@ -11,7 +11,7 @@ import { EntityListComponent } from './entity-list/entity-list.component';
 import { SearchComponent } from './search/search.component';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { EquipmentSelectComponent } from './equipment-select/equipment-select.component';
-import { PlatformComponent } from './platform/platform.component';
+import { SorComponent } from './sor/sor.component';
 import { EquipmentTreeComponent } from './equipment-tree/equipment-tree.component';
 import { EquipmentAddComponent } from './equipment-add/equipment-add.component';
 import { MatTooltipDefaultOptions, MAT_TOOLTIP_DEFAULT_OPTIONS } from "@angular/material/tooltip";
@@ -27,7 +27,7 @@ export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
 };
 
 @NgModule({
-  declarations: [AppComponent, EquipmentsComponent, MindmapComponent, EntityListComponent, SearchComponent, DynamicFormComponent, EquipmentSelectComponent, PlatformComponent, EquipmentTreeComponent, EquipmentAddComponent, ComponentValidatorComponent, ConnectionComponent],
+  declarations: [AppComponent, EquipmentsComponent, MindmapComponent, EntityListComponent, SearchComponent, DynamicFormComponent, EquipmentSelectComponent, SorComponent, EquipmentTreeComponent, EquipmentAddComponent, ComponentValidatorComponent, ConnectionComponent],
   imports: [BrowserModule, ReactiveFormsModule, MaterialModule, BrowserAnimationsModule, HttpClientModule, AdminModule],
   providers: [
     {provide: MAT_TOOLTIP_DEFAULT_OPTIONS, useValue: myCustomTooltipDefaults}

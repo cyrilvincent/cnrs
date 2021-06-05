@@ -33,7 +33,13 @@
     <ng-template mat-tab-label>
       <span class="tab" matTooltip="Structure opérationnelle de recherche"><mat-icon matBadge="0">home</mat-icon>SOR</span>
     </ng-template>
-    <app-platform></app-platform>
+    <app-sor></app-sor>
+  </mat-tab>
+  <mat-tab [disabled]='service.platforms.length <= 1'>
+    <ng-template mat-tab-label>
+      <span class="tab" matTooltip="Plateformes"><mat-icon [matBadge]="service.platforms.length - 1">home</mat-icon>Plateformes</span>
+    </ng-template>
+    Gestion des plateformes
   </mat-tab>
   <mat-tab [disabled]='!service.selectedEquipment'>
     <ng-template mat-tab-label>
