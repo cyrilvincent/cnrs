@@ -141,13 +141,15 @@ export class EquipmentService {
     this.changePlatformEvent.emit(id);
   }
 
-  addPlatformToEquipment(e: Equipment, platformId: number) {
-    e.platformIds.push(platformId);
+  addPlatformToEquipment(e: Equipment, p: Platform) {
+    e.platformIds.push(p.id);
+    p.equipments.push(e);
     this.changeEquipmentEvent.emit(e);
   }
 
-  removePlatformToEquipment(e: Equipment, platformId: number) {
-    e.platformIds = e.platformIds.filter(id => id !== platformId);
+  removePlatformToEquipment(e: Equipment, p: Platform) {
+    e.platformIds = e.platformIds.filter(id => id !== p.id);
+    p.equipments = p.equipments.filter(equipment => equipment.id !== e.id);
     this.changeEquipmentEvent.emit(e);
   }
 

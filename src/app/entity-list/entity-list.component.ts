@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EquipmentService } from '../shared/equipments.service';
-import { Entity, Component as Comp, Equipment, AbstractEquipment } from '../shared/models';
+import { Entity, Component as Comp, Equipment, AbstractEquipment, Platform } from '../shared/models';
 import { ValidatorService } from '../shared/validator.service';
 
 @Component({
@@ -95,6 +95,14 @@ export class EntityListComponent implements OnInit {
     if (this.source === 'platforms') {
       return 'Aucune plateforme';
     }
+  }
+
+  canDelete(e: Entity): boolean {
+    if (this.source === 'platforms') {
+      const p = e as Platform;
+      return p.equipments.length === 0;
+    }
+    return true;
   }
 
 }

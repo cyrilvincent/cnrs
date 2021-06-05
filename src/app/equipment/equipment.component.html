@@ -9,8 +9,20 @@
             <div *ngIf="label.invalid" class="red">Nom obligatoire avec 3 caractères minimum</div>
         </mat-form-field>
         <mat-form-field class="fill">
-            <input disabled="true" type="text" placeholder="Plateforme(s)" matInput class="fill" [value]="platformsString">
+            <input disabled="true" type="text" placeholder="Plateforme(s)" matInput class="fill" [value]="platformsString"> 
         </mat-form-field>
+
+        <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <p>Liste des plateformes associées</p>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <app-equipment-platforms></app-equipment-platforms>
+              </mat-expansion-panel>
+          </mat-accordion> 
+
         <mat-form-field class="fill">
             <input type="text" placeholder="Description technique selon nomenclature standardisée" aria-label="Description" matInput class="fill" [(ngModel)]="service.selectedEquipment.comment">
         </mat-form-field>
