@@ -1,12 +1,12 @@
 <mat-card>
-    <mat-list *ngIf="entity.length > 0">
-      <mat-list-item *ngFor="let e of entity">
+    <mat-list *ngIf="entities.length > 0">
+      <mat-list-item *ngFor="let e of entities">
         <label [matTooltip]="tooltip(e)">{{e.label}}</label>
         <label *ngIf="e.comment && e.comment.length > 0"> : {{e.comment}}</label>
         <button mat-button (click)="delete(e.id)" matTooltip="Effacer" ><mat-icon matListIcon>delete</mat-icon></button>
         <button *ngIf="isUnique(e)" mat-icon-button matTooltip="Ce type de composant doit être unique"><mat-icon class="material-icons color_red">warning</mat-icon></button>
       </mat-list-item>
     </mat-list>
-    <div *ngIf="entity.length == 0">{{empty}}</div>
-    <button *ngIf="entity.length > 0" mat-button (click)="save()"><mat-icon>save</mat-icon>Sauvegarder</button>
+    <div *ngIf="entities.length == 0">{{empty}}</div>
+    <button *ngIf="entities.length > 0" mat-button (click)="save()"><mat-icon>save</mat-icon>Sauvegarder</button>
 </mat-card>

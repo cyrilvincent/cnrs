@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { EquipmentNode, Equipment, Component, TreeNode, Platform} from './models';
+import { EquipmentNode, Equipment, Component, TreeNode, Platform, Sor} from './models';
 import * as dbjson from '../../assets/db.json';
 import { environment} from '../../environments/environment'
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -18,11 +18,11 @@ export class EquipmentService {
   sequenceNb = Math.floor(Math.random() * 10000) + 1000;
   firstLevelNodes: EquipmentNode[] = [];
   equipmentTree: TreeNode[] = [];
+  sor = this.sorFactory('Institut de la chimie du CNRS', '');
   platforms = [this.platformFactory('Hors plateforme', '', true)];
   selectedPlatform = this.platforms[0];
 
-  get equipments(): Equipment[] { // TODO A remplacer dans les onglets SOR et Platform par selectedPlatform.equipments 
-                                  // ou outPlatform.equipments selon le cas
+  get equipments(): Equipment[] {
     const equipments: Equipment[] = [];
     for (const p of this.platforms) {
       for (const e of p.equipments) {
@@ -59,12 +59,14 @@ export class EquipmentService {
       this.generateLeafs();
       this.firstLevelNodes = this.getNodesByParentId(this.rootId);
       this.equipmentTree = this.getEquipmentsTree();
-      this.changeEquipmentEvent.emit(this.selectedEquipment);
-      this.changeNodeEvent.emit();
       if (this.platforms.length > 1) {
         this.selectedPlatform = this.platforms[1];
         this.changePlatformEvent.emit(this.selectedPlatform);
       }
+      this.changeEquipmentEvent.emit(this.selectedEquipment);
+      this.changeNodeEvent.emit();
+      this.changeComponentEvent.emit();
+      this.sor.platforms = this.platforms;
       this.snackbar.open('Base de données chargée', 'OK', {duration: 1000});
       this.loaded = true;
     });
@@ -74,11 +76,13 @@ export class EquipmentService {
     this.selectedEquipment = e;
     this.equipmentTree = this.getEquipmentsTree();
     this.changeEquipmentEvent.emit(e);
+    this.changeComponentEvent.emit(e);
   }
 
   changePlatform(p: Platform) {
     this.selectedPlatform = p;
     this.changePlatformEvent.emit(p);
+    this.changeEquipmentEvent.emit();
   }
 
   private generateLeafs() {
@@ -107,9 +111,21 @@ export class EquipmentService {
   }
 
   removeEquipment(id: number, platform: Platform = this.outPlatform) {
-    platform.equipments = this.equipments.filter(c => c.id !== id);
-    this.selectedEquipment = this.equipments.length === 0 ? null : this.equipments[0];
-    this.equipmentTree = this.getEquipmentsTree();
+    platform.equipments = platform.equipments.filter(c => c.id !== id);
+    if (platform.equipments.length === 0) {
+      if (this.equipments.length === 0) {
+        this.selectedEquipment = null;
+      }
+      else {
+        this.selectedEquipment = this.equipments[0];
+      }
+    }
+    else {
+      this.selectedEquipment = platform.equipments[0];
+    }
+    if (platform === this.outPlatform) {
+      this.equipmentTree = this.getEquipmentsTree();
+    }
     this.changeEquipmentEvent.emit(id);
   }
 
@@ -188,6 +204,16 @@ export class EquipmentService {
       comment
     };
     return platform;
+  }
+
+  sorFactory(label: string, comment: string): Sor {
+    const sor: Sor = {
+      id: 0,
+      platforms: [],
+      label,
+      comment
+    };
+    return sor;
   }
 
   hasAncestor(nodeId: number, ancestorId: number): boolean {

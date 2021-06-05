@@ -12,21 +12,22 @@ import { ValidatorService } from '../shared/validator.service';
 export class EntityListComponent implements OnInit {
 
   @Input() source: string;
+  entities: Entity[] = [];
 
   constructor(public service: EquipmentService, public validatorService: ValidatorService , private snackbar: MatSnackBar) { }
 
-  get entity(): Entity[] {
+  getEntities() {
     if (this.source === 'components') {
-      return this.service.selectedEquipment.components;
+      this.entities = this.service.selectedEquipment.components;
     }
     if (this.source === 'equipments') {
-      return this.service.outPlatform.equipments;
+      this.entities = this.service.outPlatform.equipments;
     }
     if (this.source === 'platforms') {
-      return this.service.platforms.slice(1);
+      this.entities = this.service.platforms.slice(1);
     }
     if (this.source === 'platform-equipments') {
-      return this.service.selectedPlatform.equipments;
+      this.entities = this.service.selectedPlatform.equipments;
     }
   }
 
@@ -39,14 +40,27 @@ export class EntityListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getEntities();
+    if (this.source === 'components') {
+      this.service.changeComponentEvent.subscribe(_ => this.getEntities());
+    }
+    else if (this.source.includes('equipments')) {
+      this.service.changeEquipmentEvent.subscribe(_ => this.getEntities());
+    }
+    else if (this.source === 'platforms') {
+      this.service.changePlatformEvent.subscribe(_ => this.getEntities());
+    }
   }
 
   delete(id: number) {
     if (this.source === 'components') {
       this.service.removeComponent(id);
     }
-    else if (this.source.includes('equipments')) {
+    else if (this.source === 'equipments') {
       this.service.removeEquipment(id);
+    }
+    else if (this.source === 'platform-equipments') {
+      this.service.removeEquipment(id, this.service.selectedPlatform);
     }
     else if (this.source === 'platforms') {
       this.service.removePlatform(id);
@@ -76,7 +90,7 @@ export class EntityListComponent implements OnInit {
       return 'Aucun composant';
     }
     if (this.source.includes('equipments')) {
-      return 'Aucun composant';
+      return 'Aucun equipement';
     }
     if (this.source === 'platforms') {
       return 'Aucune plateforme';

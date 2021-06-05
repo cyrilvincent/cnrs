@@ -23,6 +23,10 @@ export interface Platform extends Entity {
     equipments: Equipment[];
 }
 
+export interface Sor extends Entity {
+    platforms: Platform[];
+}
+
 export interface AbstractEquipment extends Entity {
     nodeId: number;
 }

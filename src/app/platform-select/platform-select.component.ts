@@ -15,6 +15,7 @@ export class PlatformSelectComponent implements OnInit {
   constructor(public service: EquipmentService, private snackbar: MatSnackBar) { }
 
   ngOnInit(): void {
+    this.select();
     this.service.changePlatformEvent.subscribe(_ => this.select());
   }
 
