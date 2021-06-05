@@ -35,4 +35,8 @@ export class EquipmentPlatformsComponent implements OnInit {
     }
   }
 
+  disable(p: Platform) {
+    return this.service.selectedEquipment.platformIds.length === 1 && p.id === this.service.selectedEquipment.platformIds[0];
+  }
+
 }

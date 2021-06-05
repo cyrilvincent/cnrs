@@ -1,6 +1,6 @@
 <mat-card>
     <p *ngFor="let p of service.platforms">
-        <mat-checkbox [checked]="hasPlatform(p)" (change)="change(p, $event.checked)">
+        <mat-checkbox [checked]="hasPlatform(p)" (change)="change(p, $event.checked)" [disabled]="disable(p)">
           {{p.label}}
         </mat-checkbox>
     </p>
