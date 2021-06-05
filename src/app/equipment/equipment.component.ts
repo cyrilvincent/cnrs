@@ -19,12 +19,16 @@ export class EquipmentComponent implements OnInit {
 
   get platformsString() {
     const platforms = this.service.selectedEquipment.platformIds.map(id => this.service.getPlatformById(id).label);
-    return platforms.join(',');
+    return platforms.join(', ');
   }
 
   save() {
     this.service.saveEquipments();
     this.snackbar.open('Sauvegardé', 'OK', {duration: 1000});
+  }
+
+  formatLabel(value: number): string {
+    return value + '%';
   }
 
 }

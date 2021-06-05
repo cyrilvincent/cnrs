@@ -22,7 +22,7 @@ export interface Platform extends Entity {
     isOutPlatform: boolean;
     equipments: Equipment[];
     acronym?: string;
-    budget?: string;
+    budget?: number;
 }
 
 export interface Sor extends Entity {

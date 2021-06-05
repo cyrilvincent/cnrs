@@ -23,6 +23,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatSliderModule} from '@angular/material/slider'
 
 @NgModule({
   imports: [
@@ -51,6 +52,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatBadgeModule,
     MatExpansionModule,
     MatRippleModule,
+    MatSliderModule,
   ],
   exports: [
     MatButtonModule,
@@ -78,6 +80,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatBadgeModule,
     MatExpansionModule,
     MatRippleModule,
+    MatSliderModule,
   ]
 })
 export class MaterialModule {}

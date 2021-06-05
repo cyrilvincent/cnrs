@@ -209,7 +209,7 @@ export class EquipmentService {
       label,
       comment,
       acronym: '',
-      budget: '0',
+      budget: 0,
     };
     return platform;
   }

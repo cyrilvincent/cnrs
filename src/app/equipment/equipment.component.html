@@ -9,7 +9,7 @@
             <div *ngIf="label.invalid" class="red">Nom obligatoire avec 3 caractères minimum</div>
         </mat-form-field>
         <mat-form-field class="fill">
-            <input disabled="true" type="text" placeholder="Plateforme(s)" matInput class="fill" [value]="platformsString"> 
+            <input type="text" placeholder="Plateforme(s)" matInput class="fill" [value]="platformsString"> 
         </mat-form-field>
 
         <mat-accordion>
@@ -30,14 +30,13 @@
             <input type="text" placeholder="Fabriquant" aria-label="Fabriquant" matInput class="fill" [(ngModel)]="service.selectedEquipment.manufacturer">
         </mat-form-field>
         <mat-form-field class="fill">
-            <input type="text" placeholder="Valeur de remplacement (k€)" aria-label="Valeur de remplacement" matInput class="fill" [(ngModel)]="service.selectedEquipment.value">
+            <input type="number" placeholder="Valeur de remplacement (k€)" aria-label="Valeur de remplacement" matInput class="fill" [(ngModel)]="service.selectedEquipment.value">
         </mat-form-field>
         <mat-form-field class="fill">
-            <input type="text" placeholder="Année d’acquisition" aria-label="Année d’acquisition" matInput class="fill" [(ngModel)]="service.selectedEquipment.year">
+            <input type="number" #year="ngModel" min="1900" max="2100" placeholder="Année d’acquisition" aria-label="Année d’acquisition" matInput class="fill" [(ngModel)]="service.selectedEquipment.year">
+            <div *ngIf="year.invalid" class="red">4 chiffres</div>
         </mat-form-field>
-        <mat-form-field class="fill">
-            <input type="text" placeholder="Taux d'utilisation" aria-label="Taux d'utilisation" matInput class="fill" [(ngModel)]="service.selectedEquipment.useRate">
-        </mat-form-field>
+        <label>Taux d'utilisation: {{service.selectedEquipment.useRate}}% </label><mat-slider thumbLabel class="fifty"  [(ngModel)]="service.selectedEquipment.useRate" [displayWith]="formatLabel" tickInterval="1" step="1" min="0" max="100" aria-label="units"></mat-slider>
         <mat-form-field class="fill">
             <input disabled="true" type="text" placeholder="Nombre de composant" matInput class="fill" [value]="service.selectedEquipment.components.length">
         </mat-form-field>

@@ -12,7 +12,7 @@
         <input type="text" placeholder="Description" aria-label="Description" matInput class="fill" [(ngModel)]="service.selectedPlatform.comment">
     </mat-form-field>
     <mat-form-field class="fill">
-        <input type="text" placeholder="Budget" aria-label="Budget" matInput class="fill" [(ngModel)]="service.selectedPlatform.budget">
+        <input type="number" placeholder="Budget (k€)" aria-label="Budget" matInput class="fill" [(ngModel)]="service.selectedPlatform.budget">
     </mat-form-field>
     <mat-form-field class="fill">
         <input disabled="true" type="text" placeholder="Nombre d'équipement" matInput class="fill" [value]="service.selectedPlatform.equipments.length">
