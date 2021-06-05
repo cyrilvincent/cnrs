@@ -46,22 +46,7 @@
       <span matTooltip="List des équipements de la SOR"><mat-icon [matBadge]="service.equipments.length">details</mat-icon>
       Equipements</span>
     </ng-template>
-    <br/>
-    <h2>Equipements</h2>
-    <p>Choix de l'équipement</p>
-    <p>Formulaire des attributs de l'équipement</p>
-    <p>Formulaires des attributs des composants</p>
-    <p>Modification du texte libre des composants autorisés</p>
-    <p>Est Hors plateforme, lié à une plateforme ou multiplateforme</p>
-    <mat-card>
-      <div *ngIf="service.selectedEquipment">
-        <app-equipment-select></app-equipment-select>
-        <br/>
-        <label>Composants de {{service.selectedEquipment.label}}</label>
-        <app-entity-list source="components"></app-entity-list>
-        <app-component-validator></app-component-validator>
-      </div>
-  </mat-card>
+    <app-equipment></app-equipment>
   <mat-tab [disabled]='!service.selectedEquipment'>
     <ng-template mat-tab-label>
       <span matTooltip="Composant de l'équipement sélectionné"><mat-icon [matBadge]="service.selectedEquipment === null ? 0 : service.selectedEquipment.components.length">play_circle_filled </mat-icon>

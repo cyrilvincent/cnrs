@@ -191,6 +191,10 @@ export class EquipmentService {
        comment,
        components: [],
        platformIds: [],
+       manufacturer: '',
+       value: 0,
+       year: null,
+       useRate: 0,
     };
     return equipment;
   }

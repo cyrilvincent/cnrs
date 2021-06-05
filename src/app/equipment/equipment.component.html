@@ -1,0 +1,36 @@
+<h2>Equipements</h2>
+<div *ngIf="service.selectedEquipment">
+    <app-equipment-select></app-equipment-select>
+    <br/>
+    <h2>Détail de l'équipement</h2>
+    <mat-card>
+        <mat-form-field class="fill">
+            <input type="text" placeholder="Nom" required #label="ngModel" minlength="3" aria-label="Nom" matInput class="fill" [(ngModel)]="service.selectedEquipment.label">
+            <div *ngIf="label.invalid" class="red">Nom obligatoire avec 3 caractères minimum</div>
+        </mat-form-field>
+        <mat-form-field class="fill">
+            <input disabled="true" type="text" placeholder="Plateforme(s)" matInput class="fill" [value]="platformsString">
+        </mat-form-field>
+        <mat-form-field class="fill">
+            <input type="text" placeholder="Description technique selon nomenclature standardisée" aria-label="Description" matInput class="fill" [(ngModel)]="service.selectedEquipment.comment">
+        </mat-form-field>
+        <mat-form-field class="fill">
+            <input type="text" placeholder="Fabriquant" aria-label="Fabriquant" matInput class="fill" [(ngModel)]="service.selectedEquipment.manufacturer">
+        </mat-form-field>
+        <mat-form-field class="fill">
+            <input type="text" placeholder="Valeur de remplacement (k€)" aria-label="Valeur de remplacement" matInput class="fill" [(ngModel)]="service.selectedEquipment.value">
+        </mat-form-field>
+        <mat-form-field class="fill">
+            <input type="text" placeholder="Année d’acquisition" aria-label="Année d’acquisition" matInput class="fill" [(ngModel)]="service.selectedEquipment.year">
+        </mat-form-field>
+        <mat-form-field class="fill">
+            <input type="text" placeholder="Taux d'utilisation" aria-label="Taux d'utilisation" matInput class="fill" [(ngModel)]="service.selectedEquipment.useRate">
+        </mat-form-field>
+        <mat-form-field class="fill">
+            <input disabled="true" type="text" placeholder="Nombre de composant" matInput class="fill" [value]="service.selectedEquipment.components.length">
+        </mat-form-field>
+        <br/>
+        <button mat-button (click)="save()"><mat-icon>save</mat-icon>Sauvegarder</button>
+    </mat-card>
+  </div>
+

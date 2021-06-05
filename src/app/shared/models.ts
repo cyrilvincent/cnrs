@@ -36,6 +36,11 @@ export interface AbstractEquipment extends Entity {
 export interface Equipment extends AbstractEquipment {
     platformIds: number[];
     components: Component[];
+    manufacturer?: string;
+    description?: string;
+    value?: number;
+    year?: number;
+    useRate?: number;
 }
 
 export interface Component extends AbstractEquipment {
