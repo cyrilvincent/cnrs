@@ -40,7 +40,6 @@ export class EntityListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getEntities();
     if (this.source === 'components') {
       this.service.changeComponentEvent.subscribe(_ => this.getEntities());
     }

@@ -3,7 +3,7 @@ import { EquipmentNode, Equipment, Component, TreeNode, Platform, Sor} from './m
 import * as dbjson from '../../assets/db.json';
 import { environment} from '../../environments/environment'
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { timer } from 'rxjs';
+import { BehaviorSubject, timer } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -36,10 +36,10 @@ export class EquipmentService {
     return this.platforms[0];
   }
 
-  changeEquipmentEvent: EventEmitter<any> = new EventEmitter();
-  changeComponentEvent: EventEmitter<any> = new EventEmitter();
-  changeNodeEvent: EventEmitter<any> = new EventEmitter();
-  changePlatformEvent: EventEmitter<any> = new EventEmitter();
+  changeEquipmentEvent = new BehaviorSubject(null);
+  changeComponentEvent = new BehaviorSubject(null);
+  changeNodeEvent = new BehaviorSubject(null);
+  changePlatformEvent = new BehaviorSubject(null);
 
   get version() {
     return environment.version;
@@ -61,11 +61,11 @@ export class EquipmentService {
       this.equipmentTree = this.getEquipmentsTree();
       if (this.platforms.length > 1) {
         this.selectedPlatform = this.platforms[1];
-        this.changePlatformEvent.emit(this.selectedPlatform);
+        this.changePlatformEvent.next(this.selectedPlatform);
       }
-      this.changeEquipmentEvent.emit(this.selectedEquipment);
-      this.changeNodeEvent.emit();
-      this.changeComponentEvent.emit();
+      this.changeEquipmentEvent.next(this.selectedEquipment);
+      this.changeNodeEvent.next(null);
+      this.changeComponentEvent.next(null);
       this.sor.platforms = this.platforms;
       this.snackbar.open('Base de données chargée', 'OK', {duration: 1000});
       this.loaded = true;
@@ -75,14 +75,14 @@ export class EquipmentService {
   changeEquipment(e: Equipment) {
     this.selectedEquipment = e;
     this.equipmentTree = this.getEquipmentsTree();
-    this.changeEquipmentEvent.emit(e);
-    this.changeComponentEvent.emit(e);
+    this.changeEquipmentEvent.next(e);
+    this.changeComponentEvent.next(e);
   }
 
   changePlatform(p: Platform) {
     this.selectedPlatform = p;
-    this.changePlatformEvent.emit(p);
-    this.changeEquipmentEvent.emit();
+    this.changePlatformEvent.next(p);
+    this.changeEquipmentEvent.next(null);
   }
 
   private generateLeafs() {
@@ -94,13 +94,13 @@ export class EquipmentService {
     const c = this.componentFactory(nodeId, label, comment);
     this.selectedEquipment.components.push(c);
     this.equipmentTree = this.getEquipmentsTree();
-    this.changeComponentEvent.emit(c);
+    this.changeComponentEvent.next(c);
   }
 
   removeComponent(id: number) {
     this.selectedEquipment.components = this.selectedEquipment.components.filter(c => c.id !== id);
     this.equipmentTree = this.getEquipmentsTree();
-    this.changeComponentEvent.emit(id);
+    this.changeComponentEvent.next(id);
   }
 
   addEquipment(nodeId: number, label: string, platform: Platform = this.outPlatform) {
@@ -126,7 +126,7 @@ export class EquipmentService {
     if (platform === this.outPlatform) {
       this.equipmentTree = this.getEquipmentsTree();
     }
-    this.changeEquipmentEvent.emit(id);
+    this.changeEquipmentEvent.next(id);
   }
 
   addPlatform(label: string) {
@@ -138,19 +138,19 @@ export class EquipmentService {
   removePlatform(id: number) {
     this.platforms = this.platforms.filter(p => p.id !== id);
     this.selectedPlatform = this.platforms.length > 1 ? this.platforms[1] : this.outPlatform;
-    this.changePlatformEvent.emit(id);
+    this.changePlatformEvent.next(id);
   }
 
   addPlatformToEquipment(e: Equipment, p: Platform) {
     e.platformIds.push(p.id);
     p.equipments.push(e);
-    this.changeEquipmentEvent.emit(e);
+    this.changeEquipmentEvent.next(e);
   }
 
   removePlatformToEquipment(e: Equipment, p: Platform) {
     e.platformIds = e.platformIds.filter(id => id !== p.id);
     p.equipments = p.equipments.filter(equipment => equipment.id !== e.id);
-    this.changeEquipmentEvent.emit(e);
+    this.changeEquipmentEvent.next(e);
   }
 
   getPlatformById(id: number) {
@@ -241,15 +241,23 @@ export class EquipmentService {
       id: -1,
       label: 'SOR'
     };
-    for (const e of this.equipments) {
-      const node = new TreeNode();
-      node.entity = e;
-      for (const c of e.components) {
-        const cnode = new TreeNode();
-        cnode.entity = c;
-        node.children.push(cnode);
+    for (const p of this.platforms) {
+      const pnode = new TreeNode();
+      pnode.entity = {
+        id: p.id,
+        label: p.label
+      };
+      for (const e of p.equipments) {
+        const node = new TreeNode();
+        node.entity = e;
+        for (const c of e.components) {
+          const cnode = new TreeNode();
+          cnode.entity = c;
+          node.children.push(cnode);
+        }
+        pnode.children.push(node);
       }
-      root.children.push(node);
+      root.children.push(pnode);
     }
     return [root];
   }
