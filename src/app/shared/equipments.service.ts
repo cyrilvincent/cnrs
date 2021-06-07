@@ -239,7 +239,7 @@ export class EquipmentService {
     const root = new TreeNode();
     root.entity = {
       id: -1,
-      label: 'Hors plateforme'
+      label: 'SOR'
     };
     for (const e of this.equipments) {
       const node = new TreeNode();

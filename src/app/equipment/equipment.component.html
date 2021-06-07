@@ -22,7 +22,11 @@
                 <app-equipment-platforms></app-equipment-platforms>
               </mat-expansion-panel>
           </mat-accordion> 
-
+        
+        <br/>
+        <mat-form-field class="fill">
+            <input disabled="true" type="text" placeholder="Nom de nomenclature" aria-label="Nom" matInput class="fill" [value]="service.db[service.selectedEquipment.nodeId].label">
+        </mat-form-field>
         <mat-form-field class="fill">
             <input type="text" placeholder="Description technique selon nomenclature standardisée" aria-label="Description" matInput class="fill" [(ngModel)]="service.selectedEquipment.comment">
         </mat-form-field>

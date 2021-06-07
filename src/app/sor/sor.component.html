@@ -23,7 +23,13 @@
       <input type="text" placeholder="Acronyme" aria-label="Acronyme" matInput class="fill" value="INC">
     </mat-form-field>
     <mat-form-field class="fill">
-      <input disabled="true" type="text" placeholder="Nombre d'équipement" matInput class="fill" [value]="service.outPlatform.equipments.length">
+      <input disabled="true" type="text" placeholder="Nombre d'équipement hors plateforme" matInput class="fill" [value]="service.outPlatform.equipments.length">
+    </mat-form-field>
+    <mat-form-field class="fill">
+      <input disabled="true" type="text" placeholder="Nombre de plateforme" matInput class="fill" [value]="service.platforms.length">
+    </mat-form-field>
+    <mat-form-field class="fill">
+      <input disabled="true" type="text" placeholder="Nombre d'équipement total" matInput class="fill" [value]="service.equipments.length">
     </mat-form-field>
     <br/>
     
